@@ -15,14 +15,8 @@ if (isset($_POST['username']) && isset($_POST['password']))
 		if($count==1)
 		{
 			//session_start();
-			$_SESSION['ausername'] = $row["ausername"];
-			$_SESSION['password'] = $password;
-			// alternative redirect (die() should be there)
-			// echo "<script>location.href='target-page.php';</script>";
-			//define('BASEPATH',TRUE);
-			//<script type="text/javascript">location.href = 'newurl';</script>
+			$_SESSION['admin'] = $row["ausername"];
 			echo'<script> window.location="../admin/index.php";</script>';
-			//header('Location: index.html');
 			
 		}
 		else
@@ -266,12 +260,12 @@ if(isset($_POST['resetemail']))
                         </div>
                     </div>
                     
-                   <!--- Removed Sigin up button
+        
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            <p>Don't have an account? <a href="register2.html" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                            <p>To host an fest please <a href="register.php" class="text-primary m-l-5"><b>Sign Up</b></a></p>
                         </div>
-                    </div> --->
+                    </div> 
                     
                 </form>
                
