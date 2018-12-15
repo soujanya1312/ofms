@@ -34,6 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password']))
 				if($result)
 				{
 					$smsg = "User Created Successfully.";
+                    
 				}
 				else
 				{
