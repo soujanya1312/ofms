@@ -4,6 +4,7 @@ require('connect.php');
 //{
 //    $username=$_SESSION['$ausername'];
 //}
+
 if(isset($_POST['username']) && isset($_POST['password']))
     {
     $username=mysqli_real_escape_string($connection,$_POST['username']);
@@ -61,6 +62,11 @@ else
 {
     echo "Please enter the details!";
 }
+/*if(isset($_POST['blogin']))
+   {
+       echo'<script> window.location="/login/index.php"</script>';
+     
+   }*/
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -209,7 +215,8 @@ else
 <!--                       <input data-date-format="dd-mm-yyyy" type="date" name="edate" placeholder="Event Date (dd-mm-yyyy)"/>-->
 						<textarea name="edesc" placeholder="Event Description"></textarea>
                         <input type="button" name="previous" class="previous action-button" value="Previous" />
-                        <button type="submit" name="asubmit" class="action-button">Submit</button> 
+                        <button type="submit" name="asubmit" class="action-button">Submit</button>
+                    <!--<button class="action-button" name="blogin">Back to login</button>-->
                     </fieldset> 
                 </form>
                 <div class="clear"></div>
