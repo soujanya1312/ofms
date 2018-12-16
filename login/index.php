@@ -20,11 +20,11 @@ if (isset($_POST['username']) && isset($_POST['password']))
 			
 		}
 		else
-		//{
-		//	$fmsg="Invalid Username/Password";
-		//}
 		{
-		$queryd="SELECT * FROM `host` WHERE (husername='$username' OR hemail='$username') AND hpassword='$password'";
+			echo "Invalid Username/Password";
+		}
+		/* {
+		$queryd="SELECT * FROM `event` WHERE (ename='$username' OR hemail='$username') AND hpassword='$password'";
 		$resulth = mysqli_query($connection,$queryd);
 		$rowh = mysqli_fetch_assoc($resulth);
 		$counth = mysqli_num_rows($resulth);
@@ -39,34 +39,9 @@ if (isset($_POST['username']) && isset($_POST['password']))
 			//header('Location: index.html');
 			
 		}
-		else
-		{
-			$querys="SELECT * FROM `register` WHERE (rusername='$username' OR remail='$username') AND rpassword='$password'";
-		$resultr = mysqli_query($connection,$querys);
-		$rowr = mysqli_fetch_assoc($resultr);
-		$countr = mysqli_num_rows($resultr);
-		if($countr==1)
-		{
-			$_SESSION['rusername'] = $rows["username"];
-			// alternative redirect (die() should be there)
-			// echo "<script>location.href='target-page.php';</script>";
-			//define('BASEPATH',TRUE);
-			//<script type="text/javascript">location.href = 'newurl';</script>
-			echo'<script> window.location="../admin/index.php";</script>';
-			//header('Location: index.html');
-			
-		}
-			else
-		{
-			$fmsg="Invalid Username/Password";
-		}
-			
-		}
-		
-		
-		}
-		
-	}
+	
+     }*/
+}
 
 
 
