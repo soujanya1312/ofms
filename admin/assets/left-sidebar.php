@@ -38,47 +38,47 @@
 			</li>
 
 			<!---PNB Added Doctors menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Doctors <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Event Heads <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-doctor.php">Add Doctor</a> </li>
-					<li> <a href="view-doctors.php">View Doctors</a> </li>
+					<li> <a href="add-doctor.php">Add Event heads </a> </li>
+					<li> <a href="view-doctors.php">View Event heads </a> </li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> Patients <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> College Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-patients.php">View Patients</a> </li>
+					<li> <a href="view-patients.php">View Colleges</a> </li>
 					<li id="hidden-item" style="display: none"><a href="edit-patient-profile.php">Patient Profile</a></li>
-					<li> <a href="add-patient.php">Add Patient</a> </li>
+					<li> <a href="add-patient.php">Edit colleges</a> </li>
 				</ul>
 			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu"> Visitors <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-visitors.php">View Visitors</a> </li>
-					<li> <a href="add-visitor.php">Add Visitor</a> </li>
+					<li> <a href="view-visitors.php">View Schedule</a> </li>
+					<li> <a href="add-visitor.php">Edit Schedule</a> </li>
 				</ul>
 			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu"> Wards <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Scoresheet <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-ward.php">Add Ward</a> </li>
-					<li> <a href="view-wards.php">View Wards</a> </li>
+					<li> <a href="add-ward.php">Add Scoresheet</a> </li>
+					<li> <a href="view-wards.php">Edit Scoresheet</a> </li>
 				</ul>
 			</li>
-			<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> Appointments <span class="fa arrow"></span></span></a>
+			<!--<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
 			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-file-text p-r-10"></i> <span class="hide-menu"> Bills <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-file-text p-r-10"></i> <span class="hide-menu">INDOX <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-ip-bills.php">Inpatient Bill</a> </li>
-					<li> <a target="_blank" href="op-invoice.php">Outpatient Bill</a></li>
+					<li> <a href="view-ip-bills.php">Send Message</a> </li>
+					<li> <a target="_blank" href="op-invoice.php">Delete Message</a></li>
 				</ul>
 			</li>
 		  <!--DNS Added Admin menu-->
-		   <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Admin <span class="fa arrow"></span></span></a>
+		   <!--<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Admin <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="add-admin.php">Add Admin</a> </li>
 					<li> <a href="view-admin.php">View Admins</a> </li>
 				</ul>
-			</li>
+			</li>-->
 		   <!---PNB Added logout menu --->
 			<li><a href="logout.php" class="waves-effect text-white"><i class="fa fa-spin fa-cog"></i> <span class="hide-menu p-l-10">BETA v 1.0</span></a></li>
 

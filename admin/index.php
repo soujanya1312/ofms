@@ -27,8 +27,8 @@ $wcount=mysqli_num_rows($getwardcount);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AlphaCare Online Hospital Management System">
-    <meta name="author" content="Dhanush KT, Nishanth Bhat">
+    <meta name="description" content="Online Fest Management System">
+    <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
 	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
@@ -71,7 +71,7 @@ $wcount=mysqli_num_rows($getwardcount);
 							<div class="card-img-overlay" style="padding-top: 5px">
 								<h4 class="card-title text-uppercase">WELCOME <?php echo $ausername; ?></h4>
 								<p class="card-text">You are logged-in to ADMIN control panel, here are some of the basic information about fest details and some basic functions to perform. </p>
-								<p class="card-text"><small class="text-white">~AlphaCare</small></p>
+								<p class="card-text"><small class="text-white">~OFMS</small></p>
 							</div>
 						</div>
 					</div>
@@ -81,7 +81,7 @@ $wcount=mysqli_num_rows($getwardcount);
                 <div class="row">
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-patients.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Patients Admitted</b></h3>
+							<h3 class="box-title"><b>colleges registered</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-wheelchair text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
@@ -90,7 +90,7 @@ $wcount=mysqli_num_rows($getwardcount);
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-doctors.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Doctors</b></h3>
+							<h3 class="box-title"><b>events</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-user-md text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
@@ -99,7 +99,7 @@ $wcount=mysqli_num_rows($getwardcount);
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-staffs.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Staffs</b></h3>
+							<h3 class="box-title"><b>event details</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
@@ -108,7 +108,7 @@ $wcount=mysqli_num_rows($getwardcount);
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Available Wards</b></h3>
+							<h3 class="box-title"><b>event schedule</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-bed text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
@@ -124,7 +124,7 @@ $wcount=mysqli_num_rows($getwardcount);
                             <div class="r-icon-stats">
                                 <i class="fa fa-wheelchair bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD PATIENT</b></h4>
+									<h4><b>ADD EVENT DETAILS</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
@@ -135,7 +135,7 @@ $wcount=mysqli_num_rows($getwardcount);
                             <div class="r-icon-stats">
                                 <i class="fa fa-user-md bg-black Hoveranimatedoc"></i>
                                 <div class="bodystate p-l-10 p-t-10">
-									<h4><b>ADD DOCTOR</b></h4>
+									<h4><b>ADD EVENT HEAD</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
@@ -146,7 +146,7 @@ $wcount=mysqli_num_rows($getwardcount);
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD STAFF</b></h4>
+									<h4><b>ADD FACULTY-INCHARGE</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ $wcount=mysqli_num_rows($getwardcount);
                             <div class="r-icon-stats">
                                 <i class="fa fa-bed bg-black Hoveranimatewrd"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD WARD</b></h4>
+									<h4><b>FINAL SCOREBOARD</b></h4>
                                     <!--<span class="text-muted" style="font-size: small"></span>-->
                                 </div>
                             </div>
