@@ -238,7 +238,7 @@ if(isset($_POST['resetemail']))
         
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            <p>To host an fest please <a href="register.php" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                            <p>To host an fest please <a href="register-user.php" class="text-primary m-l-5"><b>Sign Up</b></a></p>
                         </div>
                     </div> 
                     
