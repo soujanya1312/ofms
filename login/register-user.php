@@ -82,8 +82,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
     <div class="preloader">
         <div class="cssload-speeding-wheel"></div>
     </div>
-    <section id="wrapper" class="login-register">
-        
+        <section id="wrapper" class="login-register" style="overflow: scroll">
         <?php if(isset($fmsg)) { ?>
 									<div class="alert alert-danger alert-dismissable">
 										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
