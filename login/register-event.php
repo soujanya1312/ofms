@@ -1,10 +1,10 @@
 <?php
 require("connect.php");
 session_start();
-//if(!isset($_SESSION['aid']))
-//   {
-//	echo '<script> window.location="register-user.php"; </script>';
-//   }
+if(!isset($_SESSION['aid']))
+   {
+	echo '<script> window.location="register-user.php"; </script>';
+   }
  if(isset($_POST['eventsubmit']))
     {
         $id = $_SESSION['aid'];
