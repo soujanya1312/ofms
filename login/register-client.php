@@ -146,7 +146,7 @@ if(isset($_POST['username']) && isset($_POST['cpass']) && isset($_POST['cemail']
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Shop Email</label>
-                                             <input class="form-control" name="semail" type="email" required placeholder="enter the email-id" data-error="This email address is invalid">
+                                             <input class="form-control" name="semail" type="email" required placeholder="Enter the email-id" data-error="This email address is invalid">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -163,7 +163,10 @@ if(isset($_POST['username']) && isset($_POST['cpass']) && isset($_POST['cemail']
                                     <div class="col-md-12 ">
                                          <label class="control-label">Shop Address</label>
                                         <div class="form-group">
-                                            <input name="saddr" type="text" class="form-control" required placeholder="Enter the shop address">
+                                            <input name="saddr1" type="text" class="form-control" required placeholder="Address line 1">
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="saddr2" type="text" class="form-control" required placeholder="Address line 2">
                                         </div>
                                     </div>
                               
