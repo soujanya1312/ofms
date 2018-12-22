@@ -22,7 +22,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
         $counte=mysqli_num_rows($checkemail);
         if($countu==1 || $counte==1)
         {
-            echo"username or email already exits";
+            $fmsg="username or email already exits";
         }
         else
         {
@@ -44,7 +44,9 @@ if(isset($_POST['username']) && isset($_POST['password']))
              }
         }
         
-    } 
+    } else{
+        $fmsg="PASSWORD DONOT MATCH";
+    }
 }
     ?>
 <!DOCTYPE html>
@@ -75,6 +77,35 @@ if(isset($_POST['username']) && isset($_POST['password']))
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <!-- Date picker plugins css -->
+    <link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+	
+	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <!-- username check js start -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#usernameLoading').hide();
+		$('#username').keyup(function(){
+		  $('#usernameLoading').show();
+	      $.post("check-docusername.php", {
+	        username: $('#username').val()
+	      }, function(response){
+	        $('#usernameResult').fadeOut();
+	        setTimeout("finishAjax('usernameResult', '"+escape(response)+"')", 500);
+	      });
+	    	return false;
+		});
+	});
+
+	function finishAjax(id, response) {
+	  $('#usernameLoading').hide();
+	  $('#'+id).html(unescape(response));
+	  $('#'+id).fadeIn();
+	} //finishAjax
+</script>
+<!-- username check js end -->
+
 </head>
 
 <body>
