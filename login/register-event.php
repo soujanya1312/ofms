@@ -27,7 +27,13 @@ else
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
         {
-            echo "User created, Please login";
+             "User created, Please login";
+            /*echo '<script> window.setTimeout(function(){
+									swal("Event registration is Completed!", "Redirecting to login page in 4 seconds.", "success");
+								}, 300);  window.setTimeout(function(){
+									window.location.href = "../admin/logout.php";
+								}, 4000); </script>'
+											?>*/
         }
     }
 }
@@ -60,6 +66,39 @@ else
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+	
+	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    	<script>
+		function isFutureDate(idate){
+    var today = new Date().getTime(),
+        idate = idate.split("-");
+
+    idate = new Date(idate[2], idate[1] - 1, idate[0]).getTime();
+    return (today - idate) > 0 ? true : false;
+}
+	</script>
+	
+	<script>
+		function checkDate(){
+    var idate = document.getElementById("datepicker"),
+        resultDiv = document.getElementById("datewarn");
+        //dateReg = /(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[012])[-]201[4-9]|20[2-9][0-9]/;
+
+   // if(dateReg.test(idate.value)){
+        if(isFutureDate(idate.value)){
+            resultDiv.innerHTML = "Event date is not valid";
+            resultDiv.style.color = "red";
+       } else {
+            resultDiv.innerHTML = "It's a valid date";
+            resultDiv.style.color = "green";
+        }
+   // } else {
+       // resultDiv.innerHTML = "Invalid date!";
+       // resultDiv.style.color = "red";
+   // }
+}
+	</script>
 </head>
 
 <body>
@@ -76,18 +115,25 @@ else
                         <div class="white-box">
                             <hr><h3 class="box-title m-b-0"><u>College Details</u></h3><hr>
                             <form data-toggle="validator" method="post">
-                              <?php if(isset($fmsg)) { ?>
+                                    <?php if(isset($fmsg)) { ?>
 									<div class="alert alert-danger alert-dismissable">
 										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 										 <?php echo $fmsg; ?>
 									</div> 
 					            <?php }?> 
-							<?php if(isset($smsg)) { ?>
-									<div class="alert alert-success alert-dismissable">
-										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-										 <?php echo $smsg; ?>
-									</div> 
-							<?php }?>
+								<?php if(isset($smsg)) { ?>
+										<div class="alert alert-success alert-dismissable">
+											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+											 <?php echo $smsg; 
+                                                    
+														echo '<script> window.setTimeout(function(){
+									swal("Your Account is Created!", "Redirecting to login page in 4 seconds.", "success");
+								}, 300);  window.setTimeout(function(){
+									window.location.href = "../admin/logout.php";
+								}, 4000); </script>'
+											?>
+										</div> 
+								<?php }?>
                               
                          		<div class="row">
                                 	<div class="col-md-12" >
