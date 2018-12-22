@@ -37,34 +37,37 @@ if(isset($_POST['username']) && isset($_POST['password']))
                 if($result1)
                 {
                     $_SESSION['aid'] = $id;
-                    $smsg="Account created successfully, redirecting to event registration in 4 seconds";
+                    $smsg="Account created successfully, redirecting to event registration in 2 seconds";
                 }
                     
                 
              }
         }
         
-    } else{
-        $fmsg="PASSWORD DONOT MATCH";
+    }
+    else
+    {
+            $fmsg="PASSWORD DONOT MATCH";
     }
 }
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Soujanya M">
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>OFMS-UserRegistration</title>
+    <title>OFMS-User Registration</title>
     <!-- Bootstrap Core CSS -->
     <link href="../plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
     <!-- animation CSS -->
     <link href="../plugins/css/animate.css" rel="stylesheet">
+    <!-- Wizard CSS -->
+    <link href="../plugins/bower_components/register-steps/steps.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../plugins/css/style.css" rel="stylesheet">
     <!-- color CSS -->
@@ -76,19 +79,18 @@ if(isset($_POST['username']) && isset($_POST['password']))
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <![endif]-->
     <!-- Date picker plugins css -->
     <link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-	
 	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
     <!-- username check js start -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
 	$(document).ready(function() {
 		$('#usernameLoading').hide();
 		$('#username').keyup(function(){
-		  $('#usernameLoading').show();
-	      $.post("check-docusername.php", {
+            $('#usernameLoading').show();
+            $.post("check-adminusername.php", {
 	        username: $('#username').val()
 	      }, function(response){
 	        $('#usernameResult').fadeOut();
@@ -103,85 +105,78 @@ if(isset($_POST['username']) && isset($_POST['password']))
 	  $('#'+id).html(unescape(response));
 	  $('#'+id).fadeIn();
 	} //finishAjax
-</script>
+    </script>
 <!-- username check js end -->
-
 </head>
-
-<body>
+<body >
     <!-- Preloader -->
     <div class="preloader">
-        <div class="cssload-speeding-wheel"></div>
+    <div class="cssload-speeding-wheel"></div>
     </div>
-        <section id="wrapper" class="login-register" style="overflow: scroll">
-        <?php if(isset($fmsg)) { ?>
-									<div class="alert alert-danger alert-dismissable">
-										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-										 <?php echo $fmsg; ?>
-									</div> 
-					            <?php }?> 
-								<?php if(isset($smsg)) { ?>
-										<div class="alert alert-success alert-dismissable">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-											 <?php echo $smsg; 
-                                                    
-														echo '<script> window.setTimeout(function(){
-									swal("Your Account is Created!", "Redirecting to login page in 4 seconds.", "success");
-								}, 300);  window.setTimeout(function(){
-									window.location.href = "../login/register-event.php";
-								}, 4000); </script>'
-											?>
-										</div> 
-								<?php }?>
-        
-        <div class="login-box">
-            <div class="white-box">
-                <form data-toggle="validator" class="form-horizontal form-material" id="loginform" method="post">
-                    <h3 class="box-title m-b-20">Enter Account Details</h3>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required placeholder="UserName" name="username">
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" name="email" type="email" required placeholder="Email" data-error="This email address is invalid">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                     <div class="form-group">
-                         <input type="tel" pattern="[0-9]*" maxlength="11" minlength="10" required id="example-phone" name="mobile" class="form-control" placeholder="Enter your mobile number" data-error="Invalid mobile number">
-                        <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
+    <section id="wrapper" class="login-register" style="overflow: scroll; max-width: 100%; overflow-x: hidden">
+            <?php if(isset($fmsg)) { ?>
+            <div class="alert alert-danger alert-dismissable">
+                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 <?php echo $fmsg; ?>
+            </div> 
+            <?php }?> 
+            <?php if(isset($smsg)) { ?>
+             <div class="alert alert-success alert-dismissable">
+				  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				  <?php echo $smsg; 
+                  echo '<script> window.setTimeout(function(){
+				  window.location.href = "../login/register-event.php";
+				  }, 2000); </script>'
+				  ?>
+              </div> 
+              <?php }?>
+<div class="login-box">
+     <div class="white-box">
+           <form data-toggle="validator" class="form-horizontal form-material" id="loginform" method="post">
+           <h3 class="box-title m-b-20">Enter Account Details</h3>
+                <div class="form-group ">
+                     <div class="col-xs-12">
+                           <input autocomplete="off" class="form-control" type="text" required placeholder="UserName" name="username" id="username">
+                           <!-- username check start -->
+                            <div>
+                            <span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
+                            <span id="usernameResult" style="color: #E40003"></span>
+                            </div>
+                         <!-- username check end -->
+                     </div>
+                </div>
+                <div class="form-group ">
+                     <div class="col-xs-12">
+                          <input class="form-control" name="email" type="email" required placeholder="Email" data-error="This email address is invalid">
+                          <div class="help-block with-errors"></div>
+                     </div>
+                </div>
+                <div class="form-group">
+                     <input type="tel" pattern="[0-9]*" maxlength="11" minlength="10" required id="example-phone" name="mobile" class="form-control" placeholder="Enter your mobile number" data-error="Invalid mobile number">
+                     <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group ">
+                      <div class="col-xs-12">
                             <input required  id="inputPassword" data-minlength="6" class="form-control" name="password" type="password" placeholder="Password(minimum of 6 characters)">
                             <div class="help-block with-errors"></div>
-                        </div>
+                      </div>
+                </div>
+                <div class="form-group">
+                     <div class="col-xs-12">
+                          <input data-match="#inputPassword" data-match-error="Passwords don't match" data-minlength="6" class="form-control" type="password" name="cpassword" required placeholder="Confirm Password">
+                          <div class="help-block with-errors"></div>
+                     </div>
+                </div>
+                <div class="form-group text-center m-t-20">
+                    <div class="col-xs-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Next</button>
                     </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input data-match="#inputPassword" data-match-error="Passwords don't match" data-minlength="6" class="form-control" type="password" name="cpassword" required placeholder="Confirm Password">
-                            <div class="help-block with-errors"></div>
-                        </div>
                     </div>
-                
-                    <div class="form-group text-center m-t-20">
-                        <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Next</button>
-                        </div>
-                    </div>
-<!--
-                    <div class="form-group m-b-0">
-                        <div class="col-sm-12 text-center">
-                            <p>Already have an account? <a href="login.html" class="text-primary m-l-5"><b>Sign In</b></a></p>
-                        </div>
-                    </div>
--->
-                </form>
-            </div>
-        </div>
-    </section>
+
+         </form>
+    </div>
+</div>
+</section>
     <!-- jQuery -->
     <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -204,5 +199,4 @@ if(isset($_POST['username']) && isset($_POST['password']))
     <script src="../plugins/bower_components/sweetalert/sweetalert.min.js"></script>
     <script src="../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
 </body>
-
 </html>

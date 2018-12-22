@@ -1,13 +1,11 @@
 <?php
 require("connect.php");
 session_start();
-if(!isset($_SESSION['aid']))
-{
-	echo '<script> window.location="register-user.php"; </script>';
-}
-else
-{
-    if(isset($_POST['eventsubmit']))
+//if(!isset($_SESSION['aid']))
+//   {
+//	echo '<script> window.location="register-user.php"; </script>';
+//   }
+ if(isset($_POST['eventsubmit']))
     {
         $id = $_SESSION['aid'];
         $ename=mysqli_real_escape_string($connection,$_POST['ename']);
@@ -23,24 +21,20 @@ else
         $cstate=mysqli_real_escape_string($connection,$_POST['cstate']);
         $cpincode=mysqli_real_escape_string($connection,$_POST['cpincode']);
 
-        $query1="INSERT INTO `event`(aid,ename,edate,cdesc,cname,caddress,cphone,cemail,city,cstate,cpincode) VALUES ('$id','$ename','$dob','$cdesc','$cname','$caddress',' $cphone',' $cemail','$city','$cstate','$cpincode')";
+        $query1="INSERT INTO `event`(aid,ename,edate,edesc,cname,caddress,cphone,cemail,city,cstate,cpincode) VALUES ('$id','$ename','$dob','$cdesc','$cname','$caddress',' $cphone',' $cemail','$city','$cstate','$cpincode')";
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
-        {
-             "User created, Please login";
-            /*echo '<script> window.setTimeout(function(){
-									swal("Event registration is Completed!", "Redirecting to login page in 4 seconds.", "success");
-								}, 300);  window.setTimeout(function(){
-									window.location.href = "../admin/logout.php";
-								}, 4000); </script>'
-											?>*/
-        }
+           {
+             $smsg="Event registration is Completed!, redirecting to login in 4 seconds";
+          }
+     else{
+         $fmsg="Error".mysqli_error($connection);
+     }
     }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,9 +59,8 @@ else
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <![endif]-->
     <link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-	
 	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
     	<script>
 		function isFutureDate(idate){
@@ -76,18 +69,16 @@ else
 
     idate = new Date(idate[2], idate[1] - 1, idate[0]).getTime();
     return (today - idate) > 0 ? true : false;
-}
+    }
 	</script>
-	
 	<script>
 		function checkDate(){
     var idate = document.getElementById("datepicker"),
         resultDiv = document.getElementById("datewarn");
         //dateReg = /(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[012])[-]201[4-9]|20[2-9][0-9]/;
-
-   // if(dateReg.test(idate.value)){
+       // if(dateReg.test(idate.value)){
         if(isFutureDate(idate.value)){
-            resultDiv.innerHTML = "Event date is not valid";
+            resultDiv.innerHTML = "Event date cannot be in the past";
             resultDiv.style.color = "red";
        } else {
             resultDiv.innerHTML = "It's a valid date";
@@ -100,70 +91,64 @@ else
 }
 	</script>
 </head>
-
 <body>
     <!-- Preloader -->
-    <div class="preloader">
-        <div class="cssload-speeding-wheel"></div>
-    </div>
-    <section id="wrapper" class="login-register" style="overflow: scroll">
-                
+<div class="preloader">
+    <div class="cssload-speeding-wheel"></div>
+</div>
+<section id="wrapper" class="login-register" style="overflow: scroll">
+    <?php if(isset($fmsg)) { ?>
+            <div class="alert alert-danger alert-dismissable">
+                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 <?php echo $fmsg; ?>
+            </div> 
+            <?php }?> 
+            <?php if(isset($smsg)) { ?>
+             <div class="alert alert-success alert-dismissable">
+				  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				  <?php echo $smsg; 
+                  echo '<script> window.setTimeout(function(){
+				  swal("Event registration is Completed!", "Redirecting to login in 4 seconds.","success");
+				  }, 300);  window.setTimeout(function(){
+				  window.location.href = "../login/logout.php";
+				  }, 4000); </script>'
+				  ?>
+              </div> 
+              <?php }?>
 <div style="padding-top: 90px; padding-left: 60px; padding-right: 60px; padding-bottom: 40px">
-				
-				<div class="row">
-				<div class="col-sm-12">
-                        <div class="white-box">
-                            <hr><h3 class="box-title m-b-0"><u>College Details</u></h3><hr>
-                            <form data-toggle="validator" method="post">
-                                    <?php if(isset($fmsg)) { ?>
-									<div class="alert alert-danger alert-dismissable">
-										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-										 <?php echo $fmsg; ?>
-									</div> 
-					            <?php }?> 
-								<?php if(isset($smsg)) { ?>
-										<div class="alert alert-success alert-dismissable">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-											 <?php echo $smsg; 
-                                                    
-														echo '<script> window.setTimeout(function(){
-									swal("Your Account is Created!", "Redirecting to login page in 4 seconds.", "success");
-								}, 300);  window.setTimeout(function(){
-									window.location.href = "../admin/logout.php";
-								}, 4000); </script>'
-											?>
-										</div> 
-								<?php }?>
-                              
-                         		<div class="row">
-                                	<div class="col-md-12" >
-                                       <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
-                                        	 <label class="control-label">College Name</label>
-											<div class="col-sm-12 p-l-0">
-												<div class="input-group">
-													<input type="text" name="cname" class="form-control" id="fname" placeholder="Enter your college name" required >
-												</div>
-											</div>
-                                         </div>
-                                    </div>
-                                         <h3 class="box-title m-t-40">College Address</h3>
-                                            <hr>
-                                            <!--<div class="row">-->
-                                                <div class="col-md-12 ">
-                                                    <div class="form-group">
-                                                        <label>Address line 1</label>
-                                                        <input name="cadd1" type="text" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                           <!-- </div>
-                                            <div class="row">-->
-                                                <div class="col-md-12 ">
-                                                    <div class="form-group">
-                                                        <label>Address line 2</label>
-                                                        <input type="text" name="cadd2" class="form-control">
-                                                    </div>
-                                                </div>
-                                           <!-- </div>-->
+     <div class="row">
+          <div class="col-sm-12">
+               <div class="white-box">
+                    <h3 class="box-title m-b-0">College Details</h3><hr>
+                    <form data-toggle="validator" method="post">
+                              <div class="row">
+                                   <div class="col-md-12" >
+                                        <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
+                                        <label class="control-label">College Name</label>
+											   <div class="col-sm-12 p-l-0">
+												    <div class="input-group">
+													     <input type="text" name="cname" class="form-control" id="fname" placeholder="Enter your college name" required >
+												    </div>
+											  </div>
+                                        </div>
+                                </div>
+                                 <h3 class="box-title m-t-40">College Address</h3><hr>
+                                 <!--<div class="row">-->
+                                <div class="col-md-12 ">
+                                     <div class="form-group">
+                                          <label>Address line 1</label>
+                                          <input name="cadd1" type="text" class="form-control" required>
+                                     </div>
+                                </div>
+                                <!-- </div>
+                                <div class="row">-->
+                                <div class="col-md-12 ">
+                                     <div class="form-group">
+                                          <label>Address line 2</label>
+                                          <input type="text" name="cadd2" class="form-control">
+                                     </div>
+                                </div>
+                                <!--</div>
                                     <!--/span-->
 									<!--<div class="col-md-6">
 										  <div class="form-group">
@@ -171,9 +156,9 @@ else
 											   <input type="text" name="lname" id="lastName" class="form-control" placeholder="Enter your last name" required>
 											   <!--<span class="help-block"> This field has error. </span>
 										   </div>
-									 </div>-->
+									 </div>
                                     <!--/span-->
-                                 </div>
+                           </div>
                                
                                <!--<div class="form-group">
                                     <label for="inputName1" class="control-label">Username</label>
@@ -190,33 +175,33 @@ else
                                  <!--/span-->
                                     <div class="col-md-4">
                                          <div class="form-group">
-                                         <label>State</label>
-                                        <input name="cstate" type="text" class="form-control" required>
-                                        </div>
+                                              <label>State</label>
+                                              <input name="cstate" type="text" class="form-control" required>
+                                         </div>
                                     </div>
-                                                <!--/span-->
+                                 <!--/span-->
                                     <div class="col-md-4">
                                          <div class="form-group">
-                                        <label>City</label>
-                                        <input name="city" type="text" class="form-control" required>
+                                              <label>City</label>
+                                              <input name="city" type="text" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                          <div class="form-group">
-                                         <label>Pincode</label>
-                                          <input name="cpincode" type="text" class="form-control" required>
-                                        </div>
-                                    </div>
+                                               <label>Pincode</label>
+                                               <input name="cpincode" type="text" class="form-control" required>
+                                         </div>
+                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Phone</label>
-                                        <input type="tel" pattern="[0-9]*" maxlength="11" id="firstName" name="cphone" class="form-control" placeholder="Enter phone no." data-error="Invalid phone number">
-								  <div class="help-block with-errors"></div>
+                                         <div class="form-group">
+                                              <label class="control-label">Phone</label>
+                                              <input type="tel" pattern="[0-9]*" maxlength="11" id="firstName" name="cphone" class="form-control" placeholder="Enter phone no." data-error="Invalid phone number">
+								              <div class="help-block with-errors"></div>
+                                         </div>
                                     </div>
-                                   </div>
-                                                <!--/span-->
+                                     <!--/span-->
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Email</label>
@@ -225,8 +210,7 @@ else
                                         </div>
                                     </div>
                                      <!--/span-->
-                                </div>
-                                
+                                 </div>
                                 <!--<div class="form-group">
                                     <label class="col-sm-12 p-l-0">Gender</label>
                                     <div class="col-sm-12 p-l-0">
@@ -237,49 +221,45 @@ else
                                         </select>
                                     </div>
                                 </div>-->
-                               <hr><h3 class="box-title m-b-0"><u>Event Details</u></h3><hr>
+                               <h3 class="box-title m-b-0">Event Details</h3><hr>
                                 <div class="row">
-                                	<div class="col-md-6" >
-                                       <div class="form-group">
-                                        <label class="control-label">Event Name</label>
-								        <div class="col-sm-12 p-l-0">
-								         <div class="input-group">
-								         <input type="text" name="ename" class="form-control" id="fname" placeholder="Event Name" required>
-												</div>
-											</div>
+                                	 <div class="col-md-6" >
+                                          <div class="form-group">
+                                               <label class="control-label">Event Name</label>
+								                       <div class="col-sm-12 p-l-0">
+								                            <div class="input-group">
+								                                 <input type="text" name="ename" class="form-control" id="fname" placeholder="Event Name" required>
+								                            </div>
+				                                       </div>
                                          </div>
                                     </div>
                                      
-                                    
                                     <div class="col-md-6" >
-                                    <div class="form-group">                                  
-                                    <label class="control-label">Event Date</label>
-                                            <div class="input-group">
-								                <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="edate" placeholder="dd-mm-yyyy" required>
-								            </div>
-								            <div id="datewarn"></div>
+                                         <div class="form-group">                                    <label class="control-label">Event Date</label>
+                                                    <div class="input-group">
+								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="edate" placeholder="dd-mm-yyyy" required>
+								                    </div>
+								                   <div id="datewarn"></div>
                                     <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
+                                         </div>
                                    </div>
-                                    </div>
                                 </div>
-                              
-                                 <label class="control-label">Event Description</label>
+                                <label class="control-label">Event Description</label>
                                 <div class="col-md-12 ">
-                                                    <div class="form-group">
-                                                        <input type="text" name="cdesc" class="form-control" placeholder="Tell us about your fest">
-                                                    </div>
-                                                </div>
-                                <div  class="form-group">
-                                    <center>
-                                    <button type="submit" name="eventsubmit" class="btn btn-rounded btn-lg btn-info">Submit</button></center>
+                                     <div class="form-group">
+                                          <input type="text" name="cdesc" class="form-control" placeholder="Tell us about your fest">
+                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-				</div>
+                                     <div  class="form-group">
+                                           <center>
+                                           <button type="submit" name="eventsubmit" class="btn btn-rounded btn-lg btn-info">Submit</button></center>
+                                     </div>
+                    </form>
+                 </div>
+            </div>
+         </div>
     </div>
-				
-    </section>
+</section>
     <!-- jQuery -->
     <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -301,6 +281,22 @@ else
     <!-- Sweet-Alert  -->
     <script src="../plugins/bower_components/sweetalert/sweetalert.min.js"></script>
     <script src="../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="../plugins/js/mask.js"></script>
+    <script>
+		jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker-autoclose').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+	</script>
+	<script>
+		jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker-autoclose1').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+	</script>
 </body>
-
 </html>
