@@ -1,7 +1,7 @@
 <?php
 $id = $_GET['id'];
 require('connect.php');
-$query="SELECT email FROM reset_password WHERE tempstr='$id'";
+$query="SELECT email FROM resetpassword WHERE tmpstr='$id'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 $check= mysqli_num_rows($result);
@@ -26,29 +26,10 @@ if(isset($_POST['password']) && isset($_POST['cpassword']))
 		 	if($result2)
 			{
 				$smsg="Password has been reset successfully";
-				$query5="DELETE FROM reset_password WHERE tempstr='$id'";
+				$query5="DELETE FROM resetpassword WHERE tempstr='$id'";
 				$result5 = mysqli_query($connection,$query5);
 			}
-		}
-		else
-		{
-			$query3="SELECT * FROM event WHERE cemail='$email'";
-			$result3 = mysqli_query($connection,$query3);
-			$count3 = mysqli_num_rows($result3);
-			if($count3==1)
-			{
-				$query4="UPDATE clients SET cpassword='$password' WHERE cemail='$email' ";
-				$result4 = mysqli_query($connection, $query4);
-				if($result4)
-				{
-					$smsg="Password has been reset successfully";
-					$query6="DELETE FROM reset_password WHERE tempstr='$id'";
-					$result6 = mysqli_query($connection,$query6);
-				}
-			}
-		}
-		
-		
+        }
 	}
 	else
 	{
@@ -63,8 +44,8 @@ if(isset($_POST['password']) && isset($_POST['cpassword']))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="AlphaCare Online Hospital Management System">
-    <meta name="author" content="Dhanush KT, Nishanth Bhat">
+	<meta name="description" content="Online Fest Management System">
+    <meta name="author" content="Soujanya M">
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
     <title>OFMS</title>
     <!-- Bootstrap Core CSS -->

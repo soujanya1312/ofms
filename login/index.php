@@ -49,17 +49,14 @@ if(isset($_POST['resetemail']))
 {
 	
 	$remail=$_POST['resetemail'];
-	$query="SELECT * FROM `admin` WHERE email='$remail'";
-	$query1="SELECT * FROM `event` WHERE email='$remail'";
+	$query="SELECT * FROM `admin` WHERE aemail='$remail'";
 	$result = mysqli_query($connection,$query);
-	$result1= mysqli_query($connection,$query1);
 	$count = mysqli_num_rows($result);
-	$count1= mysqli_num_rows($result1);
-		if($count==1||$count1==1)
+		if($count==1)
 		{
 			$str=random_int(256321,986523);
 			$mdstr=md5($str);
-			$query2="INSERT INTO `reset_password` (email,tempstr) VALUES ('$remail','$mdstr') ";
+			$query2="INSERT INTO `resetpassword` (email,tmpstr) VALUES ('$remail','$mdstr') ";
 			$result2 = mysqli_query($connection, $query2);
 			$link="http://localhost/ofms/login/reset-password.php?id=$mdstr";
 				
