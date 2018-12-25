@@ -50,7 +50,7 @@ if(isset($_POST['resetemail']))
 	
 	$remail=$_POST['resetemail'];
 	$query="SELECT * FROM `admin` WHERE email='$remail'";
-	$query1="SELECT * FROM `host` WHERE email='$remail'";
+	$query1="SELECT * FROM `event` WHERE email='$remail'";
 	$result = mysqli_query($connection,$query);
 	$result1= mysqli_query($connection,$query1);
 	$count = mysqli_num_rows($result);
@@ -61,7 +61,7 @@ if(isset($_POST['resetemail']))
 			$mdstr=md5($str);
 			$query2="INSERT INTO `reset_password` (email,tempstr) VALUES ('$remail','$mdstr') ";
 			$result2 = mysqli_query($connection, $query2);
-			$link="http://localhost/ohms/login/reset-password.php?id=$mdstr";
+			$link="http://localhost/ofms/login/reset-password.php?id=$mdstr";
 				
 			$to_Email       = $remail; // Replace with recipient email address
 			$subject        = 'Password Reset'; //Subject line for emails
@@ -255,7 +255,7 @@ if(isset($_POST['resetemail']))
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="email" required="" name="resetemail" placeholder="Email">
+                            <input class="form-control" type="email" required name="resetemail" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group text-center m-t-20">
