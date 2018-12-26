@@ -5,7 +5,7 @@ if(!$connection)
 	echo "failed to connect";
 	// die("Database Connection Failed" . mysqli_error($connection));
 }
-$dbsellect = mysqli_select_db($connection,'ohms');
+$dbsellect = mysqli_select_db($connection,'ofms');
 if(!$dbsellect)
 {
 	echo "failed to select the database";
