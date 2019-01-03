@@ -40,28 +40,28 @@
 			<!---PNB Added Doctors menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Event Heads <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-doctor.php">Add Event heads </a> </li>
-					<li> <a href="view-doctors.php">View Event heads </a> </li>
+					<li> <a href="add-ehead.php">Add Event heads </a> </li>
+					<li> <a href="view-ehead.php">View Event heads </a> </li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> College Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-patients.php">View Colleges</a> </li>
+					<li> <a href="view-clgregis.php">View Colleges</a> </li>
 					<li id="hidden-item" style="display: none"><a href="edit-patient-profile.php">Patient Profile</a></li>
-					<li> <a href="add-patient.php">Edit colleges</a> </li>
+					<li> <a href="edit-clgregis.php">Edit colleges</a> </li>
 				</ul>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-visitors.php">View Schedule</a> </li>
-					<li> <a href="add-visitor.php">Edit Schedule</a> </li>
+					<li> <a href="view-schedule.php">View Schedule</a> </li>
+					<li> <a href="edit-schedule.php">Edit Schedule</a> </li>
 				</ul>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Scoresheet <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-ward.php">Add Scoresheet</a> </li>
-					<li> <a href="view-wards.php">Edit Scoresheet</a> </li>
+					<li> <a href="add-scoresheet.php">Add Scoresheet</a> </li>
+					<li> <a href="edit-scoresheet.php">Edit Scoresheet</a> </li>
 				</ul>
 			</li>
 			<!--<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
