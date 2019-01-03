@@ -148,6 +148,7 @@ if(!isset($_SESSION['aid']))
                                           <input type="text" name="cadd2" class="form-control">
                                      </div>
                                 </div>
+                        </div>
                                 <!--</div>
                                     <!--/span-->
 									<!--<div class="col-md-6">
@@ -158,7 +159,7 @@ if(!isset($_SESSION['aid']))
 										   </div>
 									 </div>
                                     <!--/span-->
-                           </div>
+                           
                                
                                <!--<div class="form-group">
                                     <label for="inputName1" class="control-label">Username</label>
