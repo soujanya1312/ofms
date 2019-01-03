@@ -95,7 +95,34 @@ if(isset($_POST['changepw']))
 <!-- username check js end -->
       
       
-      
+ <script>
+		function isFutureDate(idate){
+    var today = new Date().getTime(),
+        idate = idate.split("-");
+
+    idate = new Date(idate[2], idate[1] - 1, idate[0]).getTime();
+    return (today - idate) > 0 ? true : false;
+    }
+	</script>
+	<script>
+		function checkDate(){
+    var idate = document.getElementById("datepicker"),
+        resultDiv = document.getElementById("datewarn");
+        //dateReg = /(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[012])[-]201[4-9]|20[2-9][0-9]/;
+       // if(dateReg.test(idate.value)){
+        if(isFutureDate(idate.value)){
+            resultDiv.innerHTML = "Event date cannot be in the past";
+            resultDiv.style.color = "red";
+       } else {
+            resultDiv.innerHTML = "It's a valid date";
+            resultDiv.style.color = "green";
+        }
+   // } else {
+       // resultDiv.innerHTML = "Invalid date!";
+       // resultDiv.style.color = "red";
+   // }
+}
+	</script>     
 </head>
 
 <body class="fix-sidebar">
@@ -194,10 +221,13 @@ if(isset($_POST['changepw']))
                                 <li role="presentation" class="nav-item"><a href="#settings" class="nav-link" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs">Setting</span></a></li>
                                 <li role="presentation" class="nav-item"><a href="#changepassword" class="nav-link" aria-controls="changepassword" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-key"></i></span> <span class="hidden-xs">Change Password</span></a></li>
                                 <li role="presentation" class="nav-item"><a href="#remove" class="nav-link" aria-controls="remove" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-times"></i></span> <span class="hidden-xs">Remove Account</span></a></li>
+                                 
+                               
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="profile">
-                                    <div class="row">
+                                 <div class="tab-pane active" id="profile">
+                                     <form data-toggle="validator" method="post">
+                                    <div class="form-group">
                                         <div class="col-md-3 col-xs-6 b-r"> <strong>Username</strong>
                                             <br>
                                             <p class="text-muted"><?php echo $ausername; ?></p>
@@ -206,18 +236,13 @@ if(isset($_POST['changepw']))
                                             <br>
                                             <p class="text-muted"><?php echo $row["aemail"]; ?></p>
                                         </div>
-                                        
-                                    </div>
+                                          </div>
                                     
-                                    
-                                </div>
+                         </div>
                                 
-                               
                             <div class="tab-pane" id="settings">
                              <form data-toggle="validator" method="post">
-                             
-                               
-                                <div class="form-group">
+                             <div class="form-group">
                                     <label for="inputName1" class="control-label">Username</label>
                                     <input type="text" class="form-control" autocomplete="off" id="username" name="username" placeholder="Username is used to login" value="<?php echo $ausername ?>" required>
                                     <!-- username check start -->
@@ -246,7 +271,7 @@ if(isset($_POST['changepw']))
                                 <form data-toggle="validator" method="post">
                                 <div class="form-group">
                                     <label for="inputPassword" class="control-label">Change Password</label>
-                                    <div calss="row">
+                                    <div class="row">
                                     <div class="form-group col-sm-12 p-l-0 p-t-10">
                                     <input type="password" name="oldpassword" data-toggle="validator" data-minlength="6" class="form-control" id="oldPassword" placeholder="Old Password" required>
                                      </div>
@@ -263,23 +288,72 @@ if(isset($_POST['changepw']))
                                     </div>
                                 </div>
                                 <div class="form-group p-t-0">
-                                    
-                                        <button class="btn btn-success" name="changepw">Change Password</button>
-                                     
+                                    <button class="btn btn-success" name="changepw">Change Password</button>
                                 </div>
-                                
-								</form>
-                                
-                                
-								</div>
+                            </form>
+                            </div>
                               	<div class="tab-pane" id="remove">
                               		<div class="text-center">
                               		<a href="#" class="fcbtn btn btn-danger model_img deleteAdmin" data-id="<?php echo $id ?>" id="deleteDoc">Remove Admin Account</a>
 									</div>
 								</div>
-							  </div>
-                               
-                            </div>
+                                
+                                <!--<div class="tab-pane" id="editevent">
+                                     <form data-toggle="validator" method="post">
+                                     <div class="row">
+                                	 <div class="col-md-12" >
+                                          <div class="form-group">
+                                               <label class="control-label">Event Name</label>
+								                       <div class="col-sm-12 p-l-0">
+								                            <div class="input-group">
+								                                 <input type="text" name="ename" class="form-control" id="fname" placeholder="Event Name" required>
+								                            </div>
+				                                       </div>
+                                         </div>
+                                    </div>
+                                     
+                                    <div class="col-md-12" >
+                                         <div class="form-group">                                    <label class="control-label">Event Date</label>
+                                                    <div class="input-group">
+								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="edate" placeholder="dd-mm-yyyy" required>
+								                    </div>
+								                   <div id="datewarn"></div>
+                                    <!--<span class="font-13 text-muted">dd-mm-yyyy</span>
+                                         </div>
+                                   </div>
+                                </div>
+                                <label class="control-label">Event Description</label>
+                                <div class="col-md-12">
+                                     <div class="form-group">
+                                          <input type="text" name="cdesc" class="form-control" placeholder="Tell us about your fest">
+                                     </div>
+                                </div>-->
+                              <!-- <form data-toggle="validator" method="post">
+                                <div class="form-group">
+                                    <label for="inputPassword" class="control-label">Event Name</label>
+                                    <div calss="row">
+                                    <div class="form-group col-sm-12 p-l-0 p-t-10">
+                                    <input type="password" name="oldpassword" data-toggle="validator" data-minlength="6" class="form-control" id="oldPassword" placeholder="Enter the event name" required>
+                                     </div>
+									</div>
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <input type="dae" name="newpassword" data-toggle="validator" data-minlength="6" class="form-control" id="inputPassword" placeholder="New Password" required>
+                                            <span class="help-block">Minimum of 6 characters</span> </div>
+                                        <div class="form-group col-sm-6">
+                                            <input type="password" name="retypepassword" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Passwords don't match" placeholder="Confirm New Password" required>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group p-t-0">
+                                        <center>
+                                        <button class="btn btn-success" name="changepw">Resubmit</button>
+                                          </center>
+                                </div>-->
+                             </form>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -309,6 +383,23 @@ if(isset($_POST['changepw']))
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
     <?php include'assets/jslink.php'; ?>
+<!-- Date Picker Plugin JavaScript -->
+    <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="../plugins/js/mask.js"></script>
+    <script>
+		jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker-autoclose').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+	</script>
+	<script>
+		jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker-autoclose1').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+	</script>
 </body>
 
 </html>
