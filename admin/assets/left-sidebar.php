@@ -47,9 +47,9 @@
 			<!---PNB Added Patient menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> College Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-clgregis.php">View Colleges</a> </li>
+					<li> <a href="view-clgregis.php">Confirmed Colleges</a> </li>
 					<li id="hidden-item" style="display: none"><a href="edit-patient-profile.php">Patient Profile</a></li>
-					<li> <a href="edit-clgregis.php">Edit colleges</a> </li>
+					<li> <a href="edit-clgregis.php">Unconfirmed Colleges</a> </li>
 				</ul>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule <span class="fa arrow"></span></span></a>
