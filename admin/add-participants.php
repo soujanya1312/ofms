@@ -1,37 +1,27 @@
-<?php
-require("connect.php");
+<?php                                                                                        require("connect.php");
  if(isset($_POST['pregister']))
     {
-        $id = $_SESSION['pid'];
+       
         $pname=mysqli_real_escape_string($connection,$_POST['pname']);
-        $password=md5($_POST['pass']);
-        $cpassword=md5($_POST['cpass']);
         $cmob=mysqli_real_escape_string($connection,$_POST['pmob']);
         $cemail=mysqli_real_escape_string($connection,$_POST['pemail']);
         $cname=mysqli_real_escape_string($connection,$_POST['cname']);
-        $caddress=$_POST['cadd1'].' , '.$_POST['cadd2'];
+        $caddress=$_POST['cadd1'].' , ';
+        $caddress.=$_POST['cadd2'];
         $city=mysqli_real_escape_string($connection,$_POST['city']);
         $cstate=mysqli_real_escape_string($connection,$_POST['cstate']);
         $cpincode=mysqli_real_escape_string($connection,$_POST['cpincode']);
 
-        $query1="INSERT INTO `participants`(pid,pname,password,pemail,pmob,pclgname,pcaddress,pstate,pcity,pincode) VALUES ('$id','$pname','$password','$cmob','$cemail','$cname','$caddress','$city','$cstate','$cpincode')";
+        $query1="INSERT INTO `participants`(pname,pemail,pmob,pclgname,pcaddress,pstate,pcity,pincode) VALUES ('$pname', '$cemail','$cmob','$cname','$caddress','$city','$cstate','$cpincode')";
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
            {
-             $smsg="Participant Event registration is Completed!, redirecting to login in 4 seconds";
+             $smsg="Participant Event registration is Completed!, please wait for your confirmation mail";
           }
      else{
          $fmsg="Error".mysqli_error($connection);
      }
     }
-
-
-
-
-
-
-
-
 
 ?>
 
@@ -134,7 +124,7 @@ require("connect.php");
 											  </div>
                                         </div>
                                 </div>
-                                   <div class="row col-md-12">
+                                  <!-- <div class="row col-md-12">
                                         <div class="col-md-6">
                                              <div class="form-group">
                                                   <label class="control-label">Password</label>
@@ -150,11 +140,11 @@ require("connect.php");
                                             </div>
                                         </div>
                                     </div>
-                                   <div class="row col-md-12">
+                                   <div class="row col-md-12">-->
                                     <div class="col-md-6">
                                          <div class="form-group">
                                               <label class="control-label">Mobile number</label>
-                                              <input type="tel" pattern="[0-9]*" maxlength="11" id="pmobile" name="pmob" class="form-control" placeholder="Enter Mobile no." data-error="Invalid mobile number">
+                                              <input type="tel" pattern="[0-9]*" maxlength="11" id="pmobile" name="pmob" class="form-control" placeholder="Enter Mobile no." data-error="Invalid mobile number"required>
 								              <div class="help-block with-errors"></div>
                                          </div>
                                     </div>
@@ -162,12 +152,12 @@ require("connect.php");
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Email</label>
-                                            <input type="email" name="pemail" id="pemail" class="form-control" placeholder="Enter email address" data-error="email address is invalid">
+                                            <input type="email" name="pemail" id="pemail" class="form-control" placeholder="Enter email address" data-error="email address is invalid" required>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                     <!--/span-->
-                                 </div>
+                                     <!--/span
+                                 </div>-->
                                    <div class="col-md-12" >
                                         <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
                                         <label class="control-label">College Name</label>
@@ -191,7 +181,7 @@ require("connect.php");
                                 <div class="col-md-12 ">
                                      <div class="form-group">
                                           <label>Address line 2</label>
-                                          <input type="text" name="cadd2" class="form-control">
+                                          <input type="text" name="cadd2" class="form-control" required>
                                      </div>
                                 </div>
                         </div>
