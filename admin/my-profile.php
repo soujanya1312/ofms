@@ -2,10 +2,12 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
-$query="SELECT aid, aemail, apassword FROM admin WHERE ausername='$ausername'";
-$result = mysqli_query($connection,$query);
+
+$query="SELECT *,fests.fname, fests.fdesc,fests.fdate,fests.cname,fests.caddress,fests.cemail,fests.cphone,fests.fid FROM admin INNER JOIN fests ON admin.aid=fests.fid WHERE ausername='$ausername'";
+$result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 $id=$row["aid"];
+$fid=$row["fid"];
 
 //update profile
 if(isset($_POST['updateprofile']))
@@ -28,11 +30,41 @@ if(isset($_POST['updateprofile']))
 	}
 	else
 	{
-		$fmsg="error!";
+		$fmsg="error!".mysqli_error($connection);
 	}
 }
+
+//update event details
+if(isset($_POST['editevent']))
+{
+	$ename= mysqli_real_escape_string($connection,$_POST['ename']);
+    $edate=$_POST['edate'];
+    $myDateTime = DateTime::createFromFormat('d-m-Y', $edate);
+    $dob = $myDateTime->format('Y-m-d');
+	$edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
+    $cname=mysqli_real_escape_string($connection,$_POST['cname']);
+    $caddress=mysqli_real_escape_string($connection,$_POST['caddress']);
+    $cemail=mysqli_real_escape_string($connection,$_POST['cemail']);
+    $cphone=mysqli_real_escape_string($connection,$_POST['cphone']);
+    
+	$equery="UPDATE fests SET    fname='$ename',fdate='$dob',fdesc='$edesc',cname='$cname',caddress='$caddress',cemail='$cemail',cphone='$cphone' WHERE fid='$fid'";
+	$eresult = mysqli_query($connection, $equery);
+	if($eresult)
+	{
+		$cquery="SELECT *,fests.fname, fests.fdesc,fests.fdate,fests.cname,fests.caddress,fests.cemail,fests.cphone,fests.eid FROM admin INNER JOIN fests ON admin.aid=fests.fid WHERE ausername='$ausername'";
+		$cresult = mysqli_query($connection, $cquery);
+		$row = mysqli_fetch_assoc($cresult);
+		$smsg="Event details updated successfully!";
+    }
+	else
+	{
+		$fmsg="Event details are  not submitted";
+	}
+}
+
+
 //change password
-if(isset($_POST['changepw']))
+if(isset($_POST['changepassword']))
 {
 	$oldpw=md5($_POST['oldpassword']);
 	if($oldpw==$row["apassword"])
@@ -64,12 +96,35 @@ if(isset($_POST['changepw']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Online Fest Management System">
+    <meta name="description" content="Online Fest Hospital Management System">
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
       
       <!-- username check js start -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#usernameLoading').hide();
+		$('#username').keyup(function(){
+		  $('#usernameLoading').show();
+	      $.post("check-adminusername.php", {
+	        username: $('#username').val()
+	      }, function(response){
+	        $('#usernameResult').fadeOut();
+	        setTimeout("finishAjax('usernameResult', '"+escape(response)+"')", 500);
+	      });
+	    	return false;
+		});
+	});
+
+	function finishAjax(id, response) {
+	  $('#usernameLoading').hide();
+	  $('#'+id).html(unescape(response));
+	  $('#'+id).fadeIn();
+	} //finishAjax
+</script>
+<!-- username check js end -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -117,12 +172,14 @@ if(isset($_POST['changepw']))
             resultDiv.innerHTML = "It's a valid date";
             resultDiv.style.color = "green";
         }
-   // } else {
-       // resultDiv.innerHTML = "Invalid date!";
-       // resultDiv.style.color = "red";
-   // }
+    } else {
+       resultDiv.innerHTML = "Invalid date!";
+        resultDiv.style.color = "red";
+   }
 }
-	</script>     
+	</script>      
+      
+      
 </head>
 
 <body class="fix-sidebar">
@@ -221,13 +278,11 @@ if(isset($_POST['changepw']))
                                 <li role="presentation" class="nav-item"><a href="#settings" class="nav-link" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs">Setting</span></a></li>
                                 <li role="presentation" class="nav-item"><a href="#changepassword" class="nav-link" aria-controls="changepassword" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-key"></i></span> <span class="hidden-xs">Change Password</span></a></li>
                                 <li role="presentation" class="nav-item"><a href="#remove" class="nav-link" aria-controls="remove" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-times"></i></span> <span class="hidden-xs">Remove Account</span></a></li>
-                                 
-                               
+                                <li role="presentation" class="nav-item"><a href="#editevent" class="nav-link" aria-controls="editevent" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-times"></i></span> <span class="hidden-xs">Edit Event Details</span></a></li>
                             </ul>
                             <div class="tab-content">
-                                 <div class="tab-pane active" id="profile">
-                                     <form data-toggle="validator" method="post">
-                                    <div class="form-group">
+                                <div class="tab-pane active" id="profile">
+                                    <div class="row">
                                         <div class="col-md-3 col-xs-6 b-r"> <strong>Username</strong>
                                             <br>
                                             <p class="text-muted"><?php echo $ausername; ?></p>
@@ -236,10 +291,13 @@ if(isset($_POST['changepw']))
                                             <br>
                                             <p class="text-muted"><?php echo $row["aemail"]; ?></p>
                                         </div>
-                                          </div>
+                                        
+                                    </div>
                                     
-                         </div>
+                                    
+                                </div>
                                 
+                               
                             <div class="tab-pane" id="settings">
                              <form data-toggle="validator" method="post">
                              <div class="form-group">
@@ -254,9 +312,10 @@ if(isset($_POST['changepw']))
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail" class="control-label">Email</label>
-                                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo $row["aemail"]; ?>" data-error="This email address is invalid" required>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" value="<?php echo $row["aemail"]; ?>" data-error="This email address is invalid" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
+                                 
                                 
                                         <div class="form-group">
                                             <div class="col-sm-12">
@@ -273,87 +332,99 @@ if(isset($_POST['changepw']))
                                     <label for="inputPassword" class="control-label">Change Password</label>
                                     <div class="row">
                                     <div class="form-group col-sm-12 p-l-0 p-t-10">
-                                    <input type="password" name="oldpassword" data-toggle="validator" data-minlength="6" class="form-control" id="oldPassword" placeholder="Old Password" required>
+                                    <input type="password" name="oldpassword" data-toggle="validator" data-minlength="6" class="form-control" id="oldpassword" placeholder="Old Password" required>
                                      </div>
 									</div>
                                     
                                     <div class="row">
-                                        <div class="form-group col-sm-6">
+                                        <div class="form-group col-sm-6  p-l-0 p-t-10">
                                             <input type="password" name="newpassword" data-toggle="validator" data-minlength="6" class="form-control" id="inputPassword" placeholder="New Password" required>
                                             <span class="help-block">Minimum of 6 characters</span> </div>
-                                        <div class="form-group col-sm-6">
+                                        <div class="form-group col-sm-6  p-l-0 p-t-10">
                                             <input type="password" name="retypepassword" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Passwords don't match" placeholder="Confirm New Password" required>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group p-t-0">
-                                    <button class="btn btn-success" name="changepw">Change Password</button>
+                                    
+                                        <button class="btn btn-success" name="changepw">Change Password</button>
+                                     
                                 </div>
-                            </form>
-                            </div>
+                                
+								</form>
+                                
+                                
+								</div>
                               	<div class="tab-pane" id="remove">
                               		<div class="text-center">
                               		<a href="#" class="fcbtn btn btn-danger model_img deleteAdmin" data-id="<?php echo $id ?>" id="deleteDoc">Remove Admin Account</a>
 									</div>
 								</div>
-                                
-                                <!--<div class="tab-pane" id="editevent">
-                                     <form data-toggle="validator" method="post">
-                                     <div class="row">
-                                	 <div class="col-md-12" >
+                                 <div class="tab-pane" id="editevent"> 
+                                 <form data-toggle="validator" method="post">
+                                   <div class="row">
+                                	 <div class="col-md-6" >
                                           <div class="form-group">
                                                <label class="control-label">Event Name</label>
 								                       <div class="col-sm-12 p-l-0">
 								                            <div class="input-group">
-								                                 <input type="text" name="ename" class="form-control" id="fname" placeholder="Event Name" required>
+								                                 <input value="<?php echo $row['ename'] ?>" type="text" name="ename" class="form-control" id="ename" placeholder="Event Name" >
 								                            </div>
 				                                       </div>
                                          </div>
                                     </div>
                                      
-                                    <div class="col-md-12" >
+                                    <div class="col-md-6" >
                                          <div class="form-group">                                    <label class="control-label">Event Date</label>
                                                     <div class="input-group">
-								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="edate" placeholder="dd-mm-yyyy" required>
+								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="edate" name="edate" placeholder="dd-mm-yyyy" value="<?php $dateb=$row['edate'];
+											$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+											$dobc = $myDateTime->format('d-m-Y');  echo $dobc;  ?>">
 								                    </div>
 								                   <div id="datewarn"></div>
-                                    <!--<span class="font-13 text-muted">dd-mm-yyyy</span>
+                                    <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
                                          </div>
                                    </div>
                                 </div>
                                 <label class="control-label">Event Description</label>
-                                <div class="col-md-12">
+                                <div class="col-md-12 p-l-0 p-t-10 ">
                                      <div class="form-group">
-                                          <input type="text" name="cdesc" class="form-control" placeholder="Tell us about your fest">
+                                          <input value="<?php echo $row['edesc'] ?>" type="text" name="edesc"id="edesc" class="form-control" placeholder="Tell us about your fest">
                                      </div>
-                                </div>-->
-                              <!-- <form data-toggle="validator" method="post">
-                                <div class="form-group">
-                                    <label for="inputPassword" class="control-label">Event Name</label>
-                                    <div calss="row">
-                                    <div class="form-group col-sm-12 p-l-0 p-t-10">
-                                    <input type="password" name="oldpassword" data-toggle="validator" data-minlength="6" class="form-control" id="oldPassword" placeholder="Enter the event name" required>
+                                </div>   
+                              <div class="form-group col-md-12 p-l-0 p-t-10">
+                                     <label class="control-label">College Name</label>
+                                  <input type="text" name="cname" data-toggle="validator" class ="form-control" id="cname" placeholder="Enter the college name" value="<?php echo $row['cname'] ?>">
                                      </div>
-									</div>
-                                    
-                                    <div class="row">
-                                        <div class="form-group col-sm-6">
-                                            <input type="dae" name="newpassword" data-toggle="validator" data-minlength="6" class="form-control" id="inputPassword" placeholder="New Password" required>
-                                            <span class="help-block">Minimum of 6 characters</span> </div>
-                                        <div class="form-group col-sm-6">
-                                            <input type="password" name="retypepassword" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Passwords don't match" placeholder="Confirm New Password" required>
+                                     <div class="form-group">
+                                     <label for="Name2" class="control-label">College Address</label>
+                                    <div class="form-group col-md-12 p-l-0 p-t-10">
+                                    <textarea name="caddress" data-toggle="validator"  class="form-control" id="caddres" placeholder="Address panel 1" > <?php echo $row['caddress'] ?> </textarea>
+                                     </div>
+                                   
+                                          
+                                        <div class="form-group col-md-12 p-l-0 p-t-10">
+                                            <label class="control-label"> College Email</label>
+                                            <input type="email" name="cemail" id="cemail" class="form-control" placeholder="Enter email address" data-error="email address is invalid" value="<?php echo $row['cemail'] ?>" >
                                             <div class="help-block with-errors"></div>
                                         </div>
-                                    </div>
+                                    <div class="form-group  col-md-12 p-l-0 p-t-10">
+                                     <label for="inputphone" class="control-label">College Phone Number</label>
+                                     <input type="tel" pattern="[0-9]*" maxlength="11" id="cphone" name="cphone" class="form-control" placeholder="Enter phone no." data-error="Invalid phone number" value="<?php echo $row['cphone'] ?>">
+								 <div class="help-block with-errors"></div>
+                                     </div>
+                                         <div class="form-group p-t-0">
+                                    
+                                        <button class="btn btn-success" type="submit" name="editevent">Change Event Details</button>
+                                     
                                 </div>
-                                <div class="form-group p-t-0">
-                                        <center>
-                                        <button class="btn btn-success" name="changepw">Resubmit</button>
-                                          </center>
-                                </div>-->
-                             </form>
-                        </div>
+									
+                                   </form>
+                                     
+                      </div>
+							  </div>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -383,7 +454,7 @@ if(isset($_POST['changepw']))
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
     <?php include'assets/jslink.php'; ?>
-<!-- Date Picker Plugin JavaScript -->
+    <!-- Date Picker Plugin JavaScript -->
     <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="../plugins/js/mask.js"></script>
     <script>
@@ -438,4 +509,3 @@ $(document).ready(function() {
 });
 	
 </script>
-
