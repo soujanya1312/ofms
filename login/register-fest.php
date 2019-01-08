@@ -21,7 +21,7 @@ if(!isset($_SESSION['aid']))
         $cstate=mysqli_real_escape_string($connection,$_POST['cstate']);
         $cpincode=mysqli_real_escape_string($connection,$_POST['cpincode']);
 
-        $query1="INSERT INTO `event`(aid,ename,edate,edesc,cname,caddress,cphone,cemail,city,cstate,cpincode) VALUES ('$id','$ename','$dob','$cdesc','$cname','$caddress',' $cphone',' $cemail','$city','$cstate','$cpincode')";
+        $query1="INSERT INTO `fests`(aid,fname,fdate,fdesc,cname,caddress,cphone,cemail,city,cstate,cpincode) VALUES ('$id','$ename','$dob','$cdesc','$cname','$caddress',' $cphone',' $cemail','$city','$cstate','$cpincode')";
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
            {

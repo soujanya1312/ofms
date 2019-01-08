@@ -125,7 +125,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
 				  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 				  <?php echo $smsg; 
                   echo '<script> window.setTimeout(function(){
-				  window.location.href = "../login/register-event.php";
+				  window.location.href = "../login/register-fest.php";
 				  }, 2000); </script>'
 				  ?>
               </div> 
