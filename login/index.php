@@ -20,27 +20,27 @@ if (isset($_POST['username']) && isset($_POST['password']))
 			
 		}
 		else
-		{
-			echo "Invalid Username/Password";
-		}
-		/* {
-		$queryd="SELECT * FROM `event` WHERE (ename='$username' OR hemail='$username') AND hpassword='$password'";
+		//{
+			//echo "Invalid Username/Password";
+		//}
+		 {
+		$queryd="SELECT * FROM `events` WHERE (husername='$username' OR hemail='$username') AND hpassword='$password'";
 		$resulth = mysqli_query($connection,$queryd);
 		$rowh = mysqli_fetch_assoc($resulth);
 		$counth = mysqli_num_rows($resulth);
 		if($counth==1)
 		{
-			$_SESSION['husername'] = $rowd["username"];
+			$_SESSION['husername'] = $rowh["husername"];
 			// alternative redirect (die() should be there)
 			// echo "<script>location.href='target-page.php';</script>";
 			//define('BASEPATH',TRUE);
 			//<script type="text/javascript">location.href = 'newurl';</script>
-			echo'<script> window.location="../host/index.php";</script>';
+			echo'<script> window.location="../eventhead/index.php";</script>';
 			//header('Location: index.html');
 			
 		}
 	
-     }*/
+     }
 }
 
 
