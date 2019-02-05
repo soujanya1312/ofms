@@ -2,9 +2,9 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
-$id = $_GET['eid'];
+$id = $_GET['id'];
 
-$query="SELECT ename,hname,addname,hmob,hemail,husername,hpassword FROM events WHERE eid='$id'";
+$query="SELECT ename,edesc,erounds,hname,addname,hmob,hemail,husername,hpassword FROM events WHERE eid='$id'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 
@@ -12,17 +12,20 @@ $row = mysqli_fetch_assoc($result);
 if(isset($_POST['updateprofile']))
 {
 	$ename=mysqli_real_escape_string($connection,$_POST['ename']);
-	$hname=mysqli_real_escape_string($connection,$_POST['hname']);
-	$addname= mysqli_real_escape_string($connection,$_POST['addname']);
+    $edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
+    $erounds=mysqli_real_escape_string($connection,$_POST['erounds']);
+	$hname=$_POST['hname'].' , ';
+    $hname.=$_POST['addname'];
     $hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
 	$hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
-	
-
-	$uquery="UPDATE events SET ename='$ename', hname='$hname', addname='$addname',hmob='$hmob' hemail='$hemail' WHERE eid='$id'";
+	$husername=mysqli_real_escape_string($connection,$_POST['husername']);
+    
+    
+	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds', hname='$hname',hmob='$hmob' hemail='$hemail',husername='$husername', WHERE eid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT ename, hname, addname, hmob,hemail FROM events WHERE eid='$id'";
+		$squery="SELECT ename,edesc,erounds,hname,addname,hmob,hemail,husername FROM events WHERE eid='$id'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Profile updated successfully!";
@@ -52,6 +55,7 @@ if(isset($_POST['changepw']))
 }
 
 ?>
+
 <!DOCTYPE html>
 <!--
    This is a starter template page. Use this page to start your new project from
@@ -130,7 +134,7 @@ if(isset($_POST['changepw']))
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title">Importent Instruction</h4>
+                                            <h4 class="modal-title">Important Instruction</h4>
                                         </div>
                                         <div class="modal-body">
                                        	 To Edit Admin information or to delete Admin account you need to login to that admin account.
@@ -164,10 +168,10 @@ if(isset($_POST['changepw']))
                             <div class="user-bg"> <img width="100%" height="100%" alt="user" src="../plugins/images/profile-menu.png">
                                 <div class="overlay-box">
                                     <div class="user-content">
-                                        <a href="javascript:void(0)"><?php if($row["gender"]=='male') { ?> <img src="../plugins/images/users/staff-male.png" class="thumb-lg img-circle" ><?php } else { ?> <img src="../plugins/images/users/staff-female.png" class="thumb-lg img-circle" > <?php } ?> </a>
+                                        <a href="javascript:void(0)"> <img src="../plugins/images/users/man.png" class="thumb-lg img-circle" >
+                                        </a>
                                         <h4 class="text-white"><?php echo $row["ename"]; ?></h4>
-                                     <!--<h5 class="text-white"><?php echo $row["hemail"]; ?></h5>-->
-                                    </div>
+                                   </div>
                                 </div>
                             </div>
                             <!--<div class="user-btm-box">
@@ -197,11 +201,11 @@ if(isset($_POST['changepw']))
                             <div class="tab-content">
                                 <div class="tab-pane active" id="profile">
                                     <div class="row">
-                                        <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
+                                        <div class="col-md-3 col-xs-6 b-r"> <strong>Event Head Name</strong>
                                             <br>
                                             <p class="text-muted"><?php echo $row["hname"]." ".$row["addname"]; ?></p>
                                         </div>
-                                        <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
+                                        <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile number</strong>
                                             <br>
                                             <p class="text-muted"><?php echo $row["hmob"]; ?></p>
                                         </div>
@@ -211,8 +215,6 @@ if(isset($_POST['changepw']))
                                         </div>
                                         
                                     </div>
-                                    <hr class="m-t-10 m-b-10">
-                                   
                                     
                                 </div>
                                 
@@ -222,43 +224,61 @@ if(isset($_POST['changepw']))
                               
                               
                          		<div class="row">
-                                	<div class="col-md-6">
+                                	<div class="col-md-12">
                                        <div class="form-group">
-                                        	 <label class="control-label">Event Head Name</label>
+                                        	 <label class="control-label">Event Name</label>
 											<div class="col-sm-12 p-l-0">
 												<div class="input-group">
 													<!--<div class="input-group-addon">Dr.</div>-->
-													<input type="text" name="fname" class="form-control" id="fname" placeholder="Enter your first name" value="<?php echo $row["hname"]." ".$row["addname"]; ?>" required>
+													<input type="text" name="ename" class="form-control" id="ename" placeholder="Enter your event name" value="<?php echo $row["ename"]; ?>">
 													<!--onKeyUp="copyTextValue();"-->
 												</div>
 											</div>
                                          </div>
                                     </div>
-                                    <!--/span
-									 <div class="col-md-6">
+                                    <!--/span-->
+									 <div class="col-md-12">
 										  <div class="form-group">
-											   <label class="control-label">Last Name</label>
-											   <input type="text" name="lname" id="lastName" class="form-control" placeholder="Enter your last name" value="<?php echo $row["lname"]; ?>" required>
+											   <label class="control-label">Event Description</label>
+                                              <div class="col-sm-12 p-l-0">
+											   <textarea type="text" name="edesc" id="edesc" class="form-control" placeholder="Enter your event description" ><?php echo $row["edesc"]; ?></textarea>
 											   <!--<span class="help-block"> This field has error. </span>-->
+                                         </div>
 										   </div>
 									 </div>
                                     <!--/span-->
                                  </div>
                                
                                 <div class="form-group">
-                                    <label for="inputName1" class="control-label">Username</label>
-                                    <input type="text" class="form-control" autocomplete="off" id="username" name="username" placeholder="Username is used to login" value="<?php echo $row["husername"]; ?>" required>
-                                    <!-- username check start -->
+                                    <label for="inputName1" class="control-label">Event Rounds</label>
+                                     <div class="col-sm-12 p-l-0">
+                                    <textarea type="text" class="form-control" autocomplete="off" id="erounds" name="erounds" placeholder="Enter your event rounds"><?php echo $row["erounds"]; ?></textarea>
+                                         </div>
+                                    <!-- username check start
 										<div>
 										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
 										<span id="usernameResult" style="color: #E40003"></span>
 										</div>
 				                     <!-- username check end -->
                                 </div>
+                                 
+                                       <div class="form-group">
+                                        	 <label class="control-label">Event Head Name</label>
+											<div class="col-sm-12 p-l-0">
+												<div class="input-group">
+													<!--<div class="input-group-addon">Dr.</div>-->
+													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter your event head name" value="<?php echo $row["hname"]." ".$row["addname"]; ?>">
+													<!--onKeyUp="copyTextValue();"-->
+												</div>
+											</div>
+                                         </div>
+                                    
                                 <div class="form-group">
                                     <label for="inputEmail" class="control-label">Email</label>
-                                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo $row["hemail"]; ?>" data-error="This email address is invalid" required>
+                                    <div class="col-sm-12 p-l-0">
+                                    <input type="email" name="hemail" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo $row["hemail"]; ?>" data-error="This email address is invalid" required>
                                     <div class="help-block with-errors"></div>
+                                    </div>
                                 </div>
                                 <!--<div class="form-group">
                                     <label class="col-sm-12 p-l-0">Gender</label>
@@ -284,11 +304,26 @@ if(isset($_POST['changepw']))
                                 
                                 <div class="form-group">
                                     <label for="example-phone">Mobile number</span>
+                                    
+                                    
+                                    
                                     </label>
-                                    
-                                        <input type="text" required id="example-phone" name="phone" class="form-control" placeholder="enter your phone number" data-mask="(999) 999-9999" value="<?php echo $row["hmob"]; ?>">
-                                    
+                                    <div class="col-sm-12 p-l-0">
+                                        <input type="text" required id="example-phone" name="hmob" class="form-control" placeholder="enter your mobile number" data-mask="(999) 999-9999" value="<?php echo $row["hmob"]; ?>">
+                                 </div>
                                 </div>
+                                   <div class="form-group">
+                                    <label for="inputName1" class="control-label">Username</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="username" name="husername" placeholder="Username is used to login" value="<?php echo $row["husername"]; ?>" required>
+                                    <!-- username check start -->
+										<div>
+										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
+										<span id="usernameResult" style="color: #E40003"></span>
+										</div>
+				                     <!-- username check end -->
+                                </div>
+                                
+                                
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 <button class="btn btn-success" name="updateprofile">Update Profile</button>

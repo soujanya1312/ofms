@@ -3,17 +3,17 @@ include '../login/accesscontroladmin.php';
 $ausername=$_SESSION['ausername'];
 require('connect.php');
 
-$getpatientcount=mysqli_query($connection,"SELECT * FROM patients WHERE dod IS NULL");
-$pcount=mysqli_num_rows($getpatientcount);
+//$getpatientcount=mysqli_query($connection,"SELECT * FROM patients WHERE dod IS NULL");
+//$pcount=mysqli_num_rows($getpatientcount);
 
-$getdoccount=mysqli_query($connection,"SELECT * FROM doctors");
-$dcount=mysqli_num_rows($getdoccount);
+//$getdoccount=mysqli_query($connection,"SELECT * FROM doctors");
+//$dcount=mysqli_num_rows($getdoccount);
 
-$getstaffcount=mysqli_query($connection,"SELECT * FROM staffs");
-$scount=mysqli_num_rows($getstaffcount);
+//$getstaffcount=mysqli_query($connection,"SELECT * FROM staffs");
+//$scount=mysqli_num_rows($getstaffcount);
 
-$getwardcount=mysqli_query($connection,"SELECT * FROM wards WHERE status='0'");
-$wcount=mysqli_num_rows($getwardcount);
+//$getwardcount=mysqli_query($connection,"SELECT * FROM wards WHERE status='0'");
+//$wcount=mysqli_num_rows($getwardcount);
 ?>
 <!DOCTYPE html>
 <!--
@@ -146,7 +146,7 @@ $wcount=mysqli_num_rows($getwardcount);
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD FACULTY-INCHARGE</b></h4>
+									<h4><b>ADD EVENT DETAILS</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>

@@ -12,7 +12,7 @@
 				</div>-->
 				<!-- / Search input-group this is only view in mobile-->
 			</li>
-			<!-- User profile-->
+			<!-- User profihle-->
 			<li class="user-pro">
 				<a href="#" class="waves-effect"><img src="../plugins/images/users/user(2).png" alt="user-img" class="img-circle"> <span class="hide-menu"><?php echo $ausername; ?><span class="fa arrow"></span></span>
 				</a>
@@ -29,7 +29,7 @@
 			<!---DNS Added Dashboard menu --->
 			<li> <a href="index.php" class="waves-effect text-white"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Dashboard</span></a> </li>
 
-			<!---DNS Added Staff menu --->
+			<!---DNS Added Staff menu 
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-group p-r-10"></i> <span class="hide-menu"> Staffs <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="add-staff.php">Add Staff</a> </li>
@@ -40,8 +40,8 @@
 			<!---PNB Added Doctors menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Event Heads <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-ehead.php">Add Event heads </a> </li>
-					<li> <a href="view-ehead.php">View Event heads </a> </li>
+					<li> <a href="add-events.php">Add Event heads </a> </li>
+					<li> <a href="view-eventheads.php">View Event heads </a> </li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
@@ -52,7 +52,7 @@
 					<li> <a href="edit-clgregis.php">Unconfirmed Colleges</a> </li>
 				</ul>
 			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-schedule.php">View Schedule</a> </li>
 					<li> <a href="edit-schedule.php">Edit Schedule</a> </li>
@@ -85,4 +85,4 @@
 		</ul>
 	</div>
 </div>
-<!-- Left navbar-sidebar end -->
+<!-- Left navbar-sidebar end --> 
