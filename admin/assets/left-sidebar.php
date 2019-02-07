@@ -17,7 +17,7 @@
 				<a href="#" class="waves-effect"><img src="../plugins/images/users/user(2).png" alt="user-img" class="img-circle"> <span class="hide-menu"><?php echo $ausername; ?><span class="fa arrow"></span></span>
 				</a>
 				<ul class="nav nav-second-level">
-					<li><a href="my-profile.php"><i class="ti-user"></i> My Profile</a></li>
+					<li><a href="my-profile1.php"><i class="ti-user"></i> My Profile</a></li>
 					<!-- <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li> -->
@@ -47,6 +47,7 @@
 			<!---PNB Added Patient menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> College Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
+                    <li> <a href="view-participants.php">view participants</a> </li>
 					<li> <a href="view-clgregis.php">Confirmed Colleges</a> </li>
 					<li id="hidden-item" style="display: none"><a href="edit-patient-profile.php">Patient Profile</a></li>
 					<li> <a href="edit-clgregis.php">Unconfirmed Colleges</a> </li>
@@ -58,12 +59,20 @@
 					<li> <a href="edit-schedule.php">Edit Schedule</a> </li>
 				</ul>
 			</li>
+            
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Scoresheet <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="add-scoresheet.php">Add Scoresheet</a> </li>
 					<li> <a href="edit-scoresheet.php">Edit Scoresheet</a> </li>
 				</ul>
 			</li>
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Admin <span class="fa arrow"></span></span></a>
+				<ul class="nav nav-second-level">
+					<li> <a href="view-admin.php">view admin</a> </li>
+				
+				</ul>
+			</li>
+            
 			<!--<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-file-text p-r-10"></i> <span class="hide-menu">INDOX <span class="fa arrow"></span></span></a>
@@ -86,3 +95,4 @@
 	</div>
 </div>
 <!-- Left navbar-sidebar end --> 
+>

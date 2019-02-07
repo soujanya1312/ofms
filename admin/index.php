@@ -1,6 +1,6 @@
 <?php
 include '../login/accesscontroladmin.php';
-$ausername=$_SESSION['ausername'];
+$ausername=$_SESSION['admin'];
 require('connect.php');
 
 //$getpatientcount=mysqli_query($connection,"SELECT * FROM patients WHERE dod IS NULL");
