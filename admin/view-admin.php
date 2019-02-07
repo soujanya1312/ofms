@@ -16,8 +16,8 @@ $ausername=$_SESSION['ausername'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AlphaCare Online Hospital Management System">
-    <meta name="author" content="Dhanush KT, Nishanth Bhat">
+    <meta name="description" content="Online Fest Management System">
+    <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
 </head>
@@ -87,14 +87,14 @@ $ausername=$_SESSION['ausername'];
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT a_id, username, email FROM admin";
+												$sql = "SELECT aid, ausername, aemail FROM admin";
 												$result = mysqli_query($connection, $sql);
 												foreach($result as $key=>$result)
 												{ ?>
 													<tr> 
 														<td> <?php echo $key+1; ?> </td>
-														<td> <?php echo $result["username"]; ?> </td>
-														<td> <?php echo $result["email"]; ?> </td>
+														<td> <?php echo $result["ausername"]; ?> </td>
+														<td> <?php echo $result["aemail"]; ?> </td>
 														<td class="text-nowrap">
 															<a data-original-title="Edit" data-toggle="modal" data-target="#responsive-modal" > <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
 															<a data-toggle="modal" data-target="#responsive-modal" data-original-title="Delete"><i class="fa fa-close text-danger"></i> </a>
