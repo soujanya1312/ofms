@@ -2,26 +2,23 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
-$id = $_GET['pid'];
-$confirmquery="SELECT * from participants";
-$getresult=mysqli_query($connection,$confirmquery);
-$pointrow=mysqli_fetch_row($getresult);
-//$id = $_GET['id'];
-//$getapointquery="SELECT *,doctors.fname,doctors.lname,doctors.specialist FROM appointments INNER JOIN doctors ON appointments.doc_id = doctors.doc_id WHERE ap_token='$id'";
-//$getapointresult = mysqli_query($connection, $getapointquery);
-//$apointrow = mysqli_fetch_assoc($getapointresult);
+
+$id = $_GET['id'];
+$getapointquery="SELECT pclgname,paddress,pemail,pmob,teamcode FROM participants WHERE pid='$id'";
+$getapointresult = mysqli_query($connection, $getapointquery);
+$apointrow = mysqli_fetch_assoc($getapointresult);
 
 if (isset($_POST['apupdate']))
 	{
 		$apointstatus=mysqli_real_escape_string($connection,$_POST['apstatus']);
-		if($apointstatus=='Confirmed')
+		if($apointstatus=='Confirm Registration')
 		{
-			$apointtime=mysqli_real_escape_string($connection,$_POST['teamcode']);
-			$updatequery="UPDATE participants SET status='$apointstatus'";
+			$teamname=mysqli_real_escape_string($connection,$_POST['tname']);
+			$updatequery="UPDATE appointments SET teamcode='$teamname' WHERE pid='$id'";
 			$updateresult=mysqli_query($connection,$updatequery);
 			if($updateresult)
 			{
-				$smsg="Registraion Confirmed! please do wait for the email";
+				$smsg="REGISTRATION INFORMATION UPDATED";
 				echo'<script>window.history.go(-2);</script>';
 			}
 			else
@@ -29,13 +26,13 @@ if (isset($_POST['apupdate']))
 				$fmsg=mysqli_error($connection);
 			}
 		}
-		elseif($apointstatus==' Registraion Cancelled')
+		elseif($apointstatus=='Cancelled')
 		{
-			$updatequery="UPDATE participants SET status='$apointstatus'";
+			$updatequery="UPDATE participants SET teamcode='$apointstatus' WHERE pid='$id'";
 			$updateresult=mysqli_query($connection,$updatequery);
 			if($updateresult)
 			{
-				$smsg="Registraion Confirmed! please do wait for the email";
+				$smsg="YOUR REGISTRATION IS CANCELLED";
 				echo'<script>window.history.go(-2);</script>';
 			}
 			else
@@ -104,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Edit Medical Details</h4>
+                        <h4 class="page-title">Participants Details</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <a href="../index.html" target="_blank" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Home</a>
@@ -118,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-info">
-                            <div class="panel-heading">Confirm College Participation</div>
+                            <div class="panel-heading">Process Team Participation</div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
                                    <?php if(isset($fmsg)) { ?>
@@ -136,21 +133,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                    
                                     <form method="post" data-toggle="validator">
                                         <div class="form-body">
-                                            <h3 class="box-title">College Information</h3>
+                                            <h3 class="box-title">Participating College Information</h3>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label class="control-label"> Participant Name</label>
-                                                        <input readonly type="text" id="Name" name="pname" class="form-control" required value="?php //echo $apointrow["pname"]; ?>">
+                                                        <label class="control-label">College Name</label>
+                                                        <input readonly type="text" id="Name" name="mname" class="form-control" required value="<?php echo $apointrow["pclgname"]; ?>">
                                                      </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
 												<div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label class="control-label">Participant Email</label>
-                                                        <input readonly type="email" id="brand" class="form-control" value="<?php echo $apointrow["pemail"]; ?>">
+                                                        <label class="control-label">College Address</label>
+                                                        <input readonly type="text" id="Name" name="cadd" class="form-control" required value="<?php echo $apointrow["paddress"]; ?>">
                                                      </div>
                                                 </div>
 												
@@ -166,70 +161,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												<div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Mobile No</label>
-                                                        <input readonly type="tel" id="description" name="mdescrip" class="form-control" placeholder="" value="<?php echo $apointrow["pmob"]; ?>">
+                                                        <input readonly type="tel" id="description" name="pmob" class="form-control" placeholder="" value="<?php echo $apointrow["pmob"]; ?>">
                                                     </div>
                                                 </div>
-                                            </div>
-												<!--<div class="col-md-6">
+												<div class="col-md-6">
 													<div class="form-group">
-														<label class="control-label" for="inputdose">Date of birth</label>
-														<input type="text" class="form-control" id="inputdose" readonly value="<?php $dateb=$apointrow['dob'];
-														$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
-														$dobc = $myDateTime->format('d-m-Y');  echo $dobc; ?>">
-													 </div>
-												</div>-->
-											
-											
-											<div class="row">
-												<div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label class="control-label">College Name</label>
-                                                        <input readonly type="text" id="brand" class="form-control" value="<?php echo $apointrow["pclgname"]; ?>">
-                                                     </div>
-                                                </div>
-                                                
-                                                <!--/span-->
-                                            </div>
-                                            <div class="row">
-												<div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label class="control-label">College Address</label>
-                                                        <input readonly type="text" id="brand" class="form-control" value="<?php echo $apointrow["pcaddress"]; ?>">
-                                                     </div>
-                                                </div>
-                                                
-                                                <!--/span-->
-                                            </div>
-											<div class="row">
-												
-												<div class="col-md-4">
-													<div class="form-group">
-														<label class="control-label">College State</label>
-                                                        <input readonly type="text" id="brand" class="form-control" value="<?php echo $apointrow["pstate"]; ?>">
+														  <label class="control-label">Email ID</label>
+                                                        <input readonly type="email" id="description" name="pemail" class="form-control" placeholder="" value="<?php echo $apointrow["pemail"]; ?>">
 													 </div>
 												</div>
-												<div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">College City</label>
-                                                        <input readonly type="text" id="brand" class="form-control" value="<?php echo $apointrow["pcity"]; ?>">
-                                                    </div>
-                                                </div>
-                                               <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">College Pincode</label>
-                                                        <input readonly type="text" id="brand" class="form-control" value="<?php echo $apointrow["pincode"]; ?>">
-                                                    </div>
-                                                </div> 
 											</div>
+											
+										
 											<div class="row">
 												<div class="col-md-6">
 												   <div class="form-group">
-													<label class="control-label">College Status</label>
+													<label class="control-label">Participation Status</label>
 													<div class="radio-list">
 														<label class="radio-inline p-0">
 															<div class="radio radio-info">
 																<input onClick="document.getElementById('time').disabled = false;" type="radio" name="apstatus" id="radio1" value="Scheduled" checked>
-																<label for="radio1">Confirmed</label>
+																<label for="radio1">Confirm Registration</label>
 															</div>
 														</label>
 														<label class="radio-inline">
@@ -243,15 +195,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												</div>
 												<div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">Pick a team name for he college</label>
-                                                        <input required type="text" id="brand" class="form-control"  name="teamcode">
+                                                        <label class="control-label">Pick a team name</label>
+                                                        <input type="text" id="description" name="tname" class="form-control" placeholder="Enter a teamcode" value="<?php echo $apointrow["teamcode"]; ?>">
                                                      </div>
                                                 </div>
 											</div>
                                             <!--/row-->
                                         </div>
                                         <div class="form-actions">
-                                            <button type="submit" name="apupdate" class="btn btn-success"> <i class="fa fa-check"></i> Confirm College Registraion</button>
+                                            <button type="submit" name="apupdate" class="btn btn-success"> <i class="fa fa-check"></i> Update</button>
                                         </div>
                                     </form>
                                 </div>
