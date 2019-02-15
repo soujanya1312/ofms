@@ -48,9 +48,7 @@
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> College Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
                     <li> <a href="view-participants.php">view participants</a> </li>
-					<li> <a href="view-clgregis.php">Confirmed Colleges</a> </li>
-					<li id="hidden-item" style="display: none"><a href="edit-patient-profile.php">Patient Profile</a></li>
-					<li> <a href="edit-clgregis.php">Unconfirmed Colleges</a> </li>
+					<li> <a href="view-colleges.php">Colleges Registered</a> </li>	
 				</ul>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
@@ -69,10 +67,10 @@
             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Admin <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-admin.php">view admin</a> </li>
-				
+				    <li> <a href="add-admin.php">add admin</a> </li>
 				</ul>
 			</li>
-            
+           
 			<!--<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-file-text p-r-10"></i> <span class="hide-menu">INDOX <span class="fa arrow"></span></span></a>
@@ -95,4 +93,4 @@
 	</div>
 </div>
 <!-- Left navbar-sidebar end --> 
->
+>>>
