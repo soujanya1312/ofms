@@ -1,12 +1,12 @@
 <?php
 include '../login/accesscontroladmin.php';
 require('connect.php');
-$ausername=$_SESSION['ausername'];
+$ausername=$_SESSION['admin'];
 
 if(isset($_POST['CancelApt']))
 {
 	$gettokenno=$_POST['CancelAptVal'];
-	$updateoncalcel="UPDATE appointments SET status='Cancelled' WHERE ap_token='$gettokenno' ";
+	$updateoncalcel="UPDATE participants SET status='Cancelled' WHERE pid='$gettokenno' ";
 	$updateoncalcelresult=mysqli_query($connection,$updateoncalcel);
 	if($updateoncalcelresult)
 	{
@@ -16,7 +16,7 @@ if(isset($_POST['CancelApt']))
 if(isset($_POST['AttendedBtn']))
 {
 	$gettokenno=$_POST['CancelAptVal'];
-	$updateoncalcel="UPDATE appointments SET status='Attended' WHERE ap_token='$gettokenno' ";
+	$updateoncalcel="UPDATE participants SET status='registraion confirmed' WHERE pid='$gettokenno' ";
 	$updateoncalcelresult=mysqli_query($connection,$updateoncalcel);
 	if($updateoncalcelresult)
 	{
@@ -36,8 +36,8 @@ if(isset($_POST['AttendedBtn']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AlphaCare Online Hospital Management System">
-    <meta name="author" content="Dhanush KT, Nishanth Bhat">
+    <meta name="description" content="Online Fest Management System">
+    <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
 </head>
@@ -56,7 +56,7 @@ if(isset($_POST['AttendedBtn']))
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Appointments</h4>
+                        <h4 class="page-title">Registered Colleges</h4>
                     </div>
                     <!-- /.page title -->
                     <!-- .breadcrumb -->
@@ -95,20 +95,19 @@ if(isset($_POST['AttendedBtn']))
                                 <div class="sttabs tabs-style-bar">
                                     <nav>
                                         <ul>
-                                            <li><a href="#section-bar-1" class="sticon ti-reload"><span>In Process</span></a></li>
-                                            <li><a href="#section-bar-2" class="sticon ti-time"><span>Scheduled</span></a></li>
-                                            <li><a href="#section-bar-3" class="sticon ti-check-box"><span>Attended</span></a></li>
-                                            <li><a href="#section-bar-4" class="sticon ti-na"><span>Cancelled</span></a></li>
+                                            <li><a href="#section-bar-1" class="sticon ti-reload"><span>Registered</span></a></li>
+                                            <li><a href="#section-bar-2" class="sticon ti-time"><span>Confirmed</span></a></li>
+                                            <li><a href="#section-bar-3" class="sticon ti-na"><span>Cancelled</span></a></li>
                                             
                                         </ul>
                                     </nav>
                                     <div class="content-wrap">
 										
                                         <section id="section-bar-1">
-											<h2 class="visible-xs">In Process</h2> 
+											<h2 class="visible-xs">Registered</h2> 
 											<div class="row p-0">
 								<?php
-									$getapointquery = "SELECT *,doctors.fname,doctors.lname,doctors.specialist FROM appointments INNER JOIN doctors ON appointments.doc_id = doctors.doc_id WHERE status='In Process' ORDER BY doa ASC ";
+									$getapointquery = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants";
 									$getapointresult = mysqli_query($connection, $getapointquery);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -116,20 +115,16 @@ if(isset($_POST['AttendedBtn']))
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 text-center ">
-                                    <a href="process-appointment.php?id=<?php echo $getapointresult["ap_token"]; ?>"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
+                                    <a href="confirm-colleges.php?id=<?php echo $getapointresult["teamcode"]; ?>"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
                                 </div> 
-                                <div class="col-md-8 col-sm-8">
-									<h5 class="box-title m-b-0"># <?php echo $getapointresult["ap_token"]; ?> </h5>
-                                    <h3 class="box-title m-b-0"><?php echo $getapointresult["name"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
+                                <div class="col-md-8 col-sm-8 >
+                                    <h3 class="box-title m-b-0"><?php echo $getapointresult["pclgname"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
                                     <p class="p-0">
-										<!--<a href="mailto:<?php // echo $getapointresult["email"]; ?>"> <?php // echo $getapointresult["email"]; ?> </a> <br> --->
-										<i class="fa fa-calendar"></i><?php $datea=$getapointresult['doa'];
-										$myDateTime = DateTime::createFromFormat('Y-m-d', $datea);
-										$doac = $myDateTime->format('d-m-Y');  echo ' '.$doac; ?> <br>
-										<i class="fa fa-user-md"></i><?php echo ' Dr. '.$getapointresult["fname"].' '.$getapointresult["lname"]; ?> <br>
-										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["phno"]; ?> <br>
+										<a href="mailto:<?php echo $getapointresult["pemail"]; ?>"> <?php  echo $getapointresult["pemail"]; ?> </a> <br> 
+										<i class="fa fa-user-md"></i><?php echo $getapointresult["pname"]; ?> <br>
+										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
 										
-										<a href="process-appointment.php?id=<?php echo $getapointresult["ap_token"]; ?>" class="fcbtn btn btn-info bootpopup" >Schedule/Cancel</a>
+										<a href="confirm-colleges.php?id=<?php echo $getapointresult["id"]; ?>" class="fcbtn btn btn-info bootpopup" >Schedule/Cancel</a>
 										<!--<a href="#" class="fcbtn btn btn-danger model_img deleteDoctor" data-id="<?php // echo $result["doc_id"]; ?>" id="deleteDoc">Delete</a>-->
 									    
                                     </p>
@@ -146,11 +141,11 @@ if(isset($_POST['AttendedBtn']))
                                         </section>
 										
                                         <section id="section-bar-2">
-                                            <h2 class="visible-xs">Scheduled</h2> 
+                                            <h2 class="visible-xs">Confirmed</h2> 
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery2 = "SELECT *,doctors.fname,doctors.lname,doctors.specialist FROM appointments INNER JOIN doctors ON appointments.doc_id = doctors.doc_id WHERE status='Scheduled' ORDER BY doa ASC ";
+									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants";
 									$getapointresult = mysqli_query($connection, $getapointquery2);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -161,22 +156,20 @@ if(isset($_POST['AttendedBtn']))
                                     <a href="#"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
                                 </div> 
                                 <div class="col-md-8 col-sm-8">
-									<h5 class="box-title m-b-0"># <?php echo $getapointresult["ap_token"]; ?> </h5>
-                                    <h3 class="box-title m-b-0"><?php echo $getapointresult["name"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
+									<!--<h5 class="box-title m-b-0"># <?php echo $getapointresult["pid"]; ?> </h5>-->
+                                    <h3 class="box-title m-b-0"><?php echo $getapointresult["pclgname"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
                                     <p class="p-0">
-										<!--<a href="mailto:<?php // echo $getapointresult["email"]; ?>"> <?php // echo $getapointresult["email"]; ?> </a> <br> --->
-										<i class="fa fa-calendar"></i><?php $datea=$getapointresult['doa'];
-										$myDateTime = DateTime::createFromFormat('Y-m-d', $datea);
-										$doac = $myDateTime->format('d-m-Y');  echo ' '.$doac.' '; ?> <i class="fa fa-clock-o"></i><?php $gettime=$getapointresult['time']; echo ' '.date('h:i a', strtotime($gettime));  ?> <br>
-										<i class="fa fa-user-md"></i><?php echo ' Dr. '.$getapointresult["fname"].' '.$getapointresult["lname"]; ?> <br>
-										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["phno"]; ?> <br>
+										<a href="mailto:<?php  echo $getapointresult["pemail"]; ?>"> <?php echo $getapointresult["pemail"]; ?> </a> <br> 
+								
+										<i class="fa fa-user-md"></i><?php echo$getapointresult["pname"]; ?> <br>
+										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
 		
                                     </p>
-									<!--change the confirmation message-->
+									<!--change the confirmation message
 									<form method="post" onsubmit="return confirm('Do you really want to submit?');" class="m-b-0">
 										<input type="hidden" name="CancelAptVal" value="<?php echo $getapointresult['ap_token']; ?>">
 										<button type="submit" name="AttendedBtn" class="fcbtn btn btn-info" >Attended</button>
-										<button type="submit" name="CancelApt" class="fcbtn btn btn-danger"><i class="fa fa-times"></i> </button> 
+										<button type="submit" name="CancelApt" class="fcbtn btn btn-danger"><i class="fa fa-times"></i> </button> -->
 									</form>
                                 </div>
                             </div>
@@ -191,55 +184,12 @@ if(isset($_POST['AttendedBtn']))
 										</section>
 										
 										
-										
                                         <section id="section-bar-3">
-                                            
-									<h2 class="visible-xs">Attended</h2> 
-										
-										<div class="row p-0">
-								<?php
-									$getapointquery2 = "SELECT *,doctors.fname,doctors.lname,doctors.specialist FROM appointments INNER JOIN doctors ON appointments.doc_id = doctors.doc_id WHERE status='Attended' ORDER BY doa ASC ";
-									$getapointresult = mysqli_query($connection, $getapointquery2);
-									foreach($getapointresult as $key=>$getapointresult)
-								{ ?>
-                <div class="col-md-4 col-sm-4">
-                        <div class="white-box">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <a href="#"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
-                                </div> 
-                                <div class="col-md-8 col-sm-8">
-									<h5 class="box-title m-b-0"># <?php echo $getapointresult["ap_token"]; ?> </h5>
-                                    <h3 class="box-title m-b-0"><?php echo $getapointresult["name"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
-                                    <p class="p-0">
-										<!--<a href="mailto:<?php // echo $getapointresult["email"]; ?>"> <?php // echo $getapointresult["email"]; ?> </a> <br> --->
-										<i class="fa fa-calendar"></i><?php $datea=$getapointresult['doa'];
-										$myDateTime = DateTime::createFromFormat('Y-m-d', $datea);
-										$doac = $myDateTime->format('d-m-Y');  echo ' '.$doac.' '; ?> <i class="fa fa-clock-o"></i><?php $gettime=$getapointresult['time']; echo ' '.date('h:i a', strtotime($gettime));  ?> <br>
-										<i class="fa fa-user-md"></i><?php echo ' Dr. '.$getapointresult["fname"].' '.$getapointresult["lname"]; ?> <br>
-										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["phno"]; ?> <br>
-										
-								
-									    
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  <?php
-					}
-				  ?>
-
-				</div>
-									
-									</section>
-										
-                                        <section id="section-bar-4">
                                             <h2 class="visible-xs">Cancelled</h2> 
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery2 = "SELECT *,doctors.fname,doctors.lname,doctors.specialist FROM appointments INNER JOIN doctors ON appointments.doc_id = doctors.doc_id WHERE status IN ('Cancelled','Cancelled, Doctor unavailable','Cancelled by patient') ORDER BY doa ASC ";
+									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants";
 									$getapointresult = mysqli_query($connection, $getapointquery2);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -250,17 +200,13 @@ if(isset($_POST['AttendedBtn']))
                                     <a href="#"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
                                 </div> -->  
                                 <div class="col-md-8 col-sm-8">
-									<h5 class="box-title m-b-0"># <?php echo $getapointresult["ap_token"]; ?> </h5>
-                                    <h3 class="box-title m-b-0"><?php echo $getapointresult["name"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
+                                    <h3 class="box-title m-b-0"><?php echo $getapointresult["pclgname"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
                                     <p class="p-0">
-										<!--<a href="mailto:<?php // echo $getapointresult["email"]; ?>"> <?php // echo $getapointresult["email"]; ?> </a> <br> --->
-										<i class="fa fa-calendar"></i><?php $datea=$getapointresult['doa'];
-										$myDateTime = DateTime::createFromFormat('Y-m-d', $datea);
-										$doac = $myDateTime->format('d-m-Y');  echo ' '.$doac.' '; ?> <i class="fa fa-clock-o"></i><?php $gettime=$getapointresult['time']; echo ' '.date('h:i a', strtotime($gettime)); ?> <br>
-										<i class="fa fa-user-md"></i><?php echo ' Dr. '.$getapointresult["fname"].' '.$getapointresult["lname"]; ?> <br>
-										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["phno"]; ?> <br>
-									 	<b><?php $status_value = $getapointresult['status']; 
-										 $statusvalue = str_replace('Cancelled,', '', $status_value); echo $statusvalue;  ?>  </b>
+										<a href="mailto:<?php  echo $getapointresult["pemail"]; ?>"> <?php  echo $getapointresult["pemail"]; ?> </a> <br>
+										
+										<i class="fa fa-user-md"></i><?php echo $getapointresult["pname"]?> <br>
+										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
+									 	
                                     </p>
                                 </div>
                             </div>

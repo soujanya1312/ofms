@@ -3,7 +3,7 @@ include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
 
-$id = $_GET['id'];
+$id = $_GET['aid'];
 $getapointquery="SELECT pclgname,paddress,pemail,pmob,teamcode FROM participants WHERE pid='$id'";
 $getapointresult = mysqli_query($connection, $getapointquery);
 $apointrow = mysqli_fetch_assoc($getapointresult);
@@ -154,12 +154,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <!--/span-->
                                             </div>
                                             <!--/row-->
-                                           
+                                    
                                             <!--/row-->
                                             
-											<div class="row">
-												<div class="col-md-6">
-                                                    <div class="form-group">
+				 <div class="row">
+                                                <div class="col-md-6">                
+                                     <div class="form-group">
                                                         <label class="control-label">Mobile No</label>
                                                         <input readonly type="tel" id="description" name="pmob" class="form-control" placeholder="" value="<?php echo $apointrow["pmob"]; ?>">
                                                     </div>
