@@ -16,7 +16,7 @@ if(isset($_POST['CancelApt']))
 if(isset($_POST['AttendedBtn']))
 {
 	$gettokenno=$_POST['CancelAptVal'];
-	$updateoncalcel="UPDATE participants SET status='registraion confirmed' WHERE pid='$gettokenno' ";
+	$updateoncalcel="UPDATE participants SET status='registraion confirmed' WHERE pid='$gettokenno'";
 	$updateoncalcelresult=mysqli_query($connection,$updateoncalcel);
 	if($updateoncalcelresult)
 	{
