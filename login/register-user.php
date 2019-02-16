@@ -99,7 +99,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
 	    	return false;
 		});
 	});
-
+ 
 	function finishAjax(id, response) {
 	  $('#usernameLoading').hide();
 	  $('#'+id).html(unescape(response));
