@@ -54,7 +54,7 @@ $ausername=$_SESSION['admin'];
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title">Importent Instruction</h4>
+                                            <h4 class="modal-title">Important Instruction</h4>
                                         </div>
                                         <div class="modal-body">
                                        	 To Edit Admin information or to delete Admin account you need to login to that admin account and go to "My Profile".
@@ -73,38 +73,38 @@ $ausername=$_SESSION['admin'];
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Participant Information</h3>
+                            <h3 class="box-title">Event Head Information</h3>
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Participant ID</th>
-                                            <th>Participant Name</th>
-                                            <th>College Name</th>
-                                            <th>Email</th>
+                                            <th>SL NO</th>
+                                            <th>Event NAME</th>
+                                            <th>Event Head Name</th>
                                             <th>Mobile Number</th>
-                                            <th class="text-nowrap">Action</th>
+                                            <th>Email</th>
+                                            <th>Event Head Username</th>
+                                            <th>Actions</th>
+                                           <!-- <th class="text-nowrap">Team Code</th>-->
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT pid, pname,pclgname, pemail,pmob FROM participants";
-												$result = mysqli_query($connection, $sql);
+												$sql = "SELECT eid,ename,addname,hname,hmob,hemail,husername  FROM events";
+												$result = mysqli_query($connection,$sql);
 												foreach($result as $key=>$result)
 												{ ?>
 													<tr> 
 														<td> <?php echo $key+1; ?> </td>
-														<td> <?php echo $result["pname"]; ?> </td>
-                                                        <td> <?php echo $result["pclgname"]; ?> </td>
-														<td> <?php echo $result["pemail"]; ?> </td>
-                                                        <td> <?php echo $result["pmob"]; ?> </td>
-														<td class="text-nowrap">
-															<a data-original-title="Edit" data-toggle="modal" data-target="#responsive-modal" > <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-															<a data-toggle="modal" data-target="#responsive-modal" data-original-title="Delete"><i class="fa fa-close text-danger"></i> </a>
-														</td> 
+														<td> <?php echo $result["ename"]; ?> </td>
+                                                       <td> <?php echo $result["hname"]." ".$result["addname"]; ?> </td>
+														<td> <?php echo $result["hmob"]; ?> </td>
+                                                        <td> <?php echo $result["hemail"]; ?> </td>
+                                                         <td> <?php echo $result["husername"]; ?> </td>
+														<td><a class="btn btn-info btn-rounded" href="edit-eventhead-profile.php?id=<?php echo $result['eid']; ?>" target="_blank">Edit</a></td>
 													</tr>
-										  <?php 
+                                        <?php 
 												}
 										  ?>
                                     </tbody>
