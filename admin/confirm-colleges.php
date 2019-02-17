@@ -3,18 +3,18 @@ include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
 
-$id = $_GET['aid'];
-$getapointquery="SELECT pclgname,paddress,pemail,pmob,teamcode FROM participants WHERE pid='$id'";
+$id = $_GET['id'];
+$getapointquery="SELECT pclgname,pcaddress,pemail,pmob,teamcode FROM participants WHERE pid='$id'";
 $getapointresult = mysqli_query($connection, $getapointquery);
 $apointrow = mysqli_fetch_assoc($getapointresult);
 
 if (isset($_POST['apupdate']))
 	{
 		$apointstatus=mysqli_real_escape_string($connection,$_POST['apstatus']);
-		if($apointstatus=='Confirm Registration')
+		if($apointstatus=='confirmed')
 		{
 			$teamname=mysqli_real_escape_string($connection,$_POST['tname']);
-			$updatequery="UPDATE appointments SET teamcode='$teamname' WHERE pid='$id'";
+			$updatequery="UPDATE participants SET teamcode='$teamname' WHERE pid='$id'";
 			$updateresult=mysqli_query($connection,$updatequery);
 			if($updateresult)
 			{
@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												<div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="control-label">College Address</label>
-                                                        <input readonly type="text" id="Name" name="cadd" class="form-control" required value="<?php echo $apointrow["paddress"]; ?>">
+                                                        <input readonly type="text" id="Name" name="cadd" class="form-control" required value="<?php echo $apointrow["pcaddress"]; ?>">
                                                      </div>
                                                 </div>
 												
@@ -180,13 +180,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 													<div class="radio-list">
 														<label class="radio-inline p-0">
 															<div class="radio radio-info">
-																<input onClick="document.getElementById('time').disabled = false;" type="radio" name="apstatus" id="radio1" value="Scheduled" checked>
+																<input onClick="document.getElementById('teamcode').disabled = false;" type="radio" name="apstatus" id="radio1" value="confirmed" checked>
 																<label for="radio1">Confirm Registration</label>
 															</div>
 														</label>
 														<label class="radio-inline">
 															<div class="radio radio-info">
-																<input onClick="document.getElementById('time').disabled = true;" type="radio" name="apstatus" id="radio2" value="Cancelled, Doctor unavailable">
+																<input onClick="document.getElementById('teamcode').disabled = true;" type="radio" name="apstatus" id="radio2" value="Cancelled">
 																<label for="radio2">Cancelled</label>
 															</div>
 														</label>
@@ -195,15 +195,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												</div>
 												<div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">Pick a team name</label>
-                                                        <input type="text" id="description" name="tname" class="form-control" placeholder="Enter a teamcode" value="<?php echo $apointrow["teamcode"]; ?>">
+                                                        <label class="control-label">Enter a team name</label>
+                                                        <input required type="text" id="teamcode" name="tname" class="form-control" placeholder="Enter a teamcode" value="<?php echo $apointrow["teamcode"]; ?>">
                                                      </div>
                                                 </div>
 											</div>
                                             <!--/row-->
                                         </div>
                                         <div class="form-actions">
-                                            <button type="submit" name="apupdate" class="btn btn-success"> <i class="fa fa-check"></i> Update</button>
+                                            <button type="submit" name="apupdate" class="btn btn-success"> <i class="fa fa-check"></i>Update</button>
                                         </div>
                                     </form>
                                 </div>

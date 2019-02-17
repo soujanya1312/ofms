@@ -107,7 +107,7 @@ if(isset($_POST['AttendedBtn']))
 											<h2 class="visible-xs">Registered</h2> 
 											<div class="row p-0">
 								<?php
-									$getapointquery = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants";
+									$getapointquery = "SELECT pid,pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode is NULL";
 									$getapointresult = mysqli_query($connection, $getapointquery);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -115,7 +115,7 @@ if(isset($_POST['AttendedBtn']))
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 text-center ">
-                                    <a href="confirm-colleges.php?id=<?php echo $getapointresult["teamcode"]; ?>"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
+                                    <a href="confirm-colleges.php?id=<?php echo $getapointresult["pid"]; ?>"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
                                 </div> 
                                 <div class="col-md-8 col-sm-8 >
                                     <h3 class="box-title m-b-0"><?php echo $getapointresult["pclgname"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
@@ -124,7 +124,7 @@ if(isset($_POST['AttendedBtn']))
 										<i class="fa fa-user-md"></i><?php echo $getapointresult["pname"]; ?> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
 										
-										<a href="confirm-colleges.php?id=<?php echo $getapointresult["id"]; ?>" class="fcbtn btn btn-info bootpopup" >Schedule/Cancel</a>
+										<a href="confirm-colleges.php?id=<?php echo $getapointresult["pid"]; ?>" class="fcbtn btn btn-info bootpopup" >Confirm/Cancel</a>
 										<!--<a href="#" class="fcbtn btn btn-danger model_img deleteDoctor" data-id="<?php // echo $result["doc_id"]; ?>" id="deleteDoc">Delete</a>-->
 									    
                                     </p>
@@ -145,7 +145,7 @@ if(isset($_POST['AttendedBtn']))
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants";
+									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode is not NULL and teamcode<>'Cancelled'";
 									$getapointresult = mysqli_query($connection, $getapointquery2);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -156,7 +156,7 @@ if(isset($_POST['AttendedBtn']))
                                     <a href="#"><img src="../plugins/images/users/token.png" class="img-circle img-responsive"></a>
                                 </div> 
                                 <div class="col-md-8 col-sm-8">
-									<!--<h5 class="box-title m-b-0"># <?php echo $getapointresult["pid"]; ?> </h5>-->
+									<h5 class="box-title m-b-0"><?php echo 'TEAMCODE : '.' '.$getapointresult["teamcode"]; ?> </h5>
                                     <h3 class="box-title m-b-0"><?php echo $getapointresult["pclgname"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
                                     <p class="p-0">
 										<a href="mailto:<?php  echo $getapointresult["pemail"]; ?>"> <?php echo $getapointresult["pemail"]; ?> </a> <br> 
@@ -189,7 +189,7 @@ if(isset($_POST['AttendedBtn']))
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants";
+									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode='Cancelled'";
 									$getapointresult = mysqli_query($connection, $getapointquery2);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
