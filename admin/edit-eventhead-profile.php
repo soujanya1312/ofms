@@ -14,14 +14,13 @@ if(isset($_POST['updateprofile']))
 	$ename=mysqli_real_escape_string($connection,$_POST['ename']);
     $edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
     $erounds=mysqli_real_escape_string($connection,$_POST['erounds']);
-	$hname=$_POST['hname'].' , ';
-    $hname.=$_POST['addname'];
+	$hname=$_POST['hname'];
     $hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
 	$hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
 	$husername=mysqli_real_escape_string($connection,$_POST['husername']);
     
     
-	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds', hname='$hname',hmob='$hmob' hemail='$hemail',husername='$husername', WHERE eid='$id'";
+	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds', hname='$hname',hmob='$hmob', hemail='$hemail',husername='$husername' WHERE eid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
@@ -33,7 +32,7 @@ if(isset($_POST['updateprofile']))
 	}
 	else
 	{
-		$fmsg="error!";
+		$fmsg="error!".mysqli_error($connection); ;
 	}
 }
 //change password
