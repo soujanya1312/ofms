@@ -42,6 +42,7 @@
 				<ul class="nav nav-second-level">
 					<li> <a href="add-events.php">Add Event heads </a> </li>
 					<li> <a href="view-eventheads.php">View Event heads </a> </li>
+                    <li><a href="view-participants.php">Veiw Event List</a></li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
