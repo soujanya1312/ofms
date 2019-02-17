@@ -163,8 +163,8 @@ $apointrow = mysqli_fetch_assoc($getapointresult);
                             
                             </div>
                                    <CENTER>
-                                       <br><div  class="col-sm-3 p-l-0 btn btn-block btn-outline-success">SAVE</div><BR>
-                                    <div class="col-sm-3 p-l-0 btn btn-block btn-outline-danger">CANCEL</div> 
+                                      <!-- <br><div  class="col-sm-3 p-l-0 btn btn-block btn-outline-success">SAVE</div><BR>
+                                     -->
                                       </CENTER>  
                         </div>
                     </div>
