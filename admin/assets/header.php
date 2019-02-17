@@ -59,5 +59,4 @@
             <!-- /.navbar-header -->
             <!-- /.navbar-top-links -->
             <!-- /.navbar-static-side -->
-        </nav
-        <!-- End Top Navigation -->
+        </nav> <!-- End Top Navigation -->
