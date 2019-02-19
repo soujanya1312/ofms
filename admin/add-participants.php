@@ -16,10 +16,10 @@
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
            {
-             $smsg="Participant Event registration is Completed!, please wait for your confirmation mail";
+             $smsg="Registration is Completed!,please wait for your confirmation email";
           }
      else{
-         $fmsg="Error".mysqli_error($connection);
+         $fmsg="Email already registered";
      }
     }
 
@@ -115,7 +115,7 @@
                     <form data-toggle="validator" method="post">
                               <div class="row">
                                   <div class="col-md-12" >
-                                        <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
+                                        <div class="form-group">
                                         <label class="control-label">Participant Name</label>
 											   <div class="col-sm-12 p-l-0">
 												    <div class="input-group">
@@ -139,8 +139,8 @@
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                         </div>
-                                    </div>
-                                   <div class="row col-md-12">-->
+                                    </div>-->
+                                   <div class="row col-md-12">
                                     <div class="col-md-6">
                                          <div class="form-group">
                                               <label class="control-label">Mobile number</label>
@@ -148,7 +148,7 @@
 								              <div class="help-block with-errors"></div>
                                          </div>
                                     </div>
-                                     <!--/span-->
+                                
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Email</label>
@@ -156,8 +156,7 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                     <!--/span
-                                 </div>-->
+                                 </div>
                                    <div class="col-md-12" >
                                         <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
                                         <label class="control-label">College Name</label>
