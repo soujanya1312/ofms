@@ -2,7 +2,7 @@
  if(isset($_POST['pregister']))
     {
        
-        $pname=mysqli_real_escape_string($connection,$_POST['pname']);
+        $pname=mysqli_real_escape_string($connection,$_POST['pusername']);
         $cmob=mysqli_real_escape_string($connection,$_POST['pmob']);
         $cemail=mysqli_real_escape_string($connection,$_POST['pemail']);
         $cname=mysqli_real_escape_string($connection,$_POST['cname']);
@@ -12,7 +12,7 @@
         $cstate=mysqli_real_escape_string($connection,$_POST['cstate']);
         $cpincode=mysqli_real_escape_string($connection,$_POST['cpincode']);
 
-        $query1="INSERT INTO `participants`(pname,pemail,pmob,pclgname,pcaddress,pstate,pcity,pincode) VALUES ('$pname', '$cemail','$cmob','$cname','$caddress','$city','$cstate','$cpincode')";
+        $query1="INSERT INTO `participants`(pusername,pemail,pmob,pclgname,pcaddress,pstate,pcity,pincode) VALUES ('$pname', '$cemail','$cmob','$cname','$caddress','$city','$cstate','$cpincode')";
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
            {
@@ -116,10 +116,10 @@
                               <div class="row">
                                   <div class="col-md-12" >
                                         <div class="form-group">
-                                        <label class="control-label">Participant Name</label>
+                                        <label class="control-label">Participant Username Name</label>
 											   <div class="col-sm-12 p-l-0">
 												    <div class="input-group">
-													     <input type="text" name="pname" class="form-control" id="pname" placeholder="Enter your name" required >
+													     <input type="text" name="pusername" class="form-control" id="pusername" placeholder="Enter participant user name" required >
 												    </div>
 											  </div>
                                         </div>
