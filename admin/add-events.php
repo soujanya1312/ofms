@@ -8,6 +8,7 @@ if (isset($_POST['eventheadsubmit']))
 		$ename=mysqli_real_escape_string($connection,$_POST['ename']);
 		$edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
 		$erounds= mysqli_real_escape_string($connection,$_POST['erounds']);
+        $participants=mysqli_real_escape_string($connection,$_POST['participants']);
 		$hname=mysqli_real_escape_string($connection,$_POST['hname']).',';
 		$addname=mysqli_real_escape_string($connection,$_POST['addname']);
 		$hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
@@ -33,7 +34,7 @@ if (isset($_POST['eventheadsubmit']))
 			else
 			{
 
-				$query="INSERT INTO `events`(ename,edesc,erounds,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$ename','$edesc','$erounds','$hname','$addname','$hmob','$hemail','$husername',
+				$query="INSERT INTO `events`(ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$ename','$edesc','$erounds', '$participants','$hname','$addname','$hmob','$hemail','$husername',
                 '$password')";
 				$result = mysqli_query($connection, $query);
 				//takes two arguments
@@ -171,6 +172,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                  <div class="form-group">
                                     <label for="inputName1" class="control-label">Event Rounds</label>
                                     <textarea type="text" class="form-control" autocomplete="off" id="erounds" name="erounds" placeholder="Enter event round description" required></textarea>
+                                    <!-- username check start 
+										<div>
+										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
+										<span id="usernameResult" style="color: #E40003"></span>
+										</div>
+				                     <!-- username check end -->
+                                </div>
+                                
+                                 <div class="form-group">
+                                    <label for="inputName1" class="control-label">Number of Participants</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="participants" name="participants" placeholder="Enter number of participants" required>
                                     <!-- username check start 
 										<div>
 										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
