@@ -82,6 +82,32 @@
    // }
 }
 	</script>
+   <!-- username check js start -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#usernameLoading').hide();
+		$('#username').keyup(function(){
+		  $('#usernameLoading').show();
+	      $.post("check-participantusername.php", {
+	        username: $('#username').val()
+	      }, function(response){
+	        $('#usernameResult').fadeOut();
+	        setTimeout("finishAjax('usernameResult', '"+escape(response)+"')", 500);
+	      });
+	    	return false;
+		});
+	});
+
+	function finishAjax(id, response) {
+	  $('#usernameLoading').hide();
+	  $('#'+id).html(unescape(response));
+	  $('#'+id).fadeIn();
+	} //finishAjax
+</script>
+<!-- username check js end -->
+        
+    
 </head>
 <body>
     <!-- Preloader -->
@@ -119,7 +145,13 @@
                                         <label class="control-label">Participant Username Name</label>
 											   <div class="col-sm-12 p-l-0">
 												    <div class="input-group">
-													     <input type="text" name="pusername" class="form-control" id="pusername" placeholder="Enter participant user name" required >
+													     <input type="text" autocomplete="off" name="pusername" class="form-control" id="pusername" placeholder="Enter participant user name" required >
+                                                        <!-- username check start -->
+										                   <div>
+										                      <span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
+										                      <span id="usernameResult" style="color: #E40003"></span>
+										                   </div>
+				                                        <!-- username check end -->
 												    </div>
 											  </div>
                                         </div>
