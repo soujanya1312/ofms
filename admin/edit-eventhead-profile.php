@@ -4,7 +4,7 @@ require('connect.php');
 $ausername=$_SESSION['admin'];
 $id = $_GET['id'];
 
-$query="SELECT ename,edesc,erounds,hname,addname,hmob,hemail,husername,hpassword FROM events WHERE eid='$id'";
+$query="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword FROM events WHERE eid='$id'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 
@@ -14,17 +14,18 @@ if(isset($_POST['updateprofile']))
 	$ename=mysqli_real_escape_string($connection,$_POST['ename']);
     $edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
     $erounds=mysqli_real_escape_string($connection,$_POST['erounds']);
+    $noparticipants=mysqli_real_escape_string($connection,$_POST['noparticipant']);
 	$hname=$_POST['hname'];
     $hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
 	$hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
 	$husername=mysqli_real_escape_string($connection,$_POST['husername']);
     
     
-	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds', hname='$hname',hmob='$hmob', hemail='$hemail',husername='$husername' WHERE eid='$id'";
+	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',hmob='$hmob', hemail='$hemail',husername='$husername' WHERE eid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT ename,edesc,erounds,hname,addname,hmob,hemail,husername FROM events WHERE eid='$id'";
+		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername FROM events WHERE eid='$id'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Profile updated successfully!";
@@ -253,14 +254,19 @@ if(isset($_POST['changepw']))
                                      <div class="col-sm-12 p-l-0">
                                     <textarea type="text" class="form-control" autocomplete="off" id="erounds" name="erounds" placeholder="Enter your event rounds"><?php echo $row["erounds"]; ?></textarea>
                                          </div>
-                                    <!-- username check start
-										<div>
-										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
-										<span id="usernameResult" style="color: #E40003"></span>
-										</div>
-				                     <!-- username check end -->
+                                   
                                 </div>
-                                 
+                                  <div class="form-group">
+                                        	 <label class="control-label">Number of Participants</label>
+											<div class="col-sm-12 p-l-0">
+												<div class="input-group">
+													<!--<div class="input-group-addon">Dr.</div>-->
+													<input type="text" name="noparticipant" class="form-control" id="hname" placeholder="Enter number of participants" value="<?php echo $row["participants"];?>">
+													<!--onKeyUp="copyTextValue();"-->
+												</div>
+											</div>
+                                         </div>
+                                    
                                        <div class="form-group">
                                         	 <label class="control-label">Event Head Name</label>
 											<div class="col-sm-12 p-l-0">
