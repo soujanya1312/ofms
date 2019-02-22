@@ -90,7 +90,7 @@ elseif(isset($_SESSION['admin']))
 	
 				
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='view-patients.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='viewevents-participants.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>View Events</b></h3>
 							<ul class="list-inline two-part">

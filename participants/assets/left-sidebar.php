@@ -46,7 +46,7 @@
 			<!---PNB Added Patient menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> Events <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-                    <li> <a href="view-participants.php">view events</a> </li>
+                    <li> <a href="viewevents-participants.php">view events</a> </li>
 						
 				</ul>
 			</li>
