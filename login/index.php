@@ -6,6 +6,7 @@ if (isset($_POST['username']) && isset($_POST['password']))
 		// real eacape sting is used to prevent sql injection hacking
 		$username= mysqli_real_escape_string($connection,$_POST['username']);
 		$password= md5($_POST['password']);
+        $getteamcode=mysqli_real_escape_string($connection,$_POST['password']);
 		//sqll query
 		//double quotes outside so we can use single quotes inside
 		$query="SELECT * FROM `admin` WHERE (ausername='$username' OR aemail='$username')  AND apassword='$password'";
@@ -19,11 +20,8 @@ if (isset($_POST['username']) && isset($_POST['password']))
 			echo'<script> window.location="../admin/index.php";</script>';
 			
 		}
-		else
-		//{
-			//echo "Invalid Username/Password";
-		//}
-		 {
+		else 
+        {
 		$queryd="SELECT * FROM `events` WHERE (husername='$username' OR hemail='$username') AND hpassword='$password'";
 		$resulth = mysqli_query($connection,$queryd);
 		$rowh = mysqli_fetch_assoc($resulth);
@@ -39,8 +37,31 @@ if (isset($_POST['username']) && isset($_POST['password']))
 			//header('Location: index.html');
 			
 		}
-	
+        else 
+     {
+		
+        $queryp="SELECT * FROM `participants` WHERE (pusername='$username') AND teamcode='$getteamcode'";
+		$resultp = mysqli_query($connection,$queryp);
+		$rows = mysqli_fetch_assoc($resultp);
+		$countp = mysqli_num_rows($resultp);
+		if($countp==1)
+		{
+			$_SESSION['pusername'] = $rows["pusername"];
+			// alternative redirect (die() should be there)
+			// echo "<script>location.href='target-page.php';</script>";
+			//define('BASEPATH',TRUE);
+			//<script type="text/javascript">location.href = 'newurl';</script>
+			echo'<script> window.location="../participants/index.php";</script>';
+			//header('Location: index.html');
+			
+		}
+        else
+        {
+            $fmsg="Error1".mysqli_error($connection);
+        }
      }
+  }
+    
 }
 
 
