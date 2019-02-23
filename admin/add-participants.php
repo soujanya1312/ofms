@@ -1,4 +1,4 @@
-<?php                                                                                        require("connect.php");
+<?php                                                                          require("connect.php");
  if(isset($_POST['pregister']))
     {
        
@@ -31,8 +31,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Online Fest Management System">
+    <meta name="author" content="Soujanya M">
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
     <title>OFMS</title>
     <!-- Bootstrap Core CSS -->
@@ -142,17 +142,17 @@
                               <div class="row">
                                   <div class="col-md-12" >
                                         <div class="form-group">
-                                        <label class="control-label">Participant Username Name</label>
+                                        <label class="control-label">Username Name</label>
 											   <div class="col-sm-12 p-l-0">
 												    <div class="input-group">
-													     <input type="text" autocomplete="off" name="pusername" class="form-control" id="pusername" placeholder="Enter participant user name" required >
-                                                        <!-- username check start -->
+													     <input type="text" autocomplete="off" name="pusername" class="form-control" id="username" placeholder="Enter participant user name" required >
+												    </div>
+                                                   <!-- username check start -->
 										                   <div>
 										                      <span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
 										                      <span id="usernameResult" style="color: #E40003"></span>
 										                   </div>
 				                                        <!-- username check end -->
-												    </div>
 											  </div>
                                         </div>
                                 </div>

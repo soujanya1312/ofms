@@ -2,7 +2,7 @@
 require_once('connect.php');
 if(isset($_POST) & !empty($_POST))
 {
-	$username = mysqli_real_escape_string($connection, $_POST['pusername']);
+	$username = mysqli_real_escape_string($connection, $_POST['username']);
 	$sql = "SELECT * FROM `participants` WHERE pusername='$username'";
 	$result = mysqli_query($connection, $sql);
 	$count = mysqli_num_rows($result);
