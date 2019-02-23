@@ -13,17 +13,21 @@ if(isset($_POST['updateprofile']))
 {
 	$username= mysqli_real_escape_string($connection,$_POST['username']);
 	$email=mysqli_real_escape_string($connection,$_POST['email']);
-	
-	$uquery="UPDATE admin SET ausername='$username', aemail='$email' WHERE aid='$id'";
+	$collegename=mysqli_real_escape_string($connection,$_POST['college']);
+    $mobile=mysqli_real_escape_string($connection,$_POST['mob']);
+    $state=mysqli_real_escape_string($connection,$_POST['state']);
+    $city=mysqli_real_escape_string($connection,$_POST['city']);
+    
+	$uquery="UPDATE participants SET pusername='$username', pemail='$email' ,pclgname='$collegename',pmob='$mobile',pstate='$state',pcity='$city'WHERE pid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT ausername, aemail FROM admin WHERE aid='$id'";
+		$squery="SELECT pusername, pemail,pclgname,pmob,pstate,pcity FROM participants WHERE pid='$id'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Profile updated successfully!";
-		$_SESSION['admin']=$row['ausername'];
-		$ausername=$_SESSION['admin'];
+		$_SESSION['pusername']=$row['pusername'];
+		$ausername=$_SESSION['pusername'];
 		
 
 	}
@@ -35,11 +39,11 @@ if(isset($_POST['updateprofile']))
 //change password
 if(isset($_POST['changepw']))
 {
-	$oldpw=md5($_POST['oldpassword']);
-	if($oldpw==$row["apassword"])
+	$oldpw=mysqli_real_escape_string($connection,$_POST['oldpassword']);
+	if($oldpw==$row["teamcode"])
 	{
-		$npw=md5($_POST['newpassword']);
-		$pwquery="UPDATE admin SET apassword='$npw' WHERE ausername='$ausername'";
+		$npw=mysqli_real_escape_string($connection,$_POST['newpassword']);
+		$pwquery="UPDATE participants SET teamcode='$npw' WHERE pusername='$ausername'";
 		$pwresult = mysqli_query($connection, $pwquery);
 		$smsg="Password updated successfully!";
 		
@@ -165,7 +169,7 @@ if(isset($_POST['changepw']))
                                 <div class="overlay-box">
                                     <div class="user-content">
                                         <a href="javascript:void(0)"> <img src="../plugins/images/users/user(2).png" class="thumb-lg img-circle" > </a>
-                                        <h4 class="text-white"><?php echo $pusername; ?></h4>
+                                        <h4 class="text-white"><?php echo $row["pusername"]; ?></h4>
                                         <h5 class="text-white"><?php echo $row["pemail"]; ?></h5>
                                     </div>
                                 </div>
@@ -200,7 +204,7 @@ if(isset($_POST['changepw']))
                                     <div class="row">
                                         <div class="col-md-3 col-xs-6 b-r"> <strong>Username</strong>
                                             <br>
-                                            <p class="text-muted"><?php echo $pusername; ?></p>
+                                            <p class="text-muted"><?php echo $row["pusername"]; ?></p>
                                         </div>
                                         <div class="col-md-6 col-xs-6 "> <strong>Email</strong>
                                             <br>
@@ -219,7 +223,7 @@ if(isset($_POST['changepw']))
                                
                                 <div class="form-group">
                                     <label for="inputName1" class="control-label">Username</label>
-                                    <input type="text" class="form-control" autocomplete="off" id="username" name="username" placeholder="Username is used to login" value="<?php echo $pusername ?>" required>
+                                    <input type="text" class="form-control" autocomplete="off" id="username" name="username" placeholder="Username is used to login" value="<?php echo $row["pusername"] ?>" required>
                                     <!-- username check start -->
 										<div>
 										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
@@ -242,7 +246,7 @@ if(isset($_POST['changepw']))
 										   </div>
 									 </div>
                                    <div class="form-group">
-                                    <label for="example-phone">Mobile number  </label>
+                                    <label for="example-phone">Mobile number</label>
                                        <div class="col-sm-12 p-l-0">
                                         <input type="text" required id="example-phone" name="mob" class="form-control" placeholder="enter your mobile number" data-mask="(999) 999-9999" value="<?php echo $row["pmob"]; ?>">
                                  </div>
