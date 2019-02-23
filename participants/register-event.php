@@ -2,7 +2,7 @@
 include '../login/accesscontrolparticipant.php';
 require('connect.php');
 $ausername=$_SESSION['pusername'];
-
+$id=$_GET['id'];
 ?>
 <!DOCTYPE html>
 <!--

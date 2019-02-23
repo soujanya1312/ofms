@@ -72,7 +72,7 @@ $ausername=$_SESSION['pusername'];
                 <!--row -->
                 <div class="row">
                 <?php
-					$query = "SELECT ename FROM events";
+					$query = "SELECT eid,ename FROM events";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ ?>
@@ -87,7 +87,8 @@ $ausername=$_SESSION['pusername'];
                                     <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
                                   
 									<div class="p-t-5">
-											<a href="add-eventparticipants.php" class="btn btn-info btn-rounded">Click To Register</a>
+                                        <a href="register-event.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">Click To Register</a>
+											
 											
                                     </div>
                                 </div>
