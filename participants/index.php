@@ -99,7 +99,7 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventnames.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-events.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>Add Participants</b></h3>
 							<ul class="list-inline two-part">

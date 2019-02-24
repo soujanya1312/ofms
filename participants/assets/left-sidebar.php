@@ -40,7 +40,7 @@
 			<!---PNB Added Doctors menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Register Now! <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-eventnames.php">Add contestants </a> </li>
+					<li> <a href="view-events.php">Add contestants </a> </li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
