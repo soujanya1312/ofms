@@ -145,8 +145,8 @@ if(isset($_POST['AttendedBtn']))
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode is not NULL and teamcode<>'Cancelled'";
-									$getapointresult = mysqli_query($connection, $getapointquery2);
+									$getapointquery1 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode is not NULL and teamcode<>'Cancelled'";
+									$getapointresult = mysqli_query($connection, $getapointquery1);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
                 <div class="col-md-4 col-sm-4">
