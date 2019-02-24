@@ -42,14 +42,21 @@
 				<ul class="nav nav-second-level">
 					<li> <a href="add-events.php">Add Event heads </a> </li>
 					<li> <a href="view-eventheads.php">View Event heads </a> </li>
-                    <li><a href="view-participants.php">Veiw Event List</a></li>
+                    <li><a href="view-eventheads1.php">Veiw Event List</a></li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> College Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-                    <li> <a href="view-participants.php">view participants</a> </li>
+                   
 					<li> <a href="view-colleges.php">Colleges Registered</a> </li>	
+				</ul>
+			</li>
+            
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Messages<span class="fa arrow"></span></span></a>
+				<ul class="nav nav-second-level">
+					<li> <a href="view-schedule.php">Inbox</a> </li>
+					<li> <a href="edit-schedule.php">Compose</a> </li>
 				</ul>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
