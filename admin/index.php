@@ -92,7 +92,7 @@ require('connect.php');
                         <div class="white-box">
 							<h3 class="box-title"><b>events</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-user-md text-info"></i></li>
+								<li><i class="fa fa-user-md" style="color: blueviolet" ></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
