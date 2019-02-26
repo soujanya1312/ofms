@@ -79,19 +79,17 @@ $ausername=$_SESSION['husername'];
                                     <thead>
                                         <tr>
                                             <th>SL NO</th>
-                                            <th>Participant NAME</th>
-                                            <th>Participant  Number</th>
-                                            <th>ParticipantEmail</th>
-                                            <th>Participant college Name</th>
-                                            <th>Event Head Username</th>
-                                            
+                                            <th>NAME</th>
+                                            <th>Mobile No</th>
+                                            <th>Email</th>
                                             <th class="text-nowrap">Team Code</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM partiicipants";
+												$sql = "SELECT pid,pusername,pemail,pmob,teamcode FROM participants WHERE  teamcode is not NULL and teamcode<>'Cancelled'"; 
+                                                   
 												$result = mysqli_query($connection,$sql);
 												foreach($result as $key=>$result)
 												{ ?>
@@ -100,9 +98,8 @@ $ausername=$_SESSION['husername'];
 														<td> <?php echo $result["pusername"]; ?> </td>
                                                        
 														<td> <?php echo $result["pmob"]; ?> </td>
-                                                        <td> <?php echo $result["email"]; ?> </td>
-                                                         <td> <?php echo $result["pclgname"]; ?> </td>
-														 <td> <?php echo $result["teamcode"]; ?> </td>
+                                                        <td> <?php echo $result["pemail"]; ?> </td>
+												        <td> <?php echo $result["teamcode"]; ?> </td>
 													</tr>
                                         <?php 
 												}

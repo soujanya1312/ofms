@@ -3,11 +3,33 @@ include '../login/accesscontrolparticipant.php';
 require('connect.php');
 $ausername=$_SESSION['pusername'];
 $id=$_GET['id'];
-
-
-$squery="SELECT eid,ename,edesc,participants FROM events WHERE eid='$id'";
-$sresult = mysqli_query($connection, $squery);
+//$squery="SELECT *,eventparticipants.epname,eventparticipants.epmob,eventparticipants.epemail FROM eventparticipants INNER JOIN events ON eventparticipants.eid = eventseid WHERE ep_id='$id'";
+ $squery="SELECT eid,ename,edesc,participants FROM events WHERE eid='$id'";
+ $sresult = mysqli_query($connection, $squery);
 $row = mysqli_fetch_assoc($sresult);
+
+
+
+if (isset($_POST['psubmit']))
+
+	{
+		$p1= mysqli_real_escape_string($connection,$_POST['cname']);
+		$epmob=mysqli_real_escape_string($connection,$_POST['cmob']);
+        $epemail=mysqli_real_escape_string($connection,$_POST['cemail']);
+		$query="INSERT INTO `eventparticipants`(epname,epmob,epemail) VALUES ('$p1', '$epmob',' $epemail') ";
+		$result = mysqli_query($connection, $query);
+		if($result)
+		{
+			$smsg = " Participants are Selected For the Event";
+		}
+        else
+        {
+             $fmsg="Error".mysqli_error($connection);
+        }
+	}
+	
+
+
 ?>
 <!DOCTYPE html>
 
@@ -71,7 +93,7 @@ $row = mysqli_fetch_assoc($sresult);
 				       <div class="card card-inverse">
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 				           <div class="card-img-overlay" style="padding-top: 5px">
-								 
+								
 								  <p class="card-text" id="cText">Event Name: <?php echo $row["ename"]; ?></p>
                                   <p class="card-text" id="cText">Event Description:<?php echo $row["edesc"]; ?></p>
                                   <p class="card-text" id="cText">No of contestants: <?php echo $row["participants"]; ?></p>
@@ -81,13 +103,25 @@ $row = mysqli_fetch_assoc($sresult);
 				     </div>
 				</div>
              </div>
-
+              
                 <!--row -->
           <div class="row">
                 <div class="col-md-12">
                       <div class="white-box">
                             <h3 class="box-title m-b-0">Participant Details</h3><hr>
                                  <form data-toggle="validator" method="post">
+                                     <?php if(isset($fmsg)) { ?>
+									<div class="alert alert-danger alert-dismissable">
+										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+										 <?php echo $fmsg; ?>
+									</div>
+					            <?php }?>
+								<?php if(isset($smsg)) { ?>
+										<div class="alert alert-success alert-dismissable">
+											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+											 <?php echo $smsg; ?>
+										</div>
+								<?php }?>
                                        <div class="row">
                                           <!--/span-->
                                              <div class="col-md-4">
