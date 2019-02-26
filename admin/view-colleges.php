@@ -107,7 +107,7 @@ if(isset($_POST['AttendedBtn']))
 											<h2 class="visible-xs">Registered</h2> 
 											<div class="row p-0">
 								<?php
-									$getapointquery = "SELECT pid,pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode is NULL";
+									$getapointquery = "SELECT pid,pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode is NULL";
 									$getapointresult = mysqli_query($connection, $getapointquery);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -145,7 +145,7 @@ if(isset($_POST['AttendedBtn']))
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery1 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode is not NULL and teamcode<>'Cancelled'";
+									$getapointquery1 = "SELECT pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode is not NULL and teamcode<>'Cancelled'";
 									$getapointresult = mysqli_query($connection, $getapointquery1);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -161,7 +161,7 @@ if(isset($_POST['AttendedBtn']))
                                     <p class="p-0">
 										<a href="mailto:<?php  echo $getapointresult["pemail"]; ?>"> <?php echo $getapointresult["pemail"]; ?> </a> <br> 
 								
-										<i class="fa fa-user-md"></i><?php echo$getapointresult["pname"]; ?> <br>
+										<i class="fa fa-user-md"></i><?php echo$getapointresult["pusername"]; ?> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
 		
                                     </p>
@@ -189,7 +189,7 @@ if(isset($_POST['AttendedBtn']))
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery2 = "SELECT pclgname,pname,pemail,pmob,teamcode FROM participants WHERE teamcode='Cancelled'";
+									$getapointquery2 = "SELECT pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode='Cancelled'";
 									$getapointresult = mysqli_query($connection, $getapointquery2);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
