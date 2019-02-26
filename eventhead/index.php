@@ -65,7 +65,7 @@ elseif(isset($_SESSION['admin']))
 						<div class="card card-inverse">
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
-								<h4 class="card-title text-uppercase">WELCOME <?php echo $hname; ?></h4>
+								<h4 class="card-title text-uppercase">Event Name: <?php echo $ausername; ?></h4>
                                 
 								<p class="card-text" id="cText">You are logged-in to Event Head control panel, here are some of the basic information about fest and some basic functions to perform. </p>
 							<!--<p id="wText" class="card-text text-warning"><i class="fa fa-info-circle"></i><b> THERE ARE <?php echo mysqli_num_rows($resultcountmsg); ?> UNREAD MESSAGES AND  <?php echo $acount; ?> UNSCHEDULED APPOINTMENTS. </b></p>-->

@@ -14,7 +14,7 @@
 			</li>
 			<!-- User profihle-->
 			<li class="user-pro">
-				<a href="#" class="waves-effect"><img src="../plugins/images/users/user(2).png" alt="user-img" class="img-circle"> <span class="hide-menu"><?php echo $hname; ?><span class="fa arrow"></span></span>
+				<a href="#" class="waves-effect"><img src="../plugins/images/users/user(2).png" alt="user-img" class="img-circle"> <span class="hide-menu"><?php echo $ausername; ?><span class="fa arrow"></span></span>
 				</a>
                
 				<ul class="nav nav-second-level">
@@ -93,4 +93,4 @@
 		</ul>
 	</div>
 </div>
-<!-- Left navbar-sidebar end --> >
+<!-- Left navbar-sidebar end --> 
