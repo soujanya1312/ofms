@@ -10,7 +10,7 @@ $hid=$gethnamerow['eid'];
 $geteventname="SELECT fname FROM fests where fid='$hid'";
 $getfestnameresul1=mysqli_query($connection,$geteventname);
 $getfestnamero1=mysqli_fetch_assoc($getfestnameresul1);
-$festid=$getfestnamero1['ename'];
+$festid=$getfestnamero1['fname'];
 if (isset($_POST['college']))
 	{
 		$getfid=mysqli_query($connection,"SELECT * FROM fests where fid='$festid'");
@@ -130,7 +130,7 @@ if (isset($_POST['college']))
 									
                                      <select required class="form-control" name="event">
 									<option disabled hidden selected>SELECT EVENT NAME</option>
-									 <?php while($rowcollege = mysqli_fetch_assoc($colres)) { ?>
+									 <?php while($rowcollege = mysqli_fetch_assoc($res)) { ?>
 									<option value= "<?php echo $rowcollege['ename'];?>"> <?php echo $rowcollege['ename'];?></option>
 									<?php }?>
 									</select>
