@@ -4,28 +4,44 @@ require('connect.php');
 $ausername=$_SESSION['pusername'];
 $id=$_GET['id'];
 //$squery="SELECT *,eventparticipants.epname,eventparticipants.epmob,eventparticipants.epemail FROM eventparticipants INNER JOIN events ON eventparticipants.eid = eventseid WHERE ep_id='$id'";
- $squery="SELECT eid,ename,edesc,participants FROM events WHERE eid='$id'";
- $sresult = mysqli_query($connection, $squery);
+$squery="SELECT eid,ename,edesc,participants FROM events WHERE eid='$id'";
+$sresult = mysqli_query($connection, $squery);
 $row = mysqli_fetch_assoc($sresult);
+$pari= $row["participants"];
 
+$getpidquery="SELECT pid from participants WHERE pusername='$ausername'";
+$getpidres=mysqli_query($connection, $getpidquery);
+$row2 = mysqli_fetch_assoc($getpidres);
+$pid= $row2["pid"];
 
+$redirectquery="SELECT * FROM eventparticipants WHERE eid='$id' and pid='$pid'";
+$exeredirect=mysqli_query($connection, $redirectquery);
+$redirect=mysqli_num_rows($exeredirect);
+if($redirect>0)
+{
+	$fmsg="WARNING ANYA DO A EDIT REGISTERED EVENT PAGE COZ PARTICIPENTS ARE ALREDY REGISTERED FOR THIS EVENT";
+	//echo'<script> window.location="403.php";</script>';
+}
 
 if (isset($_POST['psubmit']))
 
 	{
-		$p1= mysqli_real_escape_string($connection,$_POST['cname']);
-		$epmob=mysqli_real_escape_string($connection,$_POST['cmob']);
-        $epemail=mysqli_real_escape_string($connection,$_POST['cemail']);
-		$query="INSERT INTO `eventparticipants`(epname,epmob,epemail) VALUES ('$p1', '$epmob',' $epemail') ";
-		$result = mysqli_query($connection, $query);
-		if($result)
+		for($y=1; $y<=$pari; $y++)
 		{
-			$smsg = " Participants are Selected For the Event";
+			$p1=$_POST['cname'.$y.''];
+			$epmob=$_POST['cmob'.$y.''];
+			$epemail=$_POST['cemail'.$y.''];
+			$query="INSERT INTO `eventparticipants`(epname,epmob,epemail,eid,pid) VALUES ('$p1', '$epmob',' $epemail','$id','$pid') ";
+			$result = mysqli_query($connection, $query);
+			if($result)
+			{
+				$smsg = " Participants are registered For the Event";
+			}
+			else
+			{
+				 $fmsg="Error".mysqli_error($connection);
+			}
 		}
-        else
-        {
-             $fmsg="Error".mysqli_error($connection);
-        }
 	}
 	
 
@@ -98,7 +114,7 @@ if (isset($_POST['psubmit']))
                                   <p class="card-text" id="cText">Event Description:<?php echo $row["edesc"]; ?></p>
                                   <p class="card-text" id="cText">No of contestants: <?php echo $row["participants"]; ?></p>
 							
-								  <p class="card-text"><small class="text-white">~OFMS</small></p>
+								  <!--<p class="card-text"><small class="text-white">~OFMS</small></p>-->
 				           </div>
 				     </div>
 				</div>
@@ -108,7 +124,7 @@ if (isset($_POST['psubmit']))
           <div class="row">
                 <div class="col-md-12">
                       <div class="white-box">
-                            <h3 class="box-title m-b-0">Participant Details</h3><hr>
+                            <h3 class="box-title m-b-0">Enter Participant Details</h3><hr>
                                  <form data-toggle="validator" method="post">
                                      <?php if(isset($fmsg)) { ?>
 									<div class="alert alert-danger alert-dismissable">
@@ -122,31 +138,32 @@ if (isset($_POST['psubmit']))
 											 <?php echo $smsg; ?>
 										</div>
 								<?php }?>
+									 <?php for($x=1; $x<=$pari; $x++) { ?>
                                        <div class="row">
                                           <!--/span-->
                                              <div class="col-md-4">
                                                   <div class="form-group">
-                                                    <label>Contestant Name:</label>
-                                                    <input name="cname" type="text" class="form-control" placeholder="Enter the name" required>
+                                                    <label>Contestant <?php echo $x; ?> Name:</label>
+                                                    <input name="cname<?php echo $x; ?>" type="text" class="form-control" placeholder="Enter the name" required>
                                                   </div>
                                               </div>
                                           <!--/span-->
                                               <div class="col-md-4">
                                                    <div class="form-group">
                                                        <label>Mobile number:</label>
-                                                       <input type="tel" pattern="[0-9]*" maxlength="11" minlength="10" required id="example-phone" name="cmob" class="form-control" placeholder="Enter your mobile number" data-error="Invalid mobile number">
+                                                       <input type="tel" pattern="[0-9]*" maxlength="11" minlength="10" id="example-phone" name="cmob<?php echo $x; ?>" class="form-control" placeholder="Enter your mobile number" data-error="Invalid mobile number">
                                                        <div class="help-block with-errors"></div>
                                                    </div>
                                                </div>
                                               <div class="col-md-4">
                                                    <div class="form-group">
                                                         <label>Email ID:</label>
-                                                        <input class="form-control" name="cemail" type="email" required placeholder="Email" data-error="This email address is invalid">
+                                                        <input class="form-control" name="cemail<?php echo $x; ?>" type="email" placeholder="Email" data-error="This email address is invalid">
                                                         <div class="help-block with-errors"></div>
                                                    </div>
                                               </div>
                                            </div>
-                            
+                            <?php } ?>
                                           <div  class="form-group">
                                               <center><button type="submit" name="psubmit" class="btn btn-rounded btn-lg btn-info">Submit</button></center>
                                          </div>

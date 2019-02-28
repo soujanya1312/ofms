@@ -75,20 +75,36 @@ $ausername=$_SESSION['pusername'];
 					$query = "SELECT eid,ename FROM events";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
-				{ ?>
+				{ 
+					$eid=$result["eid"];
+						
+					$getpidquery="SELECT pid from participants WHERE pusername='$ausername'";
+					$getpidres=mysqli_query($connection, $getpidquery);
+					$row2 = mysqli_fetch_assoc($getpidres);
+					$pid= $row2["pid"];
+
+					$redirectquery="SELECT * FROM eventparticipants WHERE eid='$eid' and pid='$pid'";
+					$exeredirect=mysqli_query($connection, $redirectquery);
+					$redirect=mysqli_num_rows($exeredirect);
+					
+				?>
                 <div class="col-md-4 col-sm-4">
                         <div class="white-box">
                             <div class="row">
-                                <div class="col-md-4 col-sm-4 text-center">
-                                        <img src="../plugins/images/logo.png" class="img-square img-responsive"> 
+                                <div class="col-md-4 col-sm-4">
+                                   	<img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"> 
                                 </div>
                                 <br>
                                 <div class="col-md-8 col-sm-8">
                                     <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
                                   
 									<div class="p-t-5">
-                                        <a href="register-event.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">Click To Register</a>
-											
+										
+										<?php if($redirect>0) { ?>
+                                        <a href="register-event.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">Edit Participants</a>
+										<?php } else { ?>
+										<a href="register-event.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">View Info and Register</a>
+										<?php } ?>
 											
                                     </div>
                                 </div>
