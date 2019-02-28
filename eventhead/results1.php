@@ -2,23 +2,25 @@
 include '../login/accesscontrolhead.php';
 require('connect.php');
 $ausername=$_SESSION['husername'];
+//$getpinfoquery="SELECT eid,ename,participants.teamcode FROM events INNER JOIN participants ON events.pid=participants.pid";
+//$getpinforesult=mysqli_query($connection,$getpinfoquery);
+
 $gethname="SELECT eid,ename FROM events WHERE husername='$ausername'";
 $gethnameresult=mysqli_query($connection,$gethname);
 $gethnamerow=mysqli_fetch_assoc($gethnameresult);
 $hid=$gethnamerow['eid'];
-
-$geteventname="SELECT fname FROM fests where fid='$hid'";
+$geteventname="SELECT ename FROM events  where eid='$hid'";
 $getfestnameresul1=mysqli_query($connection,$geteventname);
 $getfestnamero1=mysqli_fetch_assoc($getfestnameresul1);
 $festid=$getfestnamero1['ename'];
-if (isset($_POST['college']))
+if (isset($_POST['psubmit']))
 	{
 		$getfid=mysqli_query($connection,"SELECT * FROM fests where fid='$festid'");
 		$get=mysqli_fetch_assoc($getfid);
 		$fest=$get['fid'];
 		$eventname= $getfestnamero1['ename'];
-		$round=mysqli_real_escape_string($connection,$_POST['round']);
-		$college=mysqli_real_escape_string($connection,$_POST['college']);
+		$round=mysqli_real_escape_string($connection,$_POST['erounds']);
+		$college=mysqli_real_escape_string($connection,$_POST['teamcode']);
 		$query="INSERT INTO `results`(eventname,fid,pname,eround) VALUES ('$eventname','$fest','$college','$round')";
 				$result = mysqli_query($connection, $query);
 	
@@ -43,31 +45,6 @@ if (isset($_POST['college']))
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
 <?php include 'assets/csslink.php'; ?>
-      <!-- username check js start -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('#usernameLoading').hide();
-		$('#username').keyup(function(){
-		  $('#usernameLoading').show();
-	      $.post("check-eventheadname.php", {
-	        username: $('#username').val()
-	      }, function(response){
-	        $('#usernameResult').fadeOut();
-	        setTimeout("finishAjax('usernameResult', '"+escape(response)+"')", 500);
-	      });
-	    	return false;
-		});
-	});
-
-	function finishAjax(id, response) {
-	  $('#usernameLoading').hide();
-	  $('#'+id).html(unescape(response));
-	  $('#'+id).fadeIn();
-	} //finishAjax
-</script>
-	
-<!-- username check js end -->
 	
 </head>
 
@@ -117,27 +94,28 @@ if (isset($_POST['college']))
 										</div>
 								<?php }?>
 								
-                                <?php
-									$eventname=$getfestnamero1['ename'];
-									$i="SELECT ename FROM events WHERE ename='$eventname'";
-									$res=mysqli_query($connection, $i);
-									$rowevent = mysqli_fetch_assoc($res);
-									$totrows=$rowevent['ename'];
-									$countid=1;
-									?>
+                                
 								 <div class="form-group">
-									 <label for="inputEmail"  class="control-label ">Event</label>
-									
-                                     <select required class="form-control" name="event">
-									<option disabled hidden selected>SELECT EVENT NAME</option>
-									 <?php while($rowcollege = mysqli_fetch_assoc($colres)) { ?>
-									<option value= "<?php echo $rowcollege['ename'];?>"> <?php echo $rowcollege['ename'];?></option>
-									<?php }?>
-									</select>
+									<label for="inputEmail" class="control-label">EVENT</label>
+								     <div class="form-group">
+									 <?php
+									 $selectevent="SELECT ename FROM events WHERE eid='$hid'";
+									 $resultevent = mysqli_query($connection, $selectevent);
+									?>
+									 <select onChange="disableDrop" required class="form-control action" id="country" name="ename">
+								   	 <option disabled hidden selected>Select Event
+									 </option>
+									 <?php while($rowevent = mysqli_fetch_assoc($resultevent)) { ?>
+   									  <option value="<?php echo $rowevent['eid']; ?>"><?php echo $rowevent['ename']; ?></option>
+										 
+								     <?php } ?>
+										
+									 </select>
+                                          
                                 </div>
 								<?php
 									$eventname=$getfestnamero1['ename'];
-									$i="SELECT erounds FROM events WHERE ename='$eventname'";
+									$i="SELECT * FROM events WHERE ename='$eventname'";
 									$res=mysqli_query($connection, $i);
 									$rowevent = mysqli_fetch_assoc($res);
 									$totrows=$rowevent['erounds'];
@@ -145,7 +123,7 @@ if (isset($_POST['college']))
 									?>
 								 <div class="form-group">
 									 <label for="inputEmail" class="control-label">Round</label>
-								<select required class="form-control" name="round">
+								<select required class="form-control" name="erounds">
 									<option disabled hidden selected>SELECT ROUND</option>
 									<?php while($countid <= $totrows) { ?>
 									<option value="<?php echo $countid ?>"> <?php echo 'Round '.$countid; ?></option>
@@ -153,23 +131,22 @@ if (isset($_POST['college']))
 								</select> 
 								</div>
 								<?php
-									 $college="SELECT teamcode FROM participants WHERE pid='$festid'";
+									 $college="SELECT teamcode FROM participants WHERE pid='$hid'";
 									 $colres=mysqli_query($connection, $college);
 									 ?>
 								 <div class="form-group">
 									 <label for="inputEmail" class="control-label">SELECTED TEAM</label>
-									 
-								<select required class="form-control" name="college">
+				                     <select required class="form-control" name="teamcode">
 									<option disabled hidden selected>SELECT TEAM</option>
-									 <?php while($rowcollege = mysqli_fetch_assoc($colres)) { ?>
-									<option value= "<?php echo $rowcollege['teamcode'];?>"> <?php echo $rowcollege['teamcode'];?></option>
+                                    <?php while($rowcollege = mysqli_fetch_assoc($colres)) { ?>
+									<option value= "<?php echo $rowcollege['pid'];?>"> <?php echo $rowcollege['teamcode'];?></option>
 									<?php }?>
 									</select> 
-									 
 								</div>
-								
+								                                                      
 							    <div class="form-group">
-                                    <button type="submit" class="btn btn-info waves-effect waves-light">Submit</button>
+                                    <button type="submit" name="psubmit" class="btn btn-info waves-effect waves-light">Submit</button>
+                                </div>
                                 </div>
                             </form>
                         </div>
