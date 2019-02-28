@@ -99,7 +99,7 @@ if (isset($_POST['psubmit']))
 									<label for="inputEmail" class="control-label">EVENT</label>
 								     <div class="form-group">
 									 <?php
-									 $selectevent="SELECT eid FROM events WHERE eid='$hid'";
+									 $selectevent="SELECT ename FROM events WHERE eid='$hid'";
 									 $resultevent = mysqli_query($connection, $selectevent);
 									?>
 									 <select onChange="disableDrop" required class="form-control action" id="country" name="ename">
