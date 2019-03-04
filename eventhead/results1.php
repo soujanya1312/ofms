@@ -103,8 +103,8 @@ if (isset($_POST['psubmit']))
 									 $resultevent = mysqli_query($connection, $selectevent);
 									?>
 									 <select onChange="disableDrop" required class="form-control action" id="country" name="ename">
-								   	 <option disabled hidden selected>Select Event
-									 </option>
+								   	 <!--<option disabled hidden selected>Select Event
+									 </option>-->
 									 <?php while($rowevent = mysqli_fetch_assoc($resultevent)) { ?>
    									  <option value="<?php echo $rowevent['eid']; ?>"><?php echo $rowevent['ename']; ?></option>
 										 
