@@ -10,12 +10,6 @@ elseif(isset($_SESSION['husername']))
     $ausername=$_SESSION['husername'];
 }
 
-$getfestname="SELECT eid, ename,erounds FROM events WHERE husername='$ausername'"; 
-$getfestnameresult=mysqli_query($connection,$getfestname);
-$getfestnamerow=mysqli_fetch_assoc($getfestnameresult);
-$hid=$getfestnamerow['eid'];
-$eid=$getfestnamerow['ename'];
-$rid=$getfestnamerow['erounds'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,8 +49,8 @@ $rid=$getfestnamerow['erounds'];
                 </div>
 				<div class="row">
                 <?php
-					$query = "SELECT *,events.eid FROM event_time JOIN events ON event_time.event_name=events.ename WHERE eid='$hid'";
-                    
+					$query ="SELECT * FROM event_time";
+                       
 					//"SELECT *,add_event.e_eventname,fest.fname FROM participant JOIN add_event ON  participant.p_eventname=add_event.e_id JOIN fest ON fest.f_id=add_event.f_id WHERE sid='$sid'";
 				$result = mysqli_query($connection, $query);
                     
@@ -74,10 +68,7 @@ $rid=$getfestnamerow['erounds'];
                                       <b>From:</b>&nbsp;<?php echo $result['t_from']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   					  <b>To:</b>&nbsp;<?php echo $result['t_to']; ?>
                   										
-									  <div class="p-t-5">
-											<a href="edit-eventtime.php?id=<?php echo $result['en_id']; ?>" class="fcbtn btn btn-info">Edit</a>
-									  <a href="#" class="fcbtn btn btn-danger model_img deleteevent" data-id="<?php echo $result['en_id']; ?>" id="deleteDoc">Delete</a>
-									    </div>
+									 
                                     </p>
                                 </div>
                             </div>
