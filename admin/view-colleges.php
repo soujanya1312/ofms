@@ -121,7 +121,7 @@ if(isset($_POST['AttendedBtn']))
                                     <h3 class="box-title m-b-0"><?php echo $getapointresult["pclgname"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
                                     <p class="p-0">
 										<a href="mailto:<?php echo $getapointresult["pemail"]; ?>"> <?php  echo $getapointresult["pemail"]; ?> </a> <br> 
-										<i class="fa fa-user-md"></i><?php echo $getapointresult["pname"]; ?> <br>
+										<i class="fa fa-user-md"></i><?php echo $getapointresult["pusername"]; ?> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
 										
 										<a href="confirm-colleges.php?id=<?php echo $getapointresult["pid"]; ?>" class="fcbtn btn btn-info bootpopup" >Confirm/Cancel</a>
