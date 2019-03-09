@@ -1,5 +1,5 @@
 <?php
-include '../login/accesscontrolhead.php';
+include '../login/accesscontroladmin.php';
 require('connect.php');
 
 if(isset($_SESSION['admin']))
