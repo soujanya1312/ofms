@@ -42,7 +42,7 @@
 				<ul class="nav nav-second-level">
 					<li> <a href="add-events.php">Add Event heads </a> </li>
 					<li> <a href="view-eventheads.php">View Event heads </a> </li>
-                    <li><a href="view-eventheads1.php">Veiw Event List</a></li>
+                    
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
@@ -56,20 +56,27 @@
             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Messages<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-schedule.php">Inbox</a> </li>
-					<li> <a href="edit-schedule.php">Compose</a> </li>
+					<li> <a href="send-message.php">Compose</a> </li>
 				</ul>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-schedule.php">View Schedule</a> </li>
-					<li> <a href="edit-schedule.php">Edit Schedule</a> </li>
+					<li> <a href="view-eventtime.php">View Schedule</a> </li>
+					
 				</ul>
 			</li>
             
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Scoresheet <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-scoresheet.php">Add Scoresheet</a> </li>
-					<li> <a href="edit-scoresheet.php">Edit Scoresheet</a> </li>
+					<li> <a href="result1.php">add-results</a> </li>
+					<li><a href="view-result.php">view-results</a></li>
+				</ul>
+			</li>
+            
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
+				<ul class="nav nav-second-level">
+					<li> <a href="view-feedback.php">view-feedback</a> </li>
+				
 				</ul>
 			</li>
             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Admin <span class="fa arrow"></span></span></a>
@@ -101,3 +108,4 @@
 	</div>
 </div>
 <!-- Left navbar-sidebar end --> 
+>>>

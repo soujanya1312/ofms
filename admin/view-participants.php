@@ -1,8 +1,15 @@
 <?php
 include '../login/accesscontrolhead.php';
 require('connect.php');
-$ausername=$_SESSION['husername'];
 
+if(isset($_SESSION['admin']))
+{
+	$ausername=$_SESSION['admin'];
+}
+elseif(issset($_SESSION['husername']))
+{
+  $ausername=$_SESSION['husername'];  
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -83,15 +90,13 @@ $ausername=$_SESSION['husername'];
                                             <th>Participant  Number</th>
                                             <th>ParticipantEmail</th>
                                             <th>Participant college Name</th>
-                                            <th>Event Head Username</th>
-                                            
                                             <th class="text-nowrap">Team Code</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM partiicipants";
+												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM participants WHERE teamcode is NOT NULL";
 												$result = mysqli_query($connection,$sql);
 												foreach($result as $key=>$result)
 												{ ?>
@@ -100,7 +105,7 @@ $ausername=$_SESSION['husername'];
 														<td> <?php echo $result["pusername"]; ?> </td>
                                                        
 														<td> <?php echo $result["pmob"]; ?> </td>
-                                                        <td> <?php echo $result["email"]; ?> </td>
+                                                        <td> <?php echo $result["pemail"]; ?> </td>
                                                          <td> <?php echo $result["pclgname"]; ?> </td>
 														 <td> <?php echo $result["teamcode"]; ?> </td>
 													</tr>

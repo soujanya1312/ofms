@@ -79,36 +79,36 @@ require('connect.php');
 	
 				
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-patients.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-participants.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>colleges registered</b></h3>
+							<h3 class="box-title"><b>Confirmed Colleges</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-wheelchair text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-doctors.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventheads1.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>events</b></h3>
+							<h3 class="box-title"><b>View Events</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-user-md" style="color: blueviolet" ></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-staffs.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-feedback.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>event details</b></h3>
+							<h3 class="box-title"><b>View Feedback</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-schedule.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>event schedule</b></h3>
+							<h3 class="box-title"><b>View Schedule</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-bed text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
@@ -119,18 +119,18 @@ require('connect.php');
                 <!--/row -->
 				<!--row -->
                 <div class="row p-t-10">
-                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Admit new Patient" onClick="window.location='add-patient.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Admit new Patient" onClick="window.location='add-admin.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-wheelchair bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD EVENT DETAILS</b></h4>
+									<h4><b>ADD Admin</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Doctor account" onClick="window.location='add-doctor.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Doctor account" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-user-md bg-black Hoveranimatedoc"></i>
@@ -141,28 +141,28 @@ require('connect.php');
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                   <!-- <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
 									<h4><b>ADD EVENT DETAILS</b></h4>
-                                    <!--<span class="text-muted" style="font-size: 80%"></span>-->
+                                    <!--<span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Create new ward" onClick="window.location='add-ward.php'">
+                    </div>-->
+                    <!--<div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Create new ward" onClick="window.location='add-ward.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-bed bg-black Hoveranimatewrd"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>FINAL SCOREBOARD</b></h4>
-                                    <!--<span class="text-muted" style="font-size: small"></span>-->
+									<h4><b></b></h4>
+                                    <span class="text-muted" style="font-size: small"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!--/row -->
                 
@@ -174,7 +174,7 @@ require('connect.php');
             </div>
             <!-- /.container-fluid -->
             <!--footer.php contains footer-->
-            <?php include'assets/footer.php'; ?>
+            <?php include'assets/footer.php' ?>
         </div>
         <!-- /#page-wrapper -->
     </div>
