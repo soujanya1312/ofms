@@ -119,7 +119,7 @@ require('connect.php');
                 <!--/row -->
 				<!--row -->
                 <div class="row p-t-10">
-                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Admit new Patient" onClick="window.location='add-admin.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add new Admin" onClick="window.location='add-admin.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-wheelchair bg-black Hoveranimatepat"></i>
@@ -130,7 +130,7 @@ require('connect.php');
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Doctor account" onClick="window.location='add-events.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Head account" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-user-md bg-black Hoveranimatedoc"></i>
