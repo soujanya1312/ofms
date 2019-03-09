@@ -4,7 +4,7 @@ require('connect.php');
 $ausername=$_SESSION['pusername'];
 $id=$_GET['id'];
 //$squery="SELECT *,eventparticipants.epname,eventparticipants.epmob,eventparticipants.epemail FROM eventparticipants INNER JOIN events ON eventparticipants.eid = eventseid WHERE ep_id='$id'";
-$squery="SELECT eid,ename,edesc,participants FROM events WHERE eid='$id'";
+$squery="SELECT eid,ename,edesc,hname,addname,hmob,hemail, participants FROM events WHERE eid='$id'";
 $sresult = mysqli_query($connection, $squery);
 $row = mysqli_fetch_assoc($sresult);
 $pari= $row["participants"];
@@ -107,12 +107,15 @@ if (isset($_POST['psubmit']))
              <div class="row p-b-10">
 				  <div class="col-md-12 col-sm-10 hvr-wobble-horizontal">
 				       <div class="card card-inverse">
-							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
+							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="200" alt="Card image">
 				           <div class="card-img-overlay" style="padding-top: 5px">
 								
 								  <p class="card-text" id="cText">Event Name: <?php echo $row["ename"]; ?></p>
-                                  <p class="card-text" id="cText">Event Description:<?php echo $row["edesc"]; ?></p>
+                                  <p class="card-text" id="cText">Event Description: <?php echo $row["edesc"]; ?></p>
                                   <p class="card-text" id="cText">No of contestants: <?php echo $row["participants"]; ?></p>
+                                  <p class="card-text" id="cText">Event Heads: <?php echo $row["hname"].''.$row["addname"]; ?></p>
+                                  <p class="card-text" id="cText">Mobile Number: <?php echo $row["hmob"]; ?></p>
+                                  <p class="card-text" id="cText">Email ID: <?php echo $row["hemail"]; ?></p>
 							
 								  <!--<p class="card-text"><small class="text-white">~OFMS</small></p>-->
 				           </div>

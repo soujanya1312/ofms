@@ -101,7 +101,7 @@ $ausername=$_SESSION['pusername'];
 									<div class="p-t-5">
 										
 										<?php if($redirect>0) { ?>
-                                        <a href="register-event.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">Edit Participants</a>
+                                        <a href="edit-participant.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">Edit Participants</a>
 										<?php } else { ?>
 										<a href="register-event.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">View Info and Register</a>
 										<?php } ?>
