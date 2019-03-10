@@ -40,7 +40,7 @@ if (isset($_POST['eventheadsubmit']))
 				//takes two arguments
 				if($result)
 				{
-					$smsg = "Event Head Created Successfully.".mysqli_error($connection);
+					$smsg = "Event Added Successfully.".mysqli_error($connection);
 				}
 				else
 				{
@@ -171,7 +171,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                  <div class="form-group">
                                     <label for="inputName1" class="control-label">Event Rounds</label>
-                                    <textarea type="text" class="form-control" autocomplete="off" id="erounds" name="erounds" placeholder="Enter event round description" required></textarea>
+                                     <input type="text" name="erounds" class="form-control" id="erounds" placeholder="Enter number of rounds" required>
+                                   
+                                    
                                     <!-- username check start 
 										<div>
 										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
@@ -198,12 +200,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 											<div class="col-sm-12 p-l-0">
 												<div class="input-group">
 													<!--<div class="input-group-addon">Dr.</div>-->
-													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter event head name" required>
+													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter one event head name" required>
 													<!--onKeyUp="copyTextValue();"-->
 												</div><br>
                                                 <div class="input-group">
 													<!--<div class="input-group-addon">Dr.</div>-->
-													<input type="text" name="addname" class="form-control" id="addame" placeholder="Enter Additional event-head name" required>
+													<input type="text" name="addname" class="form-control" id="addame" placeholder="Enter Additional event head name[separate by commas]" required>
 													<!--onKeyUp="copyTextValue();"-->
 												</div>
 											</div>
