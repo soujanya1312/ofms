@@ -53,14 +53,15 @@
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-schedule.php">View Schedule</a> </li>
-				
+					<li> <a href="view-eventtime.php">View Schedule</a> </li>
+				    <li> <a href="add-eventtime.php">Add Schedule</a> </li>
+                    <li> <a href="edit-eventtime.php">Edit Schedule</a> </li>
 				</ul>
 			</li>
             
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Scoresheet <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-scoresheet.php">view Scoresheet</a> </li>
+					<li> <a href="result1.php">Add Results</a> </li>
 				
 				</ul>
 			</li>
@@ -71,7 +72,14 @@
 				    <li> <a href="add-scoresheet.php">Compose</a> </li>
 				</ul>
 			</li>
-           
+            
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
+				<ul class="nav nav-second-level">
+					<li> <a href="view-feedback.php">View Feedback</a> </li>
+				  
+				</ul>
+			</li>
+            
 			<!--<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-file-text p-r-10"></i> <span class="hide-menu">INDOX <span class="fa arrow"></span></span></a>
