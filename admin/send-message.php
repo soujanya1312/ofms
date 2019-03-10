@@ -88,7 +88,7 @@ if(isset($_SESSION['admin']))
                                 <div class="col-md-8 col-sm-8">
                                     <h1 class="box-title m-b-0"><b>Event Name :</b><?php echo $result["ename"]; ?></h1>
                                    <div class="p-t-5">
-								    <a href="compose_message.php?id=<?php echo $result['eid']; ?>" class="btn waves-effect waves-light btn-rounded btn-success">Send Message</a>
+								    <a href="compose-message.php?id=<?php echo $result['eid']; ?>" class="btn waves-effect waves-light btn-rounded btn-success">Send Message</a>
 								   </div>
                                 </div>
                             </div>

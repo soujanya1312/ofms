@@ -1,5 +1,5 @@
 <?php
-include '../login/accesscontrolhead.php';
+include '../login/accesscontroladmin.php';
 require('connect.php');
 if(isset($_SESSION['admin']))
 {
@@ -20,13 +20,13 @@ if(isset($_POST['msgsubmit']))
 	if(!$msg=="")
 	{
 		$from=$ausername;
-		$to=mysqli_real_escape_string($connection,$_POST['to_uname']);
+		//$to=mysqli_real_escape_string($connection,$_POST['to_uname']);
 		$subject=mysqli_real_escape_string($connection,$_POST['subject']);
 		
 		$user_read="0";
 		//$timestamp= time();
 		//$timeconverted=date('Y-m-d H:i:s',$timestamp);
-		$inputmsg="INSERT INTO `messages` (from_name, to_name, msg_subject, msg_body, timestamp) VALUES ('$from','$to','$subject','$msg','$now')";
+		$inputmsg="INSERT INTO `messages` (from_name, msg_subject, msg_body, timestamp) VALUES ('$from','$subject','$msg','$now')";
 		$inputresult=mysqli_query($connection,$inputmsg);
 		if($inputresult)
 		{
@@ -116,7 +116,7 @@ if(isset($_POST['msgsubmit']))
                                         <div class="list-group mail-list m-t-20">
 											<a href="../eventhead/inbox.php" class="list-group-item">Inbox <span class="label label-rouded label-success pull-right"><?php echo $countunread; ?></span></a>
 										
-											<a href="../admin/sent_messages.php" class="list-group-item">Sent Messages</a> 
+											<a href="../admin/sent-message.php" class="list-group-item">Sent Messages</a> 
 										</div>
                                         
                                     </div>
