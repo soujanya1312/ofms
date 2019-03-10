@@ -40,16 +40,11 @@
 			<!---PNB Added Doctors menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu"> Register Now! <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-events.php">Add contestants </a> </li>
+					<li> <a href="view-events.php">View Events </a> </li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> Events <span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-                    <li> <a href="viewevents-participants.php">view events</a> </li>
-						
-				</ul>
-			</li>
+			
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-schedule.php">View Schedule</a> </li>
