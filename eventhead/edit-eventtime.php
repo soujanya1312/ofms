@@ -2,16 +2,13 @@
 include '../login/accesscontrolhead.php';
 require('connect.php');
 $ausername=$_SESSION['husername'];
-$t_id = $_GET['id'];
-$gethname="SELECT eid FROM events WHERE husername='$ausername'";
+//$id = $_GET['id'];
+$gethname="SELECT eid ,ename,erounds FROM events WHERE husername='$ausername'";
 $gethnameresult=mysqli_query($connection,$gethname);
 $gethnamerow=mysqli_fetch_assoc($gethnameresult);
-$hid=$gethnamerow['eid'];
-$geteventname="SELECT ename,erounds FROM events where eid='$hid'";
-$getfestnameresul1=mysqli_query($connection,$geteventname);
-$getfestnamero1=mysqli_fetch_assoc($getfestnameresul1);
+$eid=$gethnamerow['eid'];
 
-$query="SELECT event_name,event_round,t_from,t_to FROM event_time WHERE en_id='$t_id'";
+$query="SELECT event_name,event_round,t_from,t_to FROM event_time WHERE en_id='$eid' ";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 if(isset($_POST['update']))
@@ -20,11 +17,11 @@ if(isset($_POST['update']))
 	$tt= $_POST['tt'];
 	if($ff<=$tt)
 	{
-	$uquery="UPDATE event_time SET  t_from='$ff', t_to='$tt' WHERE en_id='$t_id'";
+	$uquery="UPDATE event_time SET  t_from='$ff', t_to='$tt' WHERE en_id='$eid'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT event_name,event_round,t_from,t_to FROM event_time WHERE en_id='$t_id'";
+		$squery="SELECT event_name,event_round,t_from,t_to FROM event_time WHERE en_id='$eid'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Time updated successfully!";
@@ -186,11 +183,11 @@ if(isset($_POST['update']))
                                         	   <div class="row">
                            				   <div class="form-group col-md-12">
 											 <label class="control-label ">Event</label>
-											<input type="text" id="username" name="eventname" class="form-control" value="<?php echo $getfestnamero1['ename']; ?>" readonly/>  
+											<input type="text" id="username" name="eventname" class="form-control" value="<?php echo $row['event_name']; ?>" readonly/>  
 								  			</div>   
                                               <div class="form-group col-md-12">
 											 <label class="control-label ">Event Round</label>
-											<input type="text" id="username" name="eventround" class="form-control" value="<?php echo $getfestnamero1['erounds']; ?>" readonly/>  
+											<input type="text" id="username" name="eventround" class="form-control" value="<?php echo $row['event_round']; ?>" readonly/>  
 								  			</div>         
                                 	<div class="form-group col-md-12">    
 									<label for="inputName1" class="control-label">Event Time</label>
