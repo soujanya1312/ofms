@@ -39,19 +39,19 @@
 			</li>
 
 			<!---PNB Added Doctors menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu">Events<span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Events<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="viewevents-eventheads.php">View Events </a> </li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu"> Colleges Registered<span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Colleges Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
                     <li> <a href="view-participants.php">view Colleges</a> </li>
 						
 				</ul>
 			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user-plus p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-eventtime.php">View Schedule</a> </li>
 				    <li> <a href="add-eventtime.php">Add Schedule</a> </li>
@@ -59,21 +59,21 @@
 				</ul>
 			</li>
             
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="result1.php">Add Results</a> </li>
 				
 				</ul>
 			</li>
            
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Messages<span class="fa arrow"></span></span></a>
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Messages<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="add-scoresheet.php">Inbox</a> </li>
 				    <li> <a href="add-scoresheet.php">Compose</a> </li>
 				</ul>
 			</li>
             
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-feedback.php">View Feedback</a> </li>
 				  

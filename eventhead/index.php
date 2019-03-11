@@ -77,25 +77,25 @@ elseif(isset($_SESSION['admin']))
 	
 				
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='viewevents-participants.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='viewevents-eventheads.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>View Events</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-wheelchair text-info Hoveranimatevpt"></i></li>
+								<li><i class="fa fa-id-badge text-info Hoveranimatevpt"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventnames.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Add Results</b></h3>
+							<h3 class="box-title"><b>View Results</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-user-md text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-staffs.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventtime.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>View Schedule</b></h3>
 							<ul class="list-inline two-part">
@@ -104,29 +104,49 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-feedback.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Qualified Teams</b></h3>
+							<h3 class="box-title"><b>View Feedback</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-bed text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
+                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='inbox.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>View Message</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-bed text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
+                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='Result1.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Results</b></h3>
+							<h3 class="box-title"><b>Add Results</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-bed text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
+							</ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='add-eventtime.php'">
+                        <div class="white-box">
+							<h3 class="box-title"><b>Add Schedule</b></h3>
+							<ul class="list-inline two-part">
+								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
+							</ul>
+                        </div>
+                    </div>
+                    
+                      <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='compose.php'">
+                        <div class="white-box">
+							<h3 class="box-title"><b>Add Message</b></h3>
+							<ul class="list-inline two-part">
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
