@@ -79,7 +79,7 @@ elseif(isset($_SESSION['admin']))
 						<div class="card card-inverse">
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
-								<h4 class="card-title text-uppercase">WELCOME <?php echo $row['pusername']; ?></h4>
+								<h4 class="card-title text-uppercase">WELCOME <?php echo $ausername; ?></h4>
 								<p class="card-text" id="cText">You are logged-in to Participants control panel, here are some of the basic information about fest and some basic functions to perform. </p>
 							<!--<p id="wText" class="card-text text-warning"><i class="fa fa-info-circle"></i><b> THERE ARE <?php echo mysqli_num_rows($resultcountmsg); ?> UNREAD MESSAGES AND  <?php echo $acount; ?> UNSCHEDULED APPOINTMENTS. </b></p>-->
 								<!--<p class="card-text"><small class="text-white">~AlphaCare</small></p>-->
@@ -94,7 +94,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>View Events</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-wheelchair text-info Hoveranimatevpt"></i></li>
+								<li><i class="fa fa-id-badge text-info Hoveranimatevpt"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
@@ -103,7 +103,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>Add Participants</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-user-md text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
@@ -121,7 +121,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>View Qualified Teams</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-bed text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
@@ -130,7 +130,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>View Message</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-bed text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
@@ -139,7 +139,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>View Results</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-bed text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
