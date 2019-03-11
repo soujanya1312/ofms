@@ -61,7 +61,7 @@
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-eventtime.php">View Schedule</a> </li>
+					<li> <a href="view-schedule.php">View Schedule</a> </li>
 					
 				</ul>
 			</li>

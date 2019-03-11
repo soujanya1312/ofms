@@ -6,10 +6,7 @@ if(isset($_SESSION['admin']))
 {
 	$ausername=$_SESSION['admin'];
 }
-elseif(issset($_SESSION['husername']))
-{
-  $ausername=$_SESSION['husername'];  
-}
+
 ?>
 <!DOCTYPE html>
 <!--

@@ -204,7 +204,7 @@ if(isset($_POST['AttendedBtn']))
                                     <p class="p-0">
 										<a href="mailto:<?php  echo $getapointresult["pemail"]; ?>"> <?php  echo $getapointresult["pemail"]; ?> </a> <br>
 										
-										<i class="fa fa-user-md"></i><?php echo $getapointresult["pname"]?> <br>
+										<i class="fa fa-user-md"></i><?php echo $getapointresult["pusername"]?> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
 									 	
                                     </p>

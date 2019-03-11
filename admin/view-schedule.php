@@ -92,8 +92,8 @@ $ausername=$_SESSION['admin'];
 										
                                     </p>
 									<div class="p-t-5">
-											<a href="edit-staff-profile.php?id=<?php echo $result["s_id"]; ?>" class="fcbtn btn btn-info">Edit</a>
-											<a href="#" class="fcbtn btn btn-danger model_img deleteStaff" data-id="<?php echo $result["s_id"]; ?>" id="deleteStf">Delete</a>
+											<a href="edit-eventtime.php".php?id=<?php echo $result["en_id"]; ?>" class="fcbtn btn btn-info">Edit</a>
+											<a href="#" class="fcbtn btn btn-danger model_img deleteStaff" data-id="<?php echo $result["en_id"]; ?>" id="deleteStf">Delete</a>
 									 </div>
                                 </div>
                             </div>

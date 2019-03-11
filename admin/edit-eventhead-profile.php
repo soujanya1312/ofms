@@ -40,7 +40,7 @@ if(isset($_POST['updateprofile']))
 if(isset($_POST['changepw']))
 {
 	$oldpw=md5($_POST['oldpassword']);
-	if($oldpw==$row["password"])
+	if($oldpw==$row["hpassword"])
 	{
 		$npw=md5($_POST['newpassword']);
 		$pwquery="UPDATE events SET hpassword='$npw' WHERE eid='$id'";
