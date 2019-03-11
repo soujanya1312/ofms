@@ -99,9 +99,9 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-events.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-schedule.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Add Participants</b></h3>
+							<h3 class="box-title"><b>View Schedule </b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
@@ -110,40 +110,32 @@ elseif(isset($_SESSION['admin']))
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-staffs.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Schedule</b></h3>
+							<h3 class="box-title"><b>view Results</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='feedback.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Qualified Teams</b></h3>
+							<h3 class="box-title"><b>Add Feedback</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
+                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-events.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Message</b></h3>
+							<h3 class="box-title"><b>Add Contestants</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-wards.php'">
-                        <div class="white-box">
-							<h3 class="box-title"><b>View Results</b></h3>
-							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
-								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
-							</ul>
-                        </div>
-                    </div>
+                     
                 </div>
                 <!--/row -->
                 

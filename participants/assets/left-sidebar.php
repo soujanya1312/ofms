@@ -17,7 +17,7 @@
 				<a href="#" class="waves-effect"><img src="../plugins/images/users/user(2).png" alt="user-img" class="img-circle"> <span class="hide-menu"><?php echo $ausername; ?><span class="fa arrow"></span></span>
 				</a>
 				<ul class="nav nav-second-level">
-					<li><a href="my-profile1.php"><i class="ti-user"></i> My Profile</a></li>
+					<li><a href="participants-myprofile.php"><i class="ti-user"></i> My Profile</a></li>
 					<!-- <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li> -->
@@ -40,28 +40,28 @@
 			<!---PNB Added Doctors menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Register Now! <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-events.php">View Events </a> </li>
+					<li> <a href="view-events.php">view events </a> </li>
 				</ul>
 			</li>
 			<!---PNB Added Patient menu --->
 			
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-schedule.php">View Schedule</a> </li>
+					<li> <a href="view-schedule.php">view schedule</a> </li>
 				
 				</ul>
 			</li>
             
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Scoresheet <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-scoresheet.php">view Scoresheet</a> </li>
+					<li> <a href="add-scoresheet.php">view results</a> </li>
 				
 				</ul>
 			</li>
            
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results <span class="fa arrow"></span></span></a>
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-scoresheet.php">view Results</a> </li>
+					<li> <a href="feedback.php">add feedback</a> </li>
 				
 				</ul>
 			</li>

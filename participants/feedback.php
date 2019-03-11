@@ -162,7 +162,7 @@ if(isset($_POST['f_email']) || isset($_POST['f_mob']) && isset($_POST['f_msg']))
                     </div>
 					<div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
-                            <a href="../index.html"><button class="btn btn-danger btn-lg btn-block text-uppercase waves-effect waves-light" >Back</button></a>   
+                            <a href="./index.php"><button class="btn btn-danger btn-lg btn-block text-uppercase waves-effect waves-light" >Back</button></a>   
                         </div>
                     </div>
 
