@@ -1,7 +1,11 @@
 <?php
 include '../login/accesscontrolhead.php';
 require('connect.php');
-$ausername=$_SESSION['husername'];
+
+if(isset($_SESSION['husername']))
+{
+	$ausername=$_SESSION['husername'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -19,16 +23,16 @@ $ausername=$_SESSION['husername'];
     <meta name="description" content="Online Fest Management System">
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
-    <?php include '../admin/assets/csslink.php'; ?>
+    <?php include 'assets/csslink.php'; ?>
 </head>
 
 <body class="fix-sidebar">
     <!--header.php includes preloader, top navigarion, logo, user dropdown-->
     <!--div id wrapper in header.php-->
     <!--left-sidebar.php includes mobile search bar, user profile, menu-->
-    <?php include '../admin/assets/header.php';
-	include '../admin/assets/left-sidebar.php';
-	include '../admin/assets/breadcrumbs.php';
+    <?php include 'assets/header.php';
+	include 'assets/left-sidebar.php';
+	include 'assets/breadcrumbs.php';
 	?>
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -61,7 +65,7 @@ $ausername=$_SESSION['husername'];
 										</div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                            <a href="../admin/logout.php" class="btn btn-danger waves-effect waves-light">Proceed for login</a>
+                                            <a href="logout.php" class="btn btn-danger waves-effect waves-light">Proceed for login</a>
                                         </div>
                                     </div>
                                 </div>
@@ -79,17 +83,17 @@ $ausername=$_SESSION['husername'];
                                     <thead>
                                         <tr>
                                             <th>SL NO</th>
-                                            <th>NAME</th>
-                                            <th>Mobile No</th>
-                                            <th>Email</th>
+                                            <th>Participant NAME</th>
+                                            <th>Participant  Number</th>
+                                            <th>ParticipantEmail</th>
+                                            <th>Participant college Name</th>
                                             <th class="text-nowrap">Team Code</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT pid,pusername,pemail,pmob,teamcode FROM participants WHERE  teamcode is not NULL and teamcode<>'Cancelled'"; 
-                                                   
+												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM participants WHERE teamcode is NOT NULL";
 												$result = mysqli_query($connection,$sql);
 												foreach($result as $key=>$result)
 												{ ?>
@@ -99,7 +103,8 @@ $ausername=$_SESSION['husername'];
                                                        
 														<td> <?php echo $result["pmob"]; ?> </td>
                                                         <td> <?php echo $result["pemail"]; ?> </td>
-												        <td> <?php echo $result["teamcode"]; ?> </td>
+                                                         <td> <?php echo $result["pclgname"]; ?> </td>
+														 <td> <?php echo $result["teamcode"]; ?> </td>
 													</tr>
                                         <?php 
 												}
@@ -121,13 +126,13 @@ $ausername=$_SESSION['husername'];
             </div>
             <!-- /.container-fluid -->
             <!--footer.php contains footer-->
-            <?php include'../admin/assets/footer.php'; ?>
+            <?php include'assets/footer.php'; ?>
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
-    <?php include'../admin/assets/jslink.php'; ?>
+    <?php include'assets/jslink.php'; ?>
 </body>
 
 </html>
