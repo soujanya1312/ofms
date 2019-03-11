@@ -83,7 +83,7 @@ require('connect.php');
                         <div class="white-box">
 							<h3 class="box-title"><b>Confirmed Colleges</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-wheelchair text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
@@ -92,7 +92,7 @@ require('connect.php');
                         <div class="white-box">
 							<h3 class="box-title"><b>View Events</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-user-md" style="color: blueviolet" ></i></li>
+								<li><i class="fa fa-id-badge" style="color: blueviolet" ></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
@@ -110,7 +110,7 @@ require('connect.php');
                         <div class="white-box">
 							<h3 class="box-title"><b>View Schedule</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-bed text-info"></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
@@ -122,7 +122,7 @@ require('connect.php');
                     <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add new Admin" onClick="window.location='add-admin.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="fa fa-wheelchair bg-black Hoveranimatepat"></i>
+                                <i class="fa fa-id-badge bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
 									<h4><b>ADD Admin</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
@@ -133,7 +133,7 @@ require('connect.php');
                     <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Head account" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="fa fa-user-md bg-black Hoveranimatedoc"></i>
+                                <i class="fa fa-id-badge bg-black Hoveranimatedoc"></i>
                                 <div class="bodystate p-l-10 p-t-10">
 									<h4><b>ADD EVENT HEAD</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
