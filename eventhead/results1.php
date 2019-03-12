@@ -9,10 +9,17 @@ $gethname="SELECT eid,ename FROM events WHERE husername='$ausername'";
 $gethnameresult=mysqli_query($connection,$gethname);
 $gethnamerow=mysqli_fetch_assoc($gethnameresult);
 $hid=$gethnamerow['eid'];
+
 $geteventname="SELECT ename FROM events  where eid='$hid'";
 $getfestnameresul1=mysqli_query($connection,$geteventname);
 $getfestnamero1=mysqli_fetch_assoc($getfestnameresul1);
 $festid=$getfestnamero1['ename'];
+
+$geteventname1="SELECT teamcode FROM events  where eid='$hid'";
+$getfestnameresul11=mysqli_query($connection,$geteventname1);
+//$getfestnamero2=mysqli_fetch_assoc($getfestnameresul11);
+$festid=$getfestnameresul11['teamcode'];
+
 if (isset($_POST['psubmit']))
 	{
 		$getfid=mysqli_query($connection,"SELECT * FROM fests where fid='$festid'");
@@ -133,6 +140,13 @@ if (isset($_POST['psubmit']))
 								<?php
 									 $college="SELECT teamcode FROM participants WHERE pid='$hid'";
 									 $colres=mysqli_query($connection, $college);
+                                     
+                                    // $teamname=$getfestnameresul11['teamcode'];
+									//$i="SELECT * FROM events WHERE teamcode='$teamname'";
+									//$res=mysqli_query($connection, $i);
+									//$rowevent = mysqli_fetch_assoc($res);
+									//$totrows=$rowevent['teamcode'];
+									//$countid=1;
 									 ?>
 								 <div class="form-group">
 									 <label for="inputEmail" class="control-label">SELECTED TEAM</label>
