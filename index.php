@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-<title>Hostify</title>
+<title>Alphatech-OFMS</title>
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/bootstrap-slider.min.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/fontawesome-all.min.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/slick.css">
-<link rel="stylesheet" type="text/css" href="lp-plugins/css/style.css">
+<!--<link rel="stylesheet" type="text/css" href="lp-plugins/css/style.css">-->
+ <link rel="stylesheet" type="text/css" href="lp-plugins/css/style-darkblue.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/custom.css">
 </head>
 
@@ -34,15 +35,22 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="logo-holder" href="index.html">
-                                <div class="logo" style="width:62px;height:18px"></div>
+                                <div class="logo" style="width:15px;height:10px">
+                                <img src="lp-plugins/images/ofms.png">
+                                 <!-- "width:62px;height:18px"-->    
+                                </div>
                             </a>
                         </div>
                         <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
-                            <ul class="nav navbar-nav navbar-right">
+                         <ul class="nav navbar-nav navbar-right">
                                 <li><a href="index.html">Home</a></li>
-                                <li class="dropdown unity-menu">
-                                    <a href="#pricing">Hosting <i class="fas fa-caret-down"></i></a>
-                                    <ul class="dropdown-menu dropdown-unity">
+                                <li><a href="index.html">Services</a></li>
+                                <li><a href="index.html">About Us</a></li>
+                                 <li><a href="index.html">Contact Us</a></li>
+                             
+                                 <!--<li class="dropdown unity-menu">
+                                    <a href="#pricing">Register <i class="fas fa-caret-down"></i></a>
+                                   <ul class="dropdown-menu dropdown-unity">
                                         <li>
                                             <a class="unity-link" href="webhosting.html">
                                                 <div class="unity-box">
@@ -103,30 +111,26 @@
                                                 </div>
                                             </a>
                                         </li>
-                                    </ul>
-                                </li>
+                                    </ul
+                                </li>>-->
                                 <li class="dropdown">
-                                    <a href="#">Pages <i class="fas fa-caret-down"></i></a>
+                                    <a href="#">Feedback<i class="fas fa-caret-down"></i></a>
                                     <ul class="dropdown-menu">
-                                      <li><a href="about.html">Company</a></li>
-                                      <li><a href="blog.html">Blog</a></li>
-                                      <li><a href="domains.html">Domain List</a></li>
-                                      <li><a href="ourservers.html">Servers</a></li>
-                                      <li><a href="mapdata.html">Map Generator</a></li>
-                                      <li><a href="horizontalpricing.html">Horizontal Pricing</a></li>
+                                      <li><a href="./login/feedback.php">ADD Feedback</a></li>
+                                      </li>
                                     </ul>
                                 </li>
-                                <li><a href="../../whmcs/index.php?systpl=hostify">WHMCS</a></li>
+                               <!-- <li><a href="../../whmcs/index.php?systpl=hostify">WHMCS</a></li>
                                 <li><a href="contact.html">Contact us</a></li>
-                                <li><a class="login-button" href="signin.html">Login</a></li>
+                               <!-- <li><a class="login-button" href="signin.html">Login</a></li>-->
                                 <li class="support-button-holder support-dropdown">
-                                    <a class="support-button" href="#">Support</a>
-                                    <ul class="dropdown-menu">
+                                    <a class="support-button" href="./login/index.php">Login</a>
+                                   <!-- <ul class="dropdown-menu">
                                       <li><a href="#"><i class="fas fa-phone"></i>Toll-Free  08-197-435-01</a></li>
                                       <li><a href="#"><i class="fas fa-comments"></i>Start a Live Chat</a></li>
                                       <li><a href="#"><i class="fas fa-ticket-alt"></i>Open a ticket</a></li>
                                       <li><a href="#"><i class="fas fa-book"></i>Knowledge base</a></li>
-                                    </ul>
+                                    </ul>-->
                                 </li>
                             </ul>
                         </div>
@@ -135,24 +139,26 @@
             </div>
         </div>
     </nav>
+    
+    <!--header ends -->
+    
     <div id="top-content" class="container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div id="main-slider">
                         <div class="slide">
-                            <div class="noti-holder">
+                           <!-- <div class="noti-holder">
                                 <a href="#">
-                                    <div class="noti">
-                                        <span class="badge">New</span><span class="text">Added new packages in cloud hosting.</span>
+                                 <span class="badge">New</span><span class="text">Added new packages in cloud hosting.</span>
                                     </div>
                                 </a>
-                            </div>
+                            </div>-->
                             <div class="spacer"></div>
                             <div class="big-title">Your very <span>own space,</span><br>anywhere, anytime.</div>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis atque corrupti quos dolores et quas molestias.</p>
+                            <p>Get a new interface for the fest you host.</p>
                             <div class="btn-holder">
-                                <a href="signup.html" class="ybtn ybtn-header-color">Register</a><a href="contact.html" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
+                                <a href="./login/register-user.php" class="ybtn ybtn-header-color">Host A Fest!</a>
                             </div>
                         </div>
                     </div>
@@ -164,17 +170,128 @@
         </div>
     </div>
 </div>
-<div id="info" class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="info-text">adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</div>
-                
-                <a href="signup.html" class="ybtn ybtn-accent-color ybtn-shadow">Create Your Account</a>
+
+<!--till image animation -->
+
+<!--About alphatech begins  -->
+<div id="header-holder" class="inner-header about-header">
+ <div id="page-head" class="container-fluid inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="icons-animation-holder">
+                        <div class="aicon aicon1"><img src="lp-plugins/images/aicon1.png" alt=""></div>
+                        <div class="aicon aicon2"><img src="lp-plugins/images/aicon2.png" alt=""></div>
+                        <div class="aicon aicon3"><img src="lp-plugins/images/aicon3.png" alt=""></div>
+                        <div class="aicon aicon4"><img src="lp-plugins/images/aicon4.png" alt=""></div>
+                        <div class="aicon aicon-main">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 134 38" width="124px" height="35px" class="logo">
+                                <text kerning="auto" font-family="Rubik" align="center" fill="rgb(255, 255, 255)" transform="matrix( 11.051445195489, 0, 0, 11.0388026563729,0.08427829227281, 28.538802656373)" font-size="3.79px">OFMS</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 company-info-holder">
+                    <h4>About Alphatech</h4>
+                    <div class="info-slider">
+                        <div>
+                            <div class="details-holder">
+                                <p>Hostify At vero eos et accusamus<br>
+                                    et iusto odio dignissimos ducimus<br>
+                                    qui blanditiis praesentium voluptatum<br>
+                                    deleniti atque corrupti quos dolores<br>
+                                    et quas molestias excepturi sint<br>
+                                    occaecati cupiditate non.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="details-holder">
+                                <p>Hostify At vero eos et accusamus<br>
+                                    et iusto odio dignissimos ducimus<br> 
+                                    qui blanditiis praesentium voluptatum<br>
+                                    deleniti atque corrupti quos dolores<br>
+                                    et quas molestias excepturi sint<br>
+                                    occaecati cupiditate non.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="details-holder">
+                                <p>Hostify At vero eos et accusamus<br>
+                                    et iusto odio dignissimos ducimus<br> 
+                                    qui blanditiis praesentium voluptatum<br>
+                                    deleniti atque corrupti quos dolores<br>
+                                    et quas molestias excepturi sint<br>
+                                    occaecati cupiditate non.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+   
+<!--About alphatech ends  -->
+
+
+<!--makes us special begins  -->
+<div id="ifeatures" class="container-fluid" style="overflow: scroll;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-title">What makes us special?</div>
+                <div class="row-subtitle"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/feature1.png" alt="">
+                    </div>
+                    <div class="feature-title">Share Files</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/feature2.png" alt="">
+                    </div>
+                    <div class="feature-title">Go Unlimited</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/feature3.png" alt="">
+                    </div>
+                    <div class="feature-title">Security First</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/feature4.png" alt="">
+                    </div>
+                    <div class="feature-title">Trusted 100%</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--special ends  -->
+
+
+<!-- our services begins -->
 <div id="services" class="container-fluid">
     <div class="container">
         <div class="row">
@@ -239,7 +356,94 @@ atque corrupti quos dolores et quas molestias.</p>
         </div>
     </div>
 </div>
-<div id="message1" class="container-fluid message-area">
+
+<!-- our services ends -->
+
+<!-- our servers begins -->
+
+<div id="header-holder" class="inner-header serverspage-header">
+ <div id="page-head" class="container-fluid inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="servers-icon">
+                        <img src="lp-plugins/images/servers.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="head-content">
+                        <h4>Our Servers</h4>
+                        <p>Hostify servers are secure, reliable
+                            & amazing at performance.</p>
+
+                        <p>Enjoy maximum customization,
+                        and overall flexibility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="ifeatures" class="container-fluid sfeatures">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-title">Resilient network</div>
+                <div class="row-subtitle"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/sfeature1.png" alt="">
+                    </div>
+                    <div class="feature-title">Secure Files</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/sfeature2.png" alt="">
+                    </div>
+                    <div class="feature-title">All Configurations</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/sfeature3.png" alt="">
+                    </div>
+                    <div class="feature-title">Cloud Sharing</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="lp-plugins/images/sfeature4.png" alt="">
+                    </div>
+                    <div class="feature-title">100% Satisfying</div>
+                    <div class="feature-details">Lorem ipsum dolor sit amir anim
+amoe yosner dolner </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--our servers ends   -->
+
+<!--<div id="message1" class="container-fluid message-area">
     <div class="bg-color"></div>
     <div class="container">
         <div class="row">
@@ -254,7 +458,7 @@ atque corrupti quos dolores et quas molestias.</p>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <div id="pricing" class="container-fluid">
     <div class="bg-color"></div>
     <div class="container">
