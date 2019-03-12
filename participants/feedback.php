@@ -119,7 +119,7 @@ if(isset($_POST['f_email']) || isset($_POST['f_mob']) && isset($_POST['f_msg']))
     <div class="preloader">
         <div class="cssload-speeding-wheel"></div>
     </div>
-    <section id="wrapper" class="login-register">
+    <section id="wrapper" class="login-register" style="overflow: scroll;">
         <div class="login-box">
             <div class="white-box">
                 <form class="form-horizontal form-material" id="loginform" method="post">
