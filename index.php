@@ -155,8 +155,8 @@
                                 </a>
                             </div>-->
                             <div class="spacer"></div>
-                            <div class="big-title">Your very <span>own space,</span><br>anywhere, anytime.</div>
-                            <p>Get a new interface for the fest you host.</p>
+                            <div class="big-title">Get a new interface for the <span>fest </span><br>you host.</div>
+                            <p>Your very own space,anywhere, anytime. </p>
                             <div class="btn-holder">
                                 <a href="./login/register-user.php" class="ybtn ybtn-header-color">Host A Fest!</a>
                             </div>
@@ -172,6 +172,48 @@
 </div>
 
 <!--till image animation -->
+
+
+
+<!--upcomining fest begins-->
+<div id="domain-quick-pricing" class="container-fluid">
+    <div class="container">
+           <div class="row">
+            <div class="col-md-12">
+                <div class="row-title"> Upcoming Fests</div>
+                <div class="row-subtitle"></div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="domain-box d-color1">
+                    <div class="title"></div>
+                    <div class="price">Festname 1</div>
+                    <div class="details">fest description</div>
+                    <div class="link"><a class="register-button" href="./admin/add-participants.php">Register</a></div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="domain-box d-color2">
+                    <div class="title"></div>
+                    <div class="price">Festname 2</div>
+                    <div class="details">fest description</div>
+                    <div class="link"><a class="register-button" href="./admin/add-participants.php">Register</a></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="domain-box d-color3">
+                    <div class="title"></div>
+                    <div class="price">Festname 3</div>
+                    <div class="details">fest description</div>
+                    <div class="link"><a class="register-button" href="./admin/add-participants.php">Register</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--upcoming fests ends-->
 
 <!--About alphatech begins  -->
 <div id="header-holder" class="inner-header about-header">
@@ -233,7 +275,6 @@
    
 <!--About alphatech ends  -->
 
-
 <!--makes us special begins  -->
 <div id="ifeatures" class="container-fluid" style="overflow: scroll;">
     <div class="container">
@@ -291,73 +332,6 @@ amoe yosner dolner </div>
 <!--special ends  -->
 
 
-<!-- our services begins -->
-<div id="services" class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row-title">Our Services</div>
-                <div class="row-subtitle">Designed to satisfy your creative needs.</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="lp-plugins/images/service-icon1.svg" alt="">
-                    </div>
-                    <div class="service-title"><a href="webhosting.html">Web Hosting</a></div>
-                    <div class="service-details">
-                        <p>At vero eos et accusamus et iusto odio dignissimos
-ducimus qui blanditiis praesentium voluptatum div
-atque corrupti quos dolores et quas molestias.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="lp-plugins/images/service-icon2.svg" alt="">
-                    </div>
-                    <div class="service-title"><a href="#">Resellers</a></div>
-                    <div class="service-details">
-                        <p>At vero eos et accusamus et iusto odio dignissimos
-ducimus qui blanditiis praesentium voluptatum div
-atque corrupti quos dolores et quas molestias.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="lp-plugins/images/service-icon3.svg" alt="">
-                    </div>
-                    <div class="service-title"><a href="vpshosting.html">VPS Hosting</a></div>
-                    <div class="service-details">
-                        <p>At vero eos et accusamus et iusto odio dignissimos
-ducimus qui blanditiis praesentium voluptatum div
-atque corrupti quos dolores et quas molestias.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="lp-plugins/images/service-icon4.svg" alt="">
-                    </div>
-                    <div class="service-title"><a href="cloudhosting.html">Cloud Hosting</a></div>
-                    <div class="service-details">
-                        <p>At vero eos et accusamus et iusto odio dignissimos
-ducimus qui blanditiis praesentium voluptatum div
-atque corrupti quos dolores et quas molestias.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- our services ends -->
 
 <!-- our servers begins -->
 
@@ -443,331 +417,76 @@ amoe yosner dolner </div>
 </div>
 <!--our servers ends   -->
 
-<!--<div id="message1" class="container-fluid message-area">
-    <div class="bg-color"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="text-other-color1">Are you ready?</div>
-                <div class="text-other-color2">create an account, or contact us.</div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="buttons-holder">
-                    <a href="signup.html" class="ybtn ybtn-accent-color">Create Your Account</a><a href="contact.html" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-<div id="pricing" class="container-fluid">
-    <div class="bg-color"></div>
+
+<!-- our services begins -->
+<div id="services" class="container-fluid">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="row-title">Web Hosting Plans</div>
-                <div class="row-subtitle">Choose what's best</div>
+                <div class="row-title">Our Services</div>
+                <div class="row-subtitle">Designed to satisfy your creative needs.</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="pricing-box pricing-unity pricing-color1">
-                    <div class="pricing-content">
-                        <div class="pricing-icon">
-                            <img src="lp-plugins/images/service-icon1.svg" alt="">
-                        </div>
-                        <div class="pricing-title">Web Hosting</div>
-                        <div class="price-title">Starting from</div>
-                        <div class="pricing-price">$4.8</div>
-                        <div class="pricing-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus.<br>
-                                Blanditiis praesentium voludiv.</p>
-                        </div>
-                        <div class="pricing-link">
-                            <a class="ybtn" href="webhosting.html">See web hosting plans</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="pricing-box pricing-unity pricing-color2 featured">
-                    <div class="pricing-content">
-                        <div class="pricing-icon">
-                            <img src="lp-plugins/images/service-icon4.svg" alt="">
-                        </div>
-                        <div class="pricing-title">Cloud Server</div>
-                        <div class="price-title">Starting from</div>
-                        <div class="pricing-price">$10.8</div>
-                        <div class="pricing-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus.<br>
-                                Blanditiis praesentium voludiv.</p>
-                        </div>
-                        <div class="pricing-link">
-                            <a class="ybtn" href="cloudhosting.html">See cloud servers plans</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="pricing-box pricing-unity pricing-color3">
-                    <div class="pricing-content">
-                        <div class="pricing-icon">
-                            <img src="lp-plugins/images/service-icon3.svg" alt="">
-                        </div>
-                        <div class="pricing-title">VPS Server</div>
-                        <div class="price-title">Starting from</div>
-                        <div class="pricing-price">$18.8</div>
-                        <div class="pricing-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus.<br>
-                                Blanditiis praesentium voludiv.</p>
-                        </div>
-                        <div class="pricing-link">
-                            <a class="ybtn" href="vpshosting.html">See vps servers plans</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="custom-plan" class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h4>Create your plan</h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum div atque corrupti quos dolores et quas molestias.</p>
-                <div class="custom-plan-box">
-                    <input id="c-plan" type="text" data-slider-min="100" data-slider-max="10000" data-slider-step="100" data-slider-value="5000" data-currency="$" data-unit="GB">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="custom-plan-info-box">
-                    <div class="title">Your custom plan</div>
-                    <div class="details">
-                        <div class="feature feature1"><span>5</span> GB</div>
-                        <div class="feature feature2"><span>20</span> GB Bandwidth</div>
-                        <div class="feature feature3">E-mail accounts</div>
-                        <div class="feature feature4">Unlimited other features</div>
-                    </div>
-                    <div class="price">$250</div>
-                    <div class="btn-holder">
-                        <a href="signup.html" class="ybtn ybtn-accent-color">Order now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="features" class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="row-title">Our hosting features</div>
-                <div class="row-subtitle"></div>
-            </div>
-        </div>
-        <div class="row rtl-cols">
             <div class="col-sm-12 col-md-6">
-                <div id="features-links-holder">
-                    <div class="icons-axis">
-                        <img src="lp-plugins/images/features-icon.png" alt="">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon1.svg" alt="">
                     </div>
-                    <div class="feature-icon-holder feature-icon-holder1 opened" data-id="1">
-                        <div class="animation-holder"><div class="special-gradiant"></div></div>
-                        <div class="feature-icon"><i class="htfy htfy-worldwide"></i></div>
-                        <div class="feature-title">%99 Uptime</div>
-                    </div>
-                    <div class="feature-icon-holder feature-icon-holder2" data-id="2">
-                        <div class="animation-holder"><div class="special-gradiant"></div></div>
-                        <div class="feature-icon"><i class="htfy htfy-cogwheel"></i></div>
-                        <div class="feature-title">Easy control panel</div>
-                    </div>
-                    <div class="feature-icon-holder feature-icon-holder3" data-id="3">
-                        <div class="animation-holder"><div class="special-gradiant"></div></div>
-                        <div class="feature-icon"><i class="htfy htfy-location"></i></div>
-                        <div class="feature-title">Email Marketing</div>
-                    </div>
-                    <div class="feature-icon-holder feature-icon-holder4" data-id="4">
-                        <div class="animation-holder"><div class="special-gradiant"></div></div>
-                        <div class="feature-icon"><i class="htfy htfy-download"></i></div>
-                        <div class="feature-title">1CLICK Script Installs</div>
-                    </div>
-                    <div class="feature-icon-holder feature-icon-holder5" data-id="5">
-                        <div class="animation-holder"><div class="special-gradiant"></div></div>
-                        <div class="feature-icon"><i class="htfy htfy-like"></i></div>
-                        <div class="feature-title">7/24 Support</div>
+                    <div class="service-title"><a href="webhosting.html">Web Hosting</a></div>
+                    <div class="service-details">
+                        <p>At vero eos et accusamus et iusto odio dignissimos
+ducimus qui blanditiis praesentium voluptatum div
+atque corrupti quos dolores et quas molestias.</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-6">
-                <div id="features-holder">
-                    <div class="feature-box feature-d1 show-details">
-                        <div class="feature-title-holder">
-                            <span class="feature-icon"><i class="htfy htfy-worldwide"></i></span>
-                            <span class="feature-title">%99 Uptime</span>
-                        </div>
-                        <div class="feature-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos
-                                ducimus qui blanditiis praesentium voluptatum div
-                                atque corrupti quos dolores et quas molestias.</p>
-
-                            <p>dignissimos ducimus qui blanditiis praesentium
-                                voluptatum div atque corrupti quos dolores et quas
-                                unimo molestias.</p>
-                        </div>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon2.svg" alt="">
                     </div>
-                    <div class="feature-box feature-d2">
-                        <div class="feature-title-holder">
-                            <span class="feature-icon"><i class="htfy htfy-cogwheel"></i></span>
-                            <span class="feature-title">Easy control panel</span>
-                        </div>
-                        <div class="feature-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos
-                                ducimus qui blanditiis praesentium voluptatum div
-                                atque corrupti quos dolores et quas molestias.</p>
-
-                            <p>dignissimos ducimus qui blanditiis praesentium
-                                voluptatum div atque corrupti quos dolores et quas
-                                unimo molestias.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box feature-d3">
-                        <div class="feature-title-holder">
-                            <span class="feature-icon"><i class="htfy htfy-location"></i></span>
-                            <span class="feature-title">Email Marketing</span>
-                        </div>
-                        <div class="feature-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos
-                                ducimus qui blanditiis praesentium voluptatum div
-                                atque corrupti quos dolores et quas molestias.</p>
-
-                            <p>dignissimos ducimus qui blanditiis praesentium
-                                voluptatum div atque corrupti quos dolores et quas
-                                unimo molestias.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box feature-d4">
-                        <div class="feature-title-holder">
-                            <span class="feature-icon"><i class="htfy htfy-download"></i></span>
-                            <span class="feature-title">1CLICK Script Installs</span>
-                        </div>
-                        <div class="feature-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos
-                                ducimus qui blanditiis praesentium voluptatum div
-                                atque corrupti quos dolores et quas molestias.</p>
-
-                            <p>dignissimos ducimus qui blanditiis praesentium
-                                voluptatum div atque corrupti quos dolores et quas
-                                unimo molestias.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box feature-d5">
-                        <div class="feature-title-holder">
-                            <span class="feature-icon"><i class="htfy htfy-like"></i></span>
-                            <span class="feature-title">7/24 Support</span>
-                        </div>
-                        <div class="feature-details">
-                            <p>At vero eos et accusamus et iusto odio dignissimos
-                                ducimus qui blanditiis praesentium voluptatum div
-                                atque corrupti quos dolores et quas molestias.</p>
-
-                            <p>dignissimos ducimus qui blanditiis praesentium
-                                voluptatum div atque corrupti quos dolores et quas
-                                unimo molestias.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="testimonials" class="container-fluid">
-    <div class="bg-color"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="row-title">Testimonials</div>
-                <div class="row-subtitle">What others said about us?</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div id="testimonials-slider">
-                    <div>
-                        <div class="details-holder">
-                            <img class="photo" src="lp-plugins/images/person1.jpg" alt="">
-                            <h4>Chris Walker</h4>
-                            <h5>CEO & CO-Founder @HelloBrandio</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas non ante non consequat. Aenean accumsan eros vel elit tristique, non sodales nunc luctus. Etiam vitae odio eget orci finibus auctor ut eget magna.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="details-holder">
-                            <img class="photo" src="lp-plugins/images/person2.jpg" alt="">
-                            <h4>Chris Walker</h4>
-                            <h5>CEO & CO-Founder @HelloBrandio</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas non ante non consequat. Aenean accumsan eros vel elit tristique, non sodales nunc luctus. Etiam vitae odio eget orci finibus auctor ut eget magna.</p>
-                        </div>
+                    <div class="service-title"><a href="#">Resellers</a></div>
+                    <div class="service-details">
+                        <p>At vero eos et accusamus et iusto odio dignissimos
+ducimus qui blanditiis praesentium voluptatum div
+atque corrupti quos dolores et quas molestias.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="more-features" class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row-title">Our Promise</div>
-                <div class="row-subtitle">Your satisfaction is guaranteed. Indeed.</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="mfeature-box">
-                    <div class="mfeature-icon">
-                        <i class="htfy htfy-trophy"></i>
-                    </div>
-                    <div class="mfeature-title">%99.9 Uptime</div>
-                    <div class="mfeature-details">Mauris at libero sed justo pretium maximus ac non ex. Donec sit amet ultrices dolo.</div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="mfeature-box">
-                    <div class="mfeature-icon">
-                        <i class="htfy htfy-like"></i>
-                    </div>
-                    <div class="mfeature-title">Money Back Guarantee</div>
-                    <div class="mfeature-details">Mauris at libero sed justo pretium maximus ac non ex. Donec sit amet ultrices dolo.</div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="mfeature-box">
-                    <div class="mfeature-icon">
-                        <i class="htfy htfy-cogwheel"></i>
-                    </div>
-                    <div class="mfeature-title">Best Support</div>
-                    <div class="mfeature-details">Mauris at libero sed justo pretium maximus ac non ex. Donec sit amet ultrices dolo.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="message2" class="container-fluid message-area normal-bg boxed">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="text-other-color1">Are you ready?</div>
-                <div class="text-other-color2">create an account, or contact us.</div>
             </div>
             <div class="col-sm-12 col-md-6">
-                <div class="buttons-holder">
-                    <a href="signup.html" class="ybtn ybtn-accent-color">Create Your Account</a><a href="contact.html" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon3.svg" alt="">
+                    </div>
+                    <div class="service-title"><a href="vpshosting.html">VPS Hosting</a></div>
+                    <div class="service-details">
+                        <p>At vero eos et accusamus et iusto odio dignissimos
+ducimus qui blanditiis praesentium voluptatum div
+atque corrupti quos dolores et quas molestias.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon4.svg" alt="">
+                    </div>
+                    <div class="service-title"><a href="cloudhosting.html">Cloud Hosting</a></div>
+                    <div class="service-details">
+                        <p>At vero eos et accusamus et iusto odio dignissimos
+ducimus qui blanditiis praesentium voluptatum div
+atque corrupti quos dolores et quas molestias.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- our services ends -->
+
+<!--footer begins-->
 <div id="footer" class="container-fluid">
     <div class="container">
         <div class="row">
@@ -828,6 +547,7 @@ amoe yosner dolner </div>
         </div>
     </div>
 </div>
+<!--footer ends-->
 <script src="lp-plugins/js/jquery.min.js"></script>
 <script src="lp-plugins/js/bootstrap.min.js"></script>
 <script src="lp-plugins/js/bootstrap-slider.min.js"></script>
