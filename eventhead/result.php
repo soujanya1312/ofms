@@ -108,14 +108,15 @@ if (isset($_POST['psubmit']))
 									 $selectevent="SELECT ename FROM events WHERE eid='$hid'";
 									 $resultevent = mysqli_query($connection, $selectevent);
 									?>
-									 <select onChange="disableDrop" required class="form-control action" id="country" name="ename">
+									 <!-- <select onChange="disableDrop" required class="form-control action" id="country" name="ename"> -->
 								   	 <!--<option disabled hidden selected>Select Event
 									 </option>-->
 									 <?php while($rowevent = mysqli_fetch_assoc($resultevent)) { ?>
    									  <option value="<?php echo $rowevent['eid']; ?>"><?php echo $rowevent['ename']; ?></option>
 										 
-								     <?php } ?>
-										
+								     
+									 <input type="text" class="form-control" disabled value="<?php echo $rowevent['ename']; ?>">
+									 <?php } ?>
 									 </select>
                                           
                                 </div> 
