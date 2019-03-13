@@ -90,7 +90,7 @@ require('connect.php');
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventheads1.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Events</b></h3>
+							<h3 class="box-title"><b>No Of Events</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge" style="color: blueviolet" ></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
@@ -99,7 +99,7 @@ require('connect.php');
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-feedback.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Feedback</b></h3>
+							<h3 class="box-title"><b>No Of Feedback </b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
@@ -108,9 +108,9 @@ require('connect.php');
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-schedule.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Schedule</b></h3>
+							<h3 class="box-title"><b>Colleges Registered</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-id-badge" style="color: blueviolet" ></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
@@ -124,7 +124,7 @@ require('connect.php');
                             <div class="r-icon-stats">
                                 <i class="fa fa-id-badge bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD Admin</b></h4>
+									<h4><b>ADD EventHead</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
@@ -135,34 +135,34 @@ require('connect.php');
                             <div class="r-icon-stats">
                                 <i class="fa fa-id-badge bg-black Hoveranimatedoc"></i>
                                 <div class="bodystate p-l-10 p-t-10">
-									<h4><b>ADD EVENT HEAD</b></h4>
+									<h4><b>ADD Participants</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                   <!-- <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD EVENT DETAILS</b></h4>
-                                    <!--<span class="text-muted" style="font-size: 80%"></span>
+									<h4><b>EDIT Event Details</b></h4>
+                                    <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>-->
-                    <!--<div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Create new ward" onClick="window.location='add-ward.php'">
+                    </div>
+                 <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Create new ward" onClick="window.location='add-ward.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-bed bg-black Hoveranimatewrd"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b></b></h4>
+									<h4><b>View Event Results</b></h4>
                                     <span class="text-muted" style="font-size: small"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                 </div>
                 <!--/row -->
                 
@@ -201,11 +201,11 @@ require('connect.php');
 			
 			$('.Hoveranimatep').hover(function(){
 				$(".Hoveranimatepat").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatepat").removeClass("fa-wheelchair").addClass("fa-plus");
+				$(".Hoveranimatepat").removeClass("ti-id-badge").addClass("fa-plus");
 			},
 			function(){
 				$(".Hoveranimatepat").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatepat").removeClass("fa-plus").addClass("fa-wheelchair");
+				$(".Hoveranimatepat").removeClass("fa-plus").addClass("ti-id-badge");
 			}
 									
 			)

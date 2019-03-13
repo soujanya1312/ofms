@@ -171,6 +171,8 @@
     </div>
 </div>
 
+
+
 <!--till image animation -->
 
 
@@ -178,7 +180,7 @@
 <!--upcomining fest begins-->
 <div id="domain-quick-pricing" class="container-fluid">
     <div class="container">
-           <div class="row">
+        <div class="row">
             <div class="col-md-12">
                 <div class="row-title"> Upcoming Fests</div>
                 <div class="row-subtitle"></div>

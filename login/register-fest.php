@@ -26,7 +26,7 @@ if(!isset($_SESSION['aid']))
         if($result2)
            {
              $smsg="Event registration is Completed!, redirecting to login in 4 seconds";
-          }
+          } 
      else{
          $fmsg="Error".mysqli_error($connection);
      }
@@ -119,6 +119,50 @@ if(!isset($_SESSION['aid']))
      <div class="row">
           <div class="col-sm-12">
                <div class="white-box">
+               <h3 class="box-title m-b-0">Fest Details</h3><hr>
+                                   <div class="row">
+                                	 <div class="col-md-6" >
+                                          <div class="form-group">
+                                               <label class="control-label">Fest Name</label>
+								                       <div class="col-sm-12 p-l-0">
+								                            <div class="input-group">
+								                                 <input type="text" name="ename" class="form-control" id="fname" placeholder="Event Name" required>
+								                            </div>
+				                                       </div>
+                                         </div>
+                                    </div>
+                                     
+                                       <div class="col-md-6" >
+                                            <div class="form-group">                                   
+                                                 <label class="control-label">Fest Date</label>
+                                                      <div class="input-group">
+								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="edate" placeholder="dd-mm-yyyy" required>
+								               </div>
+								                     <div id="datewarn"></div>
+                                                              <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                    <label class="col-sm-12 p-l-0">Fest Type</label>
+                                    <div class="col-sm-12 p-l-0">
+                                        <select class="form-control" name="ftype">
+                                            <option selected hidden disabled>Select Your FestType</option>
+                                            <option value="1">IT</option>
+                                            <option value="2">MANAGEMENT</option>
+                                            <option value="3">CULTURAL</option>
+                                            <option value="4">OTHERS...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <label class="control-label">Fest Description</label>
+                                <div class="col-md-12 p-l-0">
+                                     <div class="form-group">
+                                          <textarea input type="text" name="cdesc" class="form-control" placeholder="Tell us about your fest"></textarea>
+                                     </div>
+                                </div>
+
                     <h3 class="box-title m-b-0">College Details</h3><hr>
                     <form data-toggle="validator" method="post">
                               <div class="row">
@@ -212,45 +256,8 @@ if(!isset($_SESSION['aid']))
                                     </div>
                                      <!--/span-->
                                  </div>
-                                <!--<div class="form-group">
-                                    <label class="col-sm-12 p-l-0">Gender</label>
-                                    <div class="col-sm-12 p-l-0">
-                                        <select class="form-control" name="gender" required>
-                                            <option selected hidden disabled>Select Gender</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
-                                    </div>
-                                </div>-->
-                               <h3 class="box-title m-b-0">Event Details</h3><hr>
-                                <div class="row">
-                                	 <div class="col-md-6" >
-                                          <div class="form-group">
-                                               <label class="control-label">Event Name</label>
-								                       <div class="col-sm-12 p-l-0">
-								                            <div class="input-group">
-								                                 <input type="text" name="ename" class="form-control" id="fname" placeholder="Event Name" required>
-								                            </div>
-				                                       </div>
-                                         </div>
-                                    </div>
-                                     
-                                    <div class="col-md-6" >
-                                         <div class="form-group">                                    <label class="control-label">Event Date</label>
-                                                    <div class="input-group">
-								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="edate" placeholder="dd-mm-yyyy" required>
-								                    </div>
-								                   <div id="datewarn"></div>
-                                    <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
-                                         </div>
-                                   </div>
-                                </div>
-                                <label class="control-label">Event Description</label>
-                                <div class="col-md-12 ">
-                                     <div class="form-group">
-                                          <input type="text" name="cdesc" class="form-control" placeholder="Tell us about your fest">
-                                     </div>
-                                </div>
+                               
+                               
                                      <div  class="form-group">
                                            <center>
                                            <button type="submit" name="eventsubmit" class="btn btn-rounded btn-lg btn-info">Submit</button></center>
