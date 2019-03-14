@@ -52,13 +52,13 @@
 					<li> <a href="view-colleges.php">Colleges Registered</a> </li>	
 				</ul>
 			</li>
-            
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Messages<span class="fa arrow"></span></span></a>
+            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Fest Details<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="view-schedule.php">Inbox</a> </li>
-					<li> <a href="send-message.php">Compose</a> </li>
+                   
+					<li> <a href="view-colleges.php">Edit Fest Details</a> </li>	
 				</ul>
 			</li>
+           
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-schedule.php">View Schedule</a> </li>
@@ -68,7 +68,7 @@
             
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="result1.php">add-results</a> </li>
+					
 					<li><a href="view-result.php">view-results</a></li>
 				</ul>
 			</li>
@@ -79,12 +79,7 @@
 				
 				</ul>
 			</li>
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Admin <span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-					<li> <a href="view-admin.php">view admin</a> </li>
-				    <li> <a href="add-admin.php">add admin</a> </li>
-				</ul>
-			</li>
+            
            
 			<!--<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
 			</li>
