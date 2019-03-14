@@ -128,7 +128,7 @@ if(!isset($_SESSION['aid']))
                                                <label class="control-label">Fest Name</label>
 								                       <div class="col-sm-12 p-l-0">
 								                            <div class="input-group">
-								                                 <input type="text" name="ename" class="form-control" id="fname" placeholder="Event Name" required>
+								                                 <input type="text" name="ename" class="form-control" placeholder="Event Name" required>
 								                            </div>
 				                                       </div>
                                          </div>
