@@ -12,6 +12,7 @@ if(!isset($_SESSION['aid']))
         $edate=$_POST['edate'];
         $myDateTime = DateTime::createFromFormat('d-m-Y', $edate);
         $dob = $myDateTime->format('Y-m-d');
+        $ctype=mysqli_real_escape_string($connection,$_POST['ftype']);
         $cdesc=mysqli_real_escape_string($connection,$_POST['cdesc']);
         $cname=mysqli_real_escape_string($connection,$_POST['cname']);
         $caddress=$_POST['cadd1'].' , '.$_POST['cadd2'];
@@ -21,7 +22,8 @@ if(!isset($_SESSION['aid']))
         $cstate=mysqli_real_escape_string($connection,$_POST['cstate']);
         $cpincode=mysqli_real_escape_string($connection,$_POST['cpincode']);
 
-        $query1="INSERT INTO `fests`(aid,fname,fdate,fdesc,cname,caddress,cphone,cemail,city,cstate,cpincode) VALUES ('$id','$ename','$dob','$cdesc','$cname','$caddress',' $cphone',' $cemail','$city','$cstate','$cpincode')";
+        $query1="INSERT INTO `fests`(aid,fname,fdate,ftype,fdesc,cname,caddress,cphone,cemail,city,cstate,cpincode) VALUES ('$id','$ename','$dob','$ctype'
+        ,'$cdesc','$cname','$caddress',' $cphone',' $cemail','$city','$cstate','$cpincode')";
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
            {
