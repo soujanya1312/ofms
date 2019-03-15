@@ -8,12 +8,12 @@ if(!isset($_SESSION['aid']))
  if(isset($_POST['eventsubmit']))
     {
         $id = $_SESSION['aid'];
-        $ename=mysqli_real_escape_string($connection,$_POST['ename']);
-        $edate=$_POST['edate'];
+        $ename=mysqli_real_escape_string($connection,$_POST['dname']);
+        $edate=$_POST['fdate'];
         $myDateTime = DateTime::createFromFormat('d-m-Y', $edate);
         $dob = $myDateTime->format('Y-m-d');
         $ctype=mysqli_real_escape_string($connection,$_POST['ftype']);
-        $cdesc=mysqli_real_escape_string($connection,$_POST['cdesc']);
+        $cdesc=mysqli_real_escape_string($connection,$_POST['fdesc']);
         $cname=mysqli_real_escape_string($connection,$_POST['cname']);
         $caddress=$_POST['cadd1'].' , '.$_POST['cadd2'];
         $cphone=mysqli_real_escape_string($connection,$_POST['cphone']);
@@ -121,6 +121,7 @@ if(!isset($_SESSION['aid']))
      <div class="row">
           <div class="col-sm-12">
                <div class="white-box">
+                <form data-toggle="validator" method="post">
                <h3 class="box-title m-b-0">Fest Details</h3><hr>
                                    <div class="row">
                                 	 <div class="col-md-6" >
@@ -128,7 +129,7 @@ if(!isset($_SESSION['aid']))
                                                <label class="control-label">Fest Name</label>
 								                       <div class="col-sm-12 p-l-0">
 								                            <div class="input-group">
-								                                 <input type="text" name="ename" class="form-control" placeholder="Event Name" required>
+								                                 <input type="text" name="dname" class="form-control" placeholder="Fest Name" required>
 								                            </div>
 				                                       </div>
                                          </div>
@@ -138,7 +139,7 @@ if(!isset($_SESSION['aid']))
                                             <div class="form-group">                                   
                                                  <label class="control-label">Fest Date</label>
                                                       <div class="input-group">
-								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="edate" placeholder="dd-mm-yyyy" required>
+								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="fdate" placeholder="dd-mm-yyyy" required>
 								               </div>
 								                     <div id="datewarn"></div>
                                                               <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
@@ -151,29 +152,29 @@ if(!isset($_SESSION['aid']))
                                     <div class="col-sm-12 p-l-0">
                                         <select class="form-control" name="ftype">
                                             <option selected hidden disabled>Select Your FestType</option>
-                                            <option value="1">IT</option>
-                                            <option value="2">MANAGEMENT</option>
-                                            <option value="3">CULTURAL</option>
-                                            <option value="4">OTHERS...</option>
+                                            <option value="IT">IT</option>
+                                            <option value="Management">MANAGEMENT</option>
+                                            <option value="Cultural">CULTURAL</option>
+                                            <option value="Others">OTHERS</option>
                                         </select>
                                     </div>
                                 </div>
                                 <label class="control-label">Fest Description</label>
                                 <div class="col-md-12 p-l-0">
                                      <div class="form-group">
-                                          <textarea input type="text" name="cdesc" class="form-control" placeholder="Tell us about your fest"></textarea>
+                                          <textarea input type="text" name="fdesc" class="form-control" placeholder="Tell us about your fest"></textarea>
                                      </div>
                                 </div>
 
                     <h3 class="box-title m-b-0">College Details</h3><hr>
-                    <form data-toggle="validator" method="post">
+                    
                               <div class="row">
                                    <div class="col-md-12" >
                                         <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
                                         <label class="control-label">College Name</label>
 											   <div class="col-sm-12 p-l-0">
 												    <div class="input-group">
-													     <input type="text" name="cname" class="form-control" id="fname" placeholder="Enter your college name" required >
+													     <input type="text" name="cname" class="form-control" id="fdname" placeholder="Enter your college name" required >
 												    </div>
 											  </div>
                                         </div>
