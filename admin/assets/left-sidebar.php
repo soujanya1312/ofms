@@ -38,6 +38,12 @@
 			</li>
 
 			<!---PNB Added Doctors menu --->
+             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Fest Details<span class="fa arrow"></span></span></a>
+				<ul class="nav nav-second-level">
+                   
+					<li> <a href="view-colleges.php">Edit Fest Details</a> </li>	
+				</ul>
+			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Event Heads <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="add-events.php">Add Event heads </a> </li>
@@ -52,12 +58,7 @@
 					<li> <a href="view-colleges.php">Colleges Registered</a> </li>	
 				</ul>
 			</li>
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Fest Details<span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-                   
-					<li> <a href="view-colleges.php">Edit Fest Details</a> </li>	
-				</ul>
-			</li>
+           
            
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
@@ -102,4 +103,4 @@
 		</ul>
 	</div>
 </div>
-<!-- Left navbar-sidebar end --> 
+<!-- Left navbar-sidebar end --> >
