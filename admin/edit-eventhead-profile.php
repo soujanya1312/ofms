@@ -18,14 +18,14 @@ if(isset($_POST['updateprofile']))
 	$hname=$_POST['hname'];
     $hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
 	$hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
-	$husername=mysqli_real_escape_string($connection,$_POST['husername']);
+	
     
     
-	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',hmob='$hmob', hemail='$hemail',husername='$husername' WHERE eid='$id'";
+	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',hmob='$hmob', hemail='$hemail'WHERE eid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername FROM events WHERE eid='$id'";
+		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events WHERE eid='$id'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Profile updated successfully!";
@@ -285,26 +285,7 @@ if(isset($_POST['changepw']))
                                     <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <!--<div class="form-group">
-                                    <label class="col-sm-12 p-l-0">Gender</label>
-                                    <div class="col-sm-12 p-l-0">
-                                        <select class="form-control" name="gender" required>
-                                            <option <?php if($row["gender"]=='male'){echo 'selected';}?> value="male">Male</option>
-                                            <option <?php if($row["gender"]=='female'){echo 'selected';}?> value="female">Female</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-12 p-l-0">Floor</label>
-                                    <div class="col-sm-12 p-l-0">
-                                        <select class="form-control" name="floor" required>
-                                            <option <?php if($row["floor"]=='G'){echo 'selected';}?> value="G">Ground floor</option>
-                                            <option <?php if($row["floor"]=='1'){echo 'selected';}?> value="1">1st floor</option>
-                                            <option <?php if($row["floor"]=='2'){echo 'selected';}?> value="2">2nd floor</option>
-                                            <option <?php if($row["floor"]=='3'){echo 'selected';}?> value="3">3rd floor</option>
-                                        </select>
-                                    </div>
-                                </div>-->
+                             
                                 
                                 
                                 <div class="form-group">
@@ -317,16 +298,7 @@ if(isset($_POST['changepw']))
                                         <input type="text" required id="example-phone" name="hmob" class="form-control" placeholder="enter your mobile number" data-mask="(999) 999-9999" value="<?php echo $row["hmob"]; ?>">
                                  </div>
                                 </div>
-                                   <div class="form-group">
-                                    <label for="inputName1" class="control-label">Username</label>
-                                    <input type="text" class="form-control" autocomplete="off" id="username" name="husername" placeholder="Username is used to login" value="<?php echo $row["husername"]; ?>" required>
-                                    <!-- username check start -->
-										<div>
-										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
-										<span id="usernameResult" style="color: #E40003"></span>
-										</div>
-				                     <!-- username check end -->
-                                </div>
+                                  
                                 
                                 
                                         <div class="form-group">
