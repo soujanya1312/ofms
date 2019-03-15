@@ -38,12 +38,7 @@
 				</ul>
 			</li>
 
-			<!---PNB Added Doctors menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Events<span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-					<li> <a href="viewevents-eventheads.php">View Events </a> </li>
-				</ul>
-			</li>
+			
 			<!---PNB Added Patient menu --->
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Colleges Registered<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
@@ -55,7 +50,7 @@
 				<ul class="nav nav-second-level">
 					<li> <a href="view-eventtime.php">View Schedule</a> </li>
 				    <li> <a href="add-eventtime.php">Add Schedule</a> </li>
-                    <li> <a href="edit-eventtime.php">Edit Schedule</a> </li>
+                   
 				</ul>
 			</li>
             
@@ -65,13 +60,7 @@
 				
 				</ul>
 			</li>
-           
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Messages<span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-					<li> <a href="add-scoresheet.php">Inbox</a> </li>
-				    <li> <a href="add-scoresheet.php">Compose</a> </li>
-				</ul>
-			</li>
+         
             
             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
@@ -101,4 +90,4 @@
 		</ul>
 	</div>
 </div>
-<!-- Left navbar-sidebar end --> 
+<!-- Left navbar-sidebar end --> >>
