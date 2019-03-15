@@ -92,7 +92,7 @@ elseif(isset($_SESSION['admin']))
                 <div class="row">
                     <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='viewevents-participants.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Events</b></h3>
+							<h3 class="box-title"><b>Events Registered</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info Hoveranimatevpt"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
@@ -101,7 +101,7 @@ elseif(isset($_SESSION['admin']))
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-schedule.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Schedule </b></h3>
+							<h3 class="box-title"><b>Events Left Over</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
@@ -110,7 +110,7 @@ elseif(isset($_SESSION['admin']))
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-staffs.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>view Results</b></h3>
+							<h3 class="box-title"><b>Total No Of Events </b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
@@ -119,22 +119,59 @@ elseif(isset($_SESSION['admin']))
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='feedback.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Add Feedback</b></h3>
+							<h3 class="box-title"><b>No Of Colleges Registered </b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-events.php'">
+                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Add Contestants</b></h3>
-							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
-								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
-							</ul>
+                            <div class="r-icon-stats">
+                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <div class="bodystate p-t-10">
+									<h4><b>View  Event Results</b></h4>
+                                    <span class="text-muted" style="font-size: 80%"></span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </div> 
+                     
+                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                        <div class="white-box">
+                            <div class="r-icon-stats">
+                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <div class="bodystate p-t-10">
+									<h4><b>View Schedule</b></h4>
+                                    <span class="text-muted" style="font-size: 80%"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                        <div class="white-box">
+                            <div class="r-icon-stats">
+                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <div class="bodystate p-t-10">
+									<h4><b>View Fest Events</b></h4>
+                                    <span class="text-muted" style="font-size: 80%"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                        <div class="white-box">
+                            <div class="r-icon-stats">
+                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <div class="bodystate p-t-10">
+									<h4><b>Add Feedback</b></h4>
+                                    <span class="text-muted" style="font-size: 80%"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                     
                      
                 </div>
                 <!--/row -->
