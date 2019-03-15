@@ -6,7 +6,7 @@ require('connect.php');
 
 
 
-$query="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword FROM events";
+$query="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 
@@ -20,14 +20,13 @@ if(isset($_POST['updateprofile']))
 	$hname=$_POST['hname'];
     $hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
 	$hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
-	$husername=mysqli_real_escape_string($connection,$_POST['husername']);
+	
     
-    
-	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',hmob='$hmob', hemail='$hemail',husername='$husername'";
+	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',hmob='$hmob', hemail='$hemail'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername FROM events";
+		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Profile updated successfully!";
@@ -319,16 +318,7 @@ if(isset($_POST['changepw']))
                                         <input type="text" required id="example-phone" name="hmob" class="form-control" placeholder="enter your mobile number" data-mask="(999) 999-9999" value="<?php echo $row["hmob"]; ?>">
                                  </div>
                                 </div>
-                                   <div class="form-group">
-                                    <label for="inputName1" class="control-label">Username</label>
-                                    <input type="text" class="form-control" autocomplete="off" id="username" name="husername" placeholder="Username is used to login" value="<?php echo $row["husername"]; ?>" required>
-                                    <!-- username check start -->
-										<div>
-										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
-										<span id="usernameResult" style="color: #E40003"></span>
-										</div>
-				                     <!-- username check end -->
-                                </div>
+                                   
                                 
                                 
                                         <div class="form-group">
