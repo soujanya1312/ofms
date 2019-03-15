@@ -130,23 +130,23 @@ require('connect.php');
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Head account" onClick="window.location='add-events.php'">
+                  <!--  <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Head account" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-id-badge bg-black Hoveranimatedoc"></i>
                                 <div class="bodystate p-l-10 p-t-10">
 									<h4><b>ADD Participants</b></h4>
-                                    <!--<span class="text-muted" style="font-size: 80%"></span>-->
+                                    <!--<span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>EDIT Event Details</b></h4>
+									<h4><b>Start Registration</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
@@ -158,6 +158,17 @@ require('connect.php');
                                 <i class="fa fa-bed bg-black Hoveranimatewrd"></i>
                                 <div class="bodystate p-t-10">
 									<h4><b>View Event Results</b></h4>
+                                    <span class="text-muted" style="font-size: small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Create new ward" onClick="window.location='add-ward.php'">
+                        <div class="white-box">
+                            <div class="r-icon-stats">
+                                <i class="fa fa-bed bg-black Hoveranimatewrd"></i>
+                                <div class="bodystate p-t-10">
+									<h4><b>Stop Registration</b></h4>
                                     <span class="text-muted" style="font-size: small"></span>
                                 </div>
                             </div>
