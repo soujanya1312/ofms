@@ -14,7 +14,7 @@ if(isset($_POST['updateprofile']))
     $fname=mysqli_real_escape_string($connection,$_POST['fname']);
     $ftype=mysqli_real_escape_string($connection,$_POST['ftype']);
     $edate=$_POST['fdate'];
-    $myDateTime = DateTime::createFromFormat('d-m-Y', $fdate);
+    $myDateTime = DateTime::createFromFormat('d-m-Y', $edate);
     $dob = $myDateTime->format('Y-m-d');
     $fdesc=mysqli_real_escape_string($connection,$_POST['fdesc']);
     $cname=mysqli_real_escape_string($connection,$_POST['cname']);
@@ -118,46 +118,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
    // }
 }
 	</script>
-	<script>
-		function checkDate1(){
-    var idate = document.getElementById("datepicker-autoclose1"),
-        resultDiv = document.getElementById("datewarn1"),
-        dateReg = /(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[012])[-]201[4-9]|20[2-9][0-9]/;
-
-    if(dateReg.test(idate.value)){
-        if(isFutureDate(idate.value)){
-            resultDiv.innerHTML = "Entered date is a future date";
-            resultDiv.style.color = "red";
-        } else {
-            resultDiv.innerHTML = "It's a valid date";
-            resultDiv.style.color = "green";
-        }
-    } else {
-        resultDiv.innerHTML = "Invalid date!";
-        resultDiv.style.color = "red";
-    }
-}
-	</script>
-	<script>
-		function checkDate2(){
-    var idate = document.getElementById("datepicker-autoclose"),
-        resultDiv = document.getElementById("datewarn2"),
-        dateReg = /(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[012])[-]201[4-9]|20[2-9][0-9]/;
-
-    if(dateReg.test(idate.value)){
-        if(isFutureDate(idate.value)){
-            resultDiv.innerHTML = "Entered date is a future date";
-            resultDiv.style.color = "red";
-        } else {
-            resultDiv.innerHTML = "It's a valid date";
-            resultDiv.style.color = "green";
-        }
-    } else {
-        resultDiv.innerHTML = "Invalid date!";
-        resultDiv.style.color = "red";
-    }
-}
-	</script>
+	
+	
    <!-- wysihtml5 CSS -->
     <link rel="stylesheet" href="../plugins/bower_components/html5-editor/bootstrap-wysihtml5.css" />
 	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
