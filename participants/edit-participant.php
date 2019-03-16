@@ -36,7 +36,7 @@ if (isset($_POST['psubmit']))
 			$result = mysqli_query($connection, $query);
 			if($result)
 			{
-				$smsg = " Participants are registered For the Event".$getid;
+				$smsg = " Participants are registered For the Event";
 			}
 			else
 			{
