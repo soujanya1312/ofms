@@ -26,7 +26,7 @@ if (isset($_POST['psubmit']))
 		$eventname= $getfestnamero1['ename'];
 		$round=mysqli_real_escape_string($connection,$_POST['erounds']);
 		$college=mysqli_real_escape_string($connection,$_POST['teamcode']);
-		$query="INSERT INTO `results`(eventname,fid,pname,eround) VALUES ('$eventname','$fest','$college','$round')";
+		$query="INSERT INTO `results`(eventname,r_id,pname,eround) VALUES ('$eventname','$fest','$college','$round')";
 				$result = mysqli_query($connection, $query);
 	
 				if($result)
@@ -112,7 +112,7 @@ if (isset($_POST['psubmit']))
 								   	 <!--<option disabled hidden selected>Select Event
 									 </option>-->
 									 <?php while($rowevent = mysqli_fetch_assoc($resultevent)) { ?>
-   									  <option value="<?php echo $rowevent['eid']; ?>"><?php echo $rowevent['ename']; ?></option>
+   									  <option value="<?php echo $rowevent['eid']; ?>"></option>
 										 
 								     
 									 <input type="text" class="form-control" disabled value="<?php echo $rowevent['ename']; ?>">
@@ -140,7 +140,7 @@ if (isset($_POST['psubmit']))
 								</select> 
 								</div>
 								<?php
-									 $college="SELECT teamcode FROM participants WHERE pid='$hid'";
+									 $college="SELECT teamcode FROM participants WHERE teamcode<>'Cancelled' ";
 									 $colres=mysqli_query($connection, $college);
                                      
                                     // $teamname=$getfestnameresul11['teamcode'];
@@ -155,7 +155,7 @@ if (isset($_POST['psubmit']))
 				                     <select required class="form-control" name="teamcode">
 									<option disabled hidden selected>SELECT TEAM</option>
                                     <?php while($rowcollege = mysqli_fetch_assoc($colres)) { ?>
-									<option value= "<?php echo $rowcollege['pid'];?>"> <?php echo $rowcollege['teamcode'];?></option>
+									<option value= "<?php echo $rowcollege['teamcode'];?>"> <?php echo $rowcollege['teamcode'];?></option>
 									<?php }?>
 									</select> 
 								</div>
