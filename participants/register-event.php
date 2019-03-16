@@ -36,6 +36,7 @@ if (isset($_POST['psubmit']))
 			if($result)
 			{
 				$smsg = " Participants are registered For the Event";
+                echo'<script> window.location="view-events.php";</script>';
 			}
 			else
 			{
