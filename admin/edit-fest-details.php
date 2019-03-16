@@ -199,9 +199,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 											</div>
                                          </div>
                                     </div>
+                                              </div>
                                     <!--/span-->
-                                    
-                                    <div class="row">
+                           
+                                   <div class="row">
                                           <div class="form-group col-sm-6">
                                                <label class="control-label">Fest Type</label>
                                                  <!--<div class="col-sm-12 p-l-0">-->
@@ -226,6 +227,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                  </div>
 
+                                              
 									 <div class="col-md-12">
 										  <div class="form-group">
 											   <label class="control-label">Fest Description</label>
@@ -236,7 +238,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 										   </div>
 									 </div>
                                     <!--/span-->
-                                 </div>
                                
                                 <div class="form-group">
                                     <label for="inputName1" class="control-label">College Name</label>
