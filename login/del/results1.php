@@ -1,6 +1,6 @@
 <?php
-include '../login/accesscontrolhead.php';
-require('connect.php');
+include '../accesscontrolhead.php';
+require('../../eventhead/connect.php');
 $ausername=$_SESSION['husername'];
 //$getpinfoquery="SELECT eid,ename,participants.teamcode FROM events INNER JOIN participants ON events.pid=participants.pid";
 //$getpinforesult=mysqli_query($connection,$getpinfoquery);
@@ -51,7 +51,7 @@ if (isset($_POST['psubmit']))
     <meta name="description" content="Online Fest Management System">
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
-<?php include 'assets/csslink.php'; ?>
+<?php include '../../eventhead/assets/csslink.php'; ?>
 	
 </head>
 
@@ -60,12 +60,12 @@ if (isset($_POST['psubmit']))
     <!--header.php includes preloader, top navigarion, logo, user dropdown-->
     <!--div id wrapper in header.php-->
     <!--left-sidebar.php includes mobile search bar, user profile, menu-->
-    <?php include 'assets/header.php';
-	include 'assets/left-sidebar.php';
-	include 'assets/breadcrumbs.php';
+    <?php include '../../eventhead/assets/header.php';
+	include '../../eventhead/assets/left-sidebar.php';
+	include '../../eventhead/assets/breadcrumbs.php';
 	?>
         <!-- Page Content -->
-        <div id="page-wrapper" style="background-image: url(../plugins/images/w.jpg)">
+        <div id="page-wrapper" style="background-image: url(../../plugins/images/w.jpg)">
             <div class="container-fluid">
                 <div class="row bg-title">
                     <!-- .page title -->
@@ -75,7 +75,7 @@ if (isset($_POST['psubmit']))
                     <!-- /.page title -->
                     <!-- .breadcrumb -->
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                      <a href="../index.html" target="_blank" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Home</a>
+                      <a href="../../index.html" target="_blank" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Home</a>
                       <?php echo breadcrumbs(); ?>
                     </div>
                     <!-- /.breadcrumb -->
@@ -168,13 +168,13 @@ if (isset($_POST['psubmit']))
 				</div>
             </div>
             <!--footer.php contains footer-->
-          <?php include'assets/footer.php'; ?>
+          <?php include'../../eventhead/assets/footer.php'; ?>
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
-<?php include'assets/jslink.php'; ?>
+<?php include'../../eventhead/assets/jslink.php'; ?>
 </body>
 
 </html>
