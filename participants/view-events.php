@@ -2,7 +2,10 @@
 include '../login/accesscontrolparticipant.php';
 require('connect.php');
 $ausername=$_SESSION['pusername'];
-
+$getfestidq="SELECT fid FROM participants WHERE pusername='$ausername'";
+$getfestidr=mysqli_query($connection, $getfestidq);
+$getfestid = mysqli_fetch_assoc($getfestidr);
+$fid=$getfestid['fid'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -72,7 +75,7 @@ $ausername=$_SESSION['pusername'];
                 <!--row -->
                 <div class="row">
                 <?php
-					$query = "SELECT eid,ename FROM events";
+					$query = "SELECT eid,ename FROM events WHERE fid='$fid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ 

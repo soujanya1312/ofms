@@ -2,8 +2,14 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
+
+$getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+$getidresult = mysqli_query($connection, $getidquery);
+$getidrow = mysqli_fetch_assoc($getidresult);
+$fid=$getidrow['fid'];
+
     
-$query="SELECT fname,fdate,ftype,fdesc,cname,caddress,cphone,cemail,city,cstate,cpincode,regfees,rules FROM fests";
+$query="SELECT fname,fdate,ftype,fdesc,cname,caddress,cphone,cemail,city,cstate,cpincode,regfees,rules FROM fests WHERE fid='$fid'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 
@@ -16,9 +22,10 @@ if(isset($_POST['updateprofile']))
     $edate=$_POST['fdate'];
     $myDateTime = DateTime::createFromFormat('d-m-Y', $edate);
     $dob = $myDateTime->format('Y-m-d');
+    
     $fdesc=mysqli_real_escape_string($connection,$_POST['fdesc']);
     $cname=mysqli_real_escape_string($connection,$_POST['cname']);
-    $cadress=mysqli_real_escape_string($connection,$_POST['caddress']);
+    $cadress=mysqli_real_escape_string($connection,$_POST['cadress']);
     $cphone=mysqli_real_escape_string($connection,$_POST['cphone']);
 	$cemail=mysqli_real_escape_string($connection,$_POST['cemail']);
 	$city=mysqli_real_escape_string($connection,$_POST['city']);
@@ -28,7 +35,7 @@ if(isset($_POST['updateprofile']))
     $frules=mysqli_real_escape_string($connection,$_POST['frules']);
     
     
-	$uquery="UPDATE fests SET fname='$fname',ftype='$ftype',fdate='$dob',fdesc='$fdesc',cname='$cname',caddress='$cadress',cphone='$cphone',cemail='$cemail',city='$city',cstate='$state',cpincode='$pincode',regfees='$regfees',rules='$frules'";
+	$uquery="UPDATE fests SET fname='$fname',ftype='$ftype',fdate='$dob',fdesc='$fdesc',cname='$cname',caddress='$cadress',cphone='$cphone',cemail='$cemail',city='$city',cstate='$state',cpincode='$pincode',regfees='$regfees',rules='$frules' WHERE fid='$fid'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
@@ -40,7 +47,7 @@ if(isset($_POST['updateprofile']))
 	}
 	else
 	{
-		$fmsg="error!".mysqli_error($connection); ;
+		$fmsg="error!".mysqli_error($connection); 
 	}
 }
 ?>
@@ -207,20 +214,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                <label class="control-label">Fest Type</label>
                                                  <!--<div class="col-sm-12 p-l-0">-->
                                                       <select class="form-control" name="ftype" required>
-                                                            <option <?php if($row["ftype"]=='1'){echo 'selected';}?> value="G">IT</option>
-                                                            <option <?php if($row["ftype"]=='2'){echo 'selected';}?> value="1">MANAGEMENT</option>
-                                                            <option <?php if($row["ftype"]=='3'){echo 'selected';}?> value="2">CULTURAL</option>
-                                                            <option <?php if($row["ftype"]=='4'){echo 'selected';}?> value="3">OTHERS...</option>
+                                                            <option <?php if($row["ftype"]=='IT'){echo 'selected';}?> value="IT">IT</option>
+                                                            <option <?php if($row["ftype"]=='Management'){echo 'selected';}?> value="Management">MANAGEMENT</option>
+                                                            <option <?php if($row["ftype"]=='Cultural'){echo 'selected';}?> value="Cultural">CULTURAL</option>
+                                                            <option <?php if($row["ftype"]=='Other'){echo 'selected';}?> value="Other">OTHER</option>
                                                       </select>
                                               <!--</div> -->
                                          </div>
                                    
                                          <div class="form-group col-sm-6">                             
                                                <label class="control-label">Fest Date</label>
-                                                      
-                                                           <!--<div class="input-group">-->
-								                                 <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="fdate" placeholder="dd-mm-yyyy" required  value="<?php echo $row["fdate"]; ?>">
-								                           <!--</div>-->
+                                                      <div class="input-group">
+															<div class="input-group-addon"><i class="icon-calender"></i></div>
+															<input data-date-format="dd-mm-yyyy" data-mask="99-99-9999" type="text" class="form-control" id="datepicker" name="fdate" placeholder="dd-mm-yyyy" required value="<?php $dateb=$row['fdate'];
+											$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+											$dobc = $myDateTime->format('d-m-Y');  echo $dobc; ?>">
+														</div>
+                                                           
                                                      
 								                     <div id="datewarn"></div>
                                             <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
@@ -251,7 +261,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 											<div class="col-sm-12 p-l-0">
 												<div class="input-group">
 													<!--<div class="input-group-addon">Dr.</div>-->
-													<textarea input type="text" name="cadress" class="form-control" id="hname" placeholder="Enter the address" ><?php echo $row["caddress"];?></textarea>
+													<textarea type="text" name="cadress" class="form-control" id="hname" placeholder="Enter the address" ><?php echo $row["caddress"];?></textarea>
 													<!--onKeyUp="copyTextValue();"-->
 												</div>
 											</div>
@@ -301,9 +311,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 											</div>
                                        </div>
                                   <div class="form-group">
-                                    <label for="inputName1" class="control-label">Register fees</label>
+                                    <label for="inputName1" class="control-label">Register fees in Rs</label>
                                      <div class="col-sm-12 p-l-0">
-                                    <input type="text" class="form-control" autocomplete="off" id="erounds" name="regfees" placeholder="Enter your registration fees">
+                                    <input value="<?php echo $row["regfees"]; ?>" type="text" class="form-control" autocomplete="off" id="erounds" name="regfees" placeholder="Enter your registration fees">
                                  </div>
                                    
                                 </div> 
@@ -314,7 +324,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <textarea style="font-weight: normal" required class="textarea_editor form-control" rows="15" cols="120" placeholder="Enter text ..." name="frules"></textarea>
                                     </div>-->
                                     <div class="form-group">
-                                        <textarea style="font-weight: normal" required class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="msg"></textarea>
+                                        <textarea style="font-weight: normal" required class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="frules"><?php echo $row["rules"]; ?></textarea>
                                     </div>
                                     
                                     <!--</div> --> 

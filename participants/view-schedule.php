@@ -2,7 +2,10 @@
 include '../login/accesscontrolparticipant.php';
 require('connect.php');
 $ausername=$_SESSION['pusername'];
-
+$getfestidq="SELECT fid FROM participants WHERE pusername='$ausername'";
+$getfestidr=mysqli_query($connection, $getfestidq);
+$getfestid = mysqli_fetch_assoc($getfestidr);
+$fid=$getfestid['fid'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -72,7 +75,8 @@ $ausername=$_SESSION['pusername'];
                 <!--row -->
                 <div class="row">
                 <?php
-					$query = "SELECT en_id,event_name,event_round,t_from,t_to FROM event_time";
+                   
+					$query = "SELECT en_id,event_round,t_from,t_to,events.ename FROM event_time JOIN  events ON event_time.eventid=events.eid WHERE events.fid='$fid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ ?>
@@ -83,7 +87,7 @@ $ausername=$_SESSION['pusername'];
                                     <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/images2.png" class="img-square img-responsive"> </a>
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result["event_name"]; ?></h3>
+                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
                                     <small>Round: <?php echo $result["event_round"]; ?></small>
                                     <p calss="p-0">
 										<small> From:<?php echo $result["t_from"]; ?></small>  <br>

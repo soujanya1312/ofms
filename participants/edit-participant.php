@@ -60,6 +60,14 @@ if (isset($_POST['psubmit']))
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
+<!--    enable fieldset js-->
+    <script>
+        function undisableField() {
+  document.getElementById("myFieldset").disabled = false;
+document.getElementById("mybutton1").removeAttribute("hidden");
+document.getElementById("mybutton").setAttribute("hidden", true);
+}
+    </script>
 </head>
 
 <body class="fix-sidebar">
@@ -147,6 +155,7 @@ if (isset($_POST['psubmit']))
 											 <?php echo $smsg; ?>
 										</div>
 								<?php }?>
+                                     <fieldset id="myFieldset" disabled="true">
 									 <?php foreach($exeredirect as $key=>$exeredirect)  {  ?>
                                        <div class="row">
                                           <!--/span-->
@@ -172,11 +181,15 @@ if (isset($_POST['psubmit']))
                                                    </div>
                                               </div>
                                            </div>
+                                     
                                      <input name="cid<?php echo $key+1; ?>" type="hidden" class="form-control" value="<?php echo $exeredirect["ep_id"]; ?>" >
                             <?php } ?>
+                                         </fieldset>
                                           <div  class="form-group">
-                                              <center><button class="btn btn-rounded btn-lg btn-info">Edit</button>
-                                                  <button type="submit" name="psubmit" class="btn btn-rounded btn-lg btn-info">Submit</button></center>
+                                              <center>
+                                                  <button id="mybutton1" hidden="true" type="submit" name="psubmit" class="btn btn-rounded btn-lg btn-info">Submit</button>
+                                                  <button type="button" onClick="undisableField()" id="mybutton" class="btn btn-rounded btn-lg btn-info">Edit</button>
+                                              </center>
                                          </div>
                                   </form>
                        </div>

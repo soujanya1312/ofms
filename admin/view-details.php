@@ -1,13 +1,13 @@
 <?php
-include '../login/accesscontroladmin.php';
+//include '../login/accesscontroladmin.php';
 require('connect.php');
-$ausername=$_SESSION['admin'];
-
+//$ausername=$_SESSION['admin'];
+$id=$_GET['id'];
 //$squery="SELECT *,eventparticipants.epname,eventparticipants.epmob,eventparticipants.epemail FROM eventparticipants INNER JOIN events ON eventparticipants.eid = eventseid WHERE ep_id='$id'";
-$squery="SELECT eid,ename,edesc,hname,addname,hmob,hemail, participants FROM events";
-$sresult = mysqli_query($connection, $squery);
-$row = mysqli_fetch_assoc($sresult);
-$pari= $row["participants"];
+//$squery="SELECT eid,ename,edesc,hname,addname,hmob,hemail, participants FROM events WHERE fid='$id'";
+//$sresult = mysqli_query($connection, $squery);
+//$row = mysqli_fetch_assoc($sresult);
+//$pari= $row["participants"];
 ?>
 
   <!DOCTYPE html>
@@ -81,18 +81,17 @@ $pari= $row["participants"];
                 <form data-toggle="validator" method="post">
                <h3 class="box-title m-b-0">Fest Details</h3><hr>
                                     <?php
-                                      $getpidquery="SELECT fid,fname,fdate,ftype,fdesc from fests ";
+                                      $getpidquery="SELECT fid,fname,fdate,ftype,fdesc from fests WHERE fid='$id'";
 					                  $getpidres=mysqli_query($connection, $getpidquery);
 					                  $row2 = mysqli_fetch_assoc($getpidres);
-                                                ?>
-                    
+                                                ?>                
                                 <div class="row">
                                 	 <div class="col-md-6" >
                                           <div class="form-group">
                                                <label class="control-label">Fest Name</label>
 								                       <div class="col-sm-12 p-l-0">
 								                            <div class="input-group">
-								                                 <input type="text" name="dname" class="form-control" placeholder="Fest Name" disabled value="<?php echo $row2["fname"];?>">
+								                                 <input type="text" name="ftype" class="form-control" placeholder="Fest Name" disabled value="<?php echo $row2["fname"];?>">
 								                            </div>
 				                                       </div>
                                          </div>
@@ -112,15 +111,9 @@ $pari= $row["participants"];
 
                                    <div class="form-group">
                                     <label class="col-sm-12 p-l-0">Fest Type</label>
-                                    <div class="col-sm-12 p-l-0">
-                                        <select class="form-control" name="ftype"  disabled value="<?php echo $row2["ftype"];?>">
-                                            <option selected hidden disabled>Select Your FestType</option>
-                                            <option value="IT">IT</option>
-                                            <option value="Management">MANAGEMENT</option>
-                                            <option value="Cultural">CULTURAL</option>
-                                            <option value="Others">OTHERS</option>
-                                        </select>
-                                    </div>
+                                   <div class="input-group">
+								                                 <input type="text" name="dname" class="form-control" placeholder="Fest Name" disabled value="<?php echo $row2["ftype"];?>">
+								                            </div>
                                 </div>
                                 <label class="control-label">Fest Description</label>
                                 <div class="col-md-12 p-l-0">
@@ -133,13 +126,7 @@ $pari= $row["participants"];
                     
                        <div class="row">
                 <?php
-                   $getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
-                   $getidresult = mysqli_query($connection, $getidquery);
-                  $getidrow = mysqli_fetch_assoc($getidresult);
-                    $fid=$getidrow['fid'];
-
-
-					$query = "SELECT eid,ename,edesc,erounds,participants,hemail,hmob FROM events WHERE fid='$fid'";
+					$query = "SELECT eid,ename,edesc,erounds,participants,hemail,hmob FROM events WHERE fid='$id'";
 					$result = mysqli_query($connection, $query);
 				foreach($result as $key=>$result)
 				{ ?>
@@ -151,15 +138,13 @@ $pari= $row["participants"];
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
-                                   <strong> Event description:</strong><?php echo $result["edesc"]; ?><br>
-                                    <strong> Event Rounds:</strong> <?php echo $result["erounds"]; ?><br>
-                                    <strong> Event participants:</strong> <?php echo $result["participants"]; ?>
+                                        <?php echo $result["edesc"]; ?><br>
+                                    <strong>Rounds:</strong> <?php echo $result["erounds"]; ?><br>
+                                    <strong> Participants:</strong> <?php echo $result["participants"]; ?>
                                     
                                     <p calss="p-0">
 										<a href="mailto:<?php echo $result["hemail"]; ?>"> <font size="-1"> <?php echo $result["hemail"]; ?> </font> </a> <br>
-                                        <a href="mailto:<?php echo $result["hemail"]; ?>"> <font size="-1"> <?php echo $result["hmob"]; ?> </font> </a>
-										
-										
+                                        <a href="mailto:<?php echo $result["hemail"]; ?>"> <font size="-1"> <?php echo $result["hmob"]; ?> </font> </a>	
                                     </p>
 									
                                 </div>
@@ -171,7 +156,10 @@ $pari= $row["participants"];
 				  ?>
 
 				</div>
-                            
+                     <div class="p-t-5"><center>
+											<a href="add-participants.php?id=<?php echo $id ?>" class="fcbtn btn btn-info">REGISTER NOW!</a>
+								            <a href="../index.php" class="fcbtn btn btn-info">BACK</a></center>
+                                    </div>       
                                
                                
                     </form>

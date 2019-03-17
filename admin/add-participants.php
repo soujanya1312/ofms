@@ -1,7 +1,13 @@
 <?php                                                                          require("connect.php");
+if(isset($_GET['id']))
+{
+    $id = $_GET['id'];
+}
  if(isset($_POST['pregister']))
     {
-       
+       if(!isset($_GET['id'])){
+           $id=$_POST['fest'];
+       }
         $pname=mysqli_real_escape_string($connection,$_POST['pusername']);
         $cmob=mysqli_real_escape_string($connection,$_POST['pmob']);
         $cemail=mysqli_real_escape_string($connection,$_POST['pemail']);
@@ -12,7 +18,7 @@
         $cstate=mysqli_real_escape_string($connection,$_POST['cstate']);
         $cpincode=mysqli_real_escape_string($connection,$_POST['cpincode']);
 
-        $query1="INSERT INTO `participants`(pusername,pemail,pmob,pclgname,pcaddress,pstate,pcity,pincode) VALUES ('$pname', '$cemail','$cmob','$cname','$caddress','$city','$cstate','$cpincode')";
+        $query1="INSERT INTO `participants`(fid,pusername,pemail,pmob,pclgname,pcaddress,pstate,pcity,pincode) VALUES ('$id','$pname', '$cemail','$cmob','$cname','$caddress','$city','$cstate','$cpincode')";
         $result2 = mysqli_query($connection,$query1 );
         if($result2)
            {
@@ -190,7 +196,7 @@
                                     </div>
                                  </div>
                                    <div class="col-md-12" >
-                                        <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
+                                        <div class="form-group">
                                         <label class="control-label">College Name</label>
 											   <div class="col-sm-12 p-l-0">
 												    <div class="input-group">
@@ -199,6 +205,39 @@
 											  </div>
                                         </div>
                                 </div>
+                                  <?php if(!isset($_GET['id'])) { ?>
+                                  <div class="col-md-12" >
+                                        <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
+                                        <label class="control-label">Select Fest</label>
+                                             <div class="col-sm-12 p-l-0">
+                                                 <div class="input-group">
+											   <select required class="form-control" data-style="form-control" name="fest">
+                                                   <option disabled hidden selected>Select Fest</option>
+                                                   <?php $getfestquery="SELECT * FROM fests";                                            $getfestresult=mysqli_query($connection,$getfestquery); while($getfests=mysqli_fetch_assoc($getfestresult))
+														{ 
+                                                   ?>
+                                                   <option value="<?php echo $getfests['fid']; ?>"> <?php echo $getfests['fname'] ?></option>
+                                                   <?php } ?>
+                                            </select>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                  <?php } ?>
+                                      <?php if(isset($_GET['id'])) { 
+                                  $getfestquery="SELECT * FROM fests WHERE fid='$id'";                                $getfestresult=mysqli_query($connection,$getfestquery); $getfests=mysqli_fetch_assoc($getfestresult);
+                                  ?>
+                                      <div class="col-md-12" e>
+                                        <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px">
+                                        <label class="control-label">Fest Name</label>
+											   <div class="col-sm-12 p-l-0">
+												    <div class="input-group">
+													     <input disabled type="text" name="fest" class="form-control" value="<?php echo $getfests['fname'] ?>">
+												    </div>
+											  </div>
+                                        </div>
+                                </div>
+                                      <?php } ?>
                                  <h3 class="box-title m-t-40">College Address</h3><hr>
                                  <!--<div class="row">-->
                                 <div class="col-md-12 ">

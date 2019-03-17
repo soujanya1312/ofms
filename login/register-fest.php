@@ -155,7 +155,7 @@ if(!isset($_SESSION['aid']))
                                             <option value="IT">IT</option>
                                             <option value="Management">MANAGEMENT</option>
                                             <option value="Cultural">CULTURAL</option>
-                                            <option value="Others">OTHERS</option>
+                                            <option value="Other">OTHER</option>
                                         </select>
                                     </div>
                                 </div>

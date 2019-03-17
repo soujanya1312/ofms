@@ -2,6 +2,11 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
+$getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+$getidresult = mysqli_query($connection, $getidquery);
+$getidrow = mysqli_fetch_assoc($getidresult);
+//$aid=$getidrow['aid'];
+$fid=$getidrow['fid'];
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +77,12 @@ $ausername=$_SESSION['admin'];
                 <!--row -->
                 <div class="row">
                 <?php
-					$query = "SELECT en_id,event_name,event_round,t_from,t_to FROM event_time";
+//                    $getidquery="SELECT events.eid FROM admin JOIN events ON admin.eid=events.eid WHERE ausername='$ausername'";
+//                     $getidresult = mysqli_query($connection, $getidquery);
+//                     $getidrow = mysqli_fetch_assoc($getidresult);
+//                     $eid=$getidrow['eid'];
+                    
+					$query = "SELECT en_id,eventid,event_round,t_from,t_to,events.ename FROM event_time JOIN events ON event_time.eventid=events.eid WHERE events.fid='$fid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ ?>
@@ -83,7 +93,7 @@ $ausername=$_SESSION['admin'];
                                     <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/images2.png" class="img-square img-responsive"> </a>
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result["event_name"]; ?></h3>
+                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
                                     <small>Round: <?php echo $result["event_round"]; ?></small>
                                     <p calss="p-0">
 										<small> From:<?php echo $result["t_from"]; ?></small>  <br>
@@ -92,7 +102,7 @@ $ausername=$_SESSION['admin'];
 										
                                     </p>
 									<div class="p-t-5">
-											<a href="edit-eventtime.php".php?id=<?php echo $result["en_id"]; ?>" class="fcbtn btn btn-info">Edit</a>
+											<a href="edit-eventtime.php?id=<?php echo $result["en_id"]; ?>" class="fcbtn btn btn-info">Edit</a>
 											<a href="#" class="fcbtn btn btn-danger model_img deleteStaff" data-id="<?php echo $result["en_id"]; ?>" id="deleteStf">Delete</a>
 									 </div>
                                 </div>
@@ -154,12 +164,12 @@ $(document).ready(function() {
 		 {   
            if (isConfirm) {
 			   $.ajax({
-			  url: 'deletestaff.php?id='+id,
+			  url: 'delete-schedule.php?id='+id,
 			  type: 'DELETE',
 			  data: {id:id},
 			  success: function(){
 				swal("Deleted!", "User has been deleted.", "success");
-				window.location.replace("view-staffs.php");
+				window.location.replace("view-schedule.php");
           }
         });   
             } else {     

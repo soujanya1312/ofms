@@ -1,14 +1,22 @@
 <?php
 include '../login/accesscontroladmin.php';
+
 require('connect.php');
-$ausername=$_SESSION['admin'];
+if(isset($_SESSION['admin']))
+{
+$ausername=$_SESSION['admin'];   
+}
+else if(isset($_SESSION['husername']))
+{
+$ausername=$_SESSION['husername'];
+}   
 $id = $_GET['id'];
 $gethname="SELECT eid ,ename,erounds FROM events WHERE husername='$ausername'";
 $gethnameresult=mysqli_query($connection,$gethname);
 $gethnamerow=mysqli_fetch_assoc($gethnameresult);
-$evntname=$gethnamerow['ename'];
+$eid=$gethnamerow['eid'];
 
-$query="SELECT eventid,event_round,t_from,t_to FROM event_time WHERE en_id='$id'";
+$query="SELECT event_name,event_round,t_from,t_to FROM event_time WHERE en_id='$eid' ";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 if(isset($_POST['update']))
@@ -17,11 +25,11 @@ if(isset($_POST['update']))
 	$tt= $_POST['tt'];
 	if($ff<=$tt)
 	{
-	$uquery="UPDATE event_time SET  t_from='$ff', t_to='$tt' WHERE en_id='$id'";
+	$uquery="UPDATE event_time SET  t_from='$ff', t_to='$tt' WHERE en_id='$eid'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT eventid,event_round,t_from,t_to FROM event_time WHERE en_id='$id'";
+		$squery="SELECT event_name,event_round,t_from,t_to FROM event_time WHERE en_id='$eid'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Time updated successfully!";
@@ -44,7 +52,7 @@ if(isset($_POST['update']))
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>OFMS | EDIT</title>
+	<title>OFMS </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Online Fest Management System">
@@ -144,7 +152,7 @@ if(isset($_POST['update']))
                                     <div class="row">
                                             <div class="col-md-3 col-xs-6 b-r"> Event Name
                                             <br><br>
-                                            <p><strong><?php echo $evntname ?></strong></p>
+                                            <p><strong><?php echo $row["event_name"]; ?></strong></p>
                                         </div>
                                         <div class="col-md-3 col-xs-6 b-r"> Event Round
                                             <br><br>
@@ -183,7 +191,7 @@ if(isset($_POST['update']))
                                         	   <div class="row">
                            				   <div class="form-group col-md-12">
 											 <label class="control-label ">Event</label>
-											<input type="text" id="username" name="eventname" class="form-control" value="<?php echo $evntname ?>" readonly/>  
+											<input type="text" id="username" name="eventname" class="form-control" value="<?php echo $row['event_name']; ?>" readonly/>  
 								  			</div>   
                                               <div class="form-group col-md-12">
 											 <label class="control-label ">Event Round</label>

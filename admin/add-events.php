@@ -2,6 +2,12 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
+
+$getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+$getidresult = mysqli_query($connection, $getidquery);
+$getidrow = mysqli_fetch_assoc($getidresult);
+$fid=$getidrow['fid'];
+
 if (isset($_POST['eventheadsubmit']))
 	{
 		// real eacape sting is used to prevent sql injection hacking
@@ -9,8 +15,8 @@ if (isset($_POST['eventheadsubmit']))
 		$edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
 		$erounds= mysqli_real_escape_string($connection,$_POST['erounds']);
         $participants=mysqli_real_escape_string($connection,$_POST['participants']);
-		$hname=mysqli_real_escape_string($connection,$_POST['hname']).',';
-		$addname=mysqli_real_escape_string($connection,$_POST['addname']);
+		$hname=mysqli_real_escape_string($connection,$_POST['hname']);
+		$addname=', '.$_POST['addname'];
 		$hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
         $hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
 		$husername=mysqli_real_escape_string($connection,$_POST['username']);
@@ -34,7 +40,7 @@ if (isset($_POST['eventheadsubmit']))
 			else
 			{
 
-				$query="INSERT INTO `events`(ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$ename','$edesc','$erounds', '$participants','$hname','$addname','$hmob','$hemail','$husername',
+				$query="INSERT INTO `events`(fid,ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$fid','$ename','$edesc','$erounds', '$participants','$hname','$addname','$hmob','$hemail','$husername',
                 '$password')";
 				$result = mysqli_query($connection, $query);
 				//takes two arguments

@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
 		$tt= $_POST['tt'];
 		if($ff <= $tt)
 	{	
-				$query="INSERT INTO `event_time`(event_name, event_round,t_from,t_to) VALUES ('$eventname','$rname','$ff','$tt')";
+				$query="INSERT INTO `event_time`(eventid,event_round,t_from,t_to) VALUES ('$eid','$rname','$ff','$tt')";
 				$result = mysqli_query($connection, $query);
 	
 				if($result)
@@ -28,7 +28,8 @@ if (isset($_POST['submit']))
 				}
 				else
 				{
-					$fmsg = "Time Updating Failed";
+					//$fmsg = "error!".mysqli_error($connection);
+                    $fmsg = "Round ".$rname." is already Scheduled";
 				}
 		}
 			else

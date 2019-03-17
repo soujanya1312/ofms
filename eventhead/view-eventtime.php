@@ -2,7 +2,7 @@
 include '../login/accesscontrolhead.php';
 require('connect.php');
 $ausername=$_SESSION['husername'];
-$getfestname="SELECT eid, ename,erounds FROM events WHERE husername='$ausername'"; 
+$getfestname="SELECT eid,ename,erounds FROM events WHERE husername='$ausername'"; 
 $getfestnameresult=mysqli_query($connection,$getfestname);
 $getfestnamerow=mysqli_fetch_assoc($getfestnameresult);
 $hid=$getfestnamerow['eid'];
@@ -47,7 +47,7 @@ $rid=$getfestnamerow['erounds'];
                 </div>
 				<div class="row">
                 <?php
-					$query = "SELECT *,events.eid FROM event_time JOIN events ON event_time.event_name=events.ename WHERE eid='$hid'";
+					$query = "SELECT * FROM event_time JOIN events ON event_time.eventid=events.eid WHERE eventid='$hid'";
                     
 					//"SELECT *,add_event.e_eventname,fest.fname FROM participant JOIN add_event ON  participant.p_eventname=add_event.e_id JOIN fest ON fest.f_id=add_event.f_id WHERE sid='$sid'";
 				$result = mysqli_query($connection, $query);
@@ -60,7 +60,7 @@ $rid=$getfestnamerow['erounds'];
 							
                             <div class="row">
                                   <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result['event_name']; ?></h3>
+                                    <h3 class="box-title m-b-0"><?php echo $eid ?></h3>
                                        <h3 class="box-title m-b-0">Round: <?php echo $result['event_round']; ?></h3>
                                     <p>
                                       <b>From:</b>&nbsp;<?php echo $result['t_from']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -109,7 +109,7 @@ $(document).ready(function() {
 		 {
            if (isConfirm) {
 			   $.ajax({
-			  url: 'delete.php?id='+id,
+			  url: 'delete-etime.php?id='+id,
 			  type: 'DELETE',
 			  data: {id:id},
 			  success: function(){
