@@ -9,28 +9,29 @@ $gethnamerow = mysqli_fetch_assoc( $gethnameresult );
 $ename = $gethnamerow[ 'ename' ];
 $hid = $gethnamerow[ 'eid' ];
 
-$geteventname = "SELECT ename FROM events  where eid='$hid'";
-$getfestnameresul1 = mysqli_query( $connection, $geteventname );
-$getfestnamero1 = mysqli_fetch_assoc( $getfestnameresul1 );
-$festid = $getfestnamero1[ 'ename' ];
+//$geteventname = "SELECT ename FROM events  where eid='$hid'";
+//$getfestnameresul1 = mysqli_query( $connection, $geteventname );
+//$getfestnamero1 = mysqli_fetch_assoc( $getfestnameresul1 );
+//$festid = $getfestnamero1[ 'ename' ];
 
-$geteventname1 = "SELECT teamcode FROM events  where eid='$hid'";
-$getfestnameresul11 = mysqli_query( $connection, $geteventname1 );
+//$geteventname1 = "SELECT teamcode FROM events  where eid='$hid'";
+//$getfestnameresul11 = mysqli_query( $connection, $geteventname1 );
 //$getfestnamero2=mysqli_fetch_assoc($getfestnameresul11);
-$festid = $getfestnameresul11[ 'teamcode' ];
+//$festid = $getfestnameresul11[ 'teamcode' ];
 
-if ( isset( $_POST[ 'psubmit' ] ) ) {
-    $getfid = mysqli_query( $connection, "SELECT * FROM fests where fid='$festid'" );
-    $get = mysqli_fetch_assoc( $getfid );
-    $fest = $get[ 'fid' ];
-    $eventname = $getfestnamero1[ 'ename' ];
-    $round = mysqli_real_escape_string( $connection, $_POST[ 'erounds' ] );
-    $college = mysqli_real_escape_string( $connection, $_POST[ 'teamcode' ] );
-    $query = "INSERT INTO `results`(eventname,pname,eround) VALUES ('$eventname','$college','$round')";
+if ( isset($_POST[ 'psubmit' ])) 
+{
+//    $getfid = mysqli_query( $connection, "SELECT * FROM fests where fid='$festid'" );
+//    $get = mysqli_fetch_assoc( $getfid );
+//    $fest = $get[ 'fid' ];
+//    $eventname = $getfestnamero1[ 'ename' ];
+    $round = mysqli_real_escape_string($connection, $_POST['erounds']);
+    $college = mysqli_real_escape_string($connection, $_POST['teamcode']);
+    $query = "INSERT INTO `results`(pname, eround, eid) VALUES ('$college','$round','$hid')";
     $result = mysqli_query( $connection, $query );
 
     if ( $result ) {
-        $smsg = "Result Updated Succesfully";
+        $smsg = "Result Added Succesfully";
     } else {
         $fmsg = mysqli_error( $connection );
     }
@@ -106,7 +107,7 @@ if ( isset( $_POST[ 'psubmit' ] ) ) {
 
 
                                 <?php
-                                $eventname = $getfestnamero1['ename'];
+                                //$eventname = $getfestnamero1['ename'];
                                 $i = "SELECT * FROM events WHERE eid='$hid'";
                                 $res = mysqli_query( $connection, $i );
                                 $rowevent = mysqli_fetch_assoc( $res );
@@ -125,7 +126,7 @@ if ( isset( $_POST[ 'psubmit' ] ) ) {
                                     </select>
                                 </div>
                                 <?php
-                                $college = "SELECT participants.teamcode FROM eventparticipants JOIN participants ON eventparticipants.pid=participants.pid WHERE eid='$hid'";
+                                $college = "SELECT DISTINCT participants.teamcode FROM eventparticipants JOIN participants ON eventparticipants.pid=participants.pid WHERE eid='$hid'";
                                 $colres = mysqli_query( $connection, $college );
 
                                 // $teamname=$getfestnameresul11['teamcode'];
@@ -133,7 +134,7 @@ if ( isset( $_POST[ 'psubmit' ] ) ) {
                                 //$res=mysqli_query($connection, $i);
                                 //$rowevent = mysqli_fetch_assoc($res);
                                 //$totrows=$rowevent['teamcode'];
-                                //$countid=1;
+                                //$countid=1; 
                                 ?>
                                 <div class="form-group">
                                     <label for="inputEmail" class="control-label">SELECTED TEAM</label>
