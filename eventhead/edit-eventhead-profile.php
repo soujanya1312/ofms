@@ -1,14 +1,18 @@
 <?php
 include '../login/accesscontrolhead.php';
 require('connect.php');
+//if(isset($_SESSION['husername'])){
+   $ausername=($_SESSION['husername']);  
+//}
+//elseif(isset($_SESSION['admin']))
+//{
+    //$ausername=($_SESSION['admin']);
+//}
 
-    $ausername=($_SESSION['husername']);
-
-
-
-$query="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events";
+$query="SELECT eid,ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events WHERE husername='$ausername'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
+$id=$row['eid'];
 
 //update profile
 if(isset($_POST['updateprofile']))
@@ -18,15 +22,16 @@ if(isset($_POST['updateprofile']))
     $erounds=mysqli_real_escape_string($connection,$_POST['erounds']);
     $noparticipants=mysqli_real_escape_string($connection,$_POST['noparticipant']);
 	$hname=$_POST['hname'];
+    $anames=$_POST['aname'];
     $hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
 	$hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
 	
     
-	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',hmob='$hmob', hemail='$hemail'";
+	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',addname='$anames',hmob='$hmob', hemail='$hemail'  WHERE eid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events";
+		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events WHERE eid='$id'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Profile updated successfully!";
@@ -44,7 +49,7 @@ if(isset($_POST['changepw']))
 	if($oldpw==$row["hpassword"])
 	{
 		$npw=md5($_POST['newpassword']);
-		$pwquery="UPDATE events SET hpassword='$npw'";
+		$pwquery="UPDATE events SET hpassword='$npw' WHERE eid='$id'";
 		$pwresult = mysqli_query($connection, $pwquery);
 		$smsg="Password updated successfully!";
 		
@@ -273,12 +278,21 @@ if(isset($_POST['changepw']))
 											<div class="col-sm-12 p-l-0">
 												<div class="input-group">
 													<!--<div class="input-group-addon">Dr.</div>-->
-													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter your event head name" value="<?php echo $row["hname"]." ".$row["addname"]; ?>">
+													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter your event head name" value="<?php echo $row["hname"]?>">
 													<!--onKeyUp="copyTextValue();"-->
 												</div>
 											</div>
                                          </div>
-                                    
+                                      <div class="form-group">
+                                        	 <label class="control-label">Additional Head Name <small>(separate by comma)</small></label>
+											<div class="col-sm-12 p-l-0">
+												<div class="input-group">
+													<!--<div class="input-group-addon">Dr.</div>-->
+													<input type="text" name="aname" class="form-control" id="hname" placeholder="Enter your event head name" value="<?php echo $row["addname"]; ?>">
+													<!--onKeyUp="copyTextValue();"-->
+												</div>
+											</div>
+                                         </div>
                                 <div class="form-group">
                                     <label for="inputEmail" class="control-label">Email</label>
                                     <div class="col-sm-12 p-l-0">

@@ -16,12 +16,13 @@ if(isset($_POST['updateprofile']))
     $erounds=mysqli_real_escape_string($connection,$_POST['erounds']);
     $noparticipants=mysqli_real_escape_string($connection,$_POST['noparticipant']);
 	$hname=$_POST['hname'];
+    $anames=$_POST['aname'];
     $hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
 	$hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
 	
     
     
-	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',hmob='$hmob', hemail='$hemail'WHERE eid='$id'";
+	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',addname='$anames',hmob='$hmob', hemail='$hemail'WHERE eid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
@@ -272,7 +273,17 @@ if(isset($_POST['changepw']))
 											<div class="col-sm-12 p-l-0">
 												<div class="input-group">
 													<!--<div class="input-group-addon">Dr.</div>-->
-													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter your event head name" value="<?php echo $row["hname"]." ".$row["addname"]; ?>">
+													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter your event head name" value="<?php echo $row["hname"]?>">
+													<!--onKeyUp="copyTextValue();"-->
+												</div>
+											</div>
+                                         </div>
+                                 <div class="form-group">
+                                        	 <label class="control-label">Additional Head Name <small>(separate by comma)</small></label>
+											<div class="col-sm-12 p-l-0">
+												<div class="input-group">
+													<!--<div class="input-group-addon">Dr.</div>-->
+													<input type="text" name="aname" class="form-control" id="hname" placeholder="Enter your event head name" value="<?php echo $row["addname"]; ?>">
 													<!--onKeyUp="copyTextValue();"-->
 												</div>
 											</div>
