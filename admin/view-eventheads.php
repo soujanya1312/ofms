@@ -3,6 +3,9 @@ include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
 
+
+    
+    
 ?>
 <!DOCTYPE html>
 <!--
@@ -72,9 +75,15 @@ $ausername=$_SESSION['admin'];
                 <!--row -->
                 <div class="row">
                 <?php
-					$query = "SELECT eid,ename,hemail,husername FROM events";
+                   $getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+                   $getidresult = mysqli_query($connection, $getidquery);
+                  $getidrow = mysqli_fetch_assoc($getidresult);
+                    $fid=$getidrow['fid'];
+
+
+					$query = "SELECT eid,ename,hemail,husername FROM events WHERE fid='$fid'";
 					$result = mysqli_query($connection, $query);
-					foreach($result as $key=>$result)
+				foreach($result as $key=>$result)
 				{ ?>
                 <div class="col-md-4 col-sm-4">
                         <div class="white-box">
@@ -152,12 +161,12 @@ $(document).ready(function() {
 		 {   
            if (isConfirm) {
 			   $.ajax({
-			  url: 'deletestaff.php?id='+id,
+			  url: 'delete-ehead.php?id='+id,
 			  type: 'DELETE',
 			  data: {id:id},
 			  success: function(){
 				swal("Deleted!", "User has been deleted.", "success");
-				window.location.replace("view-staffs.php");
+				window.location.replace("view-eventheads.php");
           }
         });   
             } else {     
