@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-<title>Alphatech-OFMS</title>
+<link rel="shortcut icon" type="image/png" sizes="16x16" href="/plugins/images/favicon.png">
+<title>AlphaSystems-OFMS</title>
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/bootstrap-slider.min.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/fontawesome-all.min.css">
@@ -11,6 +12,24 @@
 <!--<link rel="stylesheet" type="text/css" href="lp-plugins/css/style.css">-->
  <link rel="stylesheet" type="text/css" href="lp-plugins/css/style-darkblue.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
+    
 </head>
 
 <body>
@@ -35,8 +54,8 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="logo-holder" href="index.html">
-                                <div class="logo" style="width:15px;height:10px">
-                                <img src="lp-plugins/images/ofms.png">
+                                <div class="" style="width:15px;height:10px">
+                                <img height="55" width="200" src="plugins/images/invoice-logo.png">
                                  <!-- "width:62px;height:18px"-->    
                                 </div>
                             </a>
@@ -44,7 +63,8 @@
                         <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                          <ul class="nav navbar-nav navbar-right">
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="index.html">Services</a></li>
+                                <li><a href="#services">Services</a></li>
+                                <li><a href="index.html">Fests</a></li>
                                 <li><a href="index.html">About Us</a></li>
                                  <li><a href="index.html">Contact Us</a></li>
                              
@@ -113,6 +133,7 @@
                                         </li>
                                     </ul
                                 </li>>-->
+<!--
                                 <li class="dropdown">
                                     <a href="#">Feedback<i class="fas fa-caret-down"></i></a>
                                     <ul class="dropdown-menu">
@@ -120,6 +141,7 @@
                                       </li>
                                     </ul>
                                 </li>
+-->
                                <!-- <li><a href="../../whmcs/index.php?systpl=hostify">WHMCS</a></li>
                                 <li><a href="contact.html">Contact us</a></li>
                                <!-- <li><a class="login-button" href="signin.html">Login</a></li>-->
@@ -170,7 +192,62 @@
         </div>
     </div>
 </div>
-
+<div id="services" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-title">Our Services</div>
+                <div class="row-subtitle">Designed to satisfy your creative needs.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon1.svg" alt="">
+                    </div>
+                    <div class="service-title">Share Files</div>
+                    <div class="service-details">
+                        <p>Share your data among your fest heads and managers being secure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon2.svg" alt="">
+                    </div>
+                    <div class="service-title">Go Unlimited</div>
+                    <div class="service-details">
+                        <p>Store unlimited information about your registration ,participants,fest events,results.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon3.svg" alt="">
+                    </div>
+                    <div class="service-title">Security First</div>
+                    <div class="service-details">
+                        <p>We assure security to your important documents related to your events.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="lp-plugins/images/service-icon4.svg" alt="">
+                    </div>
+                    <div class="service-title">Trusted 100%</div>
+                    <div class="service-details">
+                        <p>The technology that you can trust without any questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!--till image animation -->
@@ -178,24 +255,38 @@
 
 
 <!--upcomining fest begins-->
+   
 <div id="domain-quick-pricing" class="container-fluid">
-    <div class="container">
+    <div class="bg-color"></div>
+    
+    <div class="container" >
         <div class="row">
             <div class="col-md-12">
                 <div class="row-title"> Upcoming Fests</div>
-                <div class="row-subtitle"></div>
+                <div class="row-subtitle">ad subtitle</div>
             </div>
         </div>
         <br>
         <div class="row">
+            <?php 
+            require("admin/connect.php");
+            $getfestquery="SELECT * FROM fests";
+            $getfestresult=mysqli_query($connection,$getfestquery); while($getfests=mysqli_fetch_assoc($getfestresult))
+														{ 
+            ?>
             <div class="col-sm-6 col-md-4">
                 <div class="domain-box d-color1">
-                    <div class="title"></div>
-                    <div class="price">Festname 1</div>
-                    <div class="details">fest description</div>
-                    <div class="link"><a class="register-button" href="./admin/add-participants.php">Register</a></div>
+                    <div class="title" style="font-size: -3;">FEST<!--<img src="lp-plugins/images/service-icon1.svg" alt="">--></div>
+                    <div class="pricing-title"><?php echo $getfests['fname'] ?></div>
+                    <div class="price" style="padding-top: 5px"><?php echo $getfests['cname'] ?></div>
+                    <div class="details"><?php echo $getfests['fdesc'] ?></div>
+                    
+                
+                    <div class="link"><a class="register-button" href="view-details.php?id=<?php echo $getfests['fid'] ?>">Register</a></div>
                 </div>
             </div>
+            <?php } ?>
+<!--
             <div class="col-sm-6 col-md-4">
                 <div class="domain-box d-color2">
                     <div class="title"></div>
@@ -212,9 +303,11 @@
                     <div class="link"><a class="register-button" href="./admin/add-participants.php">Register</a></div>
                 </div>
             </div>
+-->
         </div>
     </div>
 </div>
+       
 <!--upcoming fests ends-->
 
 <!--About alphatech begins  -->
@@ -236,36 +329,35 @@
                     </div>
                 </div>
                 <div class="col-md-6 company-info-holder">
-                    <h4>About Alphatech</h4>
+                    <h4>About AlphaSystems</h4>
                     <div class="info-slider">
                         <div>
                             <div class="details-holder">
-                                <p>Hostify At vero eos et accusamus<br>
-                                    et iusto odio dignissimos ducimus<br>
-                                    qui blanditiis praesentium voluptatum<br>
-                                    deleniti atque corrupti quos dolores<br>
-                                    et quas molestias excepturi sint<br>
-                                    occaecati cupiditate non.</p>
+                                <p>AlphaSystems is the one stop<br>
+                                    place to check out all the<br>
+                                   events that is occuring around<br>
+                                    your place.<br>
+                                    
+                                   </p>
                             </div>
                         </div>
                         <div>
                             <div class="details-holder">
-                                <p>Hostify At vero eos et accusamus<br>
-                                    et iusto odio dignissimos ducimus<br> 
-                                    qui blanditiis praesentium voluptatum<br>
-                                    deleniti atque corrupti quos dolores<br>
-                                    et quas molestias excepturi sint<br>
-                                    occaecati cupiditate non.</p>
+                                <p>A best place to host <br>
+                                   your fest and make use of the<br> 
+                                    latest technology <br>
+                                      for the ease <br>
+                                    of your work.<br>
+                                    </p>
                             </div>
                         </div>
                         <div>
                             <div class="details-holder">
-                                <p>Hostify At vero eos et accusamus<br>
-                                    et iusto odio dignissimos ducimus<br> 
-                                    qui blanditiis praesentium voluptatum<br>
-                                    deleniti atque corrupti quos dolores<br>
-                                    et quas molestias excepturi sint<br>
-                                    occaecati cupiditate non.</p>
+                                <p>Display your fest <br>
+                                    between the legends<br> 
+                                   who you know and <br>
+                                    Show your new way of Questing.<br>
+                                   </p>
                             </div>
                         </div>
                     </div>
@@ -293,8 +385,10 @@
                         <img src="lp-plugins/images/feature1.png" alt="">
                     </div>
                     <div class="feature-title">Share Files</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -303,8 +397,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/feature2.png" alt="">
                     </div>
                     <div class="feature-title">Go Unlimited</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -313,8 +409,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/feature3.png" alt="">
                     </div>
                     <div class="feature-title">Security First</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -323,8 +421,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/feature4.png" alt="">
                     </div>
                     <div class="feature-title">Trusted 100%</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
         </div>
@@ -349,8 +449,8 @@ amoe yosner dolner </div>
                 <div class="col-md-6">
                     <div class="head-content">
                         <h4>Our Servers</h4>
-                        <p>Hostify servers are secure, reliable
-                            & amazing at performance.</p>
+                        <p>ALPHASYSTEMS servers are secure, reliable
+                            and amazing at performance.</p>
 
                         <p>Enjoy maximum customization,
                         and overall flexibility.
@@ -380,8 +480,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature1.png" alt="">
                     </div>
                     <div class="feature-title">Secure Files</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -390,8 +492,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature2.png" alt="">
                     </div>
                     <div class="feature-title">All Configurations</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -400,8 +504,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature3.png" alt="">
                     </div>
                     <div class="feature-title">Cloud Sharing</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -410,8 +516,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature4.png" alt="">
                     </div>
                     <div class="feature-title">100% Satisfying</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
         </div>
@@ -420,7 +528,7 @@ amoe yosner dolner </div>
 <!--our servers ends   -->
 
 
-<!-- our services begins -->
+<!-- our services begins(requiered)
 <div id="services" class="container-fluid">
     <div class="container">
         <div class="row">
@@ -495,12 +603,12 @@ atque corrupti quos dolores et quas molestias.</p>
             <div class="col-xs-6 col-sm-4 col-md-3">
                 <div class="address-holder">
                     <div class="phone"><i class="fas fa-phone"></i> 00 285 900 38502</div>
-                    <div class="email"><i class="fas fa-envelope"></i> hello@hostify.com</div>
+                    <div class="email"><i class="fas fa-envelope"></i>alphasystems@1312gmail.com</div>
                     <div class="address">
                         <i class="fas fa-map-marker"></i> 
-                        <div>City Avenue, Office 64,<br>
-                            Floor 6,  Milbourne,<br>
-                            Australia.</div>
+                        <div>SDM COLLEGE OF BUSINESS MANAGEMENT
+                              ballalbagh ,Mangalore
+                        </div>
                     </div>
                 </div>
             </div>
