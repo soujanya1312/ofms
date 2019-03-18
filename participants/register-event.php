@@ -111,17 +111,17 @@ if (isset($_POST['psubmit']))
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="200" alt="Card image">
 				           <div class="card-img-overlay" style="padding-top: 5px">
 								
-								  <p class="card-text" id="cText"><u>Event Name:</u> <strong><?php echo $row["ename"]; ?></strong></p>
+								  <p class="card-text" id="cText">Event Name: <strong><?php echo $row["ename"]; ?></strong></p>
                                
-                                  <p class="card-text" id="cText"><u>Event Description:</u> <strong> <?php echo $row["edesc"]; ?></strong></p>
+                                  <p class="card-text" id="cText">Event Description: <strong> <?php echo $row["edesc"]; ?></strong></p>
                                
-                                  <p class="card-text" id="cText"><u>No of contestants:</u> <strong> <?php echo $row["participants"]; ?></strong> </p>
+                                  <p class="card-text" id="cText">No of contestants: <strong> <?php echo $row["participants"]; ?></strong> </p>
                                
-                                  <p class="card-text" id="cText"><u>Event Heads:</u> <strong> <?php echo $row["hname"].' '.$row["addname"]; ?></strong> </p>
+                                  <p class="card-text" id="cText">Event Heads: <strong> <?php echo $row["hname"].' '.$row["addname"]; ?></strong> </p>
                                
-                                  <p class="card-text" id="cText"><u>Mobile Number:</u> <strong><?php echo $row["hmob"]; ?></strong></p>
+                                  <p class="card-text" id="cText">Mobile Number: <strong><?php echo $row["hmob"]; ?></strong></p>
                                
-                                  <p class="card-text" id="cText"><u>Email ID:</u> <strong><?php echo $row["hemail"]; ?></strong> </p>
+                                  <p class="card-text" id="cText">Email ID:<strong><?php echo $row["hemail"]; ?></strong> </p>
 							
 								  <!--<p class="card-text"><small class="text-white">~OFMS</small></p>-->
 				           </div>
