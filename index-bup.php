@@ -199,6 +199,8 @@
                     <div class="title"></div>
                     <div class="price"><?php echo $getfests['fname'] ?></div>
                     <div class="details"><?php echo $getfests['fdesc'] ?></div>
+                    
+                
                     <div class="link"><a class="register-button" href="./admin/add-participants.php?id=<?php echo $getfests['fid'] ?>">Register</a></div>
                 </div>
             </div>
@@ -245,36 +247,35 @@
                     </div>
                 </div>
                 <div class="col-md-6 company-info-holder">
-                    <h4>About Alphatech</h4>
+                    <h4>About AlphaSystems</h4>
                     <div class="info-slider">
                         <div>
                             <div class="details-holder">
-                                <p>Hostify At vero eos et accusamus<br>
-                                    et iusto odio dignissimos ducimus<br>
-                                    qui blanditiis praesentium voluptatum<br>
-                                    deleniti atque corrupti quos dolores<br>
-                                    et quas molestias excepturi sint<br>
-                                    occaecati cupiditate non.</p>
+                                <p>AlphaSystems is the one stop<br>
+                                    place to check out all the<br>
+                                   events that is occuring around<br>
+                                    your place.<br>
+                                    
+                                   </p>
                             </div>
                         </div>
                         <div>
                             <div class="details-holder">
-                                <p>Hostify At vero eos et accusamus<br>
-                                    et iusto odio dignissimos ducimus<br> 
-                                    qui blanditiis praesentium voluptatum<br>
-                                    deleniti atque corrupti quos dolores<br>
-                                    et quas molestias excepturi sint<br>
-                                    occaecati cupiditate non.</p>
+                                <p>A best place to host <br>
+                                   your fest and make use of the<br> 
+                                    latest technology <br>
+                                      for the ease <br>
+                                    of your work.<br>
+                                    </p>
                             </div>
                         </div>
                         <div>
                             <div class="details-holder">
-                                <p>Hostify At vero eos et accusamus<br>
-                                    et iusto odio dignissimos ducimus<br> 
-                                    qui blanditiis praesentium voluptatum<br>
-                                    deleniti atque corrupti quos dolores<br>
-                                    et quas molestias excepturi sint<br>
-                                    occaecati cupiditate non.</p>
+                                <p>Display your fest <br>
+                                    between the legends<br> 
+                                   who you knw and <br>
+                                    Show your new way of Questing.<br>
+                                   </p>
                             </div>
                         </div>
                     </div>
@@ -302,8 +303,10 @@
                         <img src="lp-plugins/images/feature1.png" alt="">
                     </div>
                     <div class="feature-title">Share Files</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -312,8 +315,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/feature2.png" alt="">
                     </div>
                     <div class="feature-title">Go Unlimited</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -322,8 +327,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/feature3.png" alt="">
                     </div>
                     <div class="feature-title">Security First</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -332,8 +339,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/feature4.png" alt="">
                     </div>
                     <div class="feature-title">Trusted 100%</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
         </div>
@@ -358,7 +367,7 @@ amoe yosner dolner </div>
                 <div class="col-md-6">
                     <div class="head-content">
                         <h4>Our Servers</h4>
-                        <p>Hostify servers are secure, reliable
+                        <p>ALPHASYSTEMS servers are secure, reliable
                             & amazing at performance.</p>
 
                         <p>Enjoy maximum customization,
@@ -389,8 +398,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature1.png" alt="">
                     </div>
                     <div class="feature-title">Secure Files</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -399,8 +410,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature2.png" alt="">
                     </div>
                     <div class="feature-title">All Configurations</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -409,8 +422,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature3.png" alt="">
                     </div>
                     <div class="feature-title">Cloud Sharing</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -419,8 +434,10 @@ amoe yosner dolner </div>
                         <img src="lp-plugins/images/sfeature4.png" alt="">
                     </div>
                     <div class="feature-title">100% Satisfying</div>
+<!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
+-->
                 </div>
             </div>
         </div>
@@ -429,7 +446,7 @@ amoe yosner dolner </div>
 <!--our servers ends   -->
 
 
-<!-- our services begins -->
+<!-- our services begins(requiered)
 <div id="services" class="container-fluid">
     <div class="container">
         <div class="row">
@@ -504,12 +521,12 @@ atque corrupti quos dolores et quas molestias.</p>
             <div class="col-xs-6 col-sm-4 col-md-3">
                 <div class="address-holder">
                     <div class="phone"><i class="fas fa-phone"></i> 00 285 900 38502</div>
-                    <div class="email"><i class="fas fa-envelope"></i> hello@hostify.com</div>
+                    <div class="email"><i class="fas fa-envelope"></i>alphasystems@1312gmail.com</div>
                     <div class="address">
                         <i class="fas fa-map-marker"></i> 
-                        <div>City Avenue, Office 64,<br>
-                            Floor 6,  Milbourne,<br>
-                            Australia.</div>
+                        <div>SDM COLLEGE OF BUSINESS MANAGEMENT
+                              ballalbagh ,Mangalore
+                        </div>
                     </div>
                 </div>
             </div>
