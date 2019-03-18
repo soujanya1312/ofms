@@ -18,7 +18,7 @@
 				</a>
                
 				<ul class="nav nav-second-level">
-					<li><a href="edit-eventhead-profile.php"><i class="ti-user"></i> My Profile</a></li>
+					<li><a href="my-profile.php"><i class="ti-user"></i> My Profile</a></li>
 					<!-- <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li> -->
@@ -90,4 +90,4 @@
 		</ul>
 	</div>
 </div>
-<!-- Left navbar-sidebar end --> 
+<!-- Left navbar-sidebar end -->
