@@ -3,6 +3,12 @@ include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
 
+$getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+$getidresult = mysqli_query($connection, $getidquery);
+$getidrow = mysqli_fetch_assoc($getidresult);
+//$aid=$getidrow['aid'];
+$fid=$getidrow['fid'];
+
 if(isset($_POST['CancelApt']))
 {
 	$gettokenno=$_POST['CancelAptVal'];
@@ -107,7 +113,7 @@ if(isset($_POST['AttendedBtn']))
 											<h2 class="visible-xs">Registered</h2> 
 											<div class="row p-0">
 								<?php
-									$getapointquery = "SELECT pid,pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode is NULL";
+									$getapointquery = "SELECT pid,pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode is NULL && fid='$fid'";
 									$getapointresult = mysqli_query($connection, $getapointquery);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -145,7 +151,7 @@ if(isset($_POST['AttendedBtn']))
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery1 = "SELECT pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode is not NULL and teamcode<>'Cancelled'";
+									$getapointquery1 = "SELECT pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode is not NULL and teamcode<>'Cancelled' && fid='$fid'";
 									$getapointresult = mysqli_query($connection, $getapointquery1);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>
@@ -189,7 +195,7 @@ if(isset($_POST['AttendedBtn']))
 										
 										<div class="row p-0">
 								<?php
-									$getapointquery2 = "SELECT pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode='Cancelled'";
+									$getapointquery2 = "SELECT pclgname,pusername,pemail,pmob,teamcode FROM participants WHERE teamcode='Cancelled' && fid='$fid'";
 									$getapointresult = mysqli_query($connection, $getapointquery2);
 									foreach($getapointresult as $key=>$getapointresult)
 								{ ?>

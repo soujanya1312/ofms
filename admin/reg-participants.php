@@ -88,16 +88,16 @@ $fid=$getidrow['fid'];
                                         <tr>
                                             <th>SL NO</th>
                                             <th>Participant Name</th>
-                                            <th>Mobile Number</th>
+                                            <th>Mobile  Number</th>
                                             <th>Email ID</th>
                                             <th>College Name</th>
-                                            <th class="text-nowrap">Team Code</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM participants WHERE teamcode is NOT NULL && fid='$fid'";
+												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM participants WHERE teamcode is NULL && fid='$fid'";
 												$result = mysqli_query($connection,$sql);
 												foreach($result as $key=>$result)
 												{ ?>
@@ -108,7 +108,7 @@ $fid=$getidrow['fid'];
 														<td> <?php echo $result["pmob"]; ?> </td>
                                                         <td> <?php echo $result["pemail"]; ?> </td>
                                                          <td> <?php echo $result["pclgname"]; ?> </td>
-														 <td> <?php echo $result["teamcode"]; ?> </td>
+														 
 													</tr>
                                         <?php 
 												}
