@@ -90,7 +90,7 @@ $ausername=$_SESSION['admin'];
 										
                                     </p>
 									<div class="p-t-5">
-											<a href="edit-eventhead-profile.php?id=<?php echo $result["eid"]; ?>" class="fcbtn btn btn-info">Edit</a>
+											<a href="my-profile.php?id=<?php echo $result["eid"]; ?>" class="fcbtn btn btn-info">Edit</a>
 											<a href="#" class="fcbtn btn btn-danger model_img deleteStaff" data-id="<?php echo $result["eid"]; ?>" id="deleteStf">Delete</a>
                                     </div>
                                 </div>

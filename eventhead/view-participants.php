@@ -6,7 +6,10 @@ if(isset($_SESSION['husername']))
 {
 	$ausername=$_SESSION['husername'];
 }
-
+$getfestidq="SELECT fid FROM events WHERE husername='$ausername'";
+$getfestidr=mysqli_query($connection, $getfestidq);
+$getfestid = mysqli_fetch_assoc($getfestidr);
+$fid=$getfestid['fid'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -93,7 +96,7 @@ if(isset($_SESSION['husername']))
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM participants WHERE teamcode is NOT NULL";
+												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM participants WHERE teamcode is NOT NULL && fid='$fid'";
 												$result = mysqli_query($connection,$sql);
 												foreach($result as $key=>$result)
 												{ ?>
