@@ -57,7 +57,7 @@ if (isset($_POST['username']) && isset($_POST['password']))
 		}
         else
         {
-            $fmsg="Error1".mysqli_error($connection);
+            $fmsg="Wrong Email or Password";
         }
      }
   }
@@ -222,7 +222,7 @@ if(isset($_POST['resetemail']))
                         <br/><img src="../plugins/images/eliteadmin-text-dark.png" alt="Home" /></a>
                     <div class="form-group m-t-40">
                         <div class="col-xs-12">
-                            <input autofocus tabindex="1" class="form-control" type="text" name="username" required placeholder="Username or Email" value="<?php if(isset($username) & !empty($username)){ echo $username; }?>" >
+                            <input autofocus autocomplete ="off" tabindex="1" class="form-control" type="text" name="username" required placeholder="Username or Email" value="<?php if(isset($username) & !empty($username)){ echo $username; }?>" >
                         </div>
                     </div>
                     <div class="form-group">
