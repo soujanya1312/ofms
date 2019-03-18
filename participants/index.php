@@ -90,7 +90,7 @@ elseif(isset($_SESSION['admin']))
 	
 				
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='viewevents-participants.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location=''">
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Registered</b></h3>
 							<ul class="list-inline two-part">
@@ -99,7 +99,7 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-schedule.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location=''">
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Left Over</b></h3>
 							<ul class="list-inline two-part">
@@ -108,7 +108,7 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-staffs.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location=''">
                         <div class="white-box">
 							<h3 class="box-title"><b>Total No Of Events </b></h3>
 							<ul class="list-inline two-part">
@@ -117,7 +117,7 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='feedback.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location=''">
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Colleges Registered </b></h3>
 							<ul class="list-inline two-part">
@@ -126,7 +126,7 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='view-results.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
@@ -138,7 +138,7 @@ elseif(isset($_SESSION['admin']))
                         </div>
                     </div> 
                      
-                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='view-schedule.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
@@ -149,7 +149,7 @@ elseif(isset($_SESSION['admin']))
                             </div>
                         </div>
                     </div> 
-                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='view-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
@@ -160,7 +160,7 @@ elseif(isset($_SESSION['admin']))
                             </div>
                         </div>
                     </div> 
-                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='feedback.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
