@@ -1,5 +1,5 @@
 <?php
-require('connect.php');
+require('admin/connect.php');
 $id=$_GET['id'];
 //include '../login/accesscontroladmin.php';
 
@@ -21,27 +21,27 @@ $id=$_GET['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/plugins/images/favicon.png">
     <title>OFMS-Fest Details</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+    <link href="plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
     <!-- animation CSS -->
-    <link href="../plugins/css/animate.css" rel="stylesheet">
+    <link href="plugins/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../plugins/css/style.css" rel="stylesheet">
+    <link href="plugins/css/style.css" rel="stylesheet">
     <!-- color CSS -->
-    <link href="../plugins/css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="plugins/css/colors/blue.css" id="theme" rel="stylesheet">
     <!--alerts CSS -->
-    <link href="../plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+	<link href="plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
     	<script>
 		function isFutureDate(idate){
     var today = new Date().getTime(),
@@ -82,7 +82,7 @@ $id=$_GET['id'];
     <div class="row p-b-10">
 					<div class="col-md-12 col-sm-10 hvr-wobble-horizontal">
 						<div class="card card-inverse">
-							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="180" alt="Card image">
+							<img id="theImgId" class="card-img" src="plugins/images/cards/bg.png" height="180" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
 								<?php
                                       $getpidquery="SELECT * from fests WHERE fid='$id'";
@@ -166,7 +166,7 @@ $id=$_GET['id'];
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 text-center">
-                                        <img src="../plugins/images/index4.jpg" class="img-square img-responsive"> 
+                                        <img src="plugins/images/sdmlogo.png" class="img-square img-responsive"> 
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
@@ -189,8 +189,8 @@ $id=$_GET['id'];
 
 				</div>
                      <div class="p-t-5"><center>
-											<a href="add-participants.php?id=<?php echo $id ?>" class="fcbtn btn btn-info">REGISTER NOW!</a>
-								            <a href="../index.php" class="fcbtn btn btn-info">BACK</a></center>
+											<a href="./admin/add-participants.php?id=<?php echo $id ?>" class="fcbtn btn btn-info">REGISTER NOW!</a>
+								            <a href="index.php" class="fcbtn btn btn-info">BACK</a></center>
                                     </div>       
                                
                                
@@ -201,29 +201,29 @@ $id=$_GET['id'];
     </div>
 </section>
     <!-- jQuery -->
-    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../plugins/bootstrap/dist/js/tether.min.js"></script>
-    <script src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <script src="plugins/bootstrap/dist/js/tether.min.js"></script>
+    <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
     <!-- Menu Plugin JavaScript -->
-    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
-    <script src="../plugins/js/jquery.slimscroll.js"></script>
+    <script src="plugins/js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
-    <script src="../plugins/js/waves.js"></script>
+    <script src="plugins/js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="../plugins/js/custom.min.js"></script>
+    <script src="plugins/js/custom.min.js"></script>
     <!--Style Switcher -->
-    <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     
-    <script src="../plugins/js/validator.js"></script>
-    <!-- Sweet-Alert  -->
-    <script src="../plugins/bower_components/sweetalert/sweetalert.min.js"></script>
-    <script src="../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+    <script src="plugins/js/validator.js"></script>
+    <!-- Sweet-Alrt  -->
+    <script src="plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
     <!-- Date Picker Plugin JavaScript -->
-    <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <script src="../plugins/js/mask.js"></script>
+    <script src="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="plugins/js/mask.js"></script>
     <script>
 		jQuery('.mydatepicker, #datepicker').datepicker();
     jQuery('#datepicker-autoclose').datepicker({
