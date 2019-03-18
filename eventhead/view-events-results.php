@@ -2,7 +2,7 @@
 include '../login/accesscontrolhead.php';
 require('connect.php');
 $ausername=$_SESSION['husername'];
-$id=$_GET['id'];
+$eid=$_GET['id'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -77,7 +77,7 @@ $id=$_GET['id'];
 //                     $getidrow = mysqli_fetch_assoc($getidresult);
 //                     $eid=$getidrow['eid'];
                     
-					$query = "SELECT r_id,pname,eround, events.ename FROM results JOIN events ON results.eid=events.eid WHERE events.eid='$id'";
+					$query = "SELECT r_id,pname,eround, events.ename FROM results JOIN events ON results.eid=events.eid WHERE events.ename='$eid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ ?>

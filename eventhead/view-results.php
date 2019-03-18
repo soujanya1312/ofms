@@ -2,10 +2,10 @@
 include '../login/accesscontrolhead.php';
 require('connect.php');
 $ausername=$_SESSION['husername'];
-$getfestidq="SELECT fid FROM events WHERE husername='$ausername'";
+$getfestidq="SELECT eid FROM events WHERE husername='$ausername'";
 $getfestidr=mysqli_query($connection, $getfestidq);
 $getfestid = mysqli_fetch_assoc($getfestidr);
-$fid=$getfestid['fid'];
+$eid=$getfestid['eid'];
 ?>
 
     
@@ -80,11 +80,13 @@ $fid=$getfestid['fid'];
                 
                 <div class="row">
                 <?php
-					$query = "SELECT eid,ename FROM events WHERE fid='$fid'";
+                    {
+					$query = "SELECT ename FROM events WHERE eid='$eid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
-				{ 
-					$eid=$result["eid"];
+				
+                 
+					//s$eid=$result["eid"];
 						
 					$getpidquery="SELECT pid from participants WHERE pusername='$ausername'";
 					$getpidres=mysqli_query($connection, $getpidquery);
@@ -108,8 +110,7 @@ $fid=$getfestid['fid'];
                                   
 									<div class="p-t-5">
 										
-										
-                                        <a href="view-events-results.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">view results</a>
+                                        <a href="view-events-results.php?id=<?php echo $result["ename"]; ?>" class="btn btn-info btn-rounded">view results</a>
 										
 										
                                     </div>
