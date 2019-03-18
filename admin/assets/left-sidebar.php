@@ -17,7 +17,7 @@
 				<a href="#" class="waves-effect"><img src="../plugins/images/users/user(2).png" alt="user-img" class="img-circle"> <span class="hide-menu"><?php echo $ausername; ?><span class="fa arrow"></span></span>
 				</a>
 				<ul class="nav nav-second-level">
-					<li><a href="my-profile1.php"><i class="ti-user"></i> My Profile</a></li>
+					<li><a href="my-profile.php"><i class="ti-user"></i> My Profile</a></li>
 					<!-- <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
 					<li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li> -->
@@ -44,10 +44,10 @@
 					<li> <a href="edit-fest-details.php">Edit Fest Details</a> </li>	
 				</ul>
 			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Event Heads <span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Event <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="add-events.php">Add Event heads </a> </li>
-					<li> <a href="view-eventheads.php">View Event heads </a> </li>
+					<li> <a href="add-events.php">Add Event</a> </li>
+					<li> <a href="view-eventheads.php">View Event</a> </li>
                     
 				</ul>
 			</li>
@@ -70,7 +70,7 @@
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					
-					<li><a href="view-result.php">view-results</a></li>
+					<li><a href="view-results.php">view-results</a></li>
 				</ul>
 			</li>
             
@@ -103,4 +103,4 @@
 		</ul>
 	</div>
 </div>
-<!-- Left navbar-sidebar end --> 
+<!-- Left navbar-sidebar end -->

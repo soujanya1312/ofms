@@ -65,7 +65,7 @@ require('connect.php');
                 <!--row -->
 				
 				<div class="row p-b-10">
-					<div class="col-md-12 col-sm-10">
+					<div class="col-md-12 col-sm-10 hvr-wobble-horizontal">
 						<div class="card card-inverse">
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
@@ -88,7 +88,7 @@ require('connect.php');
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventheads1.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location=''">
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Events</b></h3>
 							<ul class="list-inline two-part">
@@ -97,7 +97,7 @@ require('connect.php');
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-feedback.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location=''">
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Feedback </b></h3>
 							<ul class="list-inline two-part">
@@ -106,7 +106,7 @@ require('connect.php');
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-schedule.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='reg-participants.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>Colleges Registered</b></h3>
 							<ul class="list-inline two-part">
@@ -119,12 +119,12 @@ require('connect.php');
                 <!--/row -->
 				<!--row -->
                 <div class="row p-t-10">
-                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add new Admin" onClick="window.location='add-admin.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add New Event" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-id-badge bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD EventHead</b></h4>
+									<h4><b>ADD Event Head</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
@@ -141,39 +141,19 @@ require('connect.php');
                             </div>
                         </div>
                     </div>-->
-                    <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='add-staff.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="View Event Result" onClick="window.location='view-results.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>Start Registration</b></h4>
+									<h4><b>View Event results</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                 <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Create new ward" onClick="window.location='add-ward.php'">
-                        <div class="white-box">
-                            <div class="r-icon-stats">
-                                <i class="fa fa-bed bg-black Hoveranimatewrd"></i>
-                                <div class="bodystate p-t-10">
-									<h4><b>View Event Results</b></h4>
-                                    <span class="text-muted" style="font-size: small"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Create new ward" onClick="window.location='add-ward.php'">
-                        <div class="white-box">
-                            <div class="r-icon-stats">
-                                <i class="fa fa-bed bg-black Hoveranimatewrd"></i>
-                                <div class="bodystate p-t-10">
-									<h4><b>Stop Registration</b></h4>
-                                    <span class="text-muted" style="font-size: small"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
+                    
                 </div>
                 <!--/row -->
                 
