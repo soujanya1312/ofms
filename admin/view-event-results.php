@@ -71,6 +71,52 @@ $id=$_GET['id'];
 
                 <!--row -->
                 <div class="row">
+                <div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingOne">
+                                                    <h5 class="mb-0">
+                                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapse1" aria-expanded="true" aria-controls="collapseOne">
+                                              Collapsible Group Item #1
+                                            </a>
+                                          </h5>
+                                                </div>
+                                                <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="card-body">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingTwo">
+                                                    <h5 class="mb-0">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse2" aria-expanded="false" aria-controls="collapseTwo">
+                                              Collapsible Group Item #2
+                                            </a>
+                                          </h5>
+                                                </div>
+                                                <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                    <div class="card-body">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingThree">
+                                                    <h5 class="mb-0">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse3" aria-expanded="false" aria-controls="collapseThree">
+                                              Collapsible Group Item #3
+                                            </a>
+                                          </h5>
+                                                </div>
+                                                <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                    <div class="card-body">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+</div>
+                <div class="row">
                 <?php
 //                    $getidquery="SELECT events.eid FROM admin JOIN events ON admin.eid=events.eid WHERE ausername='$ausername'";
 //                     $getidresult = mysqli_query($connection, $getidquery);

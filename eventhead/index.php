@@ -9,6 +9,36 @@ elseif(isset($_SESSION['admin']))
 {
 	$ausername=$_SESSION['admin'];
 }
+$getfestidq="SELECT fid,erounds FROM events WHERE husername='$ausername'";
+$getfestidr=mysqli_query($connection, $getfestidq);
+$getfestid = mysqli_fetch_assoc($getfestidr);
+$fid=$getfestid['fid'];
+$erounds=$getfestid['erounds'];
+
+$query = "SELECT eid FROM events WHERE husername='$ausername'";
+$result = mysqli_query($connection, $query);
+$row1 = mysqli_fetch_assoc($result);
+$eid= $row1["eid"];
+				
+$getpidquery="SELECT pid from participants WHERE fid='$fid'";
+$getpidres=mysqli_query($connection, $getpidquery);
+$row2 = mysqli_fetch_assoc($getpidres);
+$pid= $row2["pid"];
+
+//$redirectquery="SELECT * FROM eventparticipants WHERE eid='$eid' and pid='$pid'";	$exeredirect=mysqli_query($connection, $redirectquery);
+//$redirect=mysqli_num_rows($exeredirect);
+
+$getcollegecount=mysqli_query($connection,"SELECT * FROM results WHERE eid='$eid' AND pid='$pid'");
+$pcount=mysqli_num_rows($getcollegecount);
+
+$getdoccount=mysqli_query($connection,"SELECT * FROM event_time WHERE eventid='$eid'");
+$dcount=mysqli_num_rows($getdoccount);
+
+//$getstaffcount=mysqli_query($connection,"SELECT * FROM feedback WHERE fid='$fid'");
+//$scount=mysqli_num_rows($getstaffcount);
+
+$getwardcount=mysqli_query($connection,"SELECT * FROM events WHERE fid='$fid' ");
+$wcount=mysqli_num_rows($getwardcount);
 ?>
 
 <!DOCTYPE html>
@@ -80,28 +110,28 @@ elseif(isset($_SESSION['admin']))
                   
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-results.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Results</b></h3>
+							<h3 class="box-title"><b>No of Rounds</b></h3>
+							<ul class="list-inline two-part">
+								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li class="text-right"><span class="counter"><?php echo $erounds ?></span></li>
+							</ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventtime.php'">
+                        <div class="white-box">
+							<h3 class="box-title"><b>Rounds Schedule</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventtime.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-feedback.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>View Schedule</b></h3>
+							<h3 class="box-title"><b>No of Feedback</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
-							</ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-feedback.php'">
-                        <div class="white-box">
-							<h3 class="box-title"><b>View Feedback</b></h3>
-							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
-								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>

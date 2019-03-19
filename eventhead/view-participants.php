@@ -6,6 +6,11 @@ if(isset($_SESSION['husername']))
 {
 	$ausername=$_SESSION['husername'];
 }
+$gethname="SELECT eid FROM events WHERE husername='$ausername'";
+$gethnameresult=mysqli_query($connection,$gethname);
+$gethnamerow=mysqli_fetch_assoc($gethnameresult);
+$eid=$gethnamerow['eid'];
+
 $getfestidq="SELECT fid FROM events WHERE husername='$ausername'";
 $getfestidr=mysqli_query($connection, $getfestidq);
 $getfestid = mysqli_fetch_assoc($getfestidr);
@@ -86,28 +91,28 @@ $fid=$getfestid['fid'];
                                     <thead>
                                         <tr>
                                             <th>SL NO</th>
-                                            <th>Participant NAME</th>
-                                            <th>Participant  Number</th>
-                                            <th>ParticipantEmail</th>
-                                            <th>Participant college Name</th>
+                                            <th>NAME</th>
+                                            <th>College Name</th>
                                             <th class="text-nowrap">Team Code</th>
+                                            <th>Email</th>
+                                            <th>Number</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
 										<?php
-												$sql = "SELECT pid,pusername,pmob,pemail,pclgname,teamcode  FROM participants WHERE teamcode is NOT NULL && fid='$fid'";
+												$sql = "SELECT *,participants.pclgname,participants.teamcode FROM eventparticipants JOIN participants ON eventparticipants.pid=participants.pid WHERE participants.teamcode is NOT NULL AND eid='$eid' ORDER BY participants.pclgname";
 												$result = mysqli_query($connection,$sql);
 												foreach($result as $key=>$result)
 												{ ?>
 													<tr> 
 														<td> <?php echo $key+1; ?> </td>
-														<td> <?php echo $result["pusername"]; ?> </td>
-                                                       
-														<td> <?php echo $result["pmob"]; ?> </td>
-                                                        <td> <?php echo $result["pemail"]; ?> </td>
-                                                         <td> <?php echo $result["pclgname"]; ?> </td>
-														 <td> <?php echo $result["teamcode"]; ?> </td>
+														<td> <?php echo $result["epname"]; ?> </td>
+														<td> <?php echo $result["pclgname"]; ?> </td>
+                                                        <td><span class="label label-success"> <?php echo $result["teamcode"]; ?> </span> </td>
+                                                        <td> <?php echo $result["epemail"]; ?> </td>
+                                                         <td> <?php echo $result["epmob"]; ?> </td>
+														 
 													</tr>
                                         <?php 
 												}

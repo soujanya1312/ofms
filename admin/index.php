@@ -3,17 +3,23 @@ include '../login/accesscontroladmin.php';
 $ausername=$_SESSION['admin'];
 require('connect.php');
 
-//$getpatientcount=mysqli_query($connection,"SELECT * FROM patients WHERE dod IS NULL");
-//$pcount=mysqli_num_rows($getpatientcount);
+$getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+$getidresult = mysqli_query($connection, $getidquery);
+$getidrow = mysqli_fetch_assoc($getidresult);
+$fid=$getidrow['fid'];
 
-//$getdoccount=mysqli_query($connection,"SELECT * FROM doctors");
-//$dcount=mysqli_num_rows($getdoccount);
 
-//$getstaffcount=mysqli_query($connection,"SELECT * FROM staffs");
-//$scount=mysqli_num_rows($getstaffcount);
+$getcollegecount=mysqli_query($connection,"SELECT * FROM participants WHERE teamcode IS NOT NULL && fid='$fid'");
+$pcount=mysqli_num_rows($getcollegecount);
 
-//$getwardcount=mysqli_query($connection,"SELECT * FROM wards WHERE status='0'");
-//$wcount=mysqli_num_rows($getwardcount);
+$getdoccount=mysqli_query($connection,"SELECT * FROM events WHERE fid='$fid'");
+$dcount=mysqli_num_rows($getdoccount);
+
+$getstaffcount=mysqli_query($connection,"SELECT * FROM feedback WHERE fid='$fid'");
+$scount=mysqli_num_rows($getstaffcount);
+
+$getwardcount=mysqli_query($connection,"SELECT * FROM participants WHERE fid='$fid' ");
+$wcount=mysqli_num_rows($getwardcount);
 ?>
 <!DOCTYPE html>
 <!--
