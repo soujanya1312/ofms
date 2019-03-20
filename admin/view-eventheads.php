@@ -92,7 +92,7 @@ $ausername=$_SESSION['admin'];
                                         <img src="../plugins/images/users/user(2).png" class="img-square img-responsive"> 
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result["husername"]; ?></h3>Event Name:<?php echo $result["ename"]; ?>
+                                    <h3 class="box-title m-b-0"><?php echo $result["husername"]; ?></h3><?php echo $result["ename"]; ?>
                                     <p calss="p-0">
 										<a href="mailto:<?php echo $result["hemail"]; ?>"> <font size="-1"> <?php echo $result["hemail"]; ?> </font> </a> <br>
 										

@@ -2,12 +2,6 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
-
-$getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
-$getidresult = mysqli_query($connection, $getidquery);
-$getidrow = mysqli_fetch_assoc($getidresult);
-$fid=$getidrow['fid'];
-
 if (isset($_POST['eventheadsubmit']))
 	{
 		// real eacape sting is used to prevent sql injection hacking
@@ -15,8 +9,8 @@ if (isset($_POST['eventheadsubmit']))
 		$edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
 		$erounds= mysqli_real_escape_string($connection,$_POST['erounds']);
         $participants=mysqli_real_escape_string($connection,$_POST['participants']);
-		$hname=mysqli_real_escape_string($connection,$_POST['hname']);
-		$addname=', '.$_POST['addname'];
+		$hname=mysqli_real_escape_string($connection,$_POST['hname']).',';
+		$addname=mysqli_real_escape_string($connection,$_POST['addname']);
 		$hmob=mysqli_real_escape_string($connection,$_POST['hmob']);
         $hemail=mysqli_real_escape_string($connection,$_POST['hemail']);
 		$husername=mysqli_real_escape_string($connection,$_POST['username']);
@@ -40,7 +34,7 @@ if (isset($_POST['eventheadsubmit']))
 			else
 			{
 
-				$query="INSERT INTO `events`(fid,ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$fid','$ename','$edesc','$erounds', '$participants','$hname','$addname','$hmob','$hemail','$husername',
+				$query="INSERT INTO `events`(ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$ename','$edesc','$erounds', '$participants','$hname','$addname','$hmob','$hemail','$husername',
                 '$password')";
 				$result = mysqli_query($connection, $query);
 				//takes two arguments
@@ -76,10 +70,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="description" content="Online Fest Management System">
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
-    <?php include 'assets/csslink.php'; ?>
-<!-- username check js start -->
-    <!--Morris JavaScript -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <?php include '../eventhead/assets/csslink.php'; ?>
+<!-- username check js start--->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#usernameLoading').hide();
@@ -108,9 +101,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!--header.php includes preloader, top navigarion, logo, user dropdown-->
     <!--div id wrapper in header.php-->
     <!--left-sidebar.php includes mobile search bar, user profile, menu-->
-    <?php include 'assets/header.php';
-		include 'assets/left-sidebar.php';
-		include 'assets/breadcrumbs.php';
+    <?php include '../eventhead/assets/header.php';
+		include '../eventhead/assets/left-sidebar.php';
+		include '../eventhead/assets/breadcrumbs.php';
 	?>
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -179,7 +172,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <label for="inputName1" class="control-label">Event Rounds</label>
                                      <input type="text" name="erounds" class="form-control" id="erounds" placeholder="Enter number of rounds" required>
                                    
-                                    
                                     <!-- username check start 
 										<div>
 										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
@@ -208,7 +200,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 													<!--<div class="input-group-addon">Dr.</div>-->
 													<input type="text" name="hname" class="form-control" id="hname" placeholder="Enter one event head name" required>
 													<!--onKeyUp="copyTextValue();"-->
-												</div><br>
+                                                </div><br></div>
+                                           <div class="col-sm-12 p-l-0">
                                                 <div class="input-group">
 													<!--<div class="input-group-addon">Dr.</div>-->
 													<input type="text" name="addname" class="form-control" id="addame" placeholder="Enter Additional event head name[separate by commas]" required>
@@ -298,13 +291,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <!-- /.container-fluid -->
             <!--footer.php contains footer-->
-            <?php include'assets/footer.php'; ?>
+            <?php include'../eventhead/assets/footer.php'; ?>
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
-    <?php include'assets/jslink.php'; ?>
+    <?php include'../eventhead/assets/jslink.php'; ?>
 </body>
 
 </html>

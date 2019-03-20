@@ -11,7 +11,8 @@ $row = mysqli_fetch_assoc($result);
 //update profile
 if(isset($_POST['updateprofile']))
 {
-	$ename=mysqli_real_escape_string($connection,$_POST['ename']);
+	$husername=mysqli_real_escape_string($connection,$_POST['username']);
+    $ename=mysqli_real_escape_string($connection,$_POST['ename']);
     $edesc=mysqli_real_escape_string($connection,$_POST['edesc']);
     $erounds=mysqli_real_escape_string($connection,$_POST['erounds']);
     $noparticipants=mysqli_real_escape_string($connection,$_POST['noparticipant']);
@@ -22,11 +23,11 @@ if(isset($_POST['updateprofile']))
 	
     
     
-	$uquery="UPDATE events SET ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',addname='$anames',hmob='$hmob', hemail='$hemail'WHERE eid='$id'";
+	$uquery="UPDATE events SET husername='$husername',ename='$ename',edesc='$edesc',erounds='$erounds',participants='$noparticipants',hname='$hname',addname='$anames',hmob='$hmob', hemail='$hemail'WHERE eid='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events WHERE eid='$id'";
+		$squery="SELECT husername,ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events WHERE eid='$id'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Profile updated successfully!";
@@ -81,7 +82,7 @@ if(isset($_POST['changepw']))
 		$('#usernameLoading').hide();
 		$('#username').keyup(function(){
 		  $('#usernameLoading').show();
-	      $.post("check-staffusername.php", {
+	      $.post("check-eventusername.php", {
 	        username: $('#username').val()
 	      }, function(response){
 	        $('#usernameResult').fadeOut();
@@ -222,8 +223,24 @@ if(isset($_POST['changepw']))
                                
                             <div class="tab-pane" id="settings">
                              <form data-toggle="validator" method="post">
-                              
-                              
+                              <div class="row">
+                                	<div class="col-md-12">
+                                       <div class="form-group">
+                                        	 <label class="control-label">Event Head Username</label>
+											<div class="col-sm-12 p-l-0">
+												<div class="input-group">
+													<!--<div class="input-group-addon">Dr.</div>-->
+                                                <input type="text" class="form-control" autocomplete="off" id="username" name="username" placeholder="Username is used to login" required value="<?php echo $row["husername"]; ?>">
+                                    <!-- username check start --> 
+                                                </div>
+                                                <div>
+										<span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
+										<span id="usernameResult" style="color: #E40003"></span>
+										</div>
+											</div>
+                                         </div>
+                                    </div>
+                                 </div>
                          		<div class="row">
                                 	<div class="col-md-12">
                                        <div class="form-group">

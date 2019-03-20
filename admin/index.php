@@ -18,7 +18,7 @@ $dcount=mysqli_num_rows($getdoccount);
 $getstaffcount=mysqli_query($connection,"SELECT * FROM feedback WHERE fid='$fid'");
 $scount=mysqli_num_rows($getstaffcount);
 
-$getwardcount=mysqli_query($connection,"SELECT * FROM participants WHERE fid='$fid' ");
+$getwardcount=mysqli_query($connection,"SELECT * FROM participants WHERE teamcode is NULL && fid='$fid' ");
 $wcount=mysqli_num_rows($getwardcount);
 ?>
 <!DOCTYPE html>
@@ -85,12 +85,12 @@ $wcount=mysqli_num_rows($getwardcount);
 	
 				
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-participants.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='reg-participants.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Confirmed Colleges</b></h3>
+							<h3 class="box-title"><b>Colleges Registered</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
-								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
+								<li><i class="fa fa-id-badge" style="color: blueviolet" ></i></li>
+								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
@@ -112,15 +112,16 @@ $wcount=mysqli_num_rows($getwardcount);
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='reg-participants.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-participants.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Colleges Registered</b></h3>
+							<h3 class="box-title"><b>Confirmed Colleges</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge" style="color: blueviolet" ></i></li>
-								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
                     </div>
+                    
                 </div>
                 <!--/row -->
 				<!--row -->
@@ -152,7 +153,7 @@ $wcount=mysqli_num_rows($getwardcount);
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>View Event results</b></h4>
+									<h4><b>Event Results</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
