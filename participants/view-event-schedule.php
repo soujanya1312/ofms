@@ -2,16 +2,12 @@
 include '../login/accesscontrolparticipant.php';
 require('connect.php');
 $ausername=$_SESSION['pusername'];
-//$getfestidq="SELECT fid FROM admin WHERE ausername='$ausername'";
+$id=$_GET['id'];
 $getfestidq="SELECT fid FROM participants WHERE pusername='$ausername'";
 $getfestidr=mysqli_query($connection, $getfestidq);
 $getfestid = mysqli_fetch_assoc($getfestidr);
 $fid=$getfestid['fid'];
 ?>
-
-    
-    
-
 <!DOCTYPE html>
 <!--
    This is a starter template page. Use this page to start your new project from
@@ -44,7 +40,7 @@ $fid=$getfestid['fid'];
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Event Schedule</h4>
+                        <h4 class="page-title">SCHEDULE</h4>
                     </div>
                     <!-- /.page title -->
                     <!-- .breadcrumb -->
@@ -78,38 +74,29 @@ $fid=$getfestid['fid'];
 
 
                 <!--row -->
-                
                 <div class="row">
                 <?php
-					$query = "SELECT eid,ename,erounds FROM events WHERE fid='$fid'";
+                   
+					$query = "SELECT en_id,event_round,t_from,t_to,events.ename FROM event_time JOIN  events ON event_time.eventid=events.eid WHERE events.fid='$fid' && events.eid='$id'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
-				{ 
-					$eid=$result["eid"];
-						
-					$getpidquery="SELECT pid from participants WHERE pusername='$ausername'";
-					$getpidres=mysqli_query($connection, $getpidquery);
-					$row2 = mysqli_fetch_assoc($getpidres);
-					$pid= $row2["pid"];
-
-					$redirectquery="SELECT * FROM eventparticipants WHERE eid='$eid' and pid='$pid'";
-					$exeredirect=mysqli_query($connection, $redirectquery);
-					$redirect=mysqli_num_rows($exeredirect);
-					
-				?>
+				{ ?>
                 <div class="col-md-4 col-sm-4">
                         <div class="white-box">
                             <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                   	<img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"> 
+                                <div class="col-md-4 col-sm-4 text-center">
+                                    <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/images2.png" class="img-square img-responsive"> </a>
                                 </div>
-                              
                                 <div class="col-md-8 col-sm-8">
-                                    <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
-                                    <font size="-1" > Event rounds:<?php echo $result["erounds"]; ?> </font> 
-									<div class="p-t-5 align-bottom:10px;">
-                                        <a href="view-event-schedule.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">view schedule</a>
-                                    </div>
+                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
+                                    <small>Round: <?php echo $result["event_round"]; ?></small>
+                                    <p calss="p-0">
+										<small> From:<?php echo $result["t_from"]; ?></small>  <br>
+										<small> To: <?php echo $result["t_to"]; ?> </small>
+                                        
+										
+                                    </p>
+									
                                 </div>
                             </div>
                         </div>
@@ -117,7 +104,9 @@ $fid=$getfestid['fid'];
                   <?php
 					}
 				  ?>
-                </div>
+
+				</div>
+
                 <!--/row -->
 
                 <!--DNS End-->
@@ -139,7 +128,7 @@ $fid=$getfestid['fid'];
             <?php include'assets/footer.php'; ?>
         </div>
         <!-- /#page-wrapper -->
-   
+    </div>
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
     <?php include'assets/jslink.php'; ?>
@@ -167,12 +156,12 @@ $(document).ready(function() {
 		 {   
            if (isConfirm) {
 			   $.ajax({
-			  url: 'delete-ehead.php?id='+id,
+			  url: 'deletestaff.php?id='+id,
 			  type: 'DELETE',
 			  data: {id:id},
 			  success: function(){
 				swal("Deleted!", "User has been deleted.", "success");
-				window.location.replace("view-eventheads.php");
+				window.location.replace("view-staffs.php");
           }
         });   
             } else {     

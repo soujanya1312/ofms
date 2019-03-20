@@ -90,7 +90,7 @@ elseif(isset($_SESSION['admin']))
 	
 				
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location=''">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='index.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Registered</b></h3>
 							<ul class="list-inline two-part">
@@ -126,19 +126,19 @@ elseif(isset($_SESSION['admin']))
 							</ul>
                         </div>
                     </div>
-                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='view-results.php'">
+                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="view event results" onClick="window.location='view-results.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>View  Event Results</b></h4>
+									<h4><b>Event Results</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div> 
                      
-                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='view-schedule.php'">
+                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="view events schedule" onClick="window.location='view-schedule.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
@@ -149,18 +149,18 @@ elseif(isset($_SESSION['admin']))
                             </div>
                         </div>
                     </div> 
-                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='view-events.php'">
+                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="view fest events" onClick="window.location='view-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>View Fest Events</b></h4>
+									<h4><b>View Events</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div> 
-                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Create Staff account" onClick="window.location='feedback.php'">
+                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add a feedback" onClick="window.location='feedback.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
@@ -182,7 +182,7 @@ elseif(isset($_SESSION['admin']))
                  <!-- Removed Service Panel DNS-->
                 <!-- /.right-sidebar -->
             </div>
-            <!-- /.container-fluid -->
+    <!-- /.container-fluid -->
             <!--footer.php contains footer-->
             <?php include'assets/footer.php'; ?>
         </div>
