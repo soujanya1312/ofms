@@ -446,7 +446,7 @@ a, input[type="submit"] {
 
 .logo-holder .logo {
     display: inline-block;
-    background-image: url(../images/logo.png);
+    background-image: url(../../plugins/images/invoice-logo.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -4169,11 +4169,11 @@ svg.logo text {
 .website-logo {
     position: absolute;
     z-index: 1000;
-    top: 60px;
+    top: 25px;
     left: 0px;
     width: 100%;
     max-width: 550px;
-    text-align: center;
+/*    text-align: center;*/
 }
 
 .website-logo img {
@@ -4182,7 +4182,7 @@ svg.logo text {
 
 .website-logo .logo {
     display: inline-block;
-    background-image: url("../images/logo.png");
+    background-image: url(../../plugins/images/invoice-logo.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -4307,7 +4307,7 @@ svg.logo text {
 }
 
 .form-holder {
-    margin-left: 550px;
+/*    margin-left: 550px;*/
 }
 
 .form-holder .menu-holder {
@@ -4480,6 +4480,19 @@ svg.logo text {
 }
 
 .signin-signup-form .form-text input, .signin-signup-form .form-text .dropdown-toggle.btn-default {
+    width: 100%;
+    padding: 8px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 8px;
+    background-color: #f0f4fd;
+    font-size: 13px;
+    color: #526489;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+.signin-signup-form .form-text select, .signin-signup-form .form-text .dropdown-toggle.btn-default {
     width: 100%;
     padding: 8px 20px;
     text-align: left;
@@ -6990,7 +7003,7 @@ svg.logo text {
     }
 
     .website-logo .logo {
-        background-image: url("../images/logo_dark.png");
+        background-image: url(../../plugins/images/invoice-logo.png);
     }
 
     #form-section svg.logo text {

@@ -189,7 +189,7 @@ $id=$_GET['id'];
 
 				</div>
                      <div class="p-t-5"><center>
-											<a href="./admin/add-participants.php?id=<?php echo $id ?>" class="fcbtn btn btn-info">REGISTER NOW!</a>
+											<a href="login/add-participants.php?id=<?php echo $id ?>" class="fcbtn btn btn-info">REGISTER NOW!</a>
 								            <a href="index.php" class="fcbtn btn btn-info">BACK</a></center>
                                     </div>       
                                
