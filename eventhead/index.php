@@ -28,8 +28,8 @@ $pid= $row2["pid"];
 //$redirectquery="SELECT * FROM eventparticipants WHERE eid='$eid' and pid='$pid'";	$exeredirect=mysqli_query($connection, $redirectquery);
 //$redirect=mysqli_num_rows($exeredirect);
 
-$getcollegecount=mysqli_query($connection,"SELECT * FROM results WHERE eid='$eid' AND pid='$pid'");
-$pcount=mysqli_num_rows($getcollegecount);
+//$getcollegecount=mysqli_query($connection,"SELECT * FROM results WHERE eid='$eid' AND pid='$pid'");
+//$pcount=mysqli_num_rows($getcollegecount);
 
 $getdoccount=mysqli_query($connection,"SELECT * FROM event_time WHERE eventid='$eid'");
 $dcount=mysqli_num_rows($getdoccount);
@@ -108,7 +108,7 @@ $wcount=mysqli_num_rows($getwardcount);
 				
                 <div class="row">
                   
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-results.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='index.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>No of Rounds</b></h3>
 							<ul class="list-inline two-part">
@@ -146,12 +146,12 @@ $wcount=mysqli_num_rows($getwardcount);
                         </div>
                     </div>
                     
-                     <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add Results" onClick="window.location='result.php'">
+                     <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add Event Results" onClick="window.location='result.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>Add Event Results</b></h4>
+									<h4><b>Add Results</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>

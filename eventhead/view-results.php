@@ -110,7 +110,7 @@ $eid=$getfestid['eid'];
                                   
 									<div class="p-t-5">
 										
-                                        <a href="view-events-results.php?id=<?php echo $result["ename"]; ?>" class="btn btn-info btn-rounded">view results</a>
+                                        <a href="view-event-result.php?id=<?php echo $result["ename"]; ?>" class="btn btn-info btn-rounded">view results</a>
 										
 										
                                     </div>

@@ -93,39 +93,7 @@ $pari= $row["erounds"];
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                <?php
-//                    $getidquery="SELECT events.eid FROM admin JOIN events ON admin.eid=events.eid WHERE ausername='$ausername'";
-//                     $getidresult = mysqli_query($connection, $getidquery);
-//                     $getidrow = mysqli_fetch_assoc($getidresult);
-//                     $eid=$getidrow['eid'];
-                    
-					$query = "SELECT r_id,pname,eround, events.ename FROM results JOIN events ON results.eid=events.eid WHERE events.eid='$id'";
-					$result = mysqli_query($connection, $query);
-					foreach($result as $key=>$result)
-				{ ?>
-                <div class="col-md-4 col-sm-4">
-                        <div class="white-box">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <a href="edit-staff-profile.php?id=<?php echo $result["r_id"]; ?>"> <img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"> </a>
-                                </div>
-                                <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
-                                    <big>Round: <?php echo $result["eround"]; ?></big><br>
-                                    <big>teamname: <?php echo $result["pname"]; ?></big>
-                                   
-									
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  <?php
-					}
-				  ?>
-
-				</div>
-
+             
                 <!--/row -->
 
                 <!--DNS End-->
