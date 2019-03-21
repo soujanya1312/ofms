@@ -54,15 +54,21 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="logo-holder" href="index.html">
-                                <div class="" style="width:15px;height:10px">
-                                <img height="55" width="200" src="plugins/images/invoice-logo.png">
-                                 <!-- "width:62px;height:18px"-->    
+                                <div class="website-logo hidden-xs">
+                                    <a href="index.php">
+                                        <div class="logo" style="width:246px;height:68px"></div>
+                                    </a>
+                                </div>
+                                <div class="website-logo visible-xs" style="top: 9px; left: 15px">
+                                    <a href="index.php">
+                                        <div class="logo" style="width:170px;height:50px"></div>
+                                    </a>
                                 </div>
                             </a>
                         </div>
                         <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                          <ul class="nav navbar-nav navbar-right">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.php">Home</a></li>
                                 <li><a href="#services">Services</a></li>
                                 <li><a href="#fests">Fests</a></li>
                                 <li><a href="#about">About Us</a></li>
@@ -282,7 +288,7 @@
                     <div class="details"><?php echo $getfests['fdesc'] ?></div>
                     
                 
-                    <div class="link"><a class="register-button" href="view-details.php?id=<?php echo $getfests['fid'] ?>">Register</a></div>
+                    <div class="link"><a class="register-button" href="fest-details.php?id=<?php echo $getfests['fid'] ?>">View Details</a></div>
                 </div>
             </div>
             <?php } ?>
