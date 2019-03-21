@@ -64,9 +64,9 @@
                          <ul class="nav navbar-nav navbar-right">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="#services">Services</a></li>
-                                <li><a href="index.html">Fests</a></li>
-                                <li><a href="index.html">About Us</a></li>
-                                 <li><a href="index.html">Contact Us</a></li>
+                                <li><a href="#fests">Fests</a></li>
+                                <li><a href="#about">About Us</a></li>
+                                 <li><a href="feedback.php">Feedback</a></li>
                              
                                  <!--<li class="dropdown unity-menu">
                                     <a href="#pricing">Register <i class="fas fa-caret-down"></i></a>
@@ -146,7 +146,7 @@
                                 <li><a href="contact.html">Contact us</a></li>
                                <!-- <li><a class="login-button" href="signin.html">Login</a></li>-->
                                 <li class="support-button-holder support-dropdown">
-                                    <a class="support-button" href="./login/index.php">Login</a>
+                                    <a class="support-button" href="login/index.php">Login</a>
                                    <!-- <ul class="dropdown-menu">
                                       <li><a href="#"><i class="fas fa-phone"></i>Toll-Free  08-197-435-01</a></li>
                                       <li><a href="#"><i class="fas fa-comments"></i>Start a Live Chat</a></li>
@@ -259,7 +259,7 @@
 <div id="domain-quick-pricing" class="container-fluid">
     <div class="bg-color"></div>
     
-    <div class="container" >
+    <div class="container" id="fests">
         <div class="row">
             <div class="col-md-12">
                 <div class="row-title"> Upcoming Fests</div>
@@ -309,7 +309,7 @@
 </div>
        
 <!--upcoming fests ends-->
-
+	<div id="about"></div>
 <!--About alphatech begins  -->
 <div id="header-holder" class="inner-header about-header">
  <div id="page-head" class="container-fluid inner-page">
@@ -370,74 +370,13 @@
 <!--About alphatech ends  -->
 
 <!--makes us special begins  -->
-<div id="ifeatures" class="container-fluid" style="overflow: scroll;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row-title">What makes us special?</div>
-                <div class="row-subtitle"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-3">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <img src="lp-plugins/images/feature1.png" alt="">
-                    </div>
-                    <div class="feature-title">Share Files</div>
-<!--
-                    <div class="feature-details">Lorem ipsum dolor sit amir anim
-amoe yosner dolner </div>
--->
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <img src="lp-plugins/images/feature2.png" alt="">
-                    </div>
-                    <div class="feature-title">Go Unlimited</div>
-<!--
-                    <div class="feature-details">Lorem ipsum dolor sit amir anim
-amoe yosner dolner </div>
--->
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <img src="lp-plugins/images/feature3.png" alt="">
-                    </div>
-                    <div class="feature-title">Security First</div>
-<!--
-                    <div class="feature-details">Lorem ipsum dolor sit amir anim
-amoe yosner dolner </div>
--->
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <img src="lp-plugins/images/feature4.png" alt="">
-                    </div>
-                    <div class="feature-title">Trusted 100%</div>
-<!--
-                    <div class="feature-details">Lorem ipsum dolor sit amir anim
-amoe yosner dolner </div>
--->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!--special ends  -->
 
-
-
+	
 <!-- our servers begins -->
 
-<div id="header-holder" class="inner-header serverspage-header">
+<!-- <div id="header-holder" class="inner-header serverspage-header">
  <div id="page-head" class="container-fluid inner-page">
         <div class="container">
             <div class="row">
@@ -460,7 +399,7 @@ amoe yosner dolner </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 

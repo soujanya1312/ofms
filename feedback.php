@@ -142,6 +142,7 @@ if(isset($_POST['fbsubmit'])){
                         </div> -->
                         <div class="form-button">
                             <button id="submit" type="submit" name="fbsubmit" class="ybtn ybtn-accent-color">Submit Feedback</button>
+							<button id="submit" onClick="window.location.href='index.php'" type="button" class="ybtn ybtn-accent-color">Go back</button>
                         </div>
                     </form>
                 </div>
