@@ -67,10 +67,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
+	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	<link href="../plugins/css/hover.css" rel="stylesheet" media="all">
     <!-- Date picker plugins css -->
     <link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-	
-	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+
 <!-- username check js start -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script type="text/javascript">
@@ -130,9 +131,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
    <!-- wysihtml5 CSS -->
     <link rel="stylesheet" href="../plugins/bower_components/html5-editor/bootstrap-wysihtml5.css" />
 	<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-        
-    
-    
 </head>
 
 <body class="fix-sidebar">
@@ -376,7 +374,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	</script>
 <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
-    <?php include'assets/jslink.php'; ?>
 <script src="../plugins/bower_components/html5-editor/wysihtml5-0.3.0.js"></script>
     <script src="../plugins/bower_components/html5-editor/bootstrap-wysihtml5.js"></script>
     <script src="../plugins/bower_components/dropzone-master/dist/dropzone.js"></script>
