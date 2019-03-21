@@ -1,9 +1,16 @@
 <?php
 require('admin/connect.php');
 $id=$_GET['id'];
+date_default_timezone_set('Asia/Kolkata');
 $getpidquery="SELECT * from fests WHERE fid='$id'";
 $getpidres=mysqli_query($connection, $getpidquery);
 $row = mysqli_fetch_assoc($getpidres);
+
+$date=date("Y-m-d");
+if($row['fdate']<$date)
+{
+	echo'<script> window.location="admin/403.php";</script>';
+}
 ?>
 <!doctype html>
 <html>
@@ -102,7 +109,7 @@ $row = mysqli_fetch_assoc($getpidres);
                     <div class="mfeature-icon">
                         <i class="fa fa-trophy"a></i>
                     </div>
-                    <div class="mfeature-title">Catagory <p class="mfeature-title" style="padding-top: 10px"><?php echo $row['ftype'] ?></p></div>
+					<div class="mfeature-title">Catagory<p class="mfeature-title" style="padding-top: 10px"><?php echo $row['ftype'] ?></p></div>
                     <div class="mfeature-details"></div>
                 </div>
             </div>
@@ -111,7 +118,9 @@ $row = mysqli_fetch_assoc($getpidres);
                     <div class="mfeature-icon">
                         <i class="fa fa-calendar-check"></i>
                     </div>
-                    <div class="mfeature-title">Date <p class="mfeature-title" style="padding-top: 10px"><?php echo $row['fdate'] ?></p></div>
+                    <div class="mfeature-title">Date <p class="mfeature-title" style="padding-top: 10px"><?php $dateb=$row['fdate'];
+					$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+					$dobc = $myDateTime->format('d-m-Y');  echo $dobc; ?></p></div>
                     <div class="mfeature-details"></div>
                 </div>
             </div>

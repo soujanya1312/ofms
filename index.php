@@ -1,3 +1,7 @@
+<?php
+date_default_timezone_set('Asia/Kolkata');
+$date=date("Y-m-d");
+?>
 <!doctype html>
 <html>
 <head>
@@ -276,7 +280,7 @@
         <div class="row">
             <?php 
             require("admin/connect.php");
-            $getfestquery="SELECT * FROM fests";
+            $getfestquery="SELECT * FROM fests WHERE fdate>'$date'";
             $getfestresult=mysqli_query($connection,$getfestquery); while($getfests=mysqli_fetch_assoc($getfestresult))
 														{ 
             ?>
@@ -285,7 +289,9 @@
                     <div class="title" style="font-size: -3;">FEST<!--<img src="lp-plugins/images/service-icon1.svg" alt="">--></div>
                     <div class="pricing-title"><?php echo $getfests['fname'] ?></div>
                     <div class="price" style="padding-top: 5px"><?php echo $getfests['cname'] ?></div>
-                    <div class="details"><?php echo $getfests['fdesc'] ?></div>
+					<div class="details"><?php echo $getfests['fdesc'] ?> <p style="padding-top: 10px"><i class="fa fa-calendar-alt"></i><?php $dateb=$getfests['fdate'];
+					$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+					$dobc = $myDateTime->format('d-m-Y');  echo ' '.$dobc;  ?></p></div>
                     
                 
                     <div class="link"><a class="register-button" href="fest-details.php?id=<?php echo $getfests['fid'] ?>">View Details</a></div>
