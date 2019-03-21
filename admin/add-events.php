@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="description" content="Online Fest Management System">
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
-    <?php include '../eventhead/assets/csslink.php'; ?>
+    <?php include 'assets/csslink.php'; ?>
 <!-- username check js start--->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script type="text/javascript">
@@ -101,9 +101,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!--header.php includes preloader, top navigarion, logo, user dropdown-->
     <!--div id wrapper in header.php-->
     <!--left-sidebar.php includes mobile search bar, user profile, menu-->
-    <?php include '../eventhead/assets/header.php';
-		include '../eventhead/assets/left-sidebar.php';
-		include '../eventhead/assets/breadcrumbs.php';
+    <?php include 'assets/header.php';
+		include 'assets/left-sidebar.php';
+		include 'assets/breadcrumbs.php';
 	?>
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -291,13 +291,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <!-- /.container-fluid -->
             <!--footer.php contains footer-->
-            <?php include'../eventhead/assets/footer.php'; ?>
+            <?php include'assets/footer.php'; ?>
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
-    <?php include'../eventhead/assets/jslink.php'; ?>
+    <?php include'assets/jslink.php'; ?>
 </body>
 
 </html>
