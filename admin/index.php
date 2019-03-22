@@ -85,7 +85,7 @@ $wcount=mysqli_num_rows($getwardcount);
 	
 				
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='reg-participants.php'">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-colleges.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>Colleges Registered</b></h3>
 							<ul class="list-inline two-part">
