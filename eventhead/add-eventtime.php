@@ -138,6 +138,21 @@ if (isset($_POST['submit']))
 									$totrows=$rowevent['erounds'];
 									$countid=1;
 									?>
+                                
+                                        <div class="form-group">
+                                    <label class="control-label">No of Days</label>
+                                                
+                                        <select class="form-control" name="nodays">
+                                            <option selected hidden disabled>Select the day</option>
+                                            <option value="1"> Day 1</option>
+                                            <option value="2"> Day 2</option>
+                                            <option value="3"> Day 3</option>
+                                            <option value="4"> Day 4</option>
+                                            <option value="5"> Day 5</option>
+                                        </select>
+                                   
+                                </div>
+                       
 								 <div class="form-group">
 									 <label for="inputEmail" class="control-label">Round</label>
 								<select required class="form-control" name="erounds">
@@ -149,18 +164,27 @@ if (isset($_POST['submit']))
 								</div>
 								<div class="form-group">
                                     <label for="inputName1" class="control-label">Enter Time</label>
-                                    <br>
+                                    <div class="row">
+                                    <div class="col-sm-6">
+                                    
+                                    
+                                    
 									From:
 									<input id="time" type="time" name="ff" 
-									class="form-control clockpicker" required >
+                                           class="form-control clockpicker" required >
+                                        </div>
+                                    <div class="col-sm-6"> 
+                                        
                                     To:
 									<input id="time" type="time" name="tt" 
 									class="form-control clockpicker" required >
 								</div>
-
+                                   </div>
+                                    </div>
                                 <div class="form-group">
                                     <button type="submit" name="submit" class="btn btn-info waves-effect waves-light">Submit</button>
                                 </div>
+                                     
                             </form>
                         </div>
                     </div>

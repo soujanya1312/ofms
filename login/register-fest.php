@@ -134,12 +134,41 @@ if(!isset($_SESSION['aid']))
 				                                       </div>
                                          </div>
                                     </div>
-                                     
+                                       <div class="col-sm-6 ">
+                                        <div class="form-group">
+                                    <label class="control-label">No of Days</label>
+                                     <div class="col-sm-12 p-l-0">                   
+                                        <select class="form-control" name="nodays">
+                                            <option selected hidden disabled>Select No of Days</option>
+                                            <option value="1">1 Day</option>
+                                            <option value="2">2 Days</option>
+                                            <option value="3">3 Days</option>
+                                            <option value="4">4 Days</option>
+                                            <option value="5">5 Days</option>
+                                        </select>
+                                    </div>
+                                </div>
+                          </div>
+                    </div>
+                       <label class="control-label">Fest Date</label>
+                                     <div class="row">
                                        <div class="col-md-6" >
+                                           
                                             <div class="form-group">                                   
-                                                 <label class="control-label">Fest Date</label>
+                                                 <label class="control-label">From:</label>
+                                                  
                                                       <div class="input-group">
 								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="fdate" placeholder="dd-mm-yyyy" required>
+								               </div>
+								                     <div id="datewarn"></div>
+                                                              <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
+                                             </div>
+                                        </div>
+                                          <div class="col-md-6" >
+                                            <div class="form-group">                                
+                                                 <label class="control-label">To:</label>
+                                                      <div class="input-group">
+								                         <input onChange="checkDate();" onKeyUp="checkDate();" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="fdate2" placeholder="dd-mm-yyyy" required>
 								               </div>
 								                     <div id="datewarn"></div>
                                                               <!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
