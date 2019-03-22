@@ -6,6 +6,10 @@ if(isset($_SESSION['husername']))
 	$ausername=$_SESSION['husername'];
 }
 
+$getfestidq="SELECT fid FROM events WHERE husername='$ausername'";
+$getfestidr=mysqli_query($connection, $getfestidq);
+$getfestid = mysqli_fetch_assoc($getfestidr);
+$fid=$getfestid['fid'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -75,14 +79,14 @@ if(isset($_SESSION['husername']))
                 <!--row -->
                 <div class="row">
                 <?php
-					$query = "SELECT f_id,f_name,f_email,f_mob,f_msg FROM feedback";
+					$query = "SELECT fbid,pname,f_name,f_email,f_mob,f_msg FROM feedback WHERE fid='$fid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ ?>
                   
                 <div class="col-md-4 col-sm-4">
 					<div calss="ribon-wrapper">
-						<a href="reply-message.php?id=<?php echo $result['f_id']; ?>" data-toggle="tooltip" data-original-title="Send Message">
+						<a href="reply-message.php?id=<?php echo $result['fbid']; ?>" data-toggle="tooltip" data-original-title="Send Message">
 					  <div class="ribbon ribbon-corner ribbon-right ribbon-info" style="margin-right: 8px">
 						  <i class="fa fa-envelope-o text-white"></i></a>
 					  </div>
@@ -94,7 +98,7 @@ if(isset($_SESSION['husername']))
                                 </div>
                                       <div class="col-md-8 col-sm-8">
                                     <b><h3>" <?php echo $result["f_msg"]; ?> "</h3></b>
-                                   <h4>Fest Name:<?php echo $result["f_name"]; ?></h4
+                                   <h4>From:<?php echo $result["pname"]; ?></h4
                                    <p calss="p-0">
 										<a href="mailto:<?php echo $result["f_email"]; ?>"> <font size="-1"> <?php echo $result["f_email"]; ?> </font> </a> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$result["f_mob"]; ?>
