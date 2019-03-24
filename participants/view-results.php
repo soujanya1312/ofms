@@ -80,7 +80,7 @@ $fid=$getfestid['fid'];
                 
                 <div class="row">
                 <?php
-					$query = "SELECT eid,ename FROM events WHERE fid='$fid'";
+					$query = "SELECT * FROM events WHERE fid='$fid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ 
@@ -105,7 +105,7 @@ $fid=$getfestid['fid'];
                                 <br>
                                 <div class="col-md-8 col-sm-8">
                                     <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
-                                  
+                                  <p style="padding-bottom: 1px" >Rounds:<?php echo ' '.$result["erounds"]; ?> </p>  
 									<div class="p-t-5">
 										
 										

@@ -61,7 +61,7 @@
            
             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-					<li> <a href="feedback.php">add feedback</a> </li>
+					<li> <a href="../feedback.php">add feedback</a> </li>
 				
 				</ul>
 			</li>

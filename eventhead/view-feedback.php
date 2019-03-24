@@ -86,29 +86,32 @@ $fid=$getfestid['fid'];
                   
                 <div class="col-md-4 col-sm-4">
 					<div calss="ribon-wrapper">
-						<a href="reply-message.php?id=<?php echo $result['fbid']; ?>" data-toggle="tooltip" data-original-title="Send Message">
+						<a href="" data-toggle="tooltip" data-original-title="">
 					  <div class="ribbon ribbon-corner ribbon-right ribbon-info" style="margin-right: 8px">
 						  <i class="fa fa-envelope-o text-white"></i></a>
 					  </div>
 					</div>
                         <div class="white-box">
                             <div class="row">
+<!--
                                 <div class="col-md-4 col-sm-4 text-center">
 									 <a href="#"> <img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"></a>
                                 </div>
+-->
+                                
                                       <div class="col-md-8 col-sm-8">
-                                    <b><h3>" <?php echo $result["f_msg"]; ?> "</h3></b>
-                                   <h4>From:<?php echo $result["pname"]; ?></h4
+                                  
+                                          <h4 style=>From:<?php echo $result["pname"]; ?></h4>
                                    <p calss="p-0">
-										<a href="mailto:<?php echo $result["f_email"]; ?>"> <font size="-1"> <?php echo $result["f_email"]; ?> </font> </a> <br>
+										<a href="mailto:<?php echo $result["f_email"]; ?>"> <font size="-1" style="padding-top: 5px" > <?php echo $result["f_email"]; ?> </font> </a> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$result["f_mob"]; ?>
-										
+										<h3>" <?php echo $result["f_msg"]; ?> "</h3>
                                        </p>
 									<div class="p-t-5">
-											<!--<a href="edit-staff-profile.php?id=<?php //echo $result["s_id"]; ?>" class="fcbtn btn btn-info">Edit</a>
-											<a href="#" class="fcbtn btn btn-danger model_img deleteStaff" data-id="<?php //echo $result["s_id"]; ?>" id="deleteStf">Delete</a>-->
+											
 									 </div>
                                 </div>
+                                      
                             </div>
                         </div>
                     </div>

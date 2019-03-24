@@ -149,7 +149,7 @@ if (isset($_POST['submit']))
                                                 
                                         <select required class="form-control" name="enoday">
                                             <option selected hidden disabled>Select the day</option>
-											<?php $days=$rowevent['fnodays']; for($x=1;$x<$days;$x++) { ?>
+											<?php $days=$rowevent['fnodays']; for($x=1;$x<=$days;$x++) { ?>
                                             <option value="<?php echo $x; ?>"> Day <?php echo $x; ?></option>
 											<?php } ?>
                                         </select>

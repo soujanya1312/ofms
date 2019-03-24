@@ -2,7 +2,7 @@
 include '../login/accesscontrolhead.php';
 require('connect.php');
 $ausername=$_SESSION['husername'];
-$getfestname="SELECT eid,ename,erounds FROM events WHERE husername='$ausername'"; 
+$getfestname="SELECT * FROM events WHERE husername='$ausername'"; 
 $getfestnameresult=mysqli_query($connection,$getfestname);
 $getfestnamerow=mysqli_fetch_assoc($getfestnameresult);
 $hid=$getfestnamerow['eid'];
@@ -61,8 +61,11 @@ $rid=$getfestnamerow['erounds'];
                             <div class="row">
                                   <div class="col-md-8 col-sm-8">
                                     <h3 class="box-title m-b-0"><?php echo $eid ?></h3>
-                                       <h3 class="box-title m-b-0">Round: <?php echo $result['event_round']; ?></h3>
+                                       <h3 class="box-title m-b-0">Round: <?php echo $result['event_round']; ?>Day: <?php echo $result['eday']; ?></h3>
+                                       <h2 class="box-title m-b-0"> </h2>
+                                      <h2 class="box-title m-b-0">Location: <?php echo $result['eroom']; ?></h2>
                                     <p>
+                                    
                                       <b>From:</b><?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?>
                   					  <b>To:</b><?php echo ' '.date('h:i A', strtotime($result['t_to'])); ?>
                   										

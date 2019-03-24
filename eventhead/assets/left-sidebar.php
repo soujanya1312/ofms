@@ -40,9 +40,9 @@
 
 			
 			<!---PNB Added Patient menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Colleges Registered<span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Confirmed Participants<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-                    <li> <a href="view-participants.php">view Colleges</a> </li>
+                    <li> <a href="view-participants.php">view participants</a> </li>
 						
 				</ul>
 			</li>

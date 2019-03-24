@@ -81,7 +81,7 @@ $fid=$getfestid['fid'];
                 
                 <div class="row">
                 <?php
-					$query = "SELECT eid,ename,erounds FROM events WHERE fid='$fid'";
+					$query = "SELECT * FROM events WHERE fid='$fid'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ 
@@ -105,12 +105,13 @@ $fid=$getfestid['fid'];
                                 </div>
                               
                                 <div class="col-md-8 col-sm-8">
-                                    <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
+                                    <b></b><h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2></b>
                                     <p style="padding-bottom: 1px" > Rounds:<?php echo ' '.$result["erounds"]; ?> </p> 
 									<div class="p-t-5 align-bottom:10px;">
                                         <a href="view-event-schedule.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">view schedule</a>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -118,6 +119,7 @@ $fid=$getfestid['fid'];
 					}
 				  ?>
                 </div>
+                
                 <!--/row -->
 
                 <!--DNS End-->

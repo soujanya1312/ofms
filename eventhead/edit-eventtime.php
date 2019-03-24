@@ -3,25 +3,27 @@ include '../login/accesscontrolhead.php';
 require('connect.php');
 $ausername=$_SESSION['husername'];
 $id = $_GET['id'];
-$gethname="SELECT eid ,ename,erounds FROM events WHERE husername='$ausername'";
+$gethname="SELECT * FROM events WHERE husername='$ausername'";
 $gethnameresult=mysqli_query($connection,$gethname);
 $gethnamerow=mysqli_fetch_assoc($gethnameresult);
 $evntname=$gethnamerow['ename'];
 
-$query="SELECT eventid,event_round,t_from,t_to FROM event_time WHERE en_id='$id'";
+$query="SELECT * FROM event_time WHERE en_id='$id'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 if(isset($_POST['update']))
 {
-	$ff= $_POST['ff'];
+	$eday=$_POST['eday'];
+    $eroom=$_POST['eroom'];
+    $ff= $_POST['ff'];
 	$tt= $_POST['tt'];
 	if($ff<=$tt)
 	{
-	$uquery="UPDATE event_time SET  t_from='$ff', t_to='$tt' WHERE en_id='$id'";
+	$uquery="UPDATE event_time SET  t_from='$ff', t_to='$tt' ,eday='$eday',eroom='$eroom' WHERE en_id='$id'";
 	$uresult = mysqli_query($connection, $uquery);
 	if($uresult)
 	{
-		$squery="SELECT eventid,event_round,t_from,t_to FROM event_time WHERE en_id='$id'";
+		$squery="SELECT * FROM event_time WHERE en_id='$id'";
 		$sresult = mysqli_query($connection, $squery);
 		$row = mysqli_fetch_assoc($sresult);
 		$smsg="Time updated successfully!";
@@ -44,7 +46,7 @@ if(isset($_POST['update']))
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>OFMS | EDIT</title>
+	
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Online Fest Management System">
@@ -146,16 +148,21 @@ if(isset($_POST['update']))
                                             <br><br>
                                             <p><strong><?php echo $evntname ?></strong></p>
                                         </div>
-                                        <div class="col-md-3 col-xs-6 b-r"> Event Round
+                                        <div class="col-md-3 col-xs-3 b-r"> Round
                                             <br><br>
                                             <p><strong><?php echo $row["event_round"]; ?></strong></p>
                                         </div>
-                                        <div class="col-md-6 col-xs-6 "> From :
+                                        <div class="col-md-3 col-xs-3 b-r"> Day
+                                            <br><br>
+                                            <p><strong><?php echo $row["eday"]; ?></strong></p>
+                                        </div>
+                                        <div class="col-md-3 col-xs-3 "> From :
                                             <br>
                                             <p><strong><?php echo date('h:i a',strtotime($row['t_from']))?></strong></p>
                                       	 To :
                                             <p><strong><?php echo date('h:i a',strtotime($row['t_to']))?></strong></p>
 										</div>
+                                          
                                         
                                     </div>
                                      <div class="row">
@@ -188,7 +195,16 @@ if(isset($_POST['update']))
                                               <div class="form-group col-md-12">
 											 <label class="control-label ">Event Round</label>
 											<input type="text" id="username" name="eventround" class="form-control" value="<?php echo $row['event_round']; ?>" readonly/>  
-								  			</div>         
+								  			</div>  
+                                                   
+                                            <div class="form-group col-md-12">
+											 <label class="control-label ">Event Day</label>
+											<input type="text" id="username" name="eday" class="form-control" value="<?php echo $row['eday']; ?>" >  
+								  			</div>
+                                            <div class="form-group col-md-12">
+											 <label class="control-label ">Event Location</label>
+											<input type="text" id="username" name="eroom" class="form-control" value="<?php echo $row['eroom']; ?>" >  
+								  			</div>       
                                 	<div class="form-group col-md-12">    
 									<label for="inputName1" class="control-label">Event Time</label>
                                     <br>

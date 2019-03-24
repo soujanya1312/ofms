@@ -173,6 +173,7 @@ if(isset($_POST['changepw']))
                                         <a href="javascript:void(0)"> <img src="../plugins/images/users/man.png" class="thumb-lg img-circle" >
                                         </a>
                                         <h4 class="text-white"><?php echo $row["ename"]; ?></h4>
+                                        <h4 class="text-white">Username: <?php echo $row["husername"]; ?></h4>
                                    </div>
                                 </div>
                             </div>
