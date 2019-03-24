@@ -1,4 +1,5 @@
-<?php                                                                          require("../admin/connect.php");
+<?php                                                                   
+require("connect.php");
 if(isset($_GET['id']))
 {
     $id = $_GET['id'];
@@ -134,7 +135,7 @@ if(isset($_GET['id']))
                   echo '<script> window.setTimeout(function(){
 				  swal("Event registration is Completed!", "Redirecting to login in 4 seconds.","success");
 				  }, 300);  window.setTimeout(function(){
-				  window.location.href = "../login/logout.php";
+				  window.location.href = "../login/index.php";
 				  }, 4000); </script>'
 				  ?>
               </div> 

@@ -2,6 +2,11 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
+$getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+$getidresult = mysqli_query($connection, $getidquery);
+$getidrow = mysqli_fetch_assoc($getidresult);
+//$aid=$getidrow['aid'];
+$fid=$getidrow['fid'];
 if (isset($_POST['eventheadsubmit']))
 	{
 		// real eacape sting is used to prevent sql injection hacking
@@ -34,7 +39,7 @@ if (isset($_POST['eventheadsubmit']))
 			else
 			{
 
-				$query="INSERT INTO `events`(ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$ename','$edesc','$erounds', '$participants','$hname','$addname','$hmob','$hemail','$husername',
+				$query="INSERT INTO `events` (fid,ename,edesc,erounds,participants,hname,addname,hmob,hemail,husername,hpassword) VALUES ('$fid','$ename','$edesc','$erounds', '$participants','$hname','$addname','$hmob','$hemail','$husername',
                 '$password')";
 				$result = mysqli_query($connection, $query);
 				//takes two arguments

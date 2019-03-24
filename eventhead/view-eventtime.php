@@ -63,8 +63,8 @@ $rid=$getfestnamerow['erounds'];
                                     <h3 class="box-title m-b-0"><?php echo $eid ?></h3>
                                        <h3 class="box-title m-b-0">Round: <?php echo $result['event_round']; ?></h3>
                                     <p>
-                                      <b>From:</b>&nbsp;<?php echo $result['t_from']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  					  <b>To:</b>&nbsp;<?php echo $result['t_to']; ?>
+                                      <b>From:</b><?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?>
+                  					  <b>To:</b><?php echo ' '.date('h:i A', strtotime($result['t_to'])); ?>
                   										
 									  <div class="p-t-5">
 											<a href="edit-eventtime.php?id=<?php echo $result['en_id']; ?>" class="fcbtn btn btn-info">Edit</a>
