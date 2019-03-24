@@ -106,7 +106,7 @@ $fid=$getfestid['fid'];
                               
                                 <div class="col-md-8 col-sm-8">
                                     <h2 class="box-title m-b-0"><?php echo $result["ename"]; ?></h2>
-                                    <font size="-1" > Event rounds:<?php echo $result["erounds"]; ?> </font> 
+                                    <p style="padding-bottom: 1px" >Rounds:<?php echo ' '.$result["erounds"]; ?> </p>   
 									<div class="p-t-5 align-bottom:10px;">
                                         <a href="view-event-schedule.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">view schedule</a>
                                     </div>

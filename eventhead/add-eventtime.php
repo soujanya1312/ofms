@@ -13,12 +13,17 @@ $getfestnamero1=mysqli_fetch_assoc($getfestnameresul1);
 if (isset($_POST['submit']))
 	{
 		$eventname= mysqli_real_escape_string($connection,$_POST['event']);
+		$noday = mysqli_real_escape_string($connection,$_POST['enoday']);
         $rname=mysqli_real_escape_string($connection,$_POST['erounds']);
+		if(isset($_POST['eloc']))
+		{
+			$eloc=$_POST['eloc'];
+		} else { $eloc=''; }
 		$ff= $_POST['ff'];
 		$tt= $_POST['tt'];
 		if($ff <= $tt)
 	{	
-				$query="INSERT INTO `event_time`(eventid,event_round,t_from,t_to) VALUES ('$eid','$rname','$ff','$tt')";
+				$query="INSERT INTO `event_time`(eventid,eday,event_round,eroom,t_from,t_to) VALUES ('$eid','$noday','$rname','$eloc','$ff','$tt')";
 				$result = mysqli_query($connection, $query);
 	
 				if($result)
@@ -132,7 +137,7 @@ if (isset($_POST['submit']))
                                 
                                 <?php
 									$eventname=$getfestnamero1['ename'];
-									$i="SELECT * FROM events WHERE ename='$eventname'";
+									$i="SELECT *, fests.fnodays FROM events JOIN fests ON events.fid=fests.fid WHERE ename='$eventname'";
 									$res=mysqli_query($connection, $i);
 									$rowevent = mysqli_fetch_assoc($res);
 									$totrows=$rowevent['erounds'];
@@ -140,15 +145,13 @@ if (isset($_POST['submit']))
 									?>
                                 
                                         <div class="form-group">
-                                    <label class="control-label">No of Days</label>
+                                    <label class="control-label">Day</label>
                                                 
-                                        <select class="form-control" name="nodays">
+                                        <select required class="form-control" name="enoday">
                                             <option selected hidden disabled>Select the day</option>
-                                            <option value="1"> Day 1</option>
-                                            <option value="2"> Day 2</option>
-                                            <option value="3"> Day 3</option>
-                                            <option value="4"> Day 4</option>
-                                            <option value="5"> Day 5</option>
+											<?php $days=$rowevent['fnodays']; for($x=1;$x<$days;$x++) { ?>
+                                            <option value="<?php echo $x; ?>"> Day <?php echo $x; ?></option>
+											<?php } ?>
                                         </select>
                                    
                                 </div>
@@ -163,19 +166,23 @@ if (isset($_POST['submit']))
 								</select> 
 								</div>
 								<div class="form-group">
+									<label for="inputEmail" class="control-label ">Event Location</label>
+									 <input type="text" placeholder="Enter event location or room number" id="username" name="eloc" class="form-control" />  
+								</div>
+								<div class="form-group">
                                     <label for="inputName1" class="control-label">Enter Time</label>
                                     <div class="row">
                                     <div class="col-sm-6">
                                     
                                     
                                     
-									From:
+										<label for="inputEmail" class="control-label ">From</label>
 									<input id="time" type="time" name="ff" 
                                            class="form-control clockpicker" required >
                                         </div>
                                     <div class="col-sm-6"> 
                                         
-                                    To:
+										<label for="inputEmail" class="control-label ">To</label>
 									<input id="time" type="time" name="tt" 
 									class="form-control clockpicker" required >
 								</div>
