@@ -280,7 +280,7 @@ $date=date("Y-m-d");
         <div class="row">
             <?php 
             require("admin/connect.php");
-            $getfestquery="SELECT * FROM fests WHERE fdate>'$date'";
+            $getfestquery="SELECT * FROM fests WHERE fdate>'$date' ORDER BY fdate";
             $getfestresult=mysqli_query($connection,$getfestquery); while($getfests=mysqli_fetch_assoc($getfestresult))
 														{ 
             ?>
@@ -291,9 +291,8 @@ $date=date("Y-m-d");
                     <div class="price" style="padding-top: 5px"><?php echo $getfests['cname'] ?></div>
 					<div class="details"><?php echo $getfests['fdesc'] ?> <p style="padding-top: 10px"><i class="fa fa-calendar-alt"></i><?php $dateb=$getfests['fdate'];
 					$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
-					$dobc = $myDateTime->format('d-m-Y');  echo ' '.$dobc;  ?></p></div>
-                    
-                
+					$dobc = $myDateTime->format('d-m-Y');  echo ' '.$dobc; if($getfests['fnodays']>=2){ echo ' to '.$getfests['ftodate']; } ?></p></div>
+                  
                     <div class="link"><a class="register-button" href="fest-details.php?id=<?php echo $getfests['fid'] ?>">View Details</a></div>
                 </div>
             </div>

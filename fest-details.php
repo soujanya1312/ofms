@@ -17,7 +17,8 @@ if($row['fdate']<$date)
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-<title>Hostify</title>
+<link rel="shortcut icon" type="image/png" sizes="16x16" href="/plugins/images/favicon.png">
+<title>AlphaSystems-OFMS</title>
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/bootstrap-slider.min.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/fontawesome-all.min.css">
@@ -120,7 +121,7 @@ if($row['fdate']<$date)
                     </div>
                     <div class="mfeature-title">Date <p class="mfeature-title" style="padding-top: 10px"><?php $dateb=$row['fdate'];
 					$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
-					$dobc = $myDateTime->format('d-m-Y');  echo $dobc; ?></p></div>
+					$dobc = $myDateTime->format('d-m-Y');  echo $dobc; if($row['fnodays']>=2){ echo ' to '.$row['ftodate']; } ?></p></div>
                     <div class="mfeature-details"></div>
                 </div>
             </div>
@@ -324,7 +325,7 @@ if($row['fdate']<$date)
             <div class="col-sm-12 col-md-6">
                 <div class="buttons-holder">
                     <a href="login/add-participants.php?id=<?php echo $row['fid'] ?>" class="ybtn ybtn-accent-color">Register Now!</a>
-                    <?php if(isset($row['regfees'])) { ?>
+                    <?php if(isset($row['regfees']) && $row['regfees']!=0.00 ) { ?>
                     <a href="javascript:void(0)" class="ybtn ybtn-white ybtn-shadow">Reg Fees: <i class="fa fa-rupee-sign"></i><?php echo $row['regfees'] ?></a> <?php } ?>
                 </div>
             </div>
