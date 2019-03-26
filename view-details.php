@@ -53,7 +53,7 @@ $id=$_GET['id'];
 	</script>
 	
 </head>
-<body>
+<body>                                                                                                                                                                                                                                                                           
     <!-- Preloader -->
 <div class="preloader">
     <div class="cssload-speeding-wheel"></div>
@@ -65,7 +65,7 @@ $id=$_GET['id'];
                  <?php echo $fmsg; ?>
             </div> 
             <?php }?> 
-            <?php if(isset($smsg)) { ?>
+            <?php if(isset($smsg)) { ?>                                                                                                                                                                                                                                                
              <div class="alert alert-success alert-dismissable">
 				  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 				  <?php echo $smsg; 

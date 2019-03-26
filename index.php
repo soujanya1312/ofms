@@ -17,7 +17,7 @@ $date=date("Y-m-d");
  <link rel="stylesheet" type="text/css" href="lp-plugins/css/style-darkblue.css">
 <link rel="stylesheet" type="text/css" href="lp-plugins/css/custom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script>
+	<script>                                                                                                                                                                                                               
 		$(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
