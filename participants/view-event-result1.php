@@ -8,7 +8,7 @@ $sresult = mysqli_query($connection, $squery);
 $row = mysqli_fetch_assoc($sresult);
 $pari= $row["erounds"];
 
-$rquery="SELECT teamcode from participants WHERE pusername='$ausername'";
+$rquery="SELECT teamcode from participants JOIN evWHERE pusername='$ausername'";
 $tresult=mysqli_query($connection,$rquery);
 $prow=mysqli_fetch_assoc($tresult);
 $team=$prow["teamcode"];
