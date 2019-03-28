@@ -30,6 +30,12 @@ if ( isset( $_POST[ 'eventsubmit' ] ) ) {
 	$query1 = "INSERT INTO `fests`(aid,fname,ftype,fnodays,fdate,ftodate,fdesc,cname,caddress,cphone,cemail,city,cstate,cpincode) VALUES ('$id','$ename','$ctype','$fnodays','$dob','$todate','$cdesc','$cname','$caddress','$cphone',' $cemail','$city','$cstate','$cpincode')";
 	$result2 = mysqli_query( $connection, $query1 );
 	if ( $result2 ) {
+		$getfidquery="SELECT fid FROM fests WHERE aid='$id'";
+		$resultfid = mysqli_query( $connection, $getfidquery );
+        $rowfid = mysqli_fetch_assoc( $resultfid );
+		$fid=$rowfid['fid'];
+		$insertsetquery="INSERT INTO admin_settings (fid) VALUES ('$fid')";
+		$execset=mysqli_query( $connection, $insertsetquery );
 		$smsg = "Fest registration is Completed!, redirecting to login in 4 seconds";
 	} else {
 		$fmsg = "Error" . mysqli_error( $connection );

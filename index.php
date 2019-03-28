@@ -282,7 +282,12 @@ $date=date("Y-m-d");
             require("admin/connect.php");
             $getfestquery="SELECT * FROM fests WHERE fdate>'$date' ORDER BY fdate";
             $getfestresult=mysqli_query($connection,$getfestquery); while($getfests=mysqli_fetch_assoc($getfestresult))
-														{ 
+			{  
+				$fid=$getfests['fid'];
+				$getsettingsquery="SELECT * FROM admin_settings WHERE fid='$fid'";
+				$getsettings=mysqli_query( $connection, $getsettingsquery );
+				$getsetrow = mysqli_fetch_assoc( $getsettings );
+				if($getsetrow['viewfest']==1){
             ?>
             <div class="col-sm-6 col-md-4">
                 <div class="domain-box d-color1">
@@ -296,7 +301,7 @@ $date=date("Y-m-d");
                     <div class="link"><a class="register-button" href="fest-details.php?id=<?php echo $getfests['fid'] ?>">View Details</a></div>
                 </div>
             </div>
-            <?php } ?>
+            <?php } } ?>
 <!--
             <div class="col-sm-6 col-md-4">
                 <div class="domain-box d-color2">
