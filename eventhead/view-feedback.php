@@ -101,7 +101,7 @@ $fid=$getfestid['fid'];
                                 
                                       <div class="col-md-8 col-sm-8">
                                   
-                                          <h4 style=>From:<?php echo $result["pname"]; ?></h4>
+                                          <h4><small>From:</small><?php echo ' '.$result["pname"]; ?></h4>
                                    <p calss="p-0">
 										<a href="mailto:<?php echo $result["f_email"]; ?>"> <font size="-1" style="padding-top: 5px" > <?php echo $result["f_email"]; ?> </font> </a> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$result["f_mob"]; ?>

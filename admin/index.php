@@ -126,12 +126,12 @@ $wcount=mysqli_num_rows($getwardcount);
                 <!--/row -->
 				<!--row -->
                 <div class="row p-t-10">
-                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add New Event" onClick="window.location='add-events.php'">
+                    <div class="col-md-6 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add New Event" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-id-badge bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>ADD Event Head</b></h4>
+									<h4><b>Add Event Head</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
@@ -148,12 +148,12 @@ $wcount=mysqli_num_rows($getwardcount);
                             </div>
                         </div>
                     </div>-->
-                    <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="View Event Result" onClick="window.location='view-results.php'">
+                    <div class="col-md-6 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="View Event Result" onClick="window.location='view-results.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>Event Results</b></h4>
+									<h4><b>View Event Results</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>

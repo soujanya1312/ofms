@@ -36,15 +36,17 @@
 					<li> <a href="add-staff.php">Add Staff</a> </li>
 					<li> <a href="view-staffs.php">View Staff</a> </li>
 				</ul>
-			</li>
+			</li> -->
 
 			
 			<!---PNB Added Patient menu --->
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Confirmed Participants<span class="fa arrow"></span></span></a>
+			<li> <a href="view-participants.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">View Participants<span class="fa arrow"></span></span></a>
+<!--
 				<ul class="nav nav-second-level">
                     <li> <a href="view-participants.php">view participants</a> </li>
 						
 				</ul>
+-->
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
@@ -75,7 +77,7 @@
 					<li> <a href="view-ip-bills.php">Send Message</a> </li>
 					<li> <a target="_blank" href="op-invoice.php">Delete Message</a></li>
 				</ul>
-			</li>
+			</li> -->
 		  <!--DNS Added Admin menu-->
 		   <!--<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Admin <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">

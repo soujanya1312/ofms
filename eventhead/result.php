@@ -33,7 +33,7 @@ if ( isset($_POST[ 'psubmit' ]))
     if ( $result ) {
         $smsg = "Result Added Succesfully";
     } else {
-        $fmsg = "Team code : $college has already been selected for round $round";
+        $fmsg = "Team code : $college has already been selected for round $round".mysqli_error($connection);
     }
 }
 ?>

@@ -131,6 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				<div class="col-sm-12">
                         <div class="white-box">
                             <h3 class="box-title m-b-0">Event Information</h3>
+                            <hr>
                             <form data-toggle="validator" method="post">
                               <?php if(isset($fmsg)) { ?>
 									<div class="alert alert-danger alert-dismissable">

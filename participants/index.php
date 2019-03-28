@@ -41,8 +41,7 @@ elseif(isset($_SESSION['admin']))
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-	<link href="../plugins/css/hover.css" rel="stylesheet" media="all">
+	
 </head>
 
 <body class="fix-sidebar">

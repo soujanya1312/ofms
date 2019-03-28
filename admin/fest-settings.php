@@ -2,6 +2,12 @@
 include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
+
+$getidquery = "SELECT fests.fid,fests.fdate FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
+$getidresult = mysqli_query( $connection, $getidquery );
+$getidrow = mysqli_fetch_assoc( $getidresult );
+$fid = $getidrow[ 'fid' ];
+$fdate = $getidrow[ 'fdate' ];
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +26,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
+    <!-- Date picker plugins css -->
+	<link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>
 <!-- username check js start--->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script type="text/javascript">
@@ -44,6 +52,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	} //finishAjax
 </script>
 <!-- username check js end -->
+    <script>
+		function isFutureDate( idate ) {
+			var today = document.getElementById( "datepicker-autoclose1" ).value,
+				idate = idate.split( "-" );
+                today = today.split( "-" );
+
+			idate = new Date( idate[ 2 ], idate[ 1 ] - 1, idate[ 0 ] );
+            today = new Date( today[ 2 ], today[ 1 ] - 1, today[ 0 ] );
+			return ( today - idate ) <= 0 ? true : false;
+		}
+	</script>
+
+	<script>
+		function checkDate() {
+			var idate = document.getElementById( "datepicker" ),
+				resultDiv = document.getElementById( "datewarn" );
+			//dateReg = /(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[012])[-]201[4-9]|20[2-9][0-9]/;
+
+			// if(dateReg.test(idate.value)){
+			if ( isFutureDate( idate.value ) ) {
+				resultDiv.innerHTML = "Registration should end before fest date";
+				resultDiv.style.color = "red";
+			} else {
+				resultDiv.innerHTML = "It's a valid date";
+				resultDiv.style.color = "green";
+			}
+			// } else {
+			// resultDiv.innerHTML = "Invalid date!";
+			// resultDiv.style.color = "red";
+			// }
+		}
+	</script>
 </head>
 
 <body class="fix-sidebar">
@@ -74,7 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				<div class="row">
 				<div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0">Fest settings</h3>
+<!--                            <h3 class="box-title m-b-0">Fest settings</h3>-->
 							<?php if(isset($fmsg)) { ?>
 									<div class="alert alert-danger alert-dismissable">
 										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -87,10 +127,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
 										 <?php echo $smsg; ?>
 									</div>
 							<?php }?>
-							<div>
-								Fest is not public and is not open for regidstrstion
+							<div class="row p-b-10">
+					<div class="col-md-12 col-sm-10 hvr-wobble-horizontal">
+						<div class="card card-inverse">
+							<img id="theImgId" class="card-img" src="../plugins/images/heading-title-bg.jpg" height="70" alt="Card image">
+							<div class="card-img-overlay" style="padding-top: 5px">
+								<h4 class="card-title text-uppercase">Fest is NOT public and NOT open for Registration <?php echo $ausername; ?></h4>
+								<!-- <p class="card-text">You are logged-in to ADMIN control panel, here are some of the basic information about fest details and some basic functions to perform. </p> -->
+<!--								<p class="card-text"><small class="text-white">~OFMS</small></p>-->
 							</div>
-                        
+						</div>
+					</div>
+				</div>
+                            
+                        <h3 style="padding-top: 10px;" class="box-title m-b-0">Change Settings</h3>
+                            <hr>
+                            <form data-toggle="validator" method="post">
+                                <div class="row">
+											<div class="form-group col-sm-6">
+												<label class="control-label">Visibility</label>
+												<!--<div class="col-sm-12 p-l-0">-->
+												<select class="form-control" name="ftype" required>
+													<option selected hidden value="IT">select the visibility</option>
+													<option <?php if($row["ftype"]=='Management' ){echo 'selected';}?> value="1">Make fest PUBLIC</option>
+													<option <?php if($row["ftype"]=='Cultural' ){echo 'selected';}?> value="2">Make fest PRIVATE</option>
+												</select>
+												<!--</div> -->
+											</div>
+
+											<div class="form-group col-sm-6">
+												<label class="control-label">Registration</label>
+												<!--<div class="col-sm-12 p-l-0">-->
+												<select id="selectdate" onChange="exect(this.value)" class="form-control" name="fnodays" required>
+                                                    <option selected hidden value="IT">select the option</option>
+													<option <?php if($row["fnodays"]=='1' ){echo 'selected';}?> value="1">Start Registration</option>
+													<option <?php if($row["fnodays"]=='2' ){echo 'selected';}?> value="2">Stop Registration</option>
+												</select>
+												<!--</div> -->
+											</div>
+
+										</div>
+                                <div class="row">
+                                <div class="col-md-6" id="dydate2">
+												<div class="form-group">
+													<label class="control-label">Registration end date</label>
+													<div class="input-group">
+                                                        <input hidden="true" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker-autoclose1" placeholder="dd-mm-yyyy" value="<?php $dateb=$getidrow['fdate'];
+					$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+					$dobc = $myDateTime->format('d-m-Y');  echo $dobc; ?>">
+														<input onChange="checkDate()" onKeyUp="checkDate()" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="tdate" placeholder="dd-mm-yyyy">
+													</div>
+													<div id="datewarn"></div>
+													<!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
+												</div>
+											</div>
+                                
+                                </div>
+                                
+                            </form>
                         </div>
                     </div>
 				</div>
@@ -108,6 +202,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
     <?php include'assets/jslink.php'; ?>
+    <script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+	<!-- Date Picker Plugin JavaScript -->
+	<script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+	<script src="../plugins/js/mask.js"></script>
+	<script>
+		jQuery( '.mydatepicker, #datepicker' ).datepicker();
+		jQuery( '#datepicker-autoclose' ).datepicker( {
+			autoclose: true,
+			todayHighlight: true
+		} );
+	</script>
+	<script>
+		jQuery( '.mydatepicker, #datepicker' ).datepicker();
+		jQuery( '#datepicker-autoclose1' ).datepicker( {
+			autoclose: true,
+			todayHighlight: true
+		} );
+	</script>
 </body>
 
 </html>
