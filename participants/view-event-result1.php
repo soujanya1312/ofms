@@ -56,9 +56,13 @@ $team=$prow["teamcode"];
                 <!--DNS added Dashboard content-->
                 <!--row -->
              <?php
-                for($x=1; $x<=$pari; $x++){ ?>
+                for($x=1; $x<=$pari; $x++){ 
+				$getresq="SELECT DISTINCT pname FROM results JOIN participants ON results.pname=participants.teamcode JOIN eventparticipants ON results.eid=eventparticipants.eid JOIN events ON results.eid=events.eid WHERE results.eid='$id' AND results.eround='$x' AND results.pname='$team'"; 
+                $result = mysqli_query($connection, $getresq);
+				$count = mysqli_num_rows($result);
+				?>
                  <div class="col-md-4 col-sm-4">
-                        <div class="white-box bg-danger text-white">
+                        <div class="white-box <?php if($count>=1) echo 'bg-success'; else echo 'bg-danger'; ?> text-white">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                    	<img src="../plugins/images/users/event.png" class="img-circle img-responsive"> 
@@ -66,8 +70,6 @@ $team=$prow["teamcode"];
                               
                                 <div class="col-md-8 col-sm-8">
                                     <h2>Round: <?php echo $x; ?></h2>
-                                  <?php $getresq="SELECT DISTINCT pname FROM results JOIN participants ON results.pname=participants.teamcode JOIN eventparticipants ON results.eid=eventparticipants.eid JOIN events ON results.eid=events.eid WHERE results.eid='$id' AND results.eround='$x' AND results.pname='$team'"; 
-                                           $result = mysqli_query($connection, $getresq);?>
                                      <?php foreach($result as $key=>$result) { ?>
                                     <h2><span class="label label-dark"  style="padding-bottom: 1px">Qualified</span></h2>
                                      <?php }?>
