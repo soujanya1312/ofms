@@ -177,8 +177,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												<!--<div class="col-sm-12 p-l-0">-->
 												<select class="form-control" name="visiblity" required>
 													<!-- <option selected hidden> <?php //if($getsetrow['viewfest']==0) echo'Fest is Private'; else echo 'Fest is Public'; ?> </option> -->
-													<option <?php if($getsetrow['viewfest']==1) echo 'selected'; ?> value="1">Make fest PUBLIC</option>
-													<option <?php if($getsetrow['viewfest']==0) echo 'selected';  ?> value="0">Make fest PRIVATE</option>
+													<option <?php if($getsetrow['viewfest']=='1') echo 'selected'; ?> value="1">Make fest PUBLIC</option>
+													<option <?php if($getsetrow['viewfest']=='0') echo 'selected';  ?> value="0">Make fest PRIVATE</option>
 												</select>
 												<!--</div> -->
 											</div>
@@ -188,8 +188,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												<!--<div class="col-sm-12 p-l-0">-->
 												<select id="selectdate" onChange="exect(this.value)" class="form-control" name="regset" required>
                                                     <!-- <option selected hidden><?php //if($getsetrow['startreg']==0) echo'Registration is stopped'; else echo 'Registration is started'; ?> </option> -->
-													<option  <?php if($getsetrow['startreg']==1) echo 'selected'; ?>value="1">Start Registration</option>
-													<option <?php if($getsetrow['startreg']==0) echo 'selected'; ?>value="0">Stop Registration</option>
+													<option <?php if($getsetrow['startreg']=='1') echo 'selected'; ?> value="1">Start Registration</option>
+													<option <?php if($getsetrow['startreg']=='0') echo 'selected'; ?> value="0">Stop Registration</option>
 												</select>
 												<!--</div> -->
 											</div>
@@ -204,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 													$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
 													$dobc = $myDateTime->format('d-m-Y');  echo $dobc; ?>">
 														
-														<input <?php if($getsetrow['startreg']==0) echo 'disabled' ?> onChange="checkDate()" onKeyUp="checkDate()" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="enddate" placeholder="dd-mm-yyyy">
+														<input <?php if($getsetrow['startreg']==0) echo 'disabled'; ?> onChange="checkDate()" onKeyUp="checkDate()" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="enddate" value="<?php if(!$getsetrow['stopdate']==0){ echo $getsetrow['stopdate']; } ?>" placeholder="dd-mm-yyyy">
 													</div>
 													<div id="datewarn"></div>
 													<!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
@@ -215,8 +215,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												<!--<div class="col-sm-12 p-l-0">-->
 												<select class="form-control" name="schedule" required>
 													<!-- <option selected hidden><?php //if($getsetrow['schedule']==0) echo'Schedule is not displayed'; else echo 'Schedule is displayed'; ?> </option> -->
-													<option <?php if($getsetrow['schedule']==1) echo 'selected'; ?> value="1">Display Schedule</option>
-													<option <?php if($getsetrow['schedule']==0) echo 'selected'; ?> value="0">Hide Schedule</option>
+													<option <?php if($getsetrow['schedule']=='1') echo 'selected'; ?> value="1">Display Schedule</option>
+													<option <?php if($getsetrow['schedule']=='0') echo 'selected'; ?> value="0">Hide Schedule</option>
 												</select>
 												<!--</div> -->
 											</div>
