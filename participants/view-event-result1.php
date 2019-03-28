@@ -8,7 +8,7 @@ $sresult = mysqli_query($connection, $squery);
 $row = mysqli_fetch_assoc($sresult);
 $pari= $row["erounds"];
 
-$rquery="SELECT teamcode from participants JOIN evWHERE pusername='$ausername'";
+$rquery="SELECT teamcode from participants WHERE pusername='$ausername'";
 $tresult=mysqli_query($connection,$rquery);
 $prow=mysqli_fetch_assoc($tresult);
 $team=$prow["teamcode"];
@@ -58,7 +58,7 @@ $team=$prow["teamcode"];
              <?php
                 for($x=1; $x<=$pari; $x++){ ?>
                  <div class="col-md-4 col-sm-4">
-                        <div class="white-box bg-success text-white">
+                        <div class="white-box bg-danger text-white">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                    	<img src="../plugins/images/users/event.png" class="img-circle img-responsive"> 
@@ -66,10 +66,10 @@ $team=$prow["teamcode"];
                               
                                 <div class="col-md-8 col-sm-8">
                                     <h2>Round: <?php echo $x; ?></h2>
-                                  <?php $getresq="SELECT * FROM results JOIN participants ON results.pname=participants.teamcode JOIN eventparticipants ON results.eid=eventparticipants.eid JOIN events ON results.eid=events.eid WHERE results.eid='$id' AND results.eround='$x' AND participants.teamcode='$team'"; 
+                                  <?php $getresq="SELECT DISTINCT pname FROM results JOIN participants ON results.pname=participants.teamcode JOIN eventparticipants ON results.eid=eventparticipants.eid JOIN events ON results.eid=events.eid WHERE results.eid='$id' AND results.eround='$x' AND results.pname='$team'"; 
                                            $result = mysqli_query($connection, $getresq);?>
                                      <?php foreach($result as $key=>$result) { ?>
-                                    <h4><span class="label label-dark"  style="padding-bottom: 1px">Qualified</span></h4>
+                                    <h2><span class="label label-dark"  style="padding-bottom: 1px">Qualified</span></h2>
                                      <?php }?>
                                 </div>
                                
