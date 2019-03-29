@@ -44,7 +44,7 @@ $fid=$getfestid['fid'];
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Event Results</h4>
+                        <h4 class="page-title">Event Schedule</h4>
                     </div>
                     <!-- /.page title -->
                     <!-- .breadcrumb -->
@@ -101,7 +101,7 @@ $fid=$getfestid['fid'];
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
-                                   	<img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"> 
+                                   	<img src="../plugins/images/users/schedule.jpg" class="img-square img-responsive"> 
                                 </div>
                               
                                 <div class="col-md-8 col-sm-8">

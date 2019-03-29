@@ -40,8 +40,8 @@
 			<!---PNB Added Doctors menu --->
              <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Fest Details<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
-                   
-					<li> <a href="edit-fest-details.php">Edit Fest Details</a> </li>	
+                     <li> <a href="edit-fest-details.php">Edit Fest Details</a> </li>
+					<li> <a href="fest-settings.php"> Fest Settings</a> </li>	
 				</ul>
 			</li>
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Event <span class="fa arrow"></span></span></a>
@@ -53,34 +53,20 @@
 			</li>
 			<!---PNB Added Patient menu --->
 			<li> <a href="view-colleges.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> College Registered<span class="fa arrow"></span></span></a>
-<!--
-				<ul class="nav nav-second-level">
-                   
-					<li> <a href="view-colleges.php">Colleges Registered</a> </li>	
-				</ul>
--->
+
 			</li>
            
            
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-					<li> <a href="view-schedule.php">View Schedule</a> </li>
-					
-				</ul>
-			</li>
-            
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-					
-					<li><a href="view-results.php">view results</a></li>
-				</ul>
-			</li>
-            
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
-				<ul class="nav nav-second-level">
-					<li> <a href="view-feedback.php">view feedback</a> </li>
+			<li> <a href="view-schedule.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				
-				</ul>
+			</li>
+            
+			<li> <a href="view-results.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
+				
+			</li>
+            
+            <li> <a href="view-feedback.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
+				
 			</li>
             
            
@@ -91,7 +77,7 @@
 					<li> <a href="view-ip-bills.php">Send Message</a> </li>
 					<li> <a target="_blank" href="op-invoice.php">Delete Message</a></li>
 				</ul>
-			</li>
+			</li>-->
 		  <!--DNS Added Admin menu-->
 		   <!--<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Admin <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">

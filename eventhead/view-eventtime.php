@@ -57,13 +57,15 @@ $rid=$getfestnamerow['erounds'];
                 <div class="col-md-4 col-sm-4">
 					<div class="ribbon ribbon-corner ribbon-info ribbon-right" style="margin-right:7px"><i class="fa fa-clock-o"></i></div>
                         <div class="white-box">
-							
                             <div class="row">
+                                  <div class="col-md-4 col-sm-4">
+                                   	<img src="../plugins/images/users/schedule-eh.jpg" class="img-square img-responsive"> 
+                                </div>
                                   <div class="col-md-8 col-sm-8">
                                     <h3 class="box-title m-b-0"><?php echo $eid ?></h3>
-                                       <h3 class="box-title m-b-0">Round: <?php echo $result['event_round']; ?>Day: <?php echo $result['eday']; ?></h3>
+                                       <h3 class="box-title m-b-0">Round: <?php echo $result['event_round']; ?>&emsp;&emsp;&emsp;Day: <?php echo $result['eday']; ?></h3>
                                        <h2 class="box-title m-b-0"> </h2>
-                                      <h2 class="box-title m-b-0">Location: <?php echo $result['eroom']; ?></h2>
+                                      <h2 class="box-title m-b-0"><i class="fa fa-map-marker"></i> <?php echo $result['eroom']; ?></h2>
                                     <p>
                                     
                                       <b>From:</b><?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?>

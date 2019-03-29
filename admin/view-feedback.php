@@ -94,11 +94,11 @@ $fid=$getidrow['fid'];
 					</div>
                         <div class="white-box">
                             <div class="row">
-<!--
+
                                 <div class="col-md-4 col-sm-4 text-center">
-									 <a href="#"> <img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"></a>
+									 <a href="#"> <img src="../plugins/images/users/feedback.jpg" class="img-square img-responsive"></a>
                                 </div>
--->
+
                                       <div class="col-md-8 col-sm-8">
                                   
                                           <h4 style=>From:<?php echo $result["pname"]; ?></h4>

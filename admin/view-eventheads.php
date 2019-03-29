@@ -89,14 +89,15 @@ $ausername=$_SESSION['admin'];
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 text-center">
-                                        <img src="../plugins/images/users/user(2).png" class="img-square img-responsive"> 
+                                        <img src="../plugins/images/users/events.jpg" class="img-square img-responsive"> 
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3><h5>Username:<?php echo $result["husername"]; ?></h5>
-                                  <h5>Heads:<?php echo $result["hname"].','.$result["addname"]; ?>	
+                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
+                                    <h5>Username: <b><?php echo $result["husername"]; ?></b></h5>
+                                  <h5><i class="fa ti-user"></i>  <?php echo $result["hname"].','.$result["addname"]; ?>	
                                   </h5>
                                     <p calss="p-0">
-										Mobile no:<a href="mailto:<?php echo $result["hmob"]; ?>"> <font size="-1"> <?php echo $result["hmob"]; ?> </font> </a> <br>
+										<i class="fa fa-phone"></i> <a href="mailto:<?php echo $result["hmob"];?>"> <font size="-1"> <?php echo $result["hmob"]; ?> </font> </a><br>
 										
 										
                                     </p>

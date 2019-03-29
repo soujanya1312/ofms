@@ -7,10 +7,13 @@ $getfestidq="SELECT fid FROM participants WHERE pusername='$ausername'";
 $getfestidr=mysqli_query($connection, $getfestidq);
 $getfestid = mysqli_fetch_assoc($getfestidr);
 $fid=$getfestid['fid'];
-?>
 
-    
-    
+$getsettingsquery="SELECT * FROM admin_settings WHERE fid='$fid'";
+$getsettings=mysqli_query( $connection, $getsettingsquery );
+$getsetrow = mysqli_fetch_assoc( $getsettings );
+
+
+?>
 
 <!DOCTYPE html>
 <!--
@@ -78,7 +81,21 @@ $fid=$getfestid['fid'];
 
 
                 <!--row -->
-                
+                 <?php if($getsetrow['schedule']==0) { ?> 
+                	<div class="row p-b-10">
+					<div class="col-md-12 col-sm-10 hvr-wobble-horizontal">
+						<div class="card card-inverse">
+							<img id="theImgId" class="card-img" src="../plugins/images/heading-title-bg.jpg" height="70" alt="Card image">
+							<div class="card-img-overlay" style="padding-top: 5px">
+								<h4 class="card-title text-uppercase">Fest Schedule is NOT public  </h4>
+								<!-- <p class="card-text">You are logged-in to ADMIN control panel, here are some of the basic information about fest details and some basic functions to perform. </p> -->
+<!--								<p class="card-text"><small class="text-white">~OFMS</small></p>-->
+							</div>
+						</div>
+					</div>
+				</div>
+                <?php } ?>
+                 <?php if($getsetrow['schedule']==1) { ?>
                 <div class="row">
                 <?php
 					$query = "SELECT eid,ename,erounds FROM events WHERE fid='$fid'";
@@ -118,6 +135,7 @@ $fid=$getfestid['fid'];
 					}
 				  ?>
                 </div>
+                <?php }?>
                 <!--/row -->
 
                 <!--DNS End-->

@@ -11,6 +11,9 @@ if($row['fdate']<$date)
 {
 	echo'<script> window.location="admin/403.php";</script>';
 }
+$getsettingsquery="SELECT * FROM admin_settings WHERE fid='$id'";
+$getsettings=mysqli_query( $connection, $getsettingsquery );
+$getsetrow = mysqli_fetch_assoc( $getsettings );
 ?>
 <!doctype html>
 <html>
@@ -315,18 +318,30 @@ if($row['fdate']<$date)
     </div>
 </div>
 <?php } ?>
+   
+    
+    
 <div id="message1" class="container-fluid message-area normal-bg">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6">
+                 
+                <?php if($getsetrow['startreg']==0) { ?>
+                <div class="text-other-color1">Registraion is not open</div> 
+                <div class="text-other-color2">Please follow back soon! </div>     
+             
+                <?php }?>
+                <?php if($getsetrow['startreg']==1){ ?>
                 <div class="text-other-color1">Are you ready?</div>
                 <div class="text-other-color2">create an account to participate for <?php echo $row['fname'] ?>.</div>
+            <?php } ?>
             </div>
             <div class="col-sm-12 col-md-6">
                 <div class="buttons-holder">
+                    <?php if($getsetrow['startreg']==1){ ?>
                     <a href="login/add-participants.php?id=<?php echo $row['fid'] ?>" class="ybtn ybtn-accent-color">Register Now!</a>
                     <?php if(isset($row['regfees']) && $row['regfees']!=0.00 ) { ?>
-                    <a href="javascript:void(0)" class="ybtn ybtn-white ybtn-shadow">Reg Fees: <i class="fa fa-rupee-sign"></i><?php echo $row['regfees'] ?></a> <?php } ?>
+                    <a href="javascript:void(0)" class="ybtn ybtn-white ybtn-shadow">Reg Fees: <i class="fa fa-rupee-sign"></i><?php echo $row['regfees'] ?></a> <?php } } ?>
                 </div>
             </div>
         </div>

@@ -50,7 +50,7 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
-
+       
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		$('#usernameLoading').hide();
 		$('#username').keyup(function(){
 		  $('#usernameLoading').show();
-	      $.post("check-docusername.php", {
+	      $.post("check-teamcode.php", {
 	        username: $('#username').val()
 	      }, function(response){
 	        $('#usernameResult').fadeOut();
@@ -196,7 +196,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												<div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Enter a team name</label>
-                                                        <input required type="text" id="teamcode" name="tname" class="form-control" placeholder="Enter a teamcode" value="<?php echo $apointrow["teamcode"]; ?>">
+                                                        <input required type="text" id="username" name="tname" class="form-control" placeholder="Enter a teamcode" value="<?php echo $apointrow["teamcode"]; ?>">
+                                                        
+                                                        <!-- username check start -->
+										                   <div>
+										                      <span id="usernameLoading"><img src="../plugins/images/busy.gif" alt="Ajax Indicator" height="15" width="15" /></span>
+										                      <span id="usernameResult" style="color: #E40003"></span>
+										                   </div>
+				                                        <!-- username check end -->
                                                      </div>
                                                 </div>
 											</div>
