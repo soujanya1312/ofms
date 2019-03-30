@@ -40,7 +40,12 @@ $fid=$getfestid['fid'];
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">SCHEDULE</h4>
+                        <?php 
+                        $getevent="SELECT * FROM events WHERE eid='$id'";
+                        $geteventid=mysqli_query($connection, $getevent);
+                        $getfestid = mysqli_fetch_assoc($geteventid);
+                        ?>
+                        <h4 class="page-title"><?php echo $getfestid['ename']?></h4>
                     </div>
                     <!-- /.page title -->
                     <!-- .breadcrumb -->
@@ -85,14 +90,14 @@ $fid=$getfestid['fid'];
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 text-center">
-                                    <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/images2.png" class="img-square img-responsive"> </a>
+                                    <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/users/time2jpg.jpg" class="img-square img-responsive"> </a>
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
-                                    <small>Round: <?php echo $result["event_round"]; ?></small>
+                                    <h3 class="box-title m-b-0">
+                                    Round: <?php echo $result["event_round"]; ?>
                                     <p calss="p-0">
-										<small> From:<?php echo $result["t_from"]; ?></small>  <br>
-										<small> To: <?php echo $result["t_to"]; ?> </small>
+										 From: <?php echo $result["t_from"]; ?>  <br>
+										To: <?php echo $result["t_to"]; ?> </h3>
                                         
 										
                                     </p>

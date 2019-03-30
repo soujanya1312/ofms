@@ -95,13 +95,13 @@ $fid=$getidrow['fid'];
                         <div class="white-box">
                             <div class="row">
 
-                                <div class="col-md-4 col-sm-4 text-center">
-									 <a href="#"> <img src="../plugins/images/users/feedback.jpg" class="img-square img-responsive"></a>
+                                <div class="col-md-4 col-sm-8 text-center">
+									 <a href="#"> <img src="../plugins/images/users/feedback1.jpg" class="img-square img-responsive"></a>
                                 </div>
 
                                       <div class="col-md-8 col-sm-8">
                                   
-                                          <h4 style=>From:<?php echo $result["pname"]; ?></h4>
+                                          <h4 style=>From: <?php echo $result["pname"]; ?></h4>
                                    <p calss="p-0">
 										<a href="mailto:<?php echo $result["f_email"]; ?>"> <font size="-1" style="padding-top: 5px" > <?php echo $result["f_email"]; ?> </font> </a> <br>
 										<i class="fa fa-phone"></i><?php echo ' '.$result["f_mob"]; ?>

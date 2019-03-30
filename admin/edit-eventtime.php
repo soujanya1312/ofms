@@ -122,7 +122,7 @@ if(isset($_POST['update']))
                     <div class="col-md-4 col-xs-12">
                         <div class="white-box">
                            <div class="overlay-box">
-							<div class="user-bg p-l-30 m-l-10 p-t-10"> <img width="80%" height="100%"  alt="user" src="../plugins/images/images2.png">
+							<div class="user-bg p-l-30 m-l-10 p-t-10"> <img width="80%" height="100%"  alt="user" src="../plugins/images/users/register-online.png">
                                   <div class="user-content">
                                        </div>
                                 </div>

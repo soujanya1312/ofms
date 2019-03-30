@@ -89,7 +89,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>Colleges Registered</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge" style="color: blueviolet" ></i></li>
+								<li><i class="fa fa-registered" style="color: blueviolet"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
@@ -98,7 +98,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Events</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge" style="color: blueviolet" ></i></li>
+								<li><i class="fa fa-id-badge text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
@@ -107,7 +107,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Feedback </b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-comment-alt" style="color: blueviolet"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
 							</ul>
                         </div>
@@ -116,7 +116,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>Confirmed Colleges</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-copyright text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
@@ -126,41 +126,52 @@ $wcount=mysqli_num_rows($getwardcount);
                 <!--/row -->
 				<!--row -->
                 <div class="row p-t-10">
-                    <div class="col-md-6 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add New Event" onClick="window.location='add-events.php'">
+                     <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Add Fest Settings" onClick="window.location='fest-settings.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="fa fa-id-badge bg-black Hoveranimatepat"></i>
-                                <div class="bodystate p-t-10">
-									<h4><b>Add Event Head</b></h4>
+                                <i class="fa fa-id-badge bg-black Hoveranimatedoc"></i>
+                                <div class="bodystate p-l-10 p-t-10">
+									<h4><b>Fest Settings</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                  <!--  <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Create Head account" onClick="window.location='add-events.php'">
+                    <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add New Event" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="fa fa-id-badge bg-black Hoveranimatedoc"></i>
-                                <div class="bodystate p-l-10 p-t-10">
-									<h4><b>ADD Participants</b></h4>
-                                    <!--<span class="text-muted" style="font-size: 80%"></span>
+                                <i class="fa fa-user bg-black Hoveranimatepat"></i>
+                                <div class="bodystate p-t-10">
+									<h4><b>Event Head</b></h4>
+                                    <!--<span class="text-muted" style="font-size: 80%"></span>-->
                                 </div>
                             </div>
                         </div>
-                    </div>-->
-                    <div class="col-md-6 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="View Event Result" onClick="window.location='view-results.php'">
+                    </div>
+                  
+                    <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="View Event Result" onClick="window.location='view-results.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>View Event Results</b></h4>
+									<h4><b>Event Result</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 
-                    
+                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Edit Fest Details" onClick="window.location='edit-fest-details.php'">
+                        <div class="white-box">
+                            <div class="r-icon-stats">
+                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <div class="bodystate p-t-10">
+									<h4><b>Fest Details</b></h4>
+                                    <span class="text-muted" style="font-size: 80%"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--/row -->
                 
@@ -188,18 +199,18 @@ $wcount=mysqli_num_rows($getwardcount);
 		$(document).ready(function(){  
 			$('.Hoveranimated').hover(function(){
 				$(".Hoveranimatedoc").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatedoc").removeClass("fa-user-md").addClass("fa-plus");
+				$(".Hoveranimatedoc").removeClass("ti-id-badge").addClass("fa-plus");
 			},
 			function(){
 				$(".Hoveranimatedoc").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatedoc").removeClass("fa-plus").addClass("fa-user-md");
+				$(".Hoveranimatedoc").removeClass("fa-plus").addClass("ti-id-badge");
 			}
 									
 			)
 			
 			$('.Hoveranimatep').hover(function(){
 				$(".Hoveranimatepat").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatepat").removeClass("ti-id-badge").addClass("fa-plus");
+				$(".Hoveranimatepat").removeClass("").addClass("fa-plus");
 			},
 			function(){
 				$(".Hoveranimatepat").removeClass("bg-success").addClass("bg-black");

@@ -95,7 +95,7 @@ $fid=$getfestid['fid'];
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
-                                   	<img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"> 
+                                   	<img src="../plugins/images/users/event1.jpg" class="img-square img-responsive"> 
                                 </div>
                                 <br>
                                 <div class="col-md-8 col-sm-8">

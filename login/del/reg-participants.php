@@ -1,6 +1,6 @@
 <?php
-include '../login/accesscontroladmin.php';
-require('connect.php');
+include '../accesscontroladmin.php';
+require('../../admin/connect.php');
 
 if(isset($_SESSION['admin']))
 {
@@ -27,16 +27,16 @@ $fid=$getidrow['fid'];
     <meta name="description" content="Online Fest Management System">
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
-    <?php include 'assets/csslink.php'; ?>
+    <?php include '../../admin/assets/csslink.php'; ?>
 </head>
 
 <body class="fix-sidebar">
     <!--header.php includes preloader, top navigarion, logo, user dropdown-->
     <!--div id wrapper in header.php-->
     <!--left-sidebar.php includes mobile search bar, user profile, menu-->
-    <?php include 'assets/header.php';
-	include 'assets/left-sidebar.php';
-	include 'assets/breadcrumbs.php';
+    <?php include '../../admin/assets/header.php';
+	include '../../admin/assets/left-sidebar.php';
+	include '../../admin/assets/breadcrumbs.php';
 	?>
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -49,7 +49,7 @@ $fid=$getidrow['fid'];
                     <!-- /.page title -->
                     <!-- .breadcrumb -->
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                      <a href="../index.php" target="_blank" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Home</a>
+                      <a href="../../index.php" target="_blank" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Home</a>
                       <?php echo breadcrumbs(); ?>
                     </div>
                     <!-- /.breadcrumb -->
@@ -69,7 +69,7 @@ $fid=$getidrow['fid'];
 										</div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                            <a href="logout.php" class="btn btn-danger waves-effect waves-light">Proceed for login</a>
+                                            <a href="../../admin/logout.php" class="btn btn-danger waves-effect waves-light">Proceed for login</a>
                                         </div>
                                     </div>
                                 </div>
@@ -130,13 +130,13 @@ $fid=$getidrow['fid'];
             </div>
             <!-- /.container-fluid -->
             <!--footer.php contains footer-->
-            <?php include'assets/footer.php'; ?>
+            <?php include'../../admin/assets/footer.php'; ?>
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
     <!--jslink has all the JQuery links-->
-    <?php include'assets/jslink.php'; ?>
+    <?php include'../../admin/assets/jslink.php'; ?>
 </body>
 
 </html>

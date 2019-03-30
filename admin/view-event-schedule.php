@@ -91,7 +91,7 @@ $fid=$getidrow['fid'];
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 text-center">
-                                    <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/images2.png" class="img-square img-responsive"> </a>
+                                    <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/users/register-online.png" class="img-square img-responsive"> </a>
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
