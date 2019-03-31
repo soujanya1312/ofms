@@ -38,7 +38,7 @@
 			</li>
 
 			<!---PNB Added Doctors menu --->
-			<li> <a href="view-events.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu"> Register Now! <span class="fa arrow"></span></span></a>
+			<li> <a href="view-events.php" class="waves-effect text-white"><i class="fas fa-user-edit p-r-10"></i><span class="hide-menu"> Register Now! <span class="fa arrow"></span></span></a>
 <!--
 				<ul class="nav nav-second-level">
 					<li> <a href="view-events.php">view events</a> </li>
@@ -47,11 +47,11 @@
 			</li>
 			<!---PNB Added Patient menu --->
 			
-			<li> <a href="view-schedule.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
+			<li> <a href="view-schedule.php" class="waves-effect text-white"><i class="fa fa-calendar-alt p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				
 			</li>
             
-			<li> <a href="view-results.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
+			<li> <a href="view-results.php" class="waves-effect text-white"><i class="fa fa-clipboard-list p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 <!--
 				<ul class="nav nav-second-level">
 					<li> <a href="view-results.php">view results</a> </li>
@@ -60,7 +60,7 @@
 -->
 			</li>
            
-            <li> <a href="../feedback.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback <span class="fa arrow"></span></span></a>
+            <li> <a href="../feedback.php" class="waves-effect text-white"><i class="fa fa-comment-alt p-r-10"></i> <span class="hide-menu">Feedback <span class="fa arrow"></span></span></a>
 				
 			</li>
            
@@ -80,7 +80,7 @@
 				</ul>
 			</li>-->
 		   <!---PNB Added logout menu --->
-			<li><a href="logout.php" class="waves-effect text-white"><i class="fa fa-spin fa-cog"></i> <span class="hide-menu p-l-10">BETA v 1.0</span></a></li>
+			<li><a href="logout.php" class="waves-effect text-white"><i class="fa fa-spin fa-cog"></i> <span class="hide-menu p-l-10"> BETA v 1.0</span></a></li>
 
 		</ul>
 	</div>

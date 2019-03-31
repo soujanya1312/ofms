@@ -38,7 +38,7 @@
 			</li>
 
 			<!---PNB Added Doctors menu --->
-             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Fest Details<span class="fa arrow"></span></span></a>
+             <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-edit p-r-10"></i> <span class="hide-menu">Fest Details<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
                      <li> <a href="edit-fest-details.php">Edit Fest Details</a> </li>
 					<li> <a href="fest-settings.php"> Fest Settings</a> </li>	

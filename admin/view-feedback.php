@@ -96,7 +96,7 @@ $fid=$getidrow['fid'];
                             <div class="row">
 
                                 <div class="col-md-4 col-sm-8 text-center">
-									 <a href="#"> <img src="../plugins/images/users/feedback1.jpg" class="img-square img-responsive"></a>
+									 <a href="#"> <img src="../plugins/images/users/feedback.png" class="img-square img-responsive"></a>
                                 </div>
 
                                       <div class="col-md-8 col-sm-8">

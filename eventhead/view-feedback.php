@@ -88,16 +88,16 @@ $fid=$getfestid['fid'];
 					<div calss="ribon-wrapper">
 						<a href="" data-toggle="tooltip" data-original-title="">
 					  <div class="ribbon ribbon-corner ribbon-right ribbon-info" style="margin-right: 8px">
-						  <i class="fa fa-envelope-o text-white"></i></a>
+<!--						  <i class="fa fa-envelope-o text-white"></i></a>-->
 					  </div>
 					</div>
                         <div class="white-box">
                             <div class="row">
-<!--
+
                                 <div class="col-md-4 col-sm-4 text-center">
-									 <a href="#"> <img src="../plugins/images/sdmlogo.png" class="img-square img-responsive"></a>
+									 <a href="#"> <img src="../plugins/images/users/feedback.png" class="img-square img-responsive"></a>
                                 </div>
--->
+
                                 
                                       <div class="col-md-8 col-sm-8">
                                   

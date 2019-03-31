@@ -160,7 +160,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<div class="card card-inverse">
 							<img id="theImgId" class="card-img" src="../plugins/images/heading-title-bg.jpg" height="70" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
-								<h4 class="card-title text-uppercase">Fest is <?php if($getsetrow['viewfest']==0) echo'NOT'; ?> public and <?php if($getsetrow['startreg']==0) echo'NOT';  ?> open for Registration <?php echo $ausername; ?></h4>
+								<h4 class="card-title text-uppercase">Fest is <?php if($getsetrow['viewfest']==0) echo'NOT'; ?> Public and <?php if($getsetrow['startreg']==0) echo'NOT';  ?> open for Registration</h4>
 								<!-- <p class="card-text">You are logged-in to ADMIN control panel, here are some of the basic information about fest details and some basic functions to perform. </p> -->
 <!--								<p class="card-text"><small class="text-white">~OFMS</small></p>-->
 							</div>

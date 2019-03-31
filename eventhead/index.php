@@ -57,8 +57,6 @@ $wcount=mysqli_num_rows($getwardcount);
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-	<link href="../plugins/css/hover.css" rel="stylesheet" media="all">
 </head>
 
 <body class="fix-sidebar">
@@ -112,7 +110,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>No of Rounds</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-list-alt text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $erounds ?></span></li>
 							</ul>
                         </div>
@@ -121,7 +119,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>Rounds Schedule</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-clock text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
@@ -130,7 +128,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>No of Feedback</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-comment text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
 							</ul>
                         </div>
@@ -140,30 +138,30 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>No of Participants</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-users text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
                     
-                     <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add Event Results" onClick="window.location='result.php'">
+                     <div class="col-md-6 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add Event Results" onClick="window.location='result.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-clipboard-list bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>Add Results</b></h4>
+									<h4><b>Result</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add Event Time" onClick="window.location='add-eventtime.php'">
+                    <div class="col-md-6fa-clipboardfa-clipboard col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Add Event Time" onClick="window.location='add-eventtime.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-calendar-alt bg-black Hoveranimatewrd"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>Add Schedule</b></h4>
+									<h4><b>Schedule</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
@@ -221,22 +219,22 @@ $wcount=mysqli_num_rows($getwardcount);
 				 
 			$('.Hoveranimates').hover(function(){
 				$(".Hoveranimatestaff").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatestaff").removeClass("far fa-envelope").addClass("fa fa-eye");
+				$(".Hoveranimatestaff").removeClass("fa-clipboard-list").addClass("fa-eye");
 			},
 			function(){
 				$(".Hoveranimatestaff").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatestaff").removeClass("fa fa-eye").addClass("far fa-envelope");
+				$(".Hoveranimatestaff").removeClass("fa-eye").addClass("fa-clipboard-list");
 			}
 									
 			)
 					
 			$('.Hoveranimatew').hover(function(){
 				$(".Hoveranimatewrd").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatewrd").removeClass("far fa-file-alt").addClass("fa fa-eye");
+				$(".Hoveranimatewrd").removeClass("fa-calendar-alt").addClass("fa-eye");
 			},
 			function(){
 				$(".Hoveranimatewrd").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatewrd").removeClass("fa fa-eye").addClass("far fa-file-alt");
+				$(".Hoveranimatewrd").removeClass("fa-eye").addClass("fa-calendar-alt");
 			}
 									
 			)

@@ -94,10 +94,10 @@ $fid=$getfestid['fid'];
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <h3 class="box-title m-b-0">
-                                    Round: <?php echo $result["event_round"]; ?>
+                                   <h2> Round: <?php echo $result["event_round"]; ?></h2>
                                     <p calss="p-0">
-										 From: <?php echo $result["t_from"]; ?>  <br>
-										To: <?php echo $result["t_to"]; ?> </h3>
+										 From: <?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?>  <br>
+										To: <?php echo ' '.date('h:i A', strtotime($result['t_to'])); ?> </h3>
                                         
 										
                                     </p>

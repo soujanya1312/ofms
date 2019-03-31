@@ -16,14 +16,14 @@
     <link href="../plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
     <!-- color CSS you can use different color css from css/colors folder -->
     <!-- We have chosen the skin-blue (blue.css) for this starter
-         page. However, you can choose any other skin from folder css / colors .
+         page. However, you can choose any other skin from folder css / colors
          -->
     <link href="../plugins/css/colors/blue-dark.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> -->
+      <!-- [endif] -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link href="../plugins/css/hover.css" rel="stylesheet" media="all">

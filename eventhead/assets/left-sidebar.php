@@ -10,7 +10,7 @@
 				<button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
 				</span>
 				</div>-->
-				<!-- / Search input-group this is only view in mobile-->
+				<!-- Search input-group this is only view in mobile-->
 			</li>
 			<!-- User profihle-->
 			<li class="user-pro">
@@ -30,7 +30,7 @@
 			<!---DNS Added Dashboard menu --->
 			<li> <a href="index.php" class="waves-effect text-white"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Dashboard</span></a> </li>
 
-			<!---DNS Added Staff menu 
+			<!--- DNS Added Staff menu 
 			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-group p-r-10"></i> <span class="hide-menu"> Staffs <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="add-staff.php">Add Staff</a> </li>
@@ -40,7 +40,7 @@
 
 			
 			<!---PNB Added Patient menu --->
-			<li> <a href="view-participants.php" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">View Participants<span class="fa arrow"></span></span></a>
+			<li> <a href="view-participants.php" class="waves-effect text-white"><i class="fa fa-users p-r-10"></i> <span class="hide-menu">View Participants<span class="fa arrow"></span></span></a>
 <!--
 				<ul class="nav nav-second-level">
                     <li> <a href="view-participants.php">view participants</a> </li>
@@ -48,14 +48,14 @@
 				</ul>
 -->
 			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-calendar-alt p-r-10"></i> <span class="hide-menu">Event Schedule<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
                      <li> <a href="add-eventtime.php">Add Schedule</a> </li>
                     <li> <a href="view-eventtime.php">View Schedule</a> </li>     
 				</ul>
 			</li>
             
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
+			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-clipboard-list p-r-10"></i> <span class="hide-menu">Results<span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="result.php">Add Results</a> </li>
 				    <li> <a href="view-results.php">View Results</a> </li>
@@ -63,29 +63,31 @@
 			</li>
          
             
-            <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-id-badge p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
+            <li> <a href="view-feedback.php" class="waves-effect text-white"><i class="fa fa-comment-dots p-r-10"></i> <span class="hide-menu">Feedback<span class="fa arrow"></span></span></a>
+<!--
 				<ul class="nav nav-second-level">
-					<li> <a href="view-feedback.php">View Feedback</a> </li>
+					<li> <a href="">View Feedback</a> </li>
 				  
 				</ul>
+-->
 			</li>
             
-			<!--<li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
-			</li>
-			<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-file-text p-r-10"></i> <span class="hide-menu">INDOX <span class="fa arrow"></span></span></a>
+			<!-- <li> <a href="view-appointments.php" class="waves-effect text-white"><i class="fa fa-calendar-o p-r-10"></i> <span class="hide-menu"> INDOX <span class="fa arrow"></span></a>
+			</li>-->
+			<!-- <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-file-text p-r-10"></i> <span class="hide-menu">INDOX <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="view-ip-bills.php">Send Message</a> </li>
 					<li> <a target="_blank" href="op-invoice.php">Delete Message</a></li>
 				</ul>
 			</li> -->
-		  <!--DNS Added Admin menu-->
-		   <!--<li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Admin <span class="fa arrow"></span></span></a>
+		  <!-- DNS Added Admin menu -->
+		   <!-- <li> <a href="javascript:void(0);" class="waves-effect text-white"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Admin <span class="fa arrow"></span></span></a>
 				<ul class="nav nav-second-level">
 					<li> <a href="add-admin.php">Add Admin</a> </li>
 					<li> <a href="view-admin.php">View Admins</a> </li>
 				</ul>
-			</li>-->
-		   <!---PNB Added logout menu --->
+			</li> -->
+		   <!-- PNB Added logout menu -->
 			<li><a href="logout.php" class="waves-effect text-white"><i class="fa fa-spin fa-cog"></i> <span class="hide-menu p-l-10">BETA v 1.0</span></a></li>
 
 		</ul>

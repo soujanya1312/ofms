@@ -20,6 +20,10 @@ $scount=mysqli_num_rows($getstaffcount);
 
 $getwardcount=mysqli_query($connection,"SELECT * FROM participants WHERE teamcode is NULL && fid='$fid' ");
 $wcount=mysqli_num_rows($getwardcount);
+
+$getsettingsquery="SELECT * FROM admin_settings WHERE fid='$fid'";
+$getsettings=mysqli_query( $connection, $getsettingsquery );
+$getsetrow = mysqli_fetch_assoc( $getsettings );
 ?>
 <!DOCTYPE html>
 <!--
@@ -37,7 +41,6 @@ $wcount=mysqli_num_rows($getwardcount);
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 	<link href="../plugins/css/hover.css" rel="stylesheet" media="all">
 </head>
 
@@ -89,7 +92,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>Colleges Registered</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-registered" style="color: blueviolet"></i></li>
+								<li><i class="fa fa-pen-square" style="color: blueviolet"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
@@ -116,7 +119,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>Confirmed Colleges</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-copyright text-info"></i></li>
+								<li><i class="fa fa-check-square text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
@@ -126,10 +129,10 @@ $wcount=mysqli_num_rows($getwardcount);
                 <!--/row -->
 				<!--row -->
                 <div class="row p-t-10">
-                     <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Add Fest Settings" onClick="window.location='fest-settings.php'">
+                     <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Fest is <?php if($getsetrow['viewfest']==0) echo'NOT'; ?> public and <?php if($getsetrow['startreg']==0) echo'NOT';  ?> open for Registration" onClick="window.location='fest-settings.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="fa fa-id-badge bg-black Hoveranimatedoc"></i>
+                                <i class="fa fa-cog bg-black Hoveranimatedoc"></i>
                                 <div class="bodystate p-l-10 p-t-10">
 									<h4><b>Fest Settings</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
@@ -140,7 +143,7 @@ $wcount=mysqli_num_rows($getwardcount);
                     <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="Add New Event" onClick="window.location='add-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="fa fa-user bg-black Hoveranimatepat"></i>
+                               <i class="fa fa-user bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
 									<h4><b>Event Head</b></h4>
                                     <!--<span class="text-muted" style="font-size: 80%"></span>-->
@@ -152,7 +155,7 @@ $wcount=mysqli_num_rows($getwardcount);
                     <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="View Event Result" onClick="window.location='view-results.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-clipboard-list bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
 									<h4><b>Event Result</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
@@ -161,10 +164,10 @@ $wcount=mysqli_num_rows($getwardcount);
                         </div>
                     </div>
                 
-                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Edit Fest Details" onClick="window.location='edit-fest-details.php'">
+                       <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Edit Fest Details" onClick="window.location='edit-fest-details.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-edit bg-black Hoveranimatewrd"></i>
                                 <div class="bodystate p-t-10">
 									<h4><b>Fest Details</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
@@ -199,44 +202,44 @@ $wcount=mysqli_num_rows($getwardcount);
 		$(document).ready(function(){  
 			$('.Hoveranimated').hover(function(){
 				$(".Hoveranimatedoc").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatedoc").removeClass("ti-id-badge").addClass("fa-plus");
+				$(".Hoveranimatedoc").removeClass("fa-cog").addClass("fa-plus");
 			},
 			function(){
 				$(".Hoveranimatedoc").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatedoc").removeClass("fa-plus").addClass("ti-id-badge");
+				$(".Hoveranimatedoc").removeClass("fa-plus").addClass("fa-cog");
 			}
 									
 			)
 			
 			$('.Hoveranimatep').hover(function(){
 				$(".Hoveranimatepat").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatepat").removeClass("").addClass("fa-plus");
+				$(".Hoveranimatepat").removeClass("fa-user").addClass("fa-plus");
 			},
 			function(){
 				$(".Hoveranimatepat").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatepat").removeClass("fa-plus").addClass("ti-id-badge");
+				$(".Hoveranimatepat").removeClass("fa-plus").addClass("fa-user");
 			}
 									
 			)
 				 
 			$('.Hoveranimates').hover(function(){
 				$(".Hoveranimatestaff").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatestaff").removeClass("ti-id-badge").addClass("fa fa-plus");
+				$(".Hoveranimatestaff").removeClass("fa-clipboard-list").addClass("fa-plus");
 			},
 			function(){
 				$(".Hoveranimatestaff").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatestaff").removeClass("fa fa-plus").addClass("ti-id-badge");
+				$(".Hoveranimatestaff").removeClass("fa-plus").addClass("fa-clipboard-list");
 			}
 									
 			)
 					
 			$('.Hoveranimatew').hover(function(){
 				$(".Hoveranimatewrd").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatewrd").removeClass("fa-bed").addClass("fa-plus");
+				$(".Hoveranimatewrd").removeClass("fa-edit").addClass("fa-plus");
 			},
 			function(){
 				$(".Hoveranimatewrd").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatewrd").removeClass("fa-plus").addClass("fa-bed");
+				$(".Hoveranimatewrd").removeClass("fa-plus").addClass("fa-edit");
 			}
 									
 			)

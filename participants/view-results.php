@@ -108,7 +108,7 @@ $fid=$getfestid['fid'];
                                   <p style="padding-bottom: 1px" >Rounds:<?php echo ' '.$result["erounds"]; ?> </p>  
 									<div class="p-t-5">
 										<?php if($redirect>0) { ?>
-                                        <a href="view-event-result1.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">View Results</a>
+                                        <a href="view-event-result.php?id=<?php echo $result["eid"]; ?>" class="btn btn-info btn-rounded">View Results</a>
 										<?php } else { ?>
 										<button disabled class="btn btn-info btn-rounded">Not Participated</button>
 										<?php } ?>

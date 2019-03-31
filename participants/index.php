@@ -86,14 +86,14 @@ elseif(isset($_SESSION['admin']))
 						</div>
 					</div>
 				</div>
-	
+	        
 				
                 <div class="row">
                     <div class="col-md-3 col-sm-6 hvr-float-shadow Hoveranimatevp" onClick="window.location='index.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Registered</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info Hoveranimatevpt"></i></li>
+                                 <li><i class="fa fa-pen-square" style="color: blueviolet"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
@@ -102,7 +102,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Left Over</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-users text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
@@ -111,38 +111,42 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>Total No Of Events </b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-users text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
 							</ul>
                         </div>
                     </div>
+                    
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location=''">
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Colleges Registered </b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+                              
+                                <li><i class="fa fa-check-square" style="color: blueviolet"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
 							</ul>
                         </div>
                     </div>
-                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="view event results" onClick="window.location='view-results.php'">
+                    </div>
+                    <div class="row p-t-10">
+                      <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="view event results" onClick="window.location='view-results.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-clipboard-list bg-black Hoveranimatedoc"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>Event Results</b></h4>
+									<h4><b>Event Result</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div> 
                      
-                      <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="view events schedule" onClick="window.location='view-schedule.php'">
+                      <div class="col-md-3 col-sm-6 Hoveranimatep hvr-float" data-toggle="tooltip" data-original-title="view events schedule" onClick="window.location='view-schedule.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-calendar-alt bg-black Hoveranimatepat"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>View Schedule</b></h4>
+									<h4><b>Schedule</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
@@ -151,28 +155,28 @@ elseif(isset($_SESSION['admin']))
                        <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="view fest events" onClick="window.location='view-events.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-users bg-black Hoveranimatestaff"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>View Events</b></h4>
+									<h4><b>View Event</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div> 
-                       <div class="col-md-3 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add a feedback" onClick="window.location='feedback.php'">
+                       <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Add a feedback" onClick="window.location='feedback.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
-                                <i class="ti-id-badge bg-black Hoveranimatestaff"></i>
+                                <i class="fa fa-comment-alt  bg-black Hoveranimatewrd"></i>
                                 <div class="bodystate p-t-10">
-									<h4><b>Add Feedback</b></h4>
+									<h4><b>Feedback</b></h4>
                                     <span class="text-muted" style="font-size: 80%"></span>
                                 </div>
                             </div>
                         </div>
                     </div> 
+                    </div>
                      
-                     
-                </div>
+                
                 <!--/row -->
                 
                 <!--DNS End-->
@@ -199,44 +203,44 @@ elseif(isset($_SESSION['admin']))
 		$(document).ready(function(){  
 			$('.Hoveranimated').hover(function(){
 				$(".Hoveranimatedoc").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatedoc").removeClass("fa-calendar-alt").addClass("fa-eye");
+				$(".Hoveranimatedoc").removeClass("fa-clipboard-list").addClass("fa-eye");
 			},
 			function(){
 				$(".Hoveranimatedoc").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatedoc").removeClass("fa-eye").addClass("fa-calendar-alt");
+				$(".Hoveranimatedoc").removeClass("fa-eye").addClass("fa-clipboard-list");
 			}
 									
 			)
 			
 			$('.Hoveranimatep').hover(function(){
 				$(".Hoveranimatepat").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatepat").removeClass("fa-wheelchair").addClass("fa-plus");
+				$(".Hoveranimatepat").removeClass("fa-calendar-alt").addClass("fa-eye");
 			},
 			function(){
 				$(".Hoveranimatepat").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatepat").removeClass("fa-plus").addClass("fa-wheelchair");
+				$(".Hoveranimatepat").removeClass("fa-eye").addClass("fa-calendar-alt");
 			}
 									
 			)
 				 
 			$('.Hoveranimates').hover(function(){
 				$(".Hoveranimatestaff").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatestaff").removeClass("far fa-envelope").addClass("fa fa-eye");
+				$(".Hoveranimatestaff").removeClass("fa-users").addClass("fa-eye");
 			},
 			function(){
 				$(".Hoveranimatestaff").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatestaff").removeClass("fa fa-eye").addClass("far fa-envelope");
+				$(".Hoveranimatestaff").removeClass("fa-eye").addClass("fa-users");
 			}
 									
 			)
 					
 			$('.Hoveranimatew').hover(function(){
 				$(".Hoveranimatewrd").removeClass("bg-black").addClass("bg-success");
-				$(".Hoveranimatewrd").removeClass("far fa-file-alt").addClass("fa fa-eye");
+				$(".Hoveranimatewrd").removeClass("fa-comment-alt").addClass("fa-eye");
 			},
 			function(){
 				$(".Hoveranimatewrd").removeClass("bg-success").addClass("bg-black");
-				$(".Hoveranimatewrd").removeClass("fa fa-eye").addClass("far fa-file-alt");
+				$(".Hoveranimatewrd").removeClass("fa-eye").addClass("fa-comment-alt");
 			}
 									
 			)
