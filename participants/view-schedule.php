@@ -135,7 +135,7 @@ $getsetrow = mysqli_fetch_assoc( $getsettings );
 					}
 				  ?>
                 </div>
-                <?php }?>
+                <?php } ?>
                 <!--/row -->
 
                 <!--DNS End-->

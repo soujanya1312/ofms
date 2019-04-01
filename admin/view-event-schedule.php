@@ -95,10 +95,10 @@ $fid=$getidrow['fid'];
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
-                                    <small>Round: <?php echo $result["event_round"]; ?></small>
+                                    <strong>Round: <?php echo $result["event_round"]; ?></strong>
                                     <p calss="p-0">
-										<small> From:<?php echo $result["t_from"]; ?></small>  <br>
-										<small> To: <?php echo $result["t_to"]; ?> </small>
+										<strong> From: <?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?></strong>  <br>
+										<strong> To: <?php echo ' '.date('h:i A', strtotime($result['t_to'])); ?></strong>
                                         
 										
                                     </p>

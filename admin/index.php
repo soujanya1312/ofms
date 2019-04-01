@@ -24,6 +24,9 @@ $wcount=mysqli_num_rows($getwardcount);
 $getsettingsquery="SELECT * FROM admin_settings WHERE fid='$fid'";
 $getsettings=mysqli_query( $connection, $getsettingsquery );
 $getsetrow = mysqli_fetch_assoc( $getsettings );
+
+$getfestdetails = mysqli_query( $connection,"SELECT * FROM fests WHERE fid='$fid'");
+$getfestrow = mysqli_fetch_assoc( $getfestdetails );
 ?>
 <!DOCTYPE html>
 <!--
@@ -79,8 +82,10 @@ $getsetrow = mysqli_fetch_assoc( $getsettings );
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
 								<h4 class="card-title text-uppercase">WELCOME <?php echo $ausername; ?></h4>
-								<p class="card-text">You are logged-in to ADMIN control panel, here are some of the basic information about fest details and some basic functions to perform. </p>
-								<p class="card-text"><small class="text-white">~OFMS</small></p>
+								<p class="card-text">You are logged-in to ADMIN control panel </p>
+				<!--<p class="card-text"><small class="text-white">~OFMS</small></p>-->
+                                <?php if($getfestrow['rules']==NULL || $getfestrow['regfees']==NULL) { ?>
+                                <p id="wText" class="card-text text-warning"><i class="fa fa-info-circle"></i><b><?php echo' Fest Rules and Fee is not Updated'; ?> </b></p> <?php } ?>
 							</div>
 						</div>
 					</div>
@@ -101,7 +106,7 @@ $getsetrow = mysqli_fetch_assoc( $getsettings );
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Events</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-id-badge text-info"></i></li>
+								<li><i class="fa fa-users text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
@@ -110,7 +115,7 @@ $getsetrow = mysqli_fetch_assoc( $getsettings );
                         <div class="white-box">
 							<h3 class="box-title"><b>No Of Feedback </b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-comment-alt" style="color: blueviolet"></i></li>
+								<li><i class="fa fa-comment-dots" style="color: blueviolet"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
 							</ul>
                         </div>

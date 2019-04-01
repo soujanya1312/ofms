@@ -17,7 +17,10 @@ if(isset($_POST['updatesettings']))
 {
 	$visible=$_POST['visiblity'];
 	$reg=$_POST['regset'];
-	$endate=$_POST['enddate'];
+    if(isset($_POST['enddate']))
+	    $endate=$_POST['enddate'];
+    else
+        $endate='0';
 	$schedule=$_POST['schedule'];
 	
 	$query="UPDATE `admin_settings` SET viewfest='$visible' ,startreg='$reg',stopdate='$endate',schedule='$schedule' WHERE fid='$fid'";

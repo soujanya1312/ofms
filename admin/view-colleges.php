@@ -127,8 +127,8 @@ if(isset($_POST['AttendedBtn']))
                                     <h3 class="box-title m-b-0"><?php echo $getapointresult["pclgname"]; ?></h3> <!--<small><?php // echo $getapointresult["gender"]; ?></small>-->
                                     <p class="p-0">
 										<a href="mailto:<?php echo $getapointresult["pemail"]; ?>"> <?php  echo $getapointresult["pemail"]; ?> </a> <br> 
-										<i class="fa fa-user-md"></i><?php echo $getapointresult["pusername"]; ?> <br>
-										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
+										<i class="fa fa-user"></i> <?php echo $getapointresult["pusername"]; ?> <br>
+										<i class="fa fa-phone-volume"></i> <?php echo ' '.$getapointresult["pmob"]; ?> <br>
 										
 										<a href="confirm-colleges.php?id=<?php echo $getapointresult["pid"]; ?>" class="fcbtn btn btn-info bootpopup" >Confirm/Cancel</a>
 										<!--<a href="#" class="fcbtn btn btn-danger model_img deleteDoctor" data-id="<?php // echo $result["doc_id"]; ?>" id="deleteDoc">Delete</a>-->
@@ -167,8 +167,8 @@ if(isset($_POST['AttendedBtn']))
                                     <p class="p-0">
 										<a href="mailto:<?php  echo $getapointresult["pemail"]; ?>"> <?php echo $getapointresult["pemail"]; ?> </a> <br> 
 								
-										<i class="fa fa-user-md"></i><?php echo$getapointresult["pusername"]; ?> <br>
-										<i class="fa fa-phone"></i><?php echo ' '.$getapointresult["pmob"]; ?> <br>
+										<i class="fa fa-user"></i> <?php echo$getapointresult["pusername"]; ?> <br>
+										<i class="fa fa-phone-voume"></i> <?php echo ' '.$getapointresult["pmob"]; ?> <br>
 		
                                     </p>
 									<!--change the confirmation message

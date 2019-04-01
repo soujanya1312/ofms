@@ -34,8 +34,8 @@ $pid= $row2["pid"];
 $getdoccount=mysqli_query($connection,"SELECT * FROM event_time WHERE eventid='$eid'");
 $dcount=mysqli_num_rows($getdoccount);
 
-//$getstaffcount=mysqli_query($connection,"SELECT * FROM feedback WHERE fid='$fid'");
-//$scount=mysqli_num_rows($getstaffcount);
+$getstaffcount=mysqli_query($connection,"SELECT * FROM feedback WHERE fid='$fid'");
+$scount=mysqli_num_rows($getstaffcount);
 
 $getwardcount=mysqli_query($connection,"SELECT * FROM events WHERE fid='$fid' ");
 $wcount=mysqli_num_rows($getwardcount);
@@ -117,7 +117,7 @@ $wcount=mysqli_num_rows($getwardcount);
                     </div>
                     <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-eventtime.php'">
                         <div class="white-box">
-							<h3 class="box-title"><b>Rounds Schedule</b></h3>
+							<h3 class="box-title"><b>Rounds Scheduled</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-clock text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
@@ -128,7 +128,7 @@ $wcount=mysqli_num_rows($getwardcount);
                         <div class="white-box">
 							<h3 class="box-title"><b>No of Feedback</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-comment text-info"></i></li>
+								<li><i class="fa fa-comment-dots text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $scount ?></span></li>
 							</ul>
                         </div>
@@ -143,7 +143,9 @@ $wcount=mysqli_num_rows($getwardcount);
 							</ul>
                         </div>
                     </div>
-                    
+                </div>
+                
+                 <div class="row p-t-10">
                      <div class="col-md-6 col-sm-6 Hoveranimates hvr-float" data-toggle="tooltip" data-original-title="Add Event Results" onClick="window.location='result.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">

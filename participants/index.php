@@ -9,18 +9,23 @@ elseif(isset($_SESSION['admin']))
 {
 	$ausername=$_SESSION['admin'];
 }
+$getidquery="SELECT *, fests.fid FROM participants JOIN fests ON participants.fid=fests.fid WHERE pusername='$ausername'";
+$getidresult = mysqli_query($connection, $getidquery);
+$getidrow = mysqli_fetch_assoc($getidresult);
+$fid=$getidrow['fid'];
+$pid=$getidrow['pid'];
 
-//$geteventcount=mysqli_query($connection,"SELECT * FROM patients WHERE dod IS NULL");
-//$pcount=mysqli_num_rows($getpatientcount);
+$geteventcount=mysqli_query($connection,"SELECT DISTINCT eid FROM eventparticipants JOIN participants ON eventparticipants.pid=participants.pid WHERE eventparticipants.pid='$pid' AND participants.fid='$fid'");
+$pcount=mysqli_num_rows($geteventcount);
 
-//$getdoccount=mysqli_query($connection,"SELECT * FROM doctors");
-//$dcount=mysqli_num_rows($getdoccount);
+$getdoccount=mysqli_query($connection,"SELECT eid FROM events WHERE events.eid NOT IN (SELECT DISTINCT eid FROM eventparticipants JOIN participants ON eventparticipants.pid=participants.pid WHERE eventparticipants.pid='$pid' AND participants.fid='$fid')");
+$dcount=mysqli_num_rows($getdoccount);
 
-//$getstaffcount=mysqli_query($connection,"SELECT * FROM staffs");
-//$scount=mysqli_num_rows($getstaffcount);
+$getstaffcount=mysqli_query($connection,"SELECT * FROM events WHERE fid='$fid'");
+$scount=mysqli_num_rows($getstaffcount);
 
-//$getwardcount=mysqli_query($connection,"SELECT * FROM wards WHERE status='0'");
-//$wcount=mysqli_num_rows($getwardcount);
+$getwardcount=mysqli_query($connection,"SELECT * FROM participants WHERE teamcode IS NOT NULL && fid='$fid'");
+$wcount=mysqli_num_rows($getwardcount);
 
 //$countapoint=mysqli_query($connection,"SELECT * FROM appointments JOIN doctors ON appointments.doc_id = doctors.doc_id  WHERE (status='In Process') AND (doctors.username='$ausername')");
 //$acount=mysqli_num_rows($countapoint);
@@ -93,7 +98,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Registered</b></h3>
 							<ul class="list-inline two-part">
-                                 <li><i class="fa fa-pen-square" style="color: blueviolet"></i></li>
+                                 <li><i class="fa fa-clipboard-list " style="color: blueviolet"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $pcount ?></span></li>
 							</ul>
                         </div>
@@ -102,7 +107,7 @@ elseif(isset($_SESSION['admin']))
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Left Over</b></h3>
 							<ul class="list-inline two-part">
-								<li><i class="fa fa-users text-info"></i></li>
+								<li><i class="fa fa-pen-square text-info"></i></li>
 								<li class="text-right"><span class="counter"><?php echo $dcount ?></span></li>
 							</ul>
                         </div>
