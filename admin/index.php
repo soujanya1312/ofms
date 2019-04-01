@@ -27,6 +27,7 @@ $getsetrow = mysqli_fetch_assoc( $getsettings );
 
 $getfestdetails = mysqli_query( $connection,"SELECT * FROM fests WHERE fid='$fid'");
 $getfestrow = mysqli_fetch_assoc( $getfestdetails );
+
 ?>
 <!DOCTYPE html>
 <!--
