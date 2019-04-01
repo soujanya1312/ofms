@@ -27,6 +27,10 @@ $getsetrow = mysqli_fetch_assoc( $getsettings );
 
 $getfestdetails = mysqli_query( $connection,"SELECT * FROM fests WHERE fid='$fid'");
 $getfestrow = mysqli_fetch_assoc( $getfestdetails );
+$dateb=$getfestrow['fdate'];
+$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+$dobc = $myDateTime->format('F j, Y'); 
+$datefest = $myDateTime->format('d-m-Y');
 
 ?>
 <!DOCTYPE html>
@@ -46,6 +50,36 @@ $getfestrow = mysqli_fetch_assoc( $getfestdetails );
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
 	<link href="../plugins/css/hover.css" rel="stylesheet" media="all">
+	<script>
+	// Set the date we're counting down to
+	var countDownDate = new Date("<?php echo $dobc ?>").getTime();
+
+	// Update the count down every 1 second
+	var x = setInterval(function() {
+
+	  // Get todays date and time
+	  var now = new Date().getTime();
+
+	  // Find the distance between now and the count down date
+	  var distance = countDownDate - now;
+
+	  // Time calculations for days, hours, minutes and seconds
+	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	  // Output the result in an element with id="demo"
+	  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+	  + minutes + "m " + seconds + "s ";
+
+	  // If the count down is over, write some text 
+	  if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("demo").innerHTML = "Started";
+	  }
+	}, 1000);
+</script>
 </head>
 
 <body class="fix-sidebar">
@@ -83,7 +117,9 @@ $getfestrow = mysqli_fetch_assoc( $getfestdetails );
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
 								<h4 class="card-title text-uppercase">WELCOME <?php echo $ausername; ?></h4>
-								<p class="card-text">You are logged-in to ADMIN control panel </p>
+								<p class="card-text" style=" float: left;">You are logged-in to ADMIN control panel </p><p class="card-text text-warning"><i style="padding-left: 10px" class="fa fa-calendar-alt"></i><?php echo ' '.$datefest; if($getfestrow['fnodays']>=2){ echo ' to '.$getfestrow['ftodate']; } ?></p>
+								<p style="font-size: 16px; float: left; padding-right: 10px" class="card-text text-blue">Days Left </p>
+								<p id="demo" style="font-size: 16px" class="card-text text-blue"></p>
 				<!--<p class="card-text"><small class="text-white">~OFMS</small></p>-->
                                 <?php if($getfestrow['rules']==NULL || $getfestrow['regfees']==NULL) { ?>
                                 <p id="wText" class="card-text text-warning"><i class="fa fa-info-circle"></i><b><?php echo' Fest Rules and Fee is not Updated'; ?> </b></p> <?php } ?>
@@ -99,7 +135,7 @@ $getfestrow = mysqli_fetch_assoc( $getfestdetails );
 							<h3 class="box-title"><b>Colleges Registered</b></h3>
 							<ul class="list-inline two-part">
 								<li><i class="fa fa-pen-square" style="color: blueviolet"></i></li>
-								<li class="text-right"><span class="counter"><?php echo $wcount ?></span></li>
+								<li class="text-right"><span class="counter"><?php echo $wcount; ?></span></li>
 							</ul>
                         </div>
                     </div>

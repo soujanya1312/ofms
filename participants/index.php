@@ -27,8 +27,29 @@ $scount=mysqli_num_rows($getstaffcount);
 $getwardcount=mysqli_query($connection,"SELECT * FROM participants WHERE teamcode IS NOT NULL && fid='$fid'");
 $wcount=mysqli_num_rows($getwardcount);
 
-//$countapoint=mysqli_query($connection,"SELECT * FROM appointments JOIN doctors ON appointments.doc_id = doctors.doc_id  WHERE (status='In Process') AND (doctors.username='$ausername')");
-//$acount=mysqli_num_rows($countapoint);
+$getsettingsquery="SELECT * FROM admin_settings WHERE fid='$fid'";
+$getsettings=mysqli_query( $connection, $getsettingsquery );
+$getsetrow = mysqli_fetch_assoc( $getsettings );
+
+$getfestdetails = mysqli_query( $connection,"SELECT * FROM fests WHERE fid='$fid'");
+$getfestrow = mysqli_fetch_assoc( $getfestdetails );
+
+if($getsetrow['stopdate']!='0')
+{
+	$dateb=$getsetrow['stopdate'];
+	$myDateTime = DateTime::createFromFormat('d-m-Y', $dateb);
+	$dobc=$myDateTime->format('F j, Y');
+}
+else
+{
+	$dateb=$getfestrow['fdate'];
+	$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+	$dobc = $myDateTime->format('F j, Y'); 
+}
+$datec=$getfestrow['fdate'];
+$myDateTimee = DateTime::createFromFormat('Y-m-d', $datec);
+$datestart = $myDateTimee->format('d-m-Y'); 
+//$datefest = $myDateTime->format('d-m-Y');
 ?>
 <!DOCTYPE html>
 <!--
@@ -46,7 +67,36 @@ $wcount=mysqli_num_rows($getwardcount);
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
-	
+	<script>
+	// Set the date we're counting down to
+	var countDownDate = new Date("<?php echo $dobc ?>").getTime();
+
+	// Update the count down every 1 second
+	var x = setInterval(function() {
+
+	  // Get todays date and time
+	  var now = new Date().getTime();
+
+	  // Find the distance between now and the count down date
+	  var distance = countDownDate - now;
+
+	  // Time calculations for days, hours, minutes and seconds
+	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	  // Output the result in an element with id="demo"
+	  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+	  + minutes + "m " + seconds + "s ";
+
+	  // If the count down is over, write some text 
+	  if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("demo").innerHTML = "Started";
+	  }
+	}, 1000);
+</script>
 </head>
 
 <body class="fix-sidebar">
@@ -84,9 +134,10 @@ $wcount=mysqli_num_rows($getwardcount);
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
 								<h4 class="card-title text-uppercase">WELCOME <?php echo $ausername; ?></h4>
-								<p class="card-text" id="cText">You are logged-in to Participants control panel, here are some of the basic information about fest and some basic functions to perform. </p>
-							<!--<p id="wText" class="card-text text-warning"><i class="fa fa-info-circle"></i><b> THERE ARE <?php echo mysqli_num_rows($resultcountmsg); ?> UNREAD MESSAGES AND  <?php echo $acount; ?> UNSCHEDULED APPOINTMENTS. </b></p>-->
-								<!--<p class="card-text"><small class="text-white">~AlphaCare</small></p>-->
+								<p class="card-text" style=" float: left;">You are logged-in to PARTICIPENTS control panel </p><p class="card-text text-blue"><i style="padding-left: 10px" class="fa fa-calendar-alt"></i><?php echo ' '.$datestart; if($getfestrow['fnodays']>=2){ echo ' to '.$getfestrow['ftodate']; } ?></p>
+								<p style="font-size: 16px; float: left; padding-right: 10px" class="card-text text-warning"><?php if($getsetrow['stopdate']!='0') echo 'Days Left to Register :'; else echo 'Days left for Fest :'; ?> </p>
+								<p id="demo" style="font-size: 16px" class="card-text text-warning"></p>
+				<!--<p class="card-text"><small class="text-white">~OFMS</small></p>-->
 							</div>
 						</div>
 					</div>
