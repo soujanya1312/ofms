@@ -4,11 +4,17 @@ if(isset($_GET['id']))
 {
     $id = $_GET['id'];
 }
+$getsettingsquery="SELECT * FROM admin_settings WHERE fid='$id'";
+$getsettings=mysqli_query( $connection, $getsettingsquery );
+$getsetrow = mysqli_fetch_assoc( $getsettings );
+if(!isset($_GET['id']) || $getsetrow['startreg']=='0' || $getsetrow['startreg']=='2' || $getsetrow['viewfest']=='0' )
+{
+		   
+		   echo'<script> window.location="../admin/403.php";</script>';
+           //$id=$_POST['fest'];
+}
  if(isset($_POST['pregister']))
     {
-       if(!isset($_GET['id'])){
-           $id=$_POST['fest'];
-       }
         $pname=mysqli_real_escape_string($connection,$_POST['pusername']);
         $cmob=mysqli_real_escape_string($connection,$_POST['pmob']);
         $cemail=mysqli_real_escape_string($connection,$_POST['pemail']);

@@ -171,7 +171,7 @@ $datefest = $myDateTime->format('d-m-Y');
                 <!--/row -->
 				<!--row -->
                 <div class="row p-t-10">
-                     <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Fest is <?php if($getsetrow['viewfest']==0) echo'NOT'; ?> public and <?php if($getsetrow['startreg']==0) echo'NOT';  ?> open for Registration" onClick="window.location='fest-settings.php'">
+                     <div class="col-md-3 col-sm-6 Hoveranimated hvr-float" data-toggle="tooltip" data-original-title="Fest is <?php if($getsetrow['viewfest']==0) echo'NOT'; ?> public and <?php if($getsetrow['startreg']==0 || $getsetrow['startreg']=='2') echo'NOT';  ?> open for Registration" onClick="window.location='fest-settings.php'">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-cog bg-black Hoveranimatedoc"></i>

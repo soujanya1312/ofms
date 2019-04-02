@@ -1,6 +1,32 @@
 <?php
+require('admin/connect.php');
 date_default_timezone_set('Asia/Kolkata');
 $date=date("Y-m-d");
+$date2=date("d-m-Y");
+$getallfest=mysqli_query($connection, "SELECT * FROM fests");
+//$getfestresult=mysqli_fetch_assoc($getallfest);
+foreach($getallfest as $key=>$getallfest)
+{
+	$festdate=$getallfest['fdate'];
+	$festid=$getallfest['fid'];
+	$getsettings=mysqli_query($connection,"SELECT * FROM admin_settings WHERE fid='$festid'");
+	$getsettingsrow=mysqli_fetch_assoc($getsettings);
+	if(!$getsettingsrow['stopdate']=='0')
+	{
+	$enddate=$getsettingsrow['stopdate'];
+	if($enddate <= $date2)
+	{
+		//echo 'yo shit';
+		$setupdatequery=mysqli_query($connection,"UPDATE admin_settings SET startreg='2' WHERE fid='$festid'");
+	}
+	}
+	if($festdate <= $date)
+	{
+		//echo 'fest due bro';
+		$setupdatequery=mysqli_query($connection,"UPDATE admin_settings SET startreg='2' WHERE fid='$festid'");
+	}
+	//echo $getallfest['fid'].' ';
+}
 ?>
 <!doctype html>
 <html>
@@ -280,7 +306,7 @@ $date=date("Y-m-d");
         <div class="row">
             <?php 
             require("admin/connect.php");
-            $getfestquery="SELECT * FROM fests WHERE fdate>'$date' ORDER BY fdate";
+            $getfestquery="SELECT * FROM fests WHERE fdate>='$date' OR ftodate='$date2' ORDER BY fdate";
             $getfestresult=mysqli_query($connection,$getfestquery); while($getfests=mysqli_fetch_assoc($getfestresult))
 			{  
 				$fid=$getfests['fid'];
@@ -289,7 +315,7 @@ $date=date("Y-m-d");
 				$getsetrow = mysqli_fetch_assoc( $getsettings );
 				if($getsetrow['viewfest']==1){
             ?>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-4" style="height: 390px; max-height: 390px; display: inline-block;">
                 <div class="domain-box d-color1">
                     <div class="title" style="font-size: -3;">FEST<!--<img src="lp-plugins/images/service-icon1.svg" alt="">--></div>
                     <div class="pricing-title"><?php echo $getfests['fname'] ?></div>

@@ -1,6 +1,35 @@
 <?php
 session_start();
 require('connect.php');
+//dynamic end date start
+date_default_timezone_set('Asia/Kolkata');
+$date=date("Y-m-d");
+$date2=date("d-m-Y");
+$getallfest=mysqli_query($connection, "SELECT * FROM fests");
+//$getfestresult=mysqli_fetch_assoc($getallfest);
+foreach($getallfest as $key=>$getallfest)
+{
+	$festdate=$getallfest['fdate'];
+	$festid=$getallfest['fid'];
+	$getsettings=mysqli_query($connection,"SELECT * FROM admin_settings WHERE fid='$festid'");
+	$getsettingsrow=mysqli_fetch_assoc($getsettings);
+	if(!$getsettingsrow['stopdate']=='0')
+	{
+	$enddate=$getsettingsrow['stopdate'];
+	if($enddate <= $date2)
+	{
+		//echo 'yo shit';
+		$setupdatequery=mysqli_query($connection,"UPDATE admin_settings SET startreg='2' WHERE fid='$festid'");
+	}
+	}
+	if($festdate <= $date)
+	{
+		//echo 'fest due bro';
+		$setupdatequery=mysqli_query($connection,"UPDATE admin_settings SET startreg='2' WHERE fid='$festid'");
+	}
+	//echo $getallfest['fid'].' ';
+}
+//dynamic end date end
 if (isset($_POST['username']) && isset($_POST['password']))
 	{
 		// real eacape sting is used to prevent sql injection hacking

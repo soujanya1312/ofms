@@ -3,19 +3,20 @@ require('admin/connect.php');
 $id=$_GET['id'];
 date_default_timezone_set('Asia/Kolkata');
 $date = date("Y-m-d");
+$date2 = date("d-m-Y");
 $getpidquery="SELECT * from fests WHERE fid='$id'";
 $getpidres=mysqli_query($connection, $getpidquery);
 $row = mysqli_fetch_assoc($getpidres);
 
-$date=date("Y-m-d");
-if($row['fdate']<$date)
-{
-	echo'<script> window.location="admin/403.php";</script>';
-}
 $getsettingsquery="SELECT * FROM admin_settings WHERE fid='$id'";
 $getsettings=mysqli_query( $connection, $getsettingsquery );
 $getsetrow = mysqli_fetch_assoc( $getsettings );
+
 $date=date("Y-m-d");
+if($row['fdate']<$date || $getsetrow['viewfest']=='0')
+{
+	echo'<script> window.location="admin/403.php";</script>';
+}
 
 ?>
 <!doctype html>
@@ -335,18 +336,18 @@ $date=date("Y-m-d");
         <div class="row">
             <div class="col-sm-12 col-md-6">
             
-                <?php if($getsetrow['startreg']==0) { ?>
+                <?php if($getsetrow['startreg']=='0') { ?>
                 <div class="text-other-color1">Registraion is not open</div> 
                 <div class="text-other-color2">Please follow back soon! </div>     
              
                 <?php }?>
-                <?php if($getsetrow['startreg']==1){ ?>
+                <?php if($getsetrow['startreg']=='1'){ ?>
                 <div class="text-other-color1">Are you ready?</div>
                 <div class="text-other-color2">create an account to participate for <?php echo $row['fname'] ?>.</div>
             <?php } ?>
-               <?php  if($getsetrow['stopdate']>$date){ ?>
-                <div class="text-other-color1">"Registraion is closed"</div>
-                     echo'<script> window.location="admin/403.php";</script>';
+               <?php  if($getsetrow['startreg']=='2'){ ?>
+                <div class="text-other-color1">You are too late!</div>
+				<div class="text-other-color2">Registration is closed.</div>
               <?php }?>
 
             </div>
@@ -354,7 +355,7 @@ $date=date("Y-m-d");
             <div class="col-sm-12 col-md-6">
                 <div class="buttons-holder">
                     
-                    <?php if($getsetrow['startreg']==1){ ?>
+                    <?php if($getsetrow['startreg']=='1'){ ?>
                     <a href="login/add-participants.php?id=<?php echo $row['fid'] ?>" class="ybtn ybtn-accent-color">Register Now!</a>
                     <?php if(isset($row['regfees']) && $row['regfees']!=0.00 ) { ?>
                     <a href="javascript:void(0)" class="ybtn ybtn-white ybtn-shadow">Reg Fees: <i class="fa fa-rupee-sign"></i><?php echo $row['regfees'] ?></a> <?php } }  ?>

@@ -163,7 +163,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<div class="card card-inverse">
 							<img id="theImgId" class="card-img" src="../plugins/images/heading-title-bg.jpg" height="70" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
-								<h4 class="card-title text-uppercase">Fest is <?php if($getsetrow['viewfest']==0) echo'NOT'; ?> Public and <?php if($getsetrow['startreg']==0) echo'NOT';  ?> open for Registration</h4>
+								<h4 class="card-title text-uppercase">Fest is <?php if($getsetrow['viewfest']==0) echo'NOT'; ?> Public and <?php if($getsetrow['startreg']=='0' || $getsetrow['startreg']=='2') echo'NOT';  ?> open for Registration</h4>
 								<!-- <p class="card-text">You are logged-in to ADMIN control panel, here are some of the basic information about fest details and some basic functions to perform. </p> -->
 <!--								<p class="card-text"><small class="text-white">~OFMS</small></p>-->
 							</div>
@@ -192,7 +192,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 												<select id="selectdate" onChange="exect(this.value)" class="form-control" name="regset" required>
                                                     <!-- <option selected hidden><?php //if($getsetrow['startreg']==0) echo'Registration is stopped'; else echo 'Registration is started'; ?> </option> -->
 													<option <?php if($getsetrow['startreg']=='1') echo 'selected'; ?> value="1">Start Registration</option>
-													<option <?php if($getsetrow['startreg']=='0') echo 'selected'; ?> value="0">Stop Registration</option>
+													<option <?php if($getsetrow['startreg']=='0') echo 'selected'; ?> value="0">Stop Registration ( Not open for registration )</option>
+													<option <?php if($getsetrow['startreg']=='2') echo 'selected'; ?> value="2">Registration Time out</option>
 												</select>
 												<!--</div> -->
 											</div>
@@ -207,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 													$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
 													$dobc = $myDateTime->format('d-m-Y');  echo $dobc; ?>">
 														
-														<input <?php if($getsetrow['startreg']==0) echo 'disabled'; ?> onChange="checkDate()" onKeyUp="checkDate()" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="enddate" value="<?php if(!$getsetrow['stopdate']==0){ echo $getsetrow['stopdate']; } ?>" placeholder="dd-mm-yyyy">
+														<input <?php if($getsetrow['startreg']=='0' || $getsetrow['startreg']=='2') echo 'disabled'; ?> onChange="checkDate()" onKeyUp="checkDate()" data-date-format="dd-mm-yyyy" type="text" class="form-control" data-mask="99-99-9999" id="datepicker" name="enddate" value="<?php if(!$getsetrow['stopdate']=='0' || $getsetrow['startreg']=='2'){ echo $getsetrow['stopdate']; } ?>" placeholder="dd-mm-yyyy">
 													</div>
 													<div id="datewarn"></div>
 													<!--<span class="font-13 text-muted">dd-mm-yyyy</span>-->
@@ -288,6 +289,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					unhide();
 					break;
 				case '0':
+					datehide();
+					break;
+				case '2':
 					datehide();
 					break;
 			}
