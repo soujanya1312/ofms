@@ -114,7 +114,7 @@ $datefest = $myDateTime->format('d-m-Y');
 				<div class="row p-b-10">
 					<div class="col-md-12 col-sm-10 hvr-wobble-horizontal">
 						<div class="card card-inverse">
-							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
+							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="140" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
 								<h4 class="card-title text-uppercase">WELCOME <?php echo $ausername; ?></h4>
 								<p class="card-text" style=" float: left;">You are logged-in to ADMIN control panel </p><p class="card-text text-warning"><i style="padding-left: 10px" class="fa fa-calendar-alt"></i><?php echo ' '.$datefest; if($getfestrow['fnodays']>=2){ echo ' to '.$getfestrow['ftodate']; } ?></p>

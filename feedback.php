@@ -101,13 +101,13 @@ if(isset($_POST['fbsubmit'])){
                             </div>
                         </div> -->
                         <div class="form-text">
-                            <input type="text" name="name" placeholder="Name" required>
+                            <input type="text" name="name" placeholder="Name" autocomplete="off" required>
                         </div>
                         <div class="form-text">
-                            <input type="text" name="email" placeholder="E-mail Address" required>
+                            <input type="text" name="email" placeholder="E-mail Address" autocomplete="off"  required>
                         </div>
                         <div class="form-text">
-                            <input type="text" name="mob" placeholder="Mobile number" required>
+                            <input type="text" name="mob" placeholder="Mobile number" autocomplete="off"  required>
                         </div>
                         <?php if(!isset($_GET['id'])) { ?>
                         <div class="form-text">
@@ -124,11 +124,11 @@ if(isset($_POST['fbsubmit'])){
                         <?php if(isset($_GET['id'])) { 
                          $getfestquery="SELECT * FROM fests WERE fid='$id'";                                $getfestresult=mysqli_query($connection,$getfestquery); $getfests=mysqli_fetch_assoc($getfestresult); ?>
                         <div class="form-text">
-                            <input disabled type="text" value="<?php echo $getfests['fname'] ?>" name="fest" placeholder="Mobile number" required>
+                            <input disabled type="text" value="<?php echo $getfests['fname'] ?>" name="fest" placeholder="Mobile number" autocomplete="off" required>
                         </div>
                         <?php } ?>
                         <div class="form-text">
-                            <textarea name="fb" placeholder="Enter your feedback"></textarea>
+                            <textarea name="fb" placeholder="Enter your feedback" required></textarea>
                         </div>
 <!--
                         <div class="form-text">

@@ -9,7 +9,7 @@ require('connect.php');
     //$ausername=($_SESSION['admin']);
 //}
 
-$query="SELECT eid,ename,edesc,erounds,participants,hname,addname,hmob,hemail FROM events WHERE husername='$ausername'";
+$query="SELECT eid,ename,edesc,erounds,participants,hname,addname,hmob,hemail,hpassword FROM events WHERE husername='$ausername'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 $id=$row['eid'];

@@ -1,5 +1,5 @@
 <?php   
-require("admin/connect.php");
+require("../../admin/connect.php");
 if(isset($_GET['id']))
 {
     $id = $_GET['id'];
@@ -36,7 +36,7 @@ if(isset($_POST['f_email']) || isset($_POST['f_mob']) && isset($_POST['fmsg']))
             $port           = 587; // For example, 465
 
     //proceed with PHP email.
-    include("login/php/PHPMailerAutoload.php"); //you have to upload class files "class.phpmailer.php" and "class.smtp.php"
+    include("../php/PHPMailerAutoload.php"); //you have to upload class files "class.phpmailer.php" and "class.smtp.php"
  
     $mail = new PHPMailer();
      
@@ -119,14 +119,14 @@ if(isset($_POST['f_email']) || isset($_POST['f_mob']) && isset($_POST['fmsg']))
     <meta name="author" content="Soujanya M">
     <title>OFMS</title>
     <!-- Bootstrap Core CSS -->
-    <link href="plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+    <link href="../../plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
     <!-- animation CSS -->
-    <link href="plugins/css/animate.css" rel="stylesheet">
+    <link href="../../plugins/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="plugins/css/style.css" rel="stylesheet">
+    <link href="../../plugins/css/style.css" rel="stylesheet">
     <!-- color CSS -->
-    <link href="plugins/css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="../../plugins/css/colors/blue.css" id="theme" rel="stylesheet">
 	<!--end-->
 </head>
 
@@ -196,7 +196,7 @@ if(isset($_POST['f_email']) || isset($_POST['f_mob']) && isset($_POST['fmsg']))
                     </div>
 					<div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
-                            <a href="admin/index.php"><button class="btn btn-danger btn-lg btn-block text-uppercase waves-effect waves-light" >Back</button></a>   
+                            <a href="../../admin/index.php"><button class="btn btn-danger btn-lg btn-block text-uppercase waves-effect waves-light" >Back</button></a>   
                         </div>
                     </div>
 
@@ -206,21 +206,21 @@ if(isset($_POST['f_email']) || isset($_POST['f_mob']) && isset($_POST['fmsg']))
         </div>
     </section>
     <!-- jQuery -->
-    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="plugins/bootstrap/dist/js/tether.min.js"></script>
-    <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <script src="../../plugins/bootstrap/dist/js/tether.min.js"></script>
+    <script src="../../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
     <!-- Menu Plugin JavaScript -->
-    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <script src="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
-    <script src="plugins/js/jquery.slimscroll.js"></script>
+    <script src="../../plugins/js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
-    <script src="plugins/js/waves.js"></script>
+    <script src="../../plugins/js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="plugins/js/custom.min.js"></script>
+    <script src="../../plugins/js/custom.min.js"></script>
     <!--Style Switcher -->
-    <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="../../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 
 </html>

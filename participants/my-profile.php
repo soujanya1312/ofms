@@ -39,7 +39,7 @@ if(isset($_POST['updateprofile']))
 //change password
 if(isset($_POST['changepw']))
 {
-	$oldpw=mysqli_real_escape_string($connection,$_POST['oldpassword']);
+    $oldpw=mysqli_real_escape_string($connection,$_POST['oldpassword']);
 	if($oldpw==$row["teamcode"])
 	{
 		$npw=mysqli_real_escape_string($connection,$_POST['newpassword']);
@@ -274,7 +274,6 @@ if(isset($_POST['changepw']))
                                 </div>
                                 
                                 <div class="tab-pane" id="changepassword"> 
-                                
                                 <form data-toggle="validator" method="post">
                                 <div class="form-group">
                                     <label for="inputPassword" class="control-label">Change Password</label>
@@ -296,17 +295,13 @@ if(isset($_POST['changepw']))
                                 </div>
                                 <div class="form-group p-t-0">
                                     
-                                        <button class="btn btn-success" name="changepw">Change Password</button>
-                                     
+                                        <button class="btn btn-success" name="changepw">Change Password</button>    
                                 </div>
-                                
 								</form>
-                                
-                                
 								</div>
                               	<div class="tab-pane" id="remove">
                               		<div class="text-center">
-                              		<a href="#" class="fcbtn btn btn-danger model_img deleteAdmin" data-id="<?php echo $aid ?>" id="deleteDoc">Remove Admin Account</a>
+                              		<a href="#" class="fcbtn btn btn-danger model_img deleteAdmin" data-id="<?php echo $pid ?>" id="deleteDoc">Remove Admin Account</a>
 									</div>
 								</div>
 							  </div>
@@ -362,7 +357,7 @@ $(document).ready(function() {
 		 {   
            if (isConfirm) {
 			   $.ajax({
-			  url: 'deleteadmin.php?id='+id,
+			  url: 'deleteparticipant.php?id='+id,
 			  type: 'DELETE',
 			  data: {id:id},
 			  success: function(){
