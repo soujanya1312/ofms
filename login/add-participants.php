@@ -155,7 +155,7 @@ if(!isset($_GET['id']) || $getsetrow['startreg']=='0' || $getsetrow['startreg']=
                               <div class="row">
                                   <div class="col-md-12" >
                                         <div class="form-group">
-                                        <label class="control-label">Username Name</label>
+                                        <label class="control-label">Username Name(for LOGIN)</label>
 											   <div class="col-sm-12 p-l-0">
 												    <div class="input-group">
 													     <input type="text" autocomplete="off" name="pusername" class="form-control" id="username" placeholder="Enter participant user name" required >

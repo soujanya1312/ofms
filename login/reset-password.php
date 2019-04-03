@@ -26,7 +26,7 @@ if(isset($_POST['password']) && isset($_POST['cpassword']))
 		 	if($result2)
 			{
 				$smsg="Password has been reset successfully";
-				$query5="DELETE FROM resetpassword WHERE tempstr='$id'";
+				$query5="DELETE FROM resetpassword WHERE tmpstr='$id'";
 				$result5 = mysqli_query($connection,$query5);
 			}
         }

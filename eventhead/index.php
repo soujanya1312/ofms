@@ -9,11 +9,12 @@ elseif(isset($_SESSION['admin']))
 {
 	$ausername=$_SESSION['admin'];
 }
-$getfestidq="SELECT fid,erounds FROM events WHERE husername='$ausername'";
+$getfestidq="SELECT fid,erounds,ename FROM events WHERE husername='$ausername'";
 $getfestidr=mysqli_query($connection, $getfestidq);
 $getfestid = mysqli_fetch_assoc($getfestidr);
 $fid=$getfestid['fid'];
 $erounds=$getfestid['erounds'];
+$ename=$getfestid['ename'];
 
 $query = "SELECT eid FROM events WHERE husername='$ausername'";
 $result = mysqli_query($connection, $query);
@@ -39,6 +40,13 @@ $scount=mysqli_num_rows($getstaffcount);
 
 $getwardcount=mysqli_query($connection,"SELECT * FROM events WHERE fid='$fid' ");
 $wcount=mysqli_num_rows($getwardcount);
+
+$getfestdetails = mysqli_query( $connection,"SELECT * FROM fests WHERE fid='$fid'");
+$getfestrow = mysqli_fetch_assoc( $getfestdetails );
+$dateb=$getfestrow['fdate'];
+$myDateTime = DateTime::createFromFormat('Y-m-d', $dateb);
+$dobc = $myDateTime->format('F j, Y'); 
+$datefest = $myDateTime->format('d-m-Y');
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +65,36 @@ $wcount=mysqli_num_rows($getwardcount);
     <meta name="author" content="Soujanya M">
     <!--csslink.php includes fevicon and title-->
     <?php include 'assets/csslink.php'; ?>
+	<script>
+	// Set the date we're counting down to
+	var countDownDate = new Date("<?php echo $dobc ?>").getTime();
+
+	// Update the count down every 1 second
+	var x = setInterval(function() {
+
+	  // Get todays date and time
+	  var now = new Date().getTime();
+
+	  // Find the distance between now and the count down date
+	  var distance = countDownDate - now;
+
+	  // Time calculations for days, hours, minutes and seconds
+	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	  // Output the result in an element with id="demo"
+	  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+	  + minutes + "m " + seconds + "s ";
+
+	  // If the count down is over, write some text 
+	  if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("demo").innerHTML = "Started";
+	  }
+	}, 1000);
+</script>
 </head>
 
 <body class="fix-sidebar">
@@ -93,9 +131,12 @@ $wcount=mysqli_num_rows($getwardcount);
 						<div class="card card-inverse">
 							<img id="theImgId" class="card-img" src="../plugins/images/cards/bg.png" height="120" alt="Card image">
 							<div class="card-img-overlay" style="padding-top: 5px">
-								<h4 class="card-title text-uppercase">Event Name: <?php echo $ausername; ?></h4>
+								<h4 class="card-title text-uppercase">Event Name: <?php echo $ename; ?></h4>
                                 
-								<p class="card-text" id="cText">You are logged-in to Event Head control panel, here are some of the basic information about fest and some basic functions to perform. </p>
+								<p class="card-text" id="cText" style=" float: left;">You are logged-in to Event Head control panel, </p>
+								<p class="card-text text-warning"><i style="padding-left: 10px" class="fa fa-calendar-alt"></i><?php echo ' '.$datefest; if($getfestrow['fnodays']>=2){ echo ' to '.$getfestrow['ftodate']; } ?></p>
+								<p style="font-size: 16px; float: left; padding-right: 10px" class="card-text text-blue">Days Left </p>
+								<p id="demo" style="font-size: 16px" class="card-text text-blue"></p>
 							<!--<p id="wText" class="card-text text-warning"><i class="fa fa-info-circle"></i><b> THERE ARE <?php echo mysqli_num_rows($resultcountmsg); ?> UNREAD MESSAGES AND  <?php echo $acount; ?> UNSCHEDULED APPOINTMENTS. </b></p>-->
 								<!--<p class="card-text"><small class="text-white">~AlphaCare</small></p>-->
 							</div>

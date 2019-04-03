@@ -109,15 +109,19 @@ if(isset($_POST['resetemail']))
 			$query2="INSERT INTO `resetpassword` (email,tmpstr) VALUES ('$remail','$mdstr') ";
 			$result2 = mysqli_query($connection, $query2);
 			$link="http://localhost/ofms/login/reset-password.php?id=$mdstr";
-				
+			$mquery1=mysqli_query($connection,"SELECT * FROM mailaccount");
+			$getmaild=mysqli_fetch_assoc($mquery1);
+			$emailaddrs=$getmaild['mail'];
+			$emailpass=$getmaild['pass'];
+			
 			$to_Email       = $remail; // Replace with recipient email address
 			$subject        = 'Password Reset'; //Subject line for emails
 
 			$host           = "smtp.gmail.com"; // Your SMTP server. For example, smtp.mail.yahoo.com
-			$rusername       = "alphacare.ohms@gmail.com"; //For example, your.email@yahoo.com
-			$password       = "dnspnb@12007"; // Your password
-			$SMTPSecure     = "tls"; // For example, ssl
-			$port           = 587; // For example, 465
+			$rusername       = $emailaddrs; //For example, your.email@yahoo.com
+			$password       = $emailpass; // Your password
+			$SMTPSecure     = "ssl"; // For example, ssl // tls
+			$port           = 465; // For example, 465 // 587
 
     //proceed with PHP email.
     include("php/PHPMailerAutoload.php"); //you have to upload class files "class.phpmailer.php" and "class.smtp.php"
@@ -145,8 +149,8 @@ if(isset($_POST['resetemail']))
     <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">
       <tbody>
         <tr>
-          <td style="vertical-align: top; padding-bottom:30px;" align="center"><a href="http://infinityx.000webhostapp.com/login/" target="_blank"><img src="https://i.imgur.com/zKKdcP7.png" alt="AlphaCare" style="border:none"><br/>
-            <img src="https://i.imgur.com/ZA1Wwui.png" style="border:none"></a> </td>
+          <td style="vertical-align: top; padding-bottom:30px;" align="center"><a href="http://infinityx.000webhostapp.com/login/" target="_blank"><img src="https://i.imgur.com/lQM4bbc.png" alt="AlphaSystems" style="border:none"><br/>
+            <img src="https://i.imgur.com/oPh5mgz.png" style="border:none"></a> </td>
         </tr>
       </tbody>
     </table>
@@ -165,13 +169,13 @@ if(isset($_POST['resetemail']))
               <b>- Thanks (OFMS team)</b> </td>
           </tr>
           <tr>
-            <td  style="border-top:1px solid #f6f6f6; padding-top:20px; color:#777">If the button above does not work, try copying and pasting the URL into your browser. If you continue to have problems, please feel free to contact us at alphacare.ohms@gmail.com</td>
+            <td  style="border-top:1px solid #f6f6f6; padding-top:20px; color:#777">If the button above does not work, try copying and pasting the URL into your browser. If you continue to have problems, please feel free to contact us at contact.alphasystems@gmail.com</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">
-      <p>  Online fest Management System © 2019 <br>
+      <p>  Online Fest Management System © 2019 <br>
       </p>
     </div>
   </div>
