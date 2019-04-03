@@ -3,6 +3,7 @@ include '../login/accesscontroladmin.php';
 require('connect.php');
 $ausername=$_SESSION['admin'];
 $id=$_GET['id'];
+
 $getidquery="SELECT fests.fid FROM admin JOIN fests ON admin.aid=fests.aid WHERE ausername='$ausername'";
 $getidresult = mysqli_query($connection, $getidquery);
 $getidrow = mysqli_fetch_assoc($getidresult);
@@ -42,7 +43,13 @@ $fid=$getidrow['fid'];
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">SCHEDULE</h4>
+                        <?php 
+                        $getevent="SELECT * FROM events WHERE eid='$id'";
+                        $geteventid=mysqli_query($connection, $getevent);
+                        $getfestid = mysqli_fetch_assoc($geteventid);
+                        ?>
+                        <h4 class="page-title"><?php echo $getfestid['ename']?></h4>
+                       
                     </div>
                     <!-- /.page title -->
                     <!-- .breadcrumb -->
@@ -83,7 +90,7 @@ $fid=$getidrow['fid'];
 //                     $getidrow = mysqli_fetch_assoc($getidresult);
 //                     $eid=$getidrow['eid'];
                     
-					$query = "SELECT en_id,eventid,event_round,t_from,t_to,events.ename FROM event_time JOIN events ON event_time.eventid=events.eid WHERE events.fid='$fid' && events.eid='$id'";
+					$query = "SELECT en_id,eventid,eday,event_round,t_from,t_to,events.ename FROM event_time JOIN events ON event_time.eventid=events.eid WHERE events.fid='$fid' && events.eid='$id'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ ?>
@@ -91,11 +98,11 @@ $fid=$getidrow['fid'];
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 text-center">
-                                    <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/users/register-online.png" class="img-square img-responsive"> </a>
+                                    <a href="edit-staff-profile.php?id=<?php echo $result["en_id"]; ?>"> <img src="../plugins/images/users/schedule12.png" class="img-square img-responsive"> </a>
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0"><?php echo $result["ename"]; ?></h3>
-                                    <strong>Round: <?php echo $result["event_round"]; ?></strong>
+                                   
+                                    <strong>Round: <?php echo $result["event_round"]; ?> &ensp;&ensp;Day: <?php echo $result["eday"];?></strong>
                                     <p calss="p-0">
 										<strong> From: <?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?></strong>  <br>
 										<strong> To: <?php echo ' '.date('h:i A', strtotime($result['t_to'])); ?></strong>

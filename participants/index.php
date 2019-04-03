@@ -154,7 +154,7 @@ $datestart = $myDateTimee->format('d-m-Y');
 							</ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location=''">
+                    <div class="col-md-3 col-sm-6 hvr-float-shadow" onClick="window.location='view-events.php'">
                         <div class="white-box">
 							<h3 class="box-title"><b>Events Left Over</b></h3>
 							<ul class="list-inline two-part">
@@ -219,7 +219,7 @@ $datestart = $myDateTimee->format('d-m-Y');
                             </div>
                         </div>
                     </div> 
-                       <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Add a feedback" onClick="window.location='feedback.php'">
+                       <div class="col-md-3 col-sm-6 Hoveranimatew hvr-float" data-toggle="tooltip" data-original-title="Add a feedback" onclick="window.location='../feedback.php'" >
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="fa fa-comment-alt  bg-black Hoveranimatewrd"></i>

@@ -82,7 +82,7 @@ $fid=$getfestid['fid'];
                 <div class="row">
                 <?php
                    
-					$query = "SELECT en_id,event_round,t_from,t_to,events.ename FROM event_time JOIN  events ON event_time.eventid=events.eid WHERE events.fid='$fid' && events.eid='$id'";
+					$query = "SELECT * FROM event_time JOIN  events ON event_time.eventid=events.eid WHERE events.fid='$fid' && events.eid='$id'";
 					$result = mysqli_query($connection, $query);
 					foreach($result as $key=>$result)
 				{ ?>
@@ -95,13 +95,14 @@ $fid=$getfestid['fid'];
                                 <div class="col-md-8 col-sm-8">
                                     <h3 class="box-title m-b-0">
                                    <h2> Round: <?php echo $result["event_round"]; ?></h2>
-                                    <p calss="p-0">
-										 From: <?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?>  <br>
-										To: <?php echo ' '.date('h:i A', strtotime($result['t_to'])); ?> </h3>
-                                        
-										
-                                    </p>
-									
+                                    <h5>
+                                       Day : <?php echo $result["eday"]; ?><br>
+                                    Location: <?php echo $result["eroom"]; ?>	 
+                                   </h5>
+                                  <p class="p-0">
+                                    <strong>From: <?php echo ' '.date('h:i A', strtotime($result['t_from'])); ?>  <br>
+										To: <?php echo ' '.date('h:i A', strtotime($result['t_to'])); ?></strong> </p>
+                                   
                                 </div>
                             </div>
                         </div>

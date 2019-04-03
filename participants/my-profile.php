@@ -196,8 +196,10 @@ if(isset($_POST['changepw']))
                                 <!--<li role="presentation" class="nav-item"><a href="#home" class="nav-link " aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="fa fa-home"></i></span><span class="hidden-xs"> Activity</span></a></li>-->
                                 <li role="presentation" class="nav-item"><a href="#profile" class="nav-link active" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs">Profile</span></a></li>
                                 <li role="presentation" class="nav-item"><a href="#settings" class="nav-link" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs">Setting</span></a></li>
+<!--
                                 <li role="presentation" class="nav-item"><a href="#changepassword" class="nav-link" aria-controls="changepassword" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-key"></i></span> <span class="hidden-xs">Change Password</span></a></li>
                                 <li role="presentation" class="nav-item"><a href="#remove" class="nav-link" aria-controls="remove" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-times"></i></span> <span class="hidden-xs">Remove Account</span></a></li>
+-->
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="profile">
@@ -273,6 +275,7 @@ if(isset($_POST['changepw']))
                                     </form>
                                 </div>
                                 
+<!--
                                 <div class="tab-pane" id="changepassword"> 
                                 <form data-toggle="validator" method="post">
                                 <div class="form-group">
@@ -299,11 +302,14 @@ if(isset($_POST['changepw']))
                                 </div>
 								</form>
 								</div>
+-->
+<!--
                               	<div class="tab-pane" id="remove">
                               		<div class="text-center">
                               		<a href="#" class="fcbtn btn btn-danger model_img deleteAdmin" data-id="<?php echo $pid ?>" id="deleteDoc">Remove Admin Account</a>
 									</div>
 								</div>
+-->
 							  </div>
                                
                             </div>

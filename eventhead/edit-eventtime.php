@@ -152,9 +152,12 @@ if(isset($_POST['update']))
                                             <br><br>
                                             <p><strong><?php echo $row["event_round"]; ?></strong></p>
                                         </div>
-                                        <div class="col-md-3 col-xs-3 b-r"> Day
-                                            <br><br>
+                                        <div class="col-md-3 col-xs-3 b-r">
+                                           
+                                            Day :
                                             <p><strong><?php echo $row["eday"]; ?></strong></p>
+                                            Location :
+                                            <p><strong><?php echo $row["eroom"]; ?></strong></p>
                                         </div>
                                         <div class="col-md-3 col-xs-3 "> From :
                                             <br>

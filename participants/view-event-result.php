@@ -76,7 +76,7 @@ $team=$prow["teamcode"];
                                      <?php foreach($result as $key=>$result) { ?>
                                     <h4><span class="label label-dark"  style="padding-bottom: 1px">Qualified</span></h4>
                                      <?php }?>
-                                   <?php if($count2==0) echo '<h4><span class="label label-dark"  style="padding-bottom: 1px">Round not started</span></h4>'; else { if($count<1) echo '<h4><span class="label label-dark"  style="padding-bottom: 1px">Disqualified</span></h4>'; } ?>
+                                   <?php if($count2==0) echo '<h4><span class="label label-dark"  style="padding-bottom: 1px" align:"left">Round not started</span></h4>'; else { if($count<1) echo '<h4><span class="label label-dark"  style="padding-bottom: 1px">Disqualified</span></h4>'; } ?>
                                 </div>
                                
                             </div>
