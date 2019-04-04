@@ -214,7 +214,7 @@ foreach($getallfest as $key=>$getallfest)
                             </div>-->
                             <div class="spacer"></div>
                             <div class="big-title">Get a new interface for the <span>fest </span><br>you host.</div>
-                            <p>Your very own space,anywhere, anytime. </p>
+                            <p>Your very own system,anywhere anytime. </p>
                             <div class="btn-holder">
                                 <a href="./login/register-user.php" class="ybtn ybtn-header-color">Host A Fest!</a>
                             </div>
@@ -242,9 +242,9 @@ foreach($getallfest as $key=>$getallfest)
                     <div class="service-icon">
                         <img src="lp-plugins/images/service-icon1.svg" alt="">
                     </div>
-                    <div class="service-title">Share Files</div>
+                    <div class="service-title">Easy Interface</div>
                     <div class="service-details">
-                        <p>Share your data among your fest heads and managers being secure.</p>
+                        <p> A user-friendly interface that  provides quick access to  features or commands.</p>
                     </div>
                 </div>
             </div>
@@ -253,9 +253,9 @@ foreach($getallfest as $key=>$getallfest)
                     <div class="service-icon">
                         <img src="lp-plugins/images/service-icon2.svg" alt="">
                     </div>
-                    <div class="service-title">Go Unlimited</div>
+                    <div class="service-title">Customise</div>
                     <div class="service-details">
-                        <p>Store unlimited information about your registration ,participants,fest events,results.</p>
+                        <p>Design the fest the way you want,according to ur taste.</p>
                     </div>
                 </div>
             </div>
@@ -264,9 +264,9 @@ foreach($getallfest as $key=>$getallfest)
                     <div class="service-icon">
                         <img src="lp-plugins/images/service-icon3.svg" alt="">
                     </div>
-                    <div class="service-title">Security First</div>
+                    <div class="service-title">Complete Control</div>
                     <div class="service-details">
-                        <p>We assure security to your important documents related to your events.</p>
+                        <p>We assure you with complete control to your Fest settings.</p>
                     </div>
                 </div>
             </div>
@@ -299,7 +299,7 @@ foreach($getallfest as $key=>$getallfest)
         <div class="row">
             <div class="col-md-12">
                 <div class="row-title"> Upcoming Fests</div>
-                <div class="row-subtitle">ad subtitle</div>
+                <div class="row-subtitle">Enroll For Exciting Fests.</div>
             </div>
         </div>
         <br>
@@ -450,7 +450,7 @@ foreach($getallfest as $key=>$getallfest)
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="row-title">Resilient network</div>
+                <div class="row-title">Additional Features</div>
                 <div class="row-subtitle"></div>
             </div>
         </div>
@@ -460,7 +460,7 @@ foreach($getallfest as $key=>$getallfest)
                     <div class="feature-icon">
                         <img src="lp-plugins/images/sfeature1.png" alt="">
                     </div>
-                    <div class="feature-title">Secure Files</div>
+                    <div class="feature-title">Secure Data</div>
 <!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
@@ -472,7 +472,7 @@ amoe yosner dolner </div>
                     <div class="feature-icon">
                         <img src="lp-plugins/images/sfeature2.png" alt="">
                     </div>
-                    <div class="feature-title">All Configurations</div>
+                    <div class="feature-title">Fest Settings</div>
 <!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>
@@ -484,7 +484,7 @@ amoe yosner dolner </div>
                     <div class="feature-icon">
                         <img src="lp-plugins/images/sfeature3.png" alt="">
                     </div>
-                    <div class="feature-title">Cloud Sharing</div>
+                    <div class="feature-title">Reachout Colleges</div>
 <!--
                     <div class="feature-details">Lorem ipsum dolor sit amir anim
 amoe yosner dolner </div>

@@ -115,19 +115,18 @@ if (isset($_POST['apupdate']))
 			} else {
 				$smsg.=" e-mail sent successfully";
 			}
-				
-				//sms api
+			//sms api
 				//Your authentication key
-$authKey = "251019AFhXebGjGL5c0be48c";
+$authKey = "251019Aez6ajZhH5ca595cd";
 
 //Multiple mobiles numbers separated by comma
 $mobileNumber = "+91".$pmob;
 
 //Sender ID,While using route4 sender id should be 6 characters long.
-$senderId = "OFMS";
+$senderId = "001081";
 
 //Your message to send, Add URL encoding here.
-$message = urlencode("Your team code is ".$teamname);
+$message = urlencode("Your TeamCode is'.$teamname.'Teamcode will be used as Password to login to your account.");
 
 //Define route 
 $route = "default";
@@ -172,6 +171,8 @@ curl_close($ch);
 
 //echo $output;
 				//sms end
+//DNS edited 	            
+				
 			}
 			else
 			{
